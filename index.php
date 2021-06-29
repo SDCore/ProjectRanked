@@ -3,28 +3,13 @@
 <html>
 
 <head>
-    <title>Soon.</title>
-    
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #000;
-        }
+    <title>Apex Legends Ranked Leaderboard</title>
 
-        .soon {
-            color: #FFF;
-            margin-top: 15%;
-            font-size: 50pt;
-            text-align: center;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="./css/main.css" />
 </head>
 
 <body>
-
-    <p class="soon">Soon.</p>
-
+apex ranked leadeboard
 </body>
 
 </html>
