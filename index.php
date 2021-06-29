@@ -3,6 +3,8 @@
 <html>
 
 <head>
+    <title>Soon.</title>
+    
     <style>
         body {
             margin: 0;
