@@ -10,7 +10,7 @@
             background: #000;
         }
 
-        soon {
+        .soon {
             color: #FFF;
             margin-top: 15%;
             font-size: 50pt;
