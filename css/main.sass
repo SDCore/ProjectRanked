@@ -2,3 +2,44 @@ body
     margin: 0
     padding: 0
     font-family: Arial, Helvetica, sans-serif
+
+.nav
+    width: 100%
+    display: block
+    background: rgba(0, 0, 0, 0)
+    border-bottom: 8px solid rgba(12, 14, 13, 1)
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 5%, rgba(45, 45, 45, 1) 100%)
+    .inner
+        width: 80%
+        height: 60px
+        display: flex
+        margin: 0 auto
+        flex-wrap: nowrap
+        flex-direction: row
+        justify-content: center
+        .link, .brand
+            order: 0
+            height: 100%
+            margin: 0 1px
+            flex: 0 1 auto
+            font-size: 12pt
+            padding: 0 2.5px
+            color: #5E5E5E
+            min-width: 125px
+            align-self: auto
+            line-height: 65px
+            text-align: center
+            text-decoration: none
+            border-bottom: 8px solid #4D4D4D
+            background: rgba(255, 255, 255, 0.075)
+        .link
+            font-weight: bold
+            transition: all 0.2s ease
+            &:hover
+                color: #FFF
+                transition: all 0.2s ease
+                border-color: rgba(255, 255, 255, 0.95)
+            &.active
+                color: #FFF
+                background: rgba(255, 0, 0, 0.55)
+                border-color: rgba(255, 0, 0, 0.6)
