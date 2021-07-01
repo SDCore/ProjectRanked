@@ -56,10 +56,19 @@ body
             font-size: 14pt
             min-width: 150px
 
-.container
-    width: 75%
+.containerTitle
+    width: 65%
+    color: #FFF
     margin: 0 auto
+    font-size: 25pt
     margin-top: 10px
+    font-weight: bold
+    text-shadow: 0 4px 0 rgba(0, 0, 0, 1)
+
+.container
+    width: 65%
+    margin: 0 auto
+    margin-top: 5px
     border-radius: 4px
     background: rgba(10, 10, 10, 0.5)
     border: 1px solid rgba(75, 75, 75, 0.5)
@@ -68,7 +77,6 @@ body
         display: flex
         .title
             flex-grow: 1
-            flex-basis: 0
             padding: 10px
             font-size: 15pt
             text-align: center
@@ -76,6 +84,8 @@ body
             border-bottom: 1px solid rgba(75, 75, 75, 0.5)
             &:nth-child(2)
                 border-left: 1px solid rgba(75, 75, 75, 0.5)
+                border-right: 1px solid rgba(75, 75, 75, 0.5)
+            &:nth-child(3)
                 border-right: 1px solid rgba(75, 75, 75, 0.5)
                 
 

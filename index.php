@@ -1,10 +1,15 @@
 <?php require_once("./include/nav.php"); ?>
 
+<div class="containerTitle">
+    Rank Stats for PC
+</div>
+
 <div class="container">
     <div class="item">
-        <div class="title">Top 750 on PC</div>
-        <div class="title">Top 750 on Xbox</div>
-        <div class="title">Top 750 on PlayStation</div>
+        <div class="title">Rank</div>
+        <div class="title">Account Level</div>
+        <div class="title">Name/Platform</div>
+        <div class="title">RP</div>
     </div>
 
     <div class="item">
