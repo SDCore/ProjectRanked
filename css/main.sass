@@ -70,34 +70,63 @@ body
     margin: 0 auto
     margin-top: 5px
     border-radius: 4px
-    background: rgba(10, 10, 10, 0.5)
-    border: 1px solid rgba(75, 75, 75, 0.5)
+    // background: rgba(10, 10, 10, 0.5)
+    // border: 1px solid rgba(75, 75, 75, 0.5)
     .item
         width: 100%
         display: flex
+        margin: 5px 0
+        border-radius: 3px
+        border: 1px solid rgba(255, 255, 255, 0.3)
+        &:first-child
+            margin: 0
+            border: 0
         .title
             flex-grow: 1
             flex-basis: 0
             padding: 10px
             font-size: 15pt
+            font-weight: bold
             text-align: center
             color: rgba(255, 255, 255, 0.8)
-            border-bottom: 1px solid rgba(75, 75, 75, 0.5)
+            background: rgba(10, 10, 10, 0.5)
+            border-top: 1px solid rgba(75, 75, 75, 0.25)
+            border-bottom: 1px solid rgba(75, 75, 75, 0.25)
+            &:first-child
+                border-top-left-radius: 3px
+                border-left: 1px solid rgba(75, 75, 75, 0.25)
             &:nth-child(2)
-                border-left: 1px solid rgba(75, 75, 75, 0.5)
-                border-right: 1px solid rgba(75, 75, 75, 0.5)
+                border-left: 1px solid rgba(75, 75, 75, 0.25)
+                border-right: 1px solid rgba(75, 75, 75, 0.25)
             &:nth-child(4)
-                border-left: 1px solid rgba(75, 75, 75, 0.5)
-                border-right: 1px solid rgba(75, 75, 75, 0.5)
+                border-left: 1px solid rgba(75, 75, 75, 0.25)
+                border-right: 1px solid rgba(75, 75, 75, 0.25)
+            &:nth-child(5)
+                border-top-right-radius: 3px
+                border-right: 1px solid rgba(75, 75, 75, 0.25)
         .list
             flex-grow: 1
             flex-basis: 0
             padding: 10px
             font-size: 13pt
+            line-height: 35px
             text-align: center
-            color: rgba(255, 255, 20555, 0.7)
+            border-radius: 2px
+            background: rgba(0, 0, 0, 0.5)
+            color: rgba(255, 255, 255, 0.7)
+            .icon
+                top: 5
+                width: 25px
+                position: relative
+            a
+                text-decoration: underline
+                color: rgba(255, 255, 255, 0.7)
+                &:hover
+                    font-weight: bold
+                    color: rgba(255, 255, 255, 0.9)
         &:nth-child(even)
-            background: rgba(255, 255, 255, 0.2)
+            background: rgba(255, 255, 255, 0.3)
+            border: 1px solid rgba(255, 255, 255, 0.1)
             &:last-child
                 border-bottom-left-radius: 3px
                 border-bottom-right-radius: 3px
