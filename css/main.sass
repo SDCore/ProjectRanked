@@ -57,7 +57,7 @@ body
             min-width: 150px
 
 .containerTitle
-    width: 65%
+    width: 70%
     color: #FFF
     margin: 0 auto
     font-size: 25pt
@@ -66,7 +66,7 @@ body
     text-shadow: 0 4px 0 rgba(0, 0, 0, 1)
 
 .container
-    width: 65%
+    width: 70%
     margin: 0 auto
     margin-top: 5px
     border-radius: 4px
@@ -77,6 +77,7 @@ body
         display: flex
         .title
             flex-grow: 1
+            flex-basis: 0
             padding: 10px
             font-size: 15pt
             text-align: center
@@ -85,8 +86,22 @@ body
             &:nth-child(2)
                 border-left: 1px solid rgba(75, 75, 75, 0.5)
                 border-right: 1px solid rgba(75, 75, 75, 0.5)
-            &:nth-child(3)
+            &:nth-child(4)
+                border-left: 1px solid rgba(75, 75, 75, 0.5)
                 border-right: 1px solid rgba(75, 75, 75, 0.5)
+        .list
+            flex-grow: 1
+            flex-basis: 0
+            padding: 10px
+            font-size: 13pt
+            text-align: center
+            color: rgba(255, 255, 20555, 0.7)
+        &:nth-child(even)
+            background: rgba(255, 255, 255, 0.2)
+            &:last-child
+                border-bottom-left-radius: 3px
+                border-bottom-right-radius: 3px
+            
                 
 
 .footer
