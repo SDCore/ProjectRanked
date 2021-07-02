@@ -31,7 +31,7 @@ for($i = 1; $i < $playerCount[0] + 1; $i++) {
 
     $json = json_decode($getJson, true);
 
-    mysqli_query($DBConn, "UPDATE projectRanked SET PlayerName = '".$json['userData']['username']."', lastUpdated = '".time()."' WHERE PlayerID = '1008500432960'");
+    mysqli_query($DBConn, "UPDATE projectRanked SET PlayerName = '".$json['userData']['username']."', PlayerLevel = '".$json['accountInfo']['level']."', BR_RankScore = '".$json['accountInfo']['Ranked_BR']['score']."', lastUpdated = '".time()."' WHERE PlayerID = '".$json['userData']['userID']."'");
 
     // mysqli_query($DBConn, "UPDATE projectRanked SET `PlayerName` = '".$json['userData']['username']."', `lastUpdated` = '".$row['id']." + 1' WHERE `PlayerID` = '".$json['userData']['userID']."'");
 
