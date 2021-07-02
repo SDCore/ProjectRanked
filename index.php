@@ -26,8 +26,8 @@
         function formatSocial($name, $type) {
             if($name == "N/A") return;
 
-            if($type == "Twitter") return "<a href='https://twitter.com/".$name."' target='_blank'>Twitter</a>";
-            if($type == "Twitch") return "<a href='https://twitch.tv/".$name."' target='_blank'>Twitch</a>";
+            if($type == "Twitter") return "<a href='https://twitter.com/".$name."' target='_blank'><i class='fab fa-twitter'></i></a>";
+            if($type == "Twitch") return "<a href='https://twitch.tv/".$name."' target='_blank'><i class='fab fa-twitch'></i></a>";
 
             return;
         }
