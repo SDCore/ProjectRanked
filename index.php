@@ -15,7 +15,7 @@
 
     <?php
         $DBConn = mysqli_connect($host, $user, $pass, $db);
-        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = 'PC' ORDER BY `BR_RankScore` DESC");
+        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = 'PC' ORDER BY `BR_LadderPos` ASC");
 
         function isPred($pred) {
             if($pred == 0) return "Master";
