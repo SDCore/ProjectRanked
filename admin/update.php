@@ -20,6 +20,12 @@ if(!$DBConn) {
 
 $playerCount = mysqli_fetch_array($DBConn->query("SELECT COUNT(*) FROM projectRanked"));
 
+function isPred($name) {
+    if($name == "Apex Predator") return 1;
+
+    return 0;
+}
+
 for($i = 1; $i < $playerCount[0] + 1; $i++) {
   $getPlayer = "SELECT * FROM projectRanked WHERE id = $i";
   $queryPlayer = mysqli_query($DBConn, $getPlayer);
@@ -32,10 +38,11 @@ for($i = 1; $i < $playerCount[0] + 1; $i++) {
     $json = json_decode($getJson, true);
 
     $BR_LadderPos = $json['accountInfo']['Ranked_BR']['ladderPos'];
+    $BR_isPred = $json['accountInfo']['Ranked_BR']['name'];
 
     if($BR_LadderPos == -1) $BR_LadderPos = "9999";
 
-    mysqli_query($DBConn, "UPDATE projectRanked SET PlayerName = '".$json['userData']['username']."', PlayerLevel = '".$json['accountInfo']['level']."', BR_RankScore = '".$json['accountInfo']['Ranked_BR']['score']."', BR_LadderPos = '".$BR_LadderPos."', lastUpdated = '".time()."' WHERE PlayerID = '".$json['userData']['userID']."'");
+    mysqli_query($DBConn, "UPDATE projectRanked SET PlayerName = '".$json['userData']['username']."', PlayerLevel = '".$json['accountInfo']['level']."', BR_RankScore = '".$json['accountInfo']['Ranked_BR']['score']."', BR_LadderPos = '".$BR_LadderPos."', BR_isPred = '".isPred($BR_isPred)."', lastUpdated = '".time()."' WHERE PlayerID = '".$json['userData']['userID']."'");
 
     // mysqli_query($DBConn, "UPDATE projectRanked SET `PlayerName` = '".$json['userData']['username']."', `lastUpdated` = '".$row['id']." + 1' WHERE `PlayerID` = '".$json['userData']['userID']."'");
 

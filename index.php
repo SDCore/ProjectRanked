@@ -17,10 +17,10 @@
         $DBConn = mysqli_connect($host, $user, $pass, $db);
         $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = 'PC' ORDER BY `BR_LadderPos` ASC");
 
-        function isPred($pred) {
-            if($pred == 0) return "Master";
+        function isPred($pred, $ladderPos) {
+            if($pred == 1) return "[#".$ladderPos."] Apex Predator";
 
-            return "Apex Predator";
+            return "Master";
         }
 
         function formatSocial($name, $type) {
@@ -37,8 +37,8 @@
         while($row = mysqli_fetch_assoc($rankedQuery)) {
             echo '<div class="item">';
                 echo '<div class="list"><img src="https://i.imgur.com/vp64kDF.png" class="icon" /> '.number_format($row['PlayerLevel']).'</div>';
-                echo '<div class="list"><b>[#'.$i.']</b> <a href="#">'.$row['PlayerName'].'</a></div>';
-                echo '<div class="list">'.isPred($row['BR_isPred']).'</div>';
+                echo '<div class="list"><!-- <b>[#'.$i.']</b> --><a href="#">'.$row['PlayerName'].'</a></div>';
+                echo '<div class="list">'.isPred($row['BR_isPred'], $row['BR_LadderPos']).'</div>';
                 echo '<div class="list">'.number_format($row['BR_RankScore']).' RP</div>';
                 echo '<div class="list">'.formatSocial($row['Twitter'], "Twitter").' '.formatSocial($row['Twitch'], "Twitch").'</div>';
             echo '</div>';
