@@ -17,12 +17,19 @@
         $platform = "PC";
         $platformText = "PC";
     }
+
+    $DBConn = mysqli_connect($host, $user, $pass, $db);
+
+    $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' ORDER BY `BR_LadderPos` ASC, `BR_RankScore` DESC");
+    $minimumPred = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `BR_isPred` = '1' ORDER BY `BR_LadderPos` DESC LIMIT 1");
 ?>
 
 <div class="containerTitle">
     <span class="left">Ranked Stats for <?php echo $platformText; ?></span>
     <span class="right"><a href="?platform=PC" class="<?php if($platform == 'PC') { echo 'active'; } ?>">PC</a><a href="?platform=PS4" class="<?php if($platform == 'PS4') { echo 'active'; } ?>">PS4</a><a href="?platform=X1" class="<?php if($platform == 'X1') { echo 'active'; } ?>">X1</a></span>
 </div>
+
+<div class="minimumPred">Approximate Minimum RP for Pred: <?php while($row = mysqli_fetch_assoc($minimumPred)) { echo number_format($row['BR_RankScore']); } ?></div>
 
 <div class="container">
     <div class="item">
@@ -34,10 +41,6 @@
     </div>
 
     <?php
-        $DBConn = mysqli_connect($host, $user, $pass, $db);
-
-        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' ORDER BY `BR_LadderPos` ASC");
-
         function isPred($pred, $ladderPos) {
             if($pred == 1) return "<b>[#".$ladderPos."]</b> Apex Predator";
 
@@ -58,7 +61,7 @@
         while($row = mysqli_fetch_assoc($rankedQuery)) {
             echo '<div class="item">';
                 echo '<div class="list"><img src="https://i.imgur.com/vp64kDF.png" class="icon" /> '.number_format($row['PlayerLevel']).'</div>';
-                echo '<div class="list"><!-- <b>[#'.$i.']</b> --><a href="#">'.$row['PlayerName'].'</a></div>';
+                echo '<div class="list"><!-- <b>[#'.$i.']</b> --><a href="#">'.$row['PlayerNick'].'</a></div>';
                 echo '<div class="list">'.isPred($row['BR_isPred'], $row['BR_LadderPos']).'</div>';
                 echo '<div class="list">'.number_format($row['BR_RankScore']).' RP</div>';
                 echo '<div class="list social">'.formatSocial($row['Twitter'], "Twitter").' '.formatSocial($row['Twitch'], "Twitch").'</div>';

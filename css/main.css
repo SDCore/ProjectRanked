@@ -20,21 +20,23 @@ body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; backgro
 .containerTitle .right a:nth-child(2) { border-left: 1px solid rgba(255, 255, 255, 0.15); border-right: 1px solid rgba(255, 255, 255, 0.15); }
 .containerTitle .right a:last-child { border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
 
+.minimumPred { width: 70%; color: #FFF; margin: 0 auto; font-weight: light; }
+
 .container { width: 70%; margin: 0 auto; margin-top: 5px; }
 .container .item { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; margin: 5px 0; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.3); }
 .container .item:last-child { border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; }
 .container .item:nth-child(even) { background: rgba(255, 255, 255, 0.3); border: 1px solid rgba(255, 255, 255, 0.2); }
 .container .item:nth-child(even):hover { background: rgba(255, 255, 255, 0.5); }
 .container .item:nth-child(odd) { background: rgba(10, 10, 10, 0.5); }
-.container .item:nth-child(odd):hover { background: rgba(255, 255, 255, 0.5); }
+.container .item:nth-child(odd):hover { background: rgba(255, 255, 255, 0.4); }
 .container .item:first-child { border-top-left-radius: 4px; border-top-right-radius: 4px; }
 .container .item:first-child:hover { background: rgba(10, 10, 10, 0.5); }
 .container .item .title { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; -ms-flex-preferred-size: 0; flex-basis: 0; padding: 10px; font-size: 16pt; font-weight: bold; text-align: center; border-top-left-radius: 4px; border-top-right-radius: 4px; color: rgba(255, 255, 255, 0.8); background: rgba(10, 10, 10, 0.5); }
-.container .item .list { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; -ms-flex-preferred-size: 0; flex-basis: 0; padding: 10px; font-size: 15pt; line-height: 35pt; text-align: center; background: rgba(0, 0, 0, 0.2); color: rgba(255, 255, 255, 0.7); text-shadow: 0 2px 1px rgba(0, 0, 0, 0.75); }
+.container .item .list { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; -ms-flex-preferred-size: 0; flex-basis: 0; padding: 10px; font-size: 15pt; line-height: 35pt; text-align: center; background: rgba(0, 0, 0, 0.5); color: rgba(255, 255, 255, 0.9); text-shadow: 0 2px 1px rgba(0, 0, 0, 0.75); }
 .container .item .list.social { font-size: 20pt; line-height: 35px; }
-.container .item .list.social .icoTwitter { line-height: 40px; margin-right: 10px; vertical-align: middle; -webkit-transition: all 0.1s ease; transition: all 0.1s ease; }
+.container .item .list.social .icoTwitter { color: #FFF; line-height: 40px; margin-right: 10px; vertical-align: middle; -webkit-transition: all 0.1s ease; transition: all 0.1s ease; }
 .container .item .list.social .icoTwitter:hover { color: #1DA1F2; }
-.container .item .list.social .icoTwitch { line-height: 40px; margin-right: 10px; vertical-align: middle; -webkit-transition: all 0.1s ease; transition: all 0.1s ease; }
+.container .item .list.social .icoTwitch { line-height: 40px; margin-right: 10px; vertical-align: middle; -webkit-transition: all 0.1s ease; transition: all 0.1s ease; color: rgba(255, 255, 255, 0.95); }
 .container .item .list.social .icoTwitch:hover { color: #6441A5; }
 .container .item .list .icon { top: 5; width: 25px; position: relative; }
 .container .item .list a { text-decoration: none; color: rgba(255, 255, 255, 0.7); }
