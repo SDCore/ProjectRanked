@@ -61,7 +61,7 @@
         while($row = mysqli_fetch_assoc($rankedQuery)) {
             echo '<div class="item">';
                 echo '<div class="list"><img src="https://i.imgur.com/vp64kDF.png" class="icon" /> '.number_format($row['PlayerLevel']).'</div>';
-                echo '<div class="list"><!-- <b>[#'.$i.']</b> --><a href="#">'.$row['PlayerNick'].'</a></div>';
+                echo '<div class="list"> [PATH] <a href="#">'.$row['PlayerNick'].'</a></div>';
                 echo '<div class="list">'.isPred($row['BR_isPred'], $row['BR_LadderPos']).'</div>';
                 echo '<div class="list">'.number_format($row['BR_RankScore']).' RP</div>';
                 echo '<div class="list social">'.formatSocial($row['Twitter'], "Twitter").' '.formatSocial($row['Twitch'], "Twitch").'</div>';
