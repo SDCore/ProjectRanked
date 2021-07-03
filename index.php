@@ -1,7 +1,27 @@
-<?php require_once("./include/nav.php"); ?>
+<?php 
+    require_once("./include/nav.php");
+
+    if(!isset($_GET['platform'])) {
+        $platform = "PC";
+        $platformText = "PC";
+    }else if($_GET['platform'] == "PC") {
+        $platform = "PC";
+        $platformText = "PC";
+    }else if($_GET['platform'] == "X1") {
+        $platform = "X1";
+        $platformText = "Xbox";
+    }else if($_GET['platform'] == "PS4") {
+        $platform = "PS4";
+        $platformText = "PlayStation";
+    }else{
+        $platform = "PC";
+        $platformText = "PC";
+    }
+?>
 
 <div class="containerTitle">
-    Rank Stats for PC
+    <span class="left">Ranked Stats for <?php echo $platformText; ?></span>
+    <span class="right"><a href="?platform=PC" class="<?php if($platform == 'PC') { echo 'active'; } ?>">PC</a><a href="?platform=PS4" class="<?php if($platform == 'PS4') { echo 'active'; } ?>">PS4</a><a href="?platform=X1" class="<?php if($platform == 'X1') { echo 'active'; } ?>">X1</a></span>
 </div>
 
 <div class="container">
@@ -15,10 +35,11 @@
 
     <?php
         $DBConn = mysqli_connect($host, $user, $pass, $db);
-        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = 'PC' ORDER BY `BR_LadderPos` ASC");
+
+        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' ORDER BY `BR_LadderPos` ASC");
 
         function isPred($pred, $ladderPos) {
-            if($pred == 1) return "[#".$ladderPos."] Apex Predator";
+            if($pred == 1) return "<b>[#".$ladderPos."]</b> Apex Predator";
 
             return "Master";
         }
@@ -26,8 +47,8 @@
         function formatSocial($name, $type) {
             if($name == "N/A") return;
 
-            if($type == "Twitter") return "<a href='https://twitter.com/".$name."' target='_blank'><i class='fab fa-twitter'></i></a>";
-            if($type == "Twitch") return "<a href='https://twitch.tv/".$name."' target='_blank'><i class='fab fa-twitch'></i></a>";
+            if($type == "Twitter") return "<a href='https://twitter.com/".$name."' target='_blank'><i class='fab fa-twitter icoTwitter'></i></a>";
+            if($type == "Twitch") return "<a href='https://twitch.tv/".$name."' target='_blank'><i class='fab fa-twitch icoTwitch'></i></a>";
 
             return;
         }
@@ -40,7 +61,7 @@
                 echo '<div class="list"><!-- <b>[#'.$i.']</b> --><a href="#">'.$row['PlayerName'].'</a></div>';
                 echo '<div class="list">'.isPred($row['BR_isPred'], $row['BR_LadderPos']).'</div>';
                 echo '<div class="list">'.number_format($row['BR_RankScore']).' RP</div>';
-                echo '<div class="list">'.formatSocial($row['Twitter'], "Twitter").' '.formatSocial($row['Twitch'], "Twitch").'</div>';
+                echo '<div class="list social">'.formatSocial($row['Twitter'], "Twitter").' '.formatSocial($row['Twitch'], "Twitch").'</div>';
             echo '</div>';
 
             $i++;
