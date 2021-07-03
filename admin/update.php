@@ -31,7 +31,7 @@ for($i = 1; $i < $playerCount[0] + 1; $i++) {
   $queryPlayer = mysqli_query($DBConn, $getPlayer);
 
   while($row = mysqli_fetch_array($queryPlayer)) {
-    $url = "https://api.apexstats.dev/stats.php?platform=".$row['Platform']."&player=".$row['PlayerName'];
+    $url = "https://api.apexstats.dev/stats.php?platform=".$row['Platform']."&player=".urlencode($row['PlayerName']);
 
     $getJson = file_get_contents($url);
 
