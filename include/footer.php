@@ -1,7 +1,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="inner">
-            <b>&copy; SDCore <?php echo date("Y"); ?>. All rights reserved.</b>
+            <b>&copy; SDCore <?php echo date("Y"); ?>. All rights reserved. &middot; Data updated every 6 hours.</b>
         </div>
     </footer>
 
