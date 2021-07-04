@@ -1,6 +1,8 @@
 <?php
     require_once("../include/nav.php");
 
+    $username_err = $password_err = $username = "";
+
     // Processing form data when form is submitted
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $DBConn = mysqli_connect($host, $user, $pass, $db);
