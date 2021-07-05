@@ -32,47 +32,14 @@
 <div class="minimumPred">Approximate Minimum RP for Pred: <?php while($row = mysqli_fetch_assoc($minimumPred)) { echo number_format($row['BR_RankScore']); } ?></div>
 
 <div class="container">
-    <div class="item">
-        <div class="title">Account Level</div>
-        <div class="title">Name</div>
-        <div class="title">Rank</div>
-        <div class="title">RP</div>
-        <div class="title">Socials</div>
+    <!-- #0 \ Name \ Level \ Rank \ RP \ Socials -->
+    <div class="title">
+        <span class="item i1"><span class="text">#</span></span>
+        <span class="item i2"><span class="text">Name</span></span>
+        <span class="item i2"><span class="text">Account Level</span></span>
+        <span class="item i2"><span class="text">Rank (Score)</span></span>
+        <span class="item i2"><span class="text">Socials</span></span>
     </div>
-
-    <?php
-        function isPred($pred, $ladderPos) {
-            if($pred == 1) return "<b>[#".$ladderPos."]</b> Apex Predator";
-
-            return "Master";
-        }
-
-        function formatSocial($name, $type) {
-            if($name == "N/A") return;
-
-            if($type == "Twitter") return "<a href='https://twitter.com/".$name."' target='_blank'><i class='fab fa-twitter icoTwitter'></i></a>";
-            if($type == "Twitch") return "<a href='https://twitch.tv/".$name."' target='_blank'><i class='fab fa-twitch icoTwitch'></i></a>";
-
-            return;
-        }
-
-        $i = 1;
-
-        $legendFile = file_get_contents("./GameData/legends.json");
-        $legendIDs = json_decode($legendFile, true);
-
-        while($row = mysqli_fetch_assoc($rankedQuery)) {
-            echo '<div class="item">';
-                echo '<div class="list"><img src="https://i.imgur.com/vp64kDF.png" class="icon" /> '.number_format($row['PlayerLevel']).'</div>';
-                echo '<div class="list"> <img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$row['Legend']]['Name'].'.png" class="icon" /> <a href="#">'.$row['PlayerNick'].'</a></div>';
-                echo '<div class="list">'.isPred($row['BR_isPred'], $row['BR_LadderPos']).'</div>';
-                echo '<div class="list">'.number_format($row['BR_RankScore']).' RP</div>';
-                echo '<div class="list social">'.formatSocial($row['Twitter'], "Twitter").' '.formatSocial($row['Twitch'], "Twitch").'</div>';
-            echo '</div>';
-
-            $i++;
-        }
-    ?>
 </div>
 
     <!-- content -->
