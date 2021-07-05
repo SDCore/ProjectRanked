@@ -1,4 +1,10 @@
 @font-face { font-family: EUROCAPS; src: url(../fonts/EUROCAPS.TTF); }
+@-webkit-keyframes leaderboardHover { 0% { background: rgba(255, 255, 255, 0.8); }
+  50% { background: rgba(255, 255, 255, 0.5); }
+  100% { background: rgba(255, 255, 255, 0.8); } }
+@keyframes leaderboardHover { 0% { background: rgba(255, 255, 255, 0.8); }
+  50% { background: rgba(255, 255, 255, 0.5); }
+  100% { background: rgba(255, 255, 255, 0.8); } }
 body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; background: url("https://pbs.twimg.com/media/D2HQu4aWwAAi26B.jpg") no-repeat fixed center; background-size: cover; }
 
 .nav { width: 100%; display: block; background: rgba(0, 0, 0, 0); border-bottom: 6px solid #0c0e0d; font-family: "EUROCAPS", Arial, Helvetica, sans-serif; background: -webkit-gradient(linear, left bottom, left top, from(black), color-stop(110%, #2d2d2d)); background: linear-gradient(0deg, black 0%, #2d2d2d 110%); }
@@ -23,11 +29,25 @@ body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; backgro
 .minimumPred { width: 80%; color: #FFF; margin: 0 auto; font-weight: light; }
 
 .container { width: 80%; margin: 0 auto; margin-top: 5px; margin-bottom: 50px; }
-.container .title { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; font-size: 15pt; font-weight: bold; text-align: center; -webkit-transform: skew(20deg); transform: skew(20deg); }
+.container .title { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; font-size: 15pt; font-weight: bold; text-align: center; margin: 10px 0 15px 0; -webkit-transform: skew(20deg); transform: skew(20deg); }
 .container .title .item { padding: 8px 16px; border-bottom: 2px solid rgba(160, 160, 160, 0.85); }
 .container .title .item .text { display: block; -webkit-transform: skew(-20deg); transform: skew(-20deg); }
 .container .title .item.i1 { -ms-flex-preferred-size: 10%; flex-basis: 10%; background: #FFF; border-left: 6px solid rgba(160, 160, 160, 0.85); }
-.container .title .item.i2 { -ms-flex-preferred-size: 90%; flex-basis: 90%; background: rgba(0, 0, 0, 0.5); color: rgba(255, 255, 255, 0.8); }
+.container .title .item.i2 { -ms-flex-preferred-size: 65%; flex-basis: 65%; background: rgba(0, 0, 0, 0.5); color: rgba(255, 255, 255, 0.8); }
+.container .title .item.i3 { -ms-flex-preferred-size: 25%; flex-basis: 25%; background: rgba(0, 0, 0, 0.5); color: rgba(255, 255, 255, 0.8); }
+.container .list { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; font-size: 13pt; font-weight: bold; line-height: 32px; text-align: center; margin-bottom: 10px; -webkit-transform: skew(20deg); transform: skew(20deg); }
+.container .list:hover { -webkit-animation: leaderboardHover 2s infinite; animation: leaderboardHover 2s infinite; }
+.container .list .item { padding: 4px 16px; border-bottom: 2px solid rgba(150, 21, 17, 0.8); }
+.container .list .item .text { display: block; -webkit-transform: skew(-20deg); transform: skew(-20deg); text-shadow: 0 2px 0 rgba(0, 0, 0, 0.9); }
+.container .list .item a { color: #FFF; text-decoration: none; }
+.container .list .item .icon { top: 5px; width: 25px; position: relative; }
+.container .list .item.i1 { -ms-flex-preferred-size: 10%; flex-basis: 10%; font-size: 15pt; color: rgba(255, 255, 255, 0.9); background: rgba(255, 40, 30, 0.85); border-left: 4px solid rgba(150, 21, 17, 0.8); }
+.container .list .item.i2 { -ms-flex-preferred-size: 65%; flex-basis: 65%; background: rgba(0, 0, 0, 0.5); color: rgba(255, 255, 255, 0.8); }
+.container .list .item.i3 { -ms-flex-preferred-size: 25%; flex-basis: 25%; background: rgba(0, 0, 0, 0.5); color: rgba(255, 255, 255, 0.8); }
+.container .list .item.i3 .icoTwitter { color: #FFF; line-height: 32px; margin-right: 10px; vertical-align: middle; -webkit-transition: all 0.1s ease; transition: all 0.1s ease; }
+.container .list .item.i3 .icoTwitter:hover { color: #1DA1F2; }
+.container .list .item.i3 .icoTwitch { line-height: 32px; margin-right: 10px; vertical-align: middle; -webkit-transition: all 0.1s ease; transition: all 0.1s ease; color: rgba(255, 255, 255, 0.95); }
+.container .list .item.i3 .icoTwitch:hover { color: #6441A5; }
 
 .loginContainer { width: 35%; padding: 4px 20px; background: #FFF; border-radius: 5px; margin: 10px auto 0 auto; -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); }
 .loginContainer .title { display: block; font-size: 20pt; text-align: center; }

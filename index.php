@@ -32,18 +32,52 @@
 <div class="minimumPred">Approximate Minimum RP for Pred: <?php while($row = mysqli_fetch_assoc($minimumPred)) { echo number_format($row['BR_RankScore']); } ?></div>
 
 <div class="container">
-    <!-- #0 \ Name \ Level \ Rank \ RP \ Socials -->
     <div class="title">
         <span class="item i1"><span class="text">#</span></span>
         <span class="item i2"><span class="text">Name</span></span>
         <span class="item i2"><span class="text">Account Level</span></span>
         <span class="item i2"><span class="text">Rank (Score)</span></span>
-        <span class="item i2"><span class="text">Socials</span></span>
+        <span class="item i3"><span class="text">Socials</span></span>
     </div>
-</div>
 
-    <!-- content -->
-    <!-- top 750 on pc - top 750 on ps4 - top 750 on xbox -->
+    <?php
+        function ladderPos($ladderPos) {
+            if($ladderPos == 9999) return "N/A";
+
+            return "#".$ladderPos;
+        }
+
+        function isPred($isPred) {
+            if($isPred == 0) return "Master";
+
+            return "Apex Predator";
+        }
+
+        function formatSocial($name, $type) {
+            if($name == "N/A") return;
+
+            if($type == "Twitter") return "<a href='https://twitter.com/".$name."' target='_blank'><i class='fab fa-twitter icoTwitter'></i></a>";
+            if($type == "Twitch") return "<a href='https://twitch.tv/".$name."' target='_blank'><i class='fab fa-twitch icoTwitch'></i></a>";
+
+            return;
+        }
+
+        $i = 1;
+
+        $legendFile = file_get_contents("./GameData/legends.json");
+        $legendIDs = json_decode($legendFile, true);
+
+        while($row = mysqli_fetch_assoc($rankedQuery)) {
+            echo '<div class="list">';
+                echo '<span class="item i1"><span class="text">'.ladderPos($row['BR_LadderPos']).'</span></span>';
+                echo '<span class="item i2"><span class="text"><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$row['Legend']]['Name'].'.png" class="icon" /> <a href="#">'.$row['PlayerNick'].'</a></span></span>';
+                echo '<span class="item i2"><span class="text"><img src="https://i.imgur.com/vp64kDF.png" class="icon" /> '.number_format($row['PlayerLevel']).'</span></span>';
+                echo '<span class="item i2"><span class="text">'.isPred($row['BR_isPred']).' ('.number_format($row['BR_RankScore']).' RP)</span></span>';
+                echo '<span class="item i3"><span class="text">'.formatSocial($row['Twitter'], "Twitter").' '.formatSocial($row['Twitch'], "Twitch").'</span></span>';
+            echo '</div>';
+        }
+    ?>
+</div>
 
     <!-- news -->
     <!-- apex news -->
