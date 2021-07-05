@@ -38,6 +38,7 @@ body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; backgro
 .container .list .item a { color: #FFF; text-decoration: none; }
 .container .list .item .icon { top: 5px; width: 25px; position: relative; }
 .container .list .item .icon.legend { filter: drop-shadow(0 0 4px black); }
+.container .list .item .icon.level { filter: drop-shadow(0 0 2px rgba(255, 234, 46, 0.75)); }
 .container .list .item .icon.master { filter: drop-shadow(0 0 4px rgba(255, 0, 255, 0.5)); }
 .container .list .item .icon.predator { filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.75)); }
 .container .list .item.i1 { flex-basis: 5%; font-size: 15pt; color: rgba(255, 255, 255, 0.9); background: rgba(255, 40, 30, 0.85); border-left: 4px solid rgba(150, 21, 17, 0.8); }

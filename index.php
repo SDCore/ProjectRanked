@@ -71,7 +71,7 @@
             echo '<div class="list">';
                 echo '<span class="item i1"><span class="text">'.ladderPos($row['BR_LadderPos']).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 40%;"><span class="text"><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$row['Legend']]['Name'].'.png" class="icon legend" /> <a href="#">'.$row['PlayerNick'].'</a></span></span>';
-                echo '<span class="item i2" style="flex-basis: 10%;"><span class="text"><img src="https://i.imgur.com/vp64kDF.png" class="icon" /> '.number_format($row['PlayerLevel']).'</span></span>';
+                echo '<span class="item i2" style="flex-basis: 10%;"><span class="text"><img src="https://i.imgur.com/vp64kDF.png" class="icon level" /> '.number_format($row['PlayerLevel']).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 30%;"><span class="text">'.isPred($row['BR_isPred']).' ('.number_format($row['BR_RankScore']).' RP)</span></span>';
                 echo '<span class="item i2" style="flex-basis: 15%;"><span class="text">'.formatSocial($row['Twitter'], "Twitter").' '.formatSocial($row['Twitch'], "Twitch").'</span></span>';
             echo '</div>';
