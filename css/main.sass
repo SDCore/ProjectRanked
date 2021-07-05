@@ -140,15 +140,10 @@ body
                 display: block
                 transform: skew(-20deg)
             &.i1
-                flex-basis: 10%
+                flex-basis: 5%
                 background: #FFF
                 border-left: 6px solid rgba(160, 160, 160, 0.85)
             &.i2
-                flex-basis: 65%
-                background: rgba(0, 0, 0, 0.5)
-                color: rgba(255, 255, 255, 0.8)
-            &.i3
-                flex-basis: 25%
                 background: rgba(0, 0, 0, 0.5)
                 color: rgba(255, 255, 255, 0.8)
     .list
@@ -176,18 +171,19 @@ body
                 top: 5px
                 width: 25px
                 position: relative
+                &.legend
+                    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 1))
+                &.master
+                    filter: drop-shadow(0 0 4px rgba(255, 0, 255, 0.5))
+                &.predator
+                    filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.75))
             &.i1
-                flex-basis: 10%
+                flex-basis: 5%
                 font-size: 15pt
                 color: rgba(255, 255, 255, 0.9)
                 background: rgba(255, 40, 30, 0.85)
                 border-left: 4px solid rgba(150, 21, 17, 0.8)
             &.i2
-                flex-basis: 65%
-                background: rgba(0, 0, 0, 0.5)
-                color: rgba(255, 255, 255, 0.8)
-            &.i3
-                flex-basis: 25%
                 background: rgba(0, 0, 0, 0.5)
                 color: rgba(255, 255, 255, 0.8)
                 .icoTwitter

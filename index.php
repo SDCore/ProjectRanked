@@ -34,10 +34,10 @@
 <div class="container">
     <div class="title">
         <span class="item i1"><span class="text">#</span></span>
-        <span class="item i2"><span class="text">Name</span></span>
-        <span class="item i2"><span class="text">Account Level</span></span>
-        <span class="item i2"><span class="text">Rank (Score)</span></span>
-        <span class="item i3"><span class="text">Socials</span></span>
+        <span class="item i2" style="flex-basis: 40%;"><span class="text">Name</span></span>
+        <span class="item i2" style="flex-basis: 10%;"><span class="text">Level</span></span>
+        <span class="item i2" style="flex-basis: 30%;"><span class="text">Rank (Score)</span></span>
+        <span class="item i2" style="flex-basis: 15%;"><span class="text">Socials</span></span>
     </div>
 
     <?php
@@ -48,9 +48,9 @@
         }
 
         function isPred($isPred) {
-            if($isPred == 0) return "Master";
+            if($isPred == 0) return "<img src='https://cdn.apexstats.dev/RankedIcons/master.png' class='icon master' /> Master";
 
-            return "Apex Predator";
+            return "<img src='https://cdn.apexstats.dev/RankedIcons/predator.png' class='icon predator' /> Apex Predator";
         }
 
         function formatSocial($name, $type) {
@@ -70,10 +70,10 @@
         while($row = mysqli_fetch_assoc($rankedQuery)) {
             echo '<div class="list">';
                 echo '<span class="item i1"><span class="text">'.ladderPos($row['BR_LadderPos']).'</span></span>';
-                echo '<span class="item i2"><span class="text"><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$row['Legend']]['Name'].'.png" class="icon" /> <a href="#">'.$row['PlayerNick'].'</a></span></span>';
-                echo '<span class="item i2"><span class="text"><img src="https://i.imgur.com/vp64kDF.png" class="icon" /> '.number_format($row['PlayerLevel']).'</span></span>';
-                echo '<span class="item i2"><span class="text">'.isPred($row['BR_isPred']).' ('.number_format($row['BR_RankScore']).' RP)</span></span>';
-                echo '<span class="item i3"><span class="text">'.formatSocial($row['Twitter'], "Twitter").' '.formatSocial($row['Twitch'], "Twitch").'</span></span>';
+                echo '<span class="item i2" style="flex-basis: 40%;"><span class="text"><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$row['Legend']]['Name'].'.png" class="icon legend" /> <a href="#">'.$row['PlayerNick'].'</a></span></span>';
+                echo '<span class="item i2" style="flex-basis: 10%;"><span class="text"><img src="https://i.imgur.com/vp64kDF.png" class="icon" /> '.number_format($row['PlayerLevel']).'</span></span>';
+                echo '<span class="item i2" style="flex-basis: 30%;"><span class="text">'.isPred($row['BR_isPred']).' ('.number_format($row['BR_RankScore']).' RP)</span></span>';
+                echo '<span class="item i2" style="flex-basis: 15%;"><span class="text">'.formatSocial($row['Twitter'], "Twitter").' '.formatSocial($row['Twitch'], "Twitch").'</span></span>';
             echo '</div>';
         }
     ?>
