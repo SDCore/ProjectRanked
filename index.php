@@ -1,19 +1,16 @@
 <?php 
     require_once("./include/nav.php");
 
-    if(!isset($_GET['platform'])) {
+    if(isset($_GET['PC'])) {
         $platform = "PC";
         $platformText = "PC";
-    }else if($_GET['platform'] == "PC") {
-        $platform = "PC";
-        $platformText = "PC";
-    }else if($_GET['platform'] == "X1") {
+    }else if(isset($_GET['X1'])) {
         $platform = "X1";
         $platformText = "Xbox";
-    }else if($_GET['platform'] == "PS4") {
+    }else if(isset($_GET['PS4'])) {
         $platform = "PS4";
         $platformText = "PlayStation";
-    }else{
+    }else {
         $platform = "PC";
         $platformText = "PC";
     }
@@ -26,7 +23,7 @@
 
 <div class="containerTitle">
     <span class="left">Ranked Stats for <?php echo $platformText; ?></span>
-    <span class="right"><a href="?platform=PC" class="<?php if($platform == 'PC') { echo 'active'; } ?>">PC</a><a href="?platform=PS4" class="<?php if($platform == 'PS4') { echo 'active'; } ?>">PS4</a><a href="?platform=X1" class="<?php if($platform == 'X1') { echo 'active'; } ?>">X1</a></span>
+    <span class="right"><a href="?PC" class="<?php if($platform == 'PC') { echo 'active'; } ?>"><i class="fab fa-steam" style="line-height: 40px;"></i></a><a href="?PS4" class="<?php if($platform == 'PS4') { echo 'active'; } ?>"><i class="fab fa-playstation" style="line-height: 40px;"></i></a><a href="?X1" class="<?php if($platform == 'X1') { echo 'active'; } ?>"><i class="fab fa-xbox" style="line-height: 40px;"></i></a></span>
 </div>
 
 <div class="minimumPred">Approximate Minimum RP for Pred: <?php while($row = mysqli_fetch_assoc($minimumPred)) { echo number_format($row['BR_RankScore']); } ?></div>
