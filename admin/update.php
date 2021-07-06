@@ -9,7 +9,7 @@
 // - Love, SDCore <3
 
 include "../connect.php";
-set_time_limit(720000);
+set_time_limit(0);
 
 // Create and check connection
 $DBConn = mysqli_connect($host, $user, $pass, $db);
@@ -18,15 +18,20 @@ if(!$DBConn) {
   die("Error: Connection failed. " . mysqli_connect_error());
 }
 
-$playerCount = mysqli_fetch_array($DBConn->query("SELECT COUNT(*) FROM projectRanked"));
+$playerCount = mysqli_query($DBConn, "SELECT * FROM projectRanked ORDER BY `id` DESC LIMIT 1");
 
-function isPred($name) {
+while ($row = mysqli_fetch_assoc($playerCount)) {
+    $setID = $row['id'];
+  }
+  
+
+ function isPred($name) {
     if($name == "Apex Predator") return 1;
 
     return 0;
 }
 
-for($i = 1; $i < $playerCount[0] + 1; $i++) {
+for($i = 1; $i < $setID + 2; $i++) {
   $getPlayer = "SELECT * FROM projectRanked WHERE id = $i";
   $queryPlayer = mysqli_query($DBConn, $getPlayer);
 
@@ -39,14 +44,15 @@ for($i = 1; $i < $playerCount[0] + 1; $i++) {
 
     $BR_LadderPos = $json['accountInfo']['Ranked_BR']['ladderPos'];
     $BR_isPred = $json['accountInfo']['Ranked_BR']['name'];
+    $nickname = mysqli_real_escape_string($DBConn, $json['userData']['username']);
 
     if($BR_LadderPos == -1) $BR_LadderPos = "9999";
 
-    mysqli_query($DBConn, "UPDATE projectRanked SET PlayerNick = '".$json['userData']['username']."', PlayerLevel = '".$json['accountInfo']['level']."', Legend = '".$json['accountInfo']['active']['legend']."', BR_RankScore = '".$json['accountInfo']['Ranked_BR']['score']."', BR_LadderPos = '".$BR_LadderPos."', BR_isPred = '".isPred($BR_isPred)."', lastUpdated = '".time()."' WHERE PlayerID = '".$json['userData']['userID']."'");
+    mysqli_query($DBConn, "UPDATE projectRanked SET PlayerNick = '".$nickname."', PlayerLevel = '".$json['accountInfo']['level']."', Legend = '".$json['accountInfo']['active']['legend']."', BR_RankScore = '".$json['accountInfo']['Ranked_BR']['score']."', BR_LadderPos = '".$BR_LadderPos."', BR_isPred = '".isPred($BR_isPred)."', lastUpdated = '".time()."' WHERE PlayerID = '".$json['userData']['userID']."'");
 
     sleep(1);
   }
 
-    if($i == $playerCount[0] + 1)
+    if($i == $setID + 2)
         break;
 }

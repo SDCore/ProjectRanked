@@ -20,8 +20,8 @@
 
     $DBConn = mysqli_connect($host, $user, $pass, $db);
 
-    $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' ORDER BY `BR_LadderPos` ASC, `BR_RankScore` DESC");
-    $minimumPred = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `BR_isPred` = '1' ORDER BY `BR_LadderPos` DESC LIMIT 1");
+    $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `BR_RankScore` >= 10000 ORDER BY `BR_LadderPos` ASC, `BR_RankScore` DESC");
+    $minimumPred = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `BR_RankScore` >= 10000 AND `BR_isPred` = '1' ORDER BY `BR_LadderPos` DESC LIMIT 1");
 ?>
 
 <div class="containerTitle">
