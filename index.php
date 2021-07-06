@@ -85,10 +85,6 @@
     ?>
 </div>
 
-if($isPred == 0) return "<img src='https://cdn.apexstats.dev/RankedIcons/master.png' class='icon master' /> Master (".$RP." RP)";
-
-return "<img src='https://cdn.apexstats.dev/RankedIcons/predator.png' class='icon predator' /> Apex Predator (".$RP." RP)";
-
     <!-- news -->
     <!-- apex news -->
 
