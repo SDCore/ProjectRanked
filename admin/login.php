@@ -80,7 +80,7 @@
     }      
 ?>
 
-    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+    <form action="#" method="post">
         <div class="loginContainer">
             <span class="title">Admin Login</span>
             <span class="loginError"><?php if(!empty($login_err)) { echo $login_err; } ?></span>
