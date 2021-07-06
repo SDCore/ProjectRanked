@@ -1,6 +1,6 @@
 @font-face { font-family: EUROCAPS; src: url(../fonts/EUROCAPS.TTF); }
 @keyframes leaderboardHover { 0% { background: rgba(255, 255, 255, 0.8); }
-  50% { background: rgba(255, 255, 255, 0.5); }
+  50% { background: rgba(255, 255, 255, 0.6); }
   100% { background: rgba(255, 255, 255, 0.8); } }
 body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; background: url("https://pbs.twimg.com/media/D2HQu4aWwAAi26B.jpg") no-repeat fixed center; background-size: cover; }
 
@@ -32,7 +32,7 @@ body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; backgro
 .container .title .item.i1 { flex-basis: 5%; background: #FFF; border-left: 6px solid rgba(160, 160, 160, 0.85); }
 .container .title .item.i2 { background: rgba(0, 0, 0, 0.5); color: rgba(255, 255, 255, 0.8); }
 .container .list { width: 100%; display: flex; font-size: 13pt; font-weight: bold; line-height: 32px; text-align: center; margin-bottom: 10px; transform: skew(20deg); }
-.container .list:hover { animation: leaderboardHover 2s infinite; }
+.container .list:hover { animation: leaderboardHover 1.5s infinite; }
 .container .list .item { padding: 4px 16px; border-bottom: 2px solid rgba(150, 21, 17, 0.8); }
 .container .list .item .text { display: block; position: relative; transform: skew(-20deg); text-shadow: 0 2px 0 rgba(0, 0, 0, 0.9); }
 .container .list .item a { color: #FFF; text-decoration: none; }
