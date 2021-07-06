@@ -1,8 +1,5 @@
 <?php
     require_once("../include/nav.php");
-    ini_set('display_errors', '1');
-    ini_set('display_startup_errors', '1');
-    error_reporting(E_ALL);
 
     $username_err = $password_err = $username = "";
 
