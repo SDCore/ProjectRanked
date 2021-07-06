@@ -1,5 +1,4 @@
 <?php 
-    include_once("../connect.php");
     $DBConn = mysqli_connect($host, $user, $pass, $db);
 
     $recentQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked ORDER BY `BR_RankScore` ASC");

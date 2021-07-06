@@ -1,5 +1,6 @@
 <?php
     require_once("../include/nav.php");
+    error_reporting(E_ALL);
 
     $username_err = $password_err = $username = "";
 
