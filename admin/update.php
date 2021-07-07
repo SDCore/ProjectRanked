@@ -8,7 +8,7 @@
 //
 // - Love, SDCore <3
 
-include "../../connect.php";
+include "../connect.php";
 set_time_limit(0);
 
 // Create and check connection
