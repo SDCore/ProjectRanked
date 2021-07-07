@@ -8,7 +8,7 @@
 //
 // - Love, SDCore <3
 
-include "../connect.php";
+include "../../connect.php";
 set_time_limit(0);
 
 // Create and check connection
@@ -50,7 +50,7 @@ for($i = 1; $i < $setID + 2; $i++) {
 
     mysqli_query($DBConn, "UPDATE projectRanked SET PlayerNick = '".$nickname."', PlayerLevel = '".$json['accountInfo']['level']."', Legend = '".$json['accountInfo']['active']['legend']."', BR_RankScore = '".$json['accountInfo']['Ranked_BR']['score']."', BR_LadderPos = '".$BR_LadderPos."', BR_isPred = '".isPred($BR_isPred)."', lastUpdated = '".time()."' WHERE PlayerID = '".$json['userData']['userID']."'");
 
-    sleep(1);
+    // sleep(1);
   }
 
     if($i == $setID + 2)
