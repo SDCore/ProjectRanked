@@ -28,5 +28,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            cd ${{ secrets.PATH }}
+            cd ${{ secrets.BR_PATH }}
+            git pull
+            cd ${{ secrets.ARENAS_PATH }}
             git pull
