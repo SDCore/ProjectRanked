@@ -1,5 +1,6 @@
 <?php 
     require_once("./include/nav.php");
+    $DBConn = mysqli_connect($host, $user, $pass, $db);
 
     if(isset($_GET['PC'])) {
         $platform = "PC";
@@ -15,9 +16,20 @@
         $platformText = "PC";
     }
 
-    $DBConn = mysqli_connect($host, $user, $pass, $db);
+    if(isset($_GET['page'])) {
+        $page = $_GET['page'];
+    }else{
+        $page = 1;
+    }
 
-    $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 ORDER BY `$ladderPos` ASC, `$RankScore` DESC");
+    $records = 50;
+    $offset = ($page - 1) * $records;
+    $totalPlayers = "SELECT COUNT(*) FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000";
+    $result = mysqli_query($DBConn, $totalPlayers);
+    $totalRows = mysqli_fetch_array($result)[0];
+    $totalPages = ceil($totalRows / $records);
+
+    $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
     $minimumPred = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
 ?>
 
@@ -38,6 +50,14 @@
     </div>
 
     <?php
+        function checkPage() {
+            if(isset($_GET['PC'])) return "?PC&";
+            if(isset($_GET['PS4'])) return "?PS4&";
+            if(isset($_GET['X1'])) return "?X1&";
+
+            return "?";
+        }
+
         function ladderPos($ladderPos) {
             if($ladderPos == 9999) return "N/A";
 
@@ -70,6 +90,10 @@
         $legendFile = file_get_contents("./GameData/legends.json");
         $legendIDs = json_decode($legendFile, true);
 
+        if($page > $totalPages) {
+            echo '<span style="display: inline-block; width: 100%; text-align: center; color: #FFF; font-size: 15pt;">No results on this page.</span>';
+        }
+
         while($row = mysqli_fetch_assoc($rankedQuery)) {
             echo '<div class="list">';
                 echo '<span class="item i1"><span class="text">'.ladderPos($row['BR_LadderPos']).'</span></span>';
@@ -80,6 +104,13 @@
             echo '</div>';
         }
     ?>
+</div>
+
+<div class="pagination">
+    <a href="<?php echo checkPage(); if($page == 1) { echo 'page=1'; } else { echo '#'; } ?>?>" class="page first <?php if($page == 1) { echo 'disabled'; } ?>"><i class="fas fa-angle-double-left"></i> First</a>
+    <a href="<?php echo checkPage(); if($page <= 1) { echo '#'; } else { echo 'page='.($page - 1); } ?>" class="<?php if($page <= 1) { echo 'disabled'; } ?> page prev"><i class="fas fa-angle-left"></i> Previous</a>
+    <a href="<?php echo checkPage(); if($page >= $totalPages) { echo '#'; } else { echo 'page='.($page + 1); } ?>" class="<?php if($page >= $totalPages) { echo 'disabled'; } ?> page next">Next <i class="fas fa-angle-right"></i></a>
+    <a href="<?php echo checkPage(); if($page == $totalPages) { echo '#'; } else { echo 'page='.$totalPages; } ?>" class="page last <?php if($page == $totalPages) { echo 'disabled'; } ?>">Last <i class="fas fa-angle-double-right"></i></a>
 </div>
 
     <!-- news -->

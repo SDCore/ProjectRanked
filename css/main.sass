@@ -125,7 +125,7 @@ body
     width: 80%
     margin: 0 auto
     margin-top: 5px
-    margin-bottom: 50px
+    margin-bottom: 25px
     .title
         width: 100%
         display: flex
@@ -285,6 +285,48 @@ body
             font-weight: bold
             text-align: center
             color: rgba(0, 192, 0, 0.7)
+    
+.pagination
+    width: 80%
+    display: flex
+    margin: 0 auto
+    margin-bottom: 75px
+    background: rgba(0, 0, 0, 0.5)
+    .page
+        flex: 1
+        color: #FFF
+        padding: 10px 0
+        font-size: 15pt
+        font-weight: bold
+        text-align: center
+        text-decoration: none
+        transition: all 0.2s ease
+        border-bottom: 2px solid rgba(255, 0, 0, 0.5)
+        &.first
+            flex-basis: 15%
+            background: rgba(255, 40, 30, 0.65)
+            border-left: 4px solid rgba(150, 21, 17, 0.6)
+            &:hover
+                background: rgba(255, 40, 30, 0.9)
+        &.prev
+            flex-basis: 35%
+            &:hover
+                background: rgba(0, 0, 0, 0.6)
+        &.next
+            flex-basis: 35%
+            &:hover
+                background: rgba(0, 0, 0, 0.6)
+        &.last
+            flex-basis: 15%
+            background: rgba(255, 40, 30, 0.65)
+            border-right: 4px solid rgba(150, 21, 17, 0.6)
+            &:hover
+                background: rgba(255, 40, 30, 0.9)
+        &.disabled
+            cursor: default
+            pointer-events: none
+            color: rgba(255, 255, 255, 0.3)
+            background: rgba(0, 0, 0, 0.3)
 
 .footer
     bottom: 0
