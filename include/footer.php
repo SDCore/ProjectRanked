@@ -17,7 +17,7 @@
 
     <script src="https://kit.fontawesome.com/f9aca975cb.js" crossorigin="anonymous"></script>
     <?php
-        if($GoogleAnalytics = "BR") require_once(__DIR__."/../analytics/BR.html");
+        if($GoogleAnalytics == "BR") require_once(__DIR__."/../analytics/BR.html");
         if($GoogleAnalytics == "Arenas") require_once(__DIR__."/../analytics/Arenas.html");
     ?>
 </body>
