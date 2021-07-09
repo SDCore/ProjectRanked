@@ -7,7 +7,7 @@
 <head>
     <title>Apex Legends Ranked Leaderboard</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="<?php __DIR__; ?>/../favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link type="text/css" rel="stylesheet" href="<?php __DIR__; ?>/../css/main.css" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
