@@ -1,4 +1,4 @@
-<?php require_once("./include/nav.php"); ?>
+<?php $pageTitle = "Frequently Asked Questions"; require_once("./include/nav.php"); ?>
 
     <center style="color: #FFF; font-size: 25pt; margin-top: 15px;">Soon.</center>
 

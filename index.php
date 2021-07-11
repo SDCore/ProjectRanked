@@ -1,5 +1,5 @@
 <?php 
-    require_once("./include/nav.php");
+    $pageTitle = "Home"; require_once("./include/nav.php");
     $DBConn = mysqli_connect($host, $user, $pass, $db);
 
     if(isset($_GET['PC'])) {

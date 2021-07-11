@@ -66,7 +66,7 @@ body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; backgro
 .adminContainer .addUser .error { width: 100%; display: block; font-weight: bold; text-align: center; color: rgba(255, 0, 0, 0.7); }
 .adminContainer .addUser .succ { width: 100%; display: block; font-weight: bold; text-align: center; color: rgba(0, 192, 0, 0.7); }
 
-.pagination { width: 80%; display: flex; margin: 0 auto; margin-bottom: 75px; background: rgba(0, 0, 0, 0.5); }
+.pagination { width: 80%; display: flex; margin: 0 auto; margin-bottom: 65px; background: rgba(0, 0, 0, 0.5); }
 .pagination .page { flex: 1; color: #FFF; padding: 10px 0; font-size: 15pt; font-weight: bold; text-align: center; text-decoration: none; transition: all 0.2s ease; border-bottom: 2px solid rgba(255, 0, 0, 0.5); }
 .pagination .page.first { flex-basis: 15%; background: rgba(255, 40, 30, 0.65); border-left: 4px solid rgba(150, 21, 17, 0.6); }
 .pagination .page.first:hover { background: rgba(255, 40, 30, 0.9); }
