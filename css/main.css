@@ -61,7 +61,7 @@ body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; backgro
 .adminContainer .addUser { width: 50%; margin: 0 auto; padding: 6px 12px; background: #FFF; border-radius: 3px; }
 .adminContainer .addUser .title { display: block; font-size: 20pt; font-weight: bold; text-align: center; }
 .adminContainer .addUser .inputTitle { display: block; font-size: 16pt; }
-.adminContainer .addUser .newUser { width: 100%; font-size: 14pt; padding: 6px 12px; }
+.adminContainer .addUser .newUser { width: 100%; font-size: 14pt; padding: 6px 12px; box-sizing: border-box; }
 .adminContainer .addUser .submitButton { width: 100%; font-size: 14pt; font-weight: bold; padding: 8px 20px; }
 .adminContainer .addUser .error { width: 100%; display: block; font-weight: bold; text-align: center; color: rgba(255, 0, 0, 0.7); }
 .adminContainer .addUser .succ { width: 100%; display: block; font-weight: bold; text-align: center; color: rgba(0, 192, 0, 0.7); }
