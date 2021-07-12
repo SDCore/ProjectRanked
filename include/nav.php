@@ -1,4 +1,16 @@
-<?php session_start(); require_once(__DIR__."/../connect.php"); ?>
+<?php 
+    session_start();
+    require_once(__DIR__."/../connect.php");
+
+    if ($_SERVER['SCRIPT_NAME']=="/user.php") {
+        $PID = $_GET['id'];
+        $DBConn = mysqli_connect($host, $user, $pass, $db);
+        $getPlayer = mysqli_query($DBConn, "SELECT * FROM `projectRanked` WHERE `PlayerID` = '$PID'");
+        $player = mysqli_fetch_assoc($getPlayer);
+
+        $pageTitle = $player['PlayerNick'];
+    }
+?>
 
 <!DOCTYPE html>
 
