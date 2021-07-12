@@ -46,6 +46,12 @@ body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; backgro
 .container .list .item.i2 .icoTwitter:hover { color: #1DA1F2; }
 .container .list .item.i2 .icoTwitch { line-height: 32px; margin-right: 10px; vertical-align: middle; transition: all 0.1s ease; color: rgba(255, 255, 255, 0.95); }
 .container .list .item.i2 .icoTwitch:hover { color: #6441A5; }
+.container .list.first .item { color: #FFF; font-size: 16pt; border-bottom: 2px solid #AA8C28; }
+.container .list.first .item.i1 { background: #D4AF37; border-left: 6px solid #AA8C28; }
+.container .list.second .item { color: #FFF; font-size: 16pt; border-bottom: 2px solid #7E7E7E; }
+.container .list.second .item.i1 { background: #A9A9A9; border-left: 5px solid #7E7E7E; }
+.container .list.third .item { color: #FFF; font-size: 15pt; border-bottom: 2px solid #8F7247; }
+.container .list.third .item.i1 { background: #B08D57; border-left: 4px solid #8F7247; }
 
 .loginContainer { width: 35%; padding: 4px 20px; background: #FFF; border-radius: 5px; margin: 10px auto 0 auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); }
 .loginContainer .title { display: block; font-size: 20pt; text-align: center; }

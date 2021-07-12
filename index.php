@@ -85,6 +85,12 @@
             return $nick;
         }
 
+        function checkPos($pos) {
+            if($pos == "1") return " first";
+            if($pos == "2") return " second";
+            if($pos == "3") return " third";
+        }
+
         $i = 1;
 
         $legendFile = file_get_contents("./GameData/legends.json");
@@ -95,11 +101,11 @@
         }
 
         while($row = mysqli_fetch_assoc($rankedQuery)) {
-            echo '<div class="list">';
-                echo '<span class="item i1"><span class="text">'.ladderPos($row['BR_LadderPos']).'</span></span>';
+            echo '<div class="list'.checkPos($row[$ladderPos]).'">';
+                echo '<span class="item i1"><span class="text">'.ladderPos($row[$ladderPos]).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 40%;"><span class="text"><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$row['Legend']]['Name'].'.png" class="icon legend" /> <a href="#">'.checkNick($row['PlayerName'], $row['PlayerNick']).'</a></span></span>';
                 echo '<span class="item i2" style="flex-basis: 10%;"><span class="text"><img src="https://i.imgur.com/vp64kDF.png" class="icon level" /> '.number_format($row['PlayerLevel']).'</span></span>';
-                echo '<span class="item i2" style="flex-basis: 30%;"><span class="text">'.isPred($row['BR_isPred'], $row['BR_RankScore']).'</span></span>';
+                echo '<span class="item i2" style="flex-basis: 30%;"><span class="text">'.isPred($row[$isPred], $row['BR_RankScore']).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 15%;"><span class="text">'.formatSocial($row['Twitter'], "Twitter").' '.formatSocial($row['Twitch'], "Twitch").'</span></span>';
             echo '</div>';
         }
