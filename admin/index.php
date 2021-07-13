@@ -1,4 +1,5 @@
 <?php
+    $pageTitle = "Admin";
     require_once("../include/nav.php");
     $DBConn = mysqli_connect($host, $user, $pass, $db);
 

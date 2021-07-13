@@ -79,8 +79,8 @@
             return;
         }
 
-        function checkNick($name, $nick) {
-            if($nick == null) return $name;
+        function checkNick($nick, $level, $legend) {
+            if($nick == null) return $legend."#".$level;
 
             return $nick;
         }
@@ -103,7 +103,7 @@
         while($row = mysqli_fetch_assoc($rankedQuery)) {
             echo '<div class="list'.checkPos($row[$ladderPos]).'">';
                 echo '<span class="item i1"><span class="text">'.ladderPos($row[$ladderPos]).'</span></span>';
-                echo '<span class="item i2" style="flex-basis: 40%;"><span class="text"><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$row['Legend']]['Name'].'.png" class="icon legend" /> <a href="#">'.checkNick($row['PlayerName'], $row['PlayerNick']).'</a></span></span>';
+                echo '<span class="item i2" style="flex-basis: 40%;"><span class="text"><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$row['Legend']]['Name'].'.png" class="icon legend" /> <a href="#">'.checkNick($row['PlayerNick'], $row['PlayerLevel'], $legendIDs[$row['Legend']]['Name']).'</a></span></span>';
                 echo '<span class="item i2" style="flex-basis: 10%;"><span class="text"><img src="https://i.imgur.com/vp64kDF.png" class="icon level" /> '.number_format($row['PlayerLevel']).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 30%;"><span class="text">'.isPred($row[$isPred], $row['BR_RankScore']).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 15%;"><span class="text">'.formatSocial($row['Twitter'], "Twitter").' '.formatSocial($row['Twitch'], "Twitch").'</span></span>';

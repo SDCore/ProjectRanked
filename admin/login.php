@@ -1,4 +1,5 @@
 <?php
+    $pageTitle = "Admin Login";
     require_once("../include/nav.php");
 
     $username_err = $password_err = $username = "";
