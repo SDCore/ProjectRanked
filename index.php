@@ -113,16 +113,10 @@
 </div>
 
 <div class="pagination">
-    <a href="<?php echo checkPage(); if($page == 1) { echo 'page=1'; } else { echo '#'; } ?>?>" class="page first <?php if($page == 1) { echo 'disabled'; } ?>"><i class="fas fa-angle-double-left"></i> First</a>
+    <a href="<?php echo checkPage(); if($page == 1) { echo 'page=1'; } else { echo '#'; } ?>" class="page first <?php if($page == 1) { echo 'disabled'; } ?>"><i class="fas fa-angle-double-left"></i> First</a>
     <a href="<?php echo checkPage(); if($page <= 1) { echo '#'; } else { echo 'page='.($page - 1); } ?>" class="<?php if($page <= 1) { echo 'disabled'; } ?> page prev"><i class="fas fa-angle-left"></i> Previous</a>
     <a href="<?php echo checkPage(); if($page >= $totalPages) { echo '#'; } else { echo 'page='.($page + 1); } ?>" class="<?php if($page >= $totalPages) { echo 'disabled'; } ?> page next">Next <i class="fas fa-angle-right"></i></a>
     <a href="<?php echo checkPage(); if($page == $totalPages) { echo '#'; } else { echo 'page='.$totalPages; } ?>" class="page last <?php if($page == $totalPages) { echo 'disabled'; } ?>">Last <i class="fas fa-angle-double-right"></i></a>
 </div>
-
-    <!-- news -->
-    <!-- apex news -->
-
-    <!-- featured stream(?) -->
-    <!-- featured twitch stream -->
 
 <?php require_once("./include/footer.php"); ?>
