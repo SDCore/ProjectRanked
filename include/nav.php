@@ -8,7 +8,11 @@
         $getPlayer = mysqli_query($DBConn, "SELECT * FROM `projectRanked` WHERE `PlayerID` = '$PID'");
         $player = mysqli_fetch_assoc($getPlayer);
 
-        $pageTitle = $player['PlayerNick'];
+        if(mysqli_num_rows($getPlayer) < 1) {
+            $pageTitle = "N/A";
+        }else{
+            $pageTitle = $player['PlayerNick'];
+        }
     }
 ?>
 
