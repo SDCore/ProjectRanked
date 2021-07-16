@@ -11,7 +11,14 @@
         if(mysqli_num_rows($getPlayer) < 1) {
             $pageTitle = "N/A";
         }else{
-            $pageTitle = $player['PlayerNick'];
+            $legendFile = file_get_contents("./GameData/legends.json");
+            $legendIDs = json_decode($legendFile, true);
+
+            if($player['PlayerNick'] == null) {
+                $pageTitle = $legendIDs[$player['Legend']]['Name']."#".$player['PlayerLevel'];
+            }else{
+                $pageTitle = $player['PlayerNick'];
+            }
         }
     }
 ?>
