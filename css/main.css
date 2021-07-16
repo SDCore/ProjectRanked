@@ -16,6 +16,8 @@ body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; backgro
 
 .containerTitle { width: 80%; height: 40px; margin: 0 auto; margin-top: 10px; font-family: "Montserrat", Arial, Helvetica, sans-serif; }
 .containerTitle .left { height: 100%; color: #FFF; font-size: 25pt; font-weight: bold; line-height: 40px; text-shadow: 0 4px 0 black; }
+.containerTitle .left .full { color: #FFF; font-size: 15pt; font-weight: normal; text-decoration: none; }
+.containerTitle .left .full:hover { text-decoration: underline; }
 .containerTitle .right { height: 100%; float: right; line-height: 40px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.2); }
 .containerTitle .right a { float: left; height: 40px; display: block; padding: 0 10px; font-size: 20pt; text-decoration: none; transition: all 0.2s ease; background: rgba(0, 0, 0, 0.5); color: rgba(255, 255, 255, 0.5); }
 .containerTitle .right a.active { color: #FFF; font-weight: bold; background: black; }

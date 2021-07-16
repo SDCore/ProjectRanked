@@ -16,31 +16,18 @@
         $platformText = "PC";
     }
 
-    if(isset($_GET['page'])) {
-        $page = $_GET['page'];
-    }else{
-        $page = 1;
-    }
-
-    $records = 50;
-    $offset = ($page - 1) * $records;
-    $totalPlayers = "SELECT COUNT(*) FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000";
-    $result = mysqli_query($DBConn, $totalPlayers);
-    $totalRows = mysqli_fetch_array($result)[0];
-    $totalPages = ceil($totalRows / $records);
-
-    $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
+    $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 ORDER BY `$ladderPos` ASC, `$RankScore` DESC");
     $minimumPred = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
 ?>
 
 <div class="containerTitle">
-    <span class="left">Ranked Stats for <?php echo $platformText; ?> <a href="/full" class="full">[See Full List]</a></span>
+    <span class="left">Ranked Stats for <?php echo $platformText; ?></span>
     <span class="right"><a href="?PC" class="<?php if($platform == 'PC') { echo 'active'; } ?>"><i class="fab fa-steam" style="line-height: 40px;"></i></a><a href="?PS4" class="<?php if($platform == 'PS4') { echo 'active'; } ?>"><i class="fab fa-playstation" style="line-height: 40px;"></i></a><a href="?X1" class="<?php if($platform == 'X1') { echo 'active'; } ?>"><i class="fab fa-xbox" style="line-height: 40px;"></i></a></span>
 </div>
 
 <div class="minimumPred">Approximate Minimum RP for Pred: <?php while($row = mysqli_fetch_assoc($minimumPred)) { echo number_format($row['BR_RankScore']); } ?></div>
 
-<div class="container">
+<div class="container" style="margin-bottom: 50px;">
     <div class="title">
         <span class="item i1"><span class="text">#</span></span>
         <span class="item i2" style="flex-basis: 40%;"><span class="text">Name</span></span>
@@ -50,14 +37,6 @@
     </div>
 
     <?php
-        function checkPage() {
-            if(isset($_GET['PC'])) return "?PC&";
-            if(isset($_GET['PS4'])) return "?PS4&";
-            if(isset($_GET['X1'])) return "?X1&";
-
-            return "?";
-        }
-
         function ladderPos($ladderPos) {
             if($ladderPos == 9999) return "N/A";
 
@@ -110,13 +89,6 @@
             echo '</div>';
         }
     ?>
-</div>
-
-<div class="pagination">
-    <a href="<?php echo checkPage(); if($page == 1) { echo 'page=1'; } else { echo '#'; } ?>" class="page first <?php if($page == 1) { echo 'disabled'; } ?>"><i class="fas fa-angle-double-left"></i> First</a>
-    <a href="<?php echo checkPage(); if($page <= 1) { echo '#'; } else { echo 'page='.($page - 1); } ?>" class="<?php if($page <= 1) { echo 'disabled'; } ?> page prev"><i class="fas fa-angle-left"></i> Previous</a>
-    <a href="<?php echo checkPage(); if($page >= $totalPages) { echo '#'; } else { echo 'page='.($page + 1); } ?>" class="<?php if($page >= $totalPages) { echo 'disabled'; } ?> page next">Next <i class="fas fa-angle-right"></i></a>
-    <a href="<?php echo checkPage(); if($page == $totalPages) { echo '#'; } else { echo 'page='.$totalPages; } ?>" class="page last <?php if($page == $totalPages) { echo 'disabled'; } ?>">Last <i class="fas fa-angle-double-right"></i></a>
 </div>
 
 <?php require_once("./include/footer.php"); ?>
