@@ -9,4 +9,19 @@
     if(mysqli_num_rows($getPlayer) < 1) { echo '<div style="font-size: 25pt; width: 100%; text-align: center; color: #FFF; margin-top: 25px; font-weight: bold; text-shadow: 0 4px 0 rgba(0, 0, 0, 0.9);">User does not exist.</div>'; }
 ?>
 
+separate boxes, have backgrounds be slightly transparent, borders/margins are about 5 pixel spacing between content boxes
+
+first box
+check avatar -> if yes, use avatar, if no, use recently selected legend
+under avatar, name
+
+second box
+current legen, rank score, master/pred icon
+
+third box (under the first 2)
+total (counted) kills with each legend
+
+fourth box (maybe next to third box?)
+twitch stream/twitter widget if linked in DB
+
 <?php require_once("./include/footer.php"); ?>
