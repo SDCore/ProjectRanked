@@ -81,7 +81,7 @@
     <script type="text/javascript">
         var options = {
             width: "100%",
-            height: "auto",
+            height: "450px",
             channel: "<?php echo $player['Twitch']; ?>",
         };
         var player = new Twitch.Player("TwitchStream", options);
