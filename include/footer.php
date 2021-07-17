@@ -8,7 +8,7 @@
     }
 
     function time2string($timeline) {
-        $periods = array('hour' => 3600, 'minute' => 60);
+        $periods = array('minute' => 60);
         $ret = "";
     
         foreach($periods AS $name => $seconds){
