@@ -66,13 +66,25 @@
         <span class="twitch">
             <span class="title">Twitch</span>
             <span class="body">
-                <div id="TwitchStream"></div>
+                <?php
+                    if($player['Twitch'] == "N/A") {
+                        echo "<span class='NA'>Twitch Not Linked</span>";
+                    }else{
+                        echo "<div id='TwitchStream'></div>";
+                    }
+                ?>
             </span>
         </span>
         <span class="twitter">
             <span class="title">Twitter</span>
             <span class="body">
-                <a class="twitter-timeline" data-dnt="true" data-theme="dark" href="https://twitter.com/<?php echo $player['Twitter']; ?>"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <?php
+                    if($player['Twitter'] == "N/A") {
+                        echo "<span class='NA'>Twitter Not Linked</span>";
+                    }else{
+                        echo "<a class='twitter-timeline' data-dnt='true' data-theme='dark' href='https://twitter.com/".$player['Twitter']."'></a> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>";
+                    }
+                ?>
             </span>
         </span>
     </div>
