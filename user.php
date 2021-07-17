@@ -66,7 +66,7 @@
         <span class="twitch">
             <span class="title">Twitch</span>
             <span class="body">
-                <div class="TwitchStream"></div>
+                <div id="TwitchStream"></div>
             </span>
         </span>
         <span class="twitter">
@@ -80,9 +80,9 @@
     <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
     <script type="text/javascript">
         var options = {
-            width: 854,
-            height: 480,
-            channel: "zuni_tv",
+            width: 100%,
+            height: 100%,
+            channel: "<?php echo $player['Twitch']; ?>",
         };
         var player = new Twitch.Player("TwitchStream", options);
         player.setVolume(0.5);
