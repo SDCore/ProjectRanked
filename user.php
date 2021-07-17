@@ -31,9 +31,9 @@
 
         function isPred($Score, $isPred, $Pos) {
             if($Score < 10000) return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Unranked_2.png' class='RankImage' /><span class='unranked'>Unranked</span>";
-            if($isPred == 0) return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Master.png' class='RankImage' />";
+            if($isPred == 0) return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Master.png' style='filter: drop-shadow(0 0 6px rgba(255, 0, 255, 0.4));' class='RankImage' />";
 
-            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Predator.png' class='RankImage' /><span class='pos'>#".$Pos."</span>";
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Predator.png' style='filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.5));' class='RankImage' /><span class='pos'>#".$Pos."</span>";
         }
 
 ?>
@@ -45,7 +45,7 @@
         </span>
         <span class="stats">
             <span class="level">
-                <img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" class="levelImage" />
+                <img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" style="filter: drop-shadow(0 0 4px rgba(255, 234, 46, 0.35));" class="levelImage" />
                 <span class="levelText">Level <?php echo number_format($player['PlayerLevel']); ?></span>
             </span>
             <span class="BR_Rank">
@@ -59,14 +59,34 @@
         </span>
     </div>
 
-separate boxes, have backgrounds be slightly transparent, borders/margins are about 5 pixel spacing between content boxes
+    <div class="userInfoContainer">
+        <span class="kills">
+            kills
+        </span>
+        <span class="twitch">
+            <span class="title">Twitch</span>
+            <span class="body">
+                <div class="TwitchStream"></div>
+            </span>
+        </span>
+        <span class="twitter">
+            <span class="title">Twitter</span>
+            <span class="body">
+                <a class="twitter-timeline" data-dnt="true" data-theme="dark" href="https://twitter.com/<?php echo $player['Twitter']; ?>"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </span>
+        </span>
+    </div>
 
-first box
-check avatar -> if yes, use avatar, if no, use recently selected legend
-under avatar, name
-
-second box
-current legen, rank score, master/pred icon
+    <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+    <script type="text/javascript">
+        var options = {
+            width: 854,
+            height: 480,
+            channel: "zuni_tv",
+        };
+        var player = new Twitch.Player("TwitchStream", options);
+        player.setVolume(0.5);
+    </script>
 
 third box (under the first 2)
 total (counted) kills with each legend
