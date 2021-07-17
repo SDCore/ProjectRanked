@@ -113,7 +113,10 @@ body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; backgro
 .userContainer .stats .Arenas_Rank .subText { width: 100%; font-size: 10pt; font-weight: 300; display: inline-block; color: rgba(255, 255, 255, 0.5); }
 
 .userInfoContainer { width: 80%; display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0 auto 50px auto; }
-.userInfoContainer .kills { -ms-flex-preferred-size: 25%; flex-basis: 25%; }
+.userInfoContainer .kills { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin: 1px; overflow: auto; display: block; -ms-flex-preferred-size: 25%; flex-basis: 25%; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.15); }
+.userInfoContainer .kills .title { color: #FFF; font-size: 20pt; font-weight: bold; margin-bottom: 5px; display: inline-block; width: calc(100% - 32px); padding: 8px 16px 6px 16px; background: rgba(0, 0, 0, 0.25); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.userInfoContainer .kills .body { width: 90%; margin: 0 auto; display: block; }
+.userInfoContainer .kills .body .NA { width: 100%; color: #FFF; display: block; padding: 8px 0; font-size: 18pt; font-weight: bold; text-align: center; }
 .userInfoContainer .twitch { -webkit-box-flex: 2; -ms-flex: 2; flex: 2; margin: 1px; overflow: auto; display: block; -ms-flex-preferred-size: 50%; flex-basis: 50%; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.15); }
 .userInfoContainer .twitch .title { color: #FFF; font-size: 20pt; font-weight: bold; margin-bottom: 5px; display: inline-block; width: calc(100% - 32px); padding: 8px 16px 6px 16px; background: rgba(0, 0, 0, 0.25); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 .userInfoContainer .twitch .body { width: 90%; margin: 0 auto; display: block; }

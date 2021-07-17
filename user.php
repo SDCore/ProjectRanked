@@ -74,7 +74,10 @@
 
     <div class="userInfoContainer">
         <span class="kills">
-            kills
+            <span class="title">Kills</span>
+            <span class="body">
+                <span class="NA">Coming Soon.</span>
+            </span>
         </span>
         <span class="twitch">
             <span class="title">Twitch</span>
