@@ -16,8 +16,8 @@
         $legendIDs = json_decode($legendFile, true);
 
         function truncate($str) {
-            if (strlen($str) > 10) {
-                return $str = substr($str, 0, 14) . '...';
+            if (strlen($str) > 12) {
+                return $str = substr($str, 0, 13) . '...';
             }else{
                 return $str;
             }
@@ -29,10 +29,11 @@
             return truncate($nick);
         }
 
-        function isPred($isPred, $Pos) {
-            if($isPred == 0) return "<img src='https://cdn.apexstats.dev/RankedIcons/master.png' class='RankImage' />";
+        function isPred($Score, $isPred, $Pos) {
+            if($Score < 10000) return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Unranked_2.png' class='RankImage' /><span class='unranked'>Unranked</span>";
+            if($isPred == 0) return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Master.png' class='RankImage' />";
 
-            return "<img src='https://cdn.apexstats.dev/RankedIcons/predator.png' class='RankImage' /><span class='pos'>#".$Pos."</span>";
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Predator.png' class='RankImage' /><span class='pos'>#".$Pos."</span>";
         }
 
 ?>
@@ -44,15 +45,16 @@
         </span>
         <span class="stats">
             <span class="level">
-                <img src="https://cdn.apexstats.dev/Badges/AccountBadges/AccountLevel.png" class="levelImage" />
+                <img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" class="levelImage" />
                 <span class="levelText">Level <?php echo number_format($player['PlayerLevel']); ?></span>
             </span>
             <span class="BR_Rank">
-                <?php echo isPred($player['BR_isPred'], $player['BR_LadderPos']); ?>
+                <?php echo isPred($player['BR_RankScore'],$player['BR_isPred'], $player['BR_LadderPos']); ?>
                 <span class="RankText"><?php echo number_format($player['BR_RankScore']); ?> RP</span>
             </span>
             <span class="Arenas_Rank">
-                Arenas_Rank 1,234 RP
+                <?php echo isPred($player['Arenas_RankScore'], $player['Arenas_isPred'], $player['Arenas_LadderPos']); ?>
+                <span class="RankText"><?php echo number_format($player['Arenas_RankScore']); ?> RP</span>
             </span>
         </span>
     </div>

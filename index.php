@@ -65,9 +65,9 @@
         }
 
         function isPred($isPred, $RP) {
-            if($isPred == 0) return "<img src='https://cdn.apexstats.dev/RankedIcons/master.png' style='width: 20px; position: relative; top: 5px; filter: drop-shadow(0 0 4px rgba(255, 0, 255, 0.5));' /> Master (".number_format($RP)." RP)";
+            if($isPred == 0) return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Master.png' style='width: 20px; position: relative; top: 5px; filter: drop-shadow(0 0 4px rgba(255, 0, 255, 0.5));' /> Master (".number_format($RP)." RP)";
 
-            return "<img src='https://cdn.apexstats.dev/RankedIcons/predator.png' style='width: 20px; position: relative; top: 5px; filter: drop-shadow(0 0 4px rgba(255, 0, 0, 0.75));' /> Apex Predator (".number_format($RP)." RP)";
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Predator.png' style='width: 20px; position: relative; top: 4px; filter: drop-shadow(0 0 4px rgba(255, 0, 0, 0.75));' /> Apex Predator (".number_format($RP)." RP)";
         }
 
         function formatSocial($name, $type) {
@@ -104,7 +104,7 @@
             echo '<div class="list'.checkPos($row[$ladderPos]).'">';
                 echo '<span class="item i1"><span class="text">'.ladderPos($row[$ladderPos]).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 40%;"><span class="text"><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$row['Legend']]['Name'].'.png" class="icon legend" /> <a href="#">'.checkNick($row['PlayerNick'], $row['PlayerLevel'], $legendIDs[$row['Legend']]['Name']).'</a></span></span>';
-                echo '<span class="item i2" style="flex-basis: 10%;"><span class="text"><img src="https://i.imgur.com/vp64kDF.png" class="icon level" /> '.number_format($row['PlayerLevel']).'</span></span>';
+                echo '<span class="item i2" style="flex-basis: 10%;"><span class="text"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" class="icon level" /> '.number_format($row['PlayerLevel']).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 30%;"><span class="text">'.isPred($row[$isPred], $row['BR_RankScore']).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 15%;"><span class="text">'.formatSocial($row['Twitter'], "Twitter").' '.formatSocial($row['Twitch'], "Twitch").'</span></span>';
             echo '</div>';
