@@ -358,8 +358,94 @@ body
         &.disabled
             cursor: default
             pointer-events: none
-            color: rgba(255, 255, 255, 0.3)
             background: rgba(0, 0, 0, 0.3)
+            color: rgba(255, 255, 255, 0.3)
+
+.userContainer
+    width: 80%
+    display: flex
+    margin: 0 auto
+    margin-top: 15px
+    .avatar
+        flex: 1
+        margin: 1px
+        flex-basis: 25%
+        border-top-left-radius: 4px
+        background: rgba(0, 0, 0, 0.5)
+        border: 1px solid rgba(255, 255, 255, 0.15)
+        .legend
+            height: 150px
+            margin: 0 auto
+            display: block
+            padding: 10px 0
+        .name
+            width: 100%
+            color: #FFF
+            display: block
+            font-size: 20pt
+            padding: 10px 0
+            font-weight: bold
+            text-align: center
+            background: rgba(0, 0, 0, 0.25)
+            border-top: 1px solid rgba(255, 255, 255, 0.1)
+            font-family: "Montserrat", Arial, Helvetica, sans-serif
+    .stats
+        flex: 1
+        margin: 1px
+        display: flex
+        flex-basis: 75%
+        border-top-right-radius: 4px
+        background: rgba(0, 0, 0, 0.5)
+        border: 1px solid rgba(255, 255, 255, 0.15)
+        .level
+            flex: 1
+            .levelImage
+                height: 150px
+                margin: 0 auto
+                display: block
+                padding: 10px 0
+            .levelText
+                width: 100%
+                color: #FFF
+                display: block
+                font-size: 20pt
+                padding: 10px 0
+                font-weight: bold
+                text-align: center
+                background: rgba(0, 0, 0, 0.25)
+                border-top: 1px solid rgba(255, 255, 255, 0.1)
+                font-family: "Montserrat", Arial, Helvetica, sans-serif
+        .BR_Rank
+            flex: 1
+            position: relative
+            .RankImage
+                height: 150px
+                margin: 0 auto
+                display: block
+                padding: 10px 0
+            .pos
+                top: 53%
+                margin: 0 auto
+                color: #FFF
+                font-size: 14pt
+                display: inline-block
+                position: absolute
+                width: 100%
+                text-align: center
+            .RankText
+                width: 100%
+                color: #FFF
+                display: block
+                font-size: 20pt
+                padding: 10px 0
+                font-weight: bold
+                text-align: center
+                background: rgba(0, 0, 0, 0.25)
+                border-top: 1px solid rgba(255, 255, 255, 0.1)
+                font-family: "Montserrat", Arial, Helvetica, sans-serif
+        .Arenas_Rank
+            flex: 1
+
 
 .footer
     bottom: 0

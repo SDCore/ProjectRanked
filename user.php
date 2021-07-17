@@ -1,6 +1,9 @@
 <?php
     require_once("./include/nav.php");
 
+    $legendFile = file_get_contents("./GameData/legends.json");
+    $legendIDs = json_decode($legendFile, true);
+
     $PID = $_GET['id'];
     $DBConn = mysqli_connect($host, $user, $pass, $db);
     $getPlayer = mysqli_query($DBConn, "SELECT * FROM `projectRanked` WHERE `PlayerID` = '$PID'");
@@ -12,15 +15,46 @@
         $legendFile = file_get_contents("./GameData/legends.json");
         $legendIDs = json_decode($legendFile, true);
 
-        function checkNick($nick, $level, $legend) {
-            if($nick == null) return $legend."#".$level;
-
-            return $nick;
+        function truncate($str) {
+            if (strlen($str) > 10) {
+                return $str = substr($str, 0, 14) . '...';
+            }else{
+                return $str;
+            }
         }
+
+        function checkNick($nick, $level, $legend) {
+            if($nick == null) return truncate($legend."#".$level);
+
+            return truncate($nick);
+        }
+
+        function isPred($isPred, $Pos) {
+            if($isPred == 0) return "<img src='https://cdn.apexstats.dev/RankedIcons/master.png' class='RankImage' />";
+
+            return "<img src='https://cdn.apexstats.dev/RankedIcons/predator.png' class='RankImage' /><span class='pos'>#".$Pos."</span>";
+        }
+
 ?>
 
     <div class="userContainer">
-        <?php echo "<h1>".checkNick($player['PlayerNick'], $player['PlayerLevel'], $legendIDs[$player['Legend']]['Name'])."</h1>"; ?>
+        <span class="avatar">
+            <img src="https://cdn.apexstats.dev/LegendIcons/<?php echo $legendIDs[$player['Legend']]['Name'] ?>.png" class="legend" />
+            <span class="name"><?php echo checkNick($player['PlayerNick'], $player['PlayerLevel'], $legendIDs[$player['Legend']]['Name']); ?></span>
+        </span>
+        <span class="stats">
+            <span class="level">
+                <img src="https://cdn.apexstats.dev/Badges/AccountBadges/AccountLevel.png" class="levelImage" />
+                <span class="levelText">Level <?php echo number_format($player['PlayerLevel']); ?></span>
+            </span>
+            <span class="BR_Rank">
+                <?php echo isPred($player['BR_isPred'], $player['BR_LadderPos']); ?>
+                <span class="RankText"><?php echo number_format($player['BR_RankScore']); ?> RP</span>
+            </span>
+            <span class="Arenas_Rank">
+                Arenas_Rank 1,234 RP
+            </span>
+        </span>
     </div>
 
 separate boxes, have backgrounds be slightly transparent, borders/margins are about 5 pixel spacing between content boxes

@@ -84,7 +84,21 @@ body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; backgro
 .pagination .page.next:hover { background: rgba(0, 0, 0, 0.6); }
 .pagination .page.last { flex-basis: 15%; background: rgba(255, 40, 30, 0.65); border-right: 4px solid rgba(150, 21, 17, 0.6); }
 .pagination .page.last:hover { background: rgba(255, 40, 30, 0.9); }
-.pagination .page.disabled { cursor: default; pointer-events: none; color: rgba(255, 255, 255, 0.3); background: rgba(0, 0, 0, 0.3); }
+.pagination .page.disabled { cursor: default; pointer-events: none; background: rgba(0, 0, 0, 0.3); color: rgba(255, 255, 255, 0.3); }
+
+.userContainer { width: 80%; display: flex; margin: 0 auto; margin-top: 15px; }
+.userContainer .avatar { flex: 1; margin: 1px; flex-basis: 25%; border-top-left-radius: 4px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.15); }
+.userContainer .avatar .legend { height: 150px; margin: 0 auto; display: block; padding: 10px 0; }
+.userContainer .avatar .name { width: 100%; color: #FFF; display: block; font-size: 20pt; padding: 10px 0; font-weight: bold; text-align: center; background: rgba(0, 0, 0, 0.25); border-top: 1px solid rgba(255, 255, 255, 0.1); font-family: "Montserrat", Arial, Helvetica, sans-serif; }
+.userContainer .stats { flex: 1; margin: 1px; display: flex; flex-basis: 75%; border-top-right-radius: 4px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.15); }
+.userContainer .stats .level { flex: 1; }
+.userContainer .stats .level .levelImage { height: 150px; margin: 0 auto; display: block; padding: 10px 0; }
+.userContainer .stats .level .levelText { width: 100%; color: #FFF; display: block; font-size: 20pt; padding: 10px 0; font-weight: bold; text-align: center; background: rgba(0, 0, 0, 0.25); border-top: 1px solid rgba(255, 255, 255, 0.1); font-family: "Montserrat", Arial, Helvetica, sans-serif; }
+.userContainer .stats .BR_Rank { flex: 1; position: relative; }
+.userContainer .stats .BR_Rank .RankImage { height: 150px; margin: 0 auto; display: block; padding: 10px 0; }
+.userContainer .stats .BR_Rank .pos { top: 53%; margin: 0 auto; color: #FFF; font-size: 14pt; display: inline-block; position: absolute; width: 100%; text-align: center; }
+.userContainer .stats .BR_Rank .RankText { width: 100%; color: #FFF; display: block; font-size: 20pt; padding: 10px 0; font-weight: bold; text-align: center; background: rgba(0, 0, 0, 0.25); border-top: 1px solid rgba(255, 255, 255, 0.1); font-family: "Montserrat", Arial, Helvetica, sans-serif; }
+.userContainer .stats .Arenas_Rank { flex: 1; }
 
 .footer { bottom: 0; width: 100%; position: fixed; background: #161616; border-top: 2px solid #666; }
 .footer .inner { width: 80%; padding: 6px; margin: 0 auto; color: rgba(255, 255, 255, 0.25); }
