@@ -383,12 +383,18 @@ body
             color: #FFF
             display: block
             font-size: 20pt
-            padding: 10px 0
             font-weight: bold
             text-align: center
+            padding: 10px 0 0 0
             background: rgba(0, 0, 0, 0.25)
             border-top: 1px solid rgba(255, 255, 255, 0.1)
             font-family: "Montserrat", Arial, Helvetica, sans-serif
+        .subText
+            width: 100%
+            font-size: 10pt
+            font-weight: 300
+            display: inline-block
+            color: rgba(255, 255, 255, 0.5)
     .stats
         flex: 1
         margin: 1px
@@ -409,12 +415,18 @@ body
                 color: #FFF
                 display: block
                 font-size: 20pt
-                padding: 10px 0
+                padding: 10px 0 0 0
                 font-weight: bold
                 text-align: center
                 background: rgba(0, 0, 0, 0.25)
                 border-top: 1px solid rgba(255, 255, 255, 0.1)
                 font-family: "Montserrat", Arial, Helvetica, sans-serif
+            .subText
+                width: 100%
+                font-size: 10pt
+                font-weight: 300
+                display: inline-block
+                color: rgba(255, 255, 255, 0.5)
         .BR_Rank
             flex: 1
             position: relative
@@ -424,7 +436,7 @@ body
                 display: block
                 padding: 10px 0
             .pos
-                top: 57%
+                top: 52%
                 width: 100%
                 margin: 0 auto
                 font-size: 13pt
@@ -434,7 +446,7 @@ body
                 position: absolute
                 display: inline-block
             .unranked
-                top: 59.5%
+                top: 54.25%
                 width: 100%
                 color: #AAA
                 margin: 0 auto
@@ -447,12 +459,18 @@ body
                 color: #FFF
                 display: block
                 font-size: 20pt
-                padding: 10px 0
+                padding: 10px 0 0 0
                 font-weight: bold
                 text-align: center
                 background: rgba(0, 0, 0, 0.25)
                 border-top: 1px solid rgba(255, 255, 255, 0.1)
                 font-family: "Montserrat", Arial, Helvetica, sans-serif
+            .subText
+                width: 100%
+                font-size: 10pt
+                font-weight: 300
+                display: inline-block
+                color: rgba(255, 255, 255, 0.5)
         .Arenas_Rank
             flex: 1
             position: relative
@@ -462,7 +480,7 @@ body
                 display: block
                 padding: 10px 0
             .pos
-                top: 57%
+                top: 52%
                 width: 100%
                 margin: 0 auto
                 font-size: 13pt
@@ -472,7 +490,7 @@ body
                 position: absolute
                 display: inline-block
             .unranked
-                top: 59.5%
+                top: 54.25%
                 width: 100%
                 color: #AAA
                 margin: 0 auto
@@ -485,24 +503,31 @@ body
                 color: #FFF
                 display: block
                 font-size: 20pt
-                padding: 10px 0
+                padding: 10px 0 0 0
                 font-weight: bold
                 text-align: center
                 background: rgba(0, 0, 0, 0.25)
                 border-top: 1px solid rgba(255, 255, 255, 0.1)
                 font-family: "Montserrat", Arial, Helvetica, sans-serif
+            .subText
+                width: 100%
+                font-size: 10pt
+                font-weight: 300
+                display: inline-block
+                color: rgba(255, 255, 255, 0.5)
 
 .userInfoContainer
     width: 80%
     display: flex
     margin: 0 auto 50px auto
     .kills
-        flex: 1
+        flex-basis: 25%
     .twitch
         flex: 2
         margin: 1px
         overflow: auto
         display: block
+        flex-basis: 50%
         background: rgba(0, 0, 0, 0.5)
         border: 1px solid rgba(255, 255, 255, 0.15)
         .title
@@ -531,6 +556,7 @@ body
         flex: 1
         margin: 1px
         overflow: auto
+        flex-basis: 25%
         max-height: 500px
         background: rgba(0, 0, 0, 0.5)
         border: 1px solid rgba(255, 255, 255, 0.15)

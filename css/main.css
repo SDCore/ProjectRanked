@@ -92,29 +92,33 @@ body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; backgro
 .userContainer { width: 80%; display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0 auto; margin-top: 15px; }
 .userContainer .avatar { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin: 1px; -ms-flex-preferred-size: 25%; flex-basis: 25%; border-top-left-radius: 4px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.15); }
 .userContainer .avatar .legend { height: 150px; margin: 0 auto; display: block; padding: 10px 0; }
-.userContainer .avatar .name { width: 100%; color: #FFF; display: block; font-size: 20pt; padding: 10px 0; font-weight: bold; text-align: center; background: rgba(0, 0, 0, 0.25); border-top: 1px solid rgba(255, 255, 255, 0.1); font-family: "Montserrat", Arial, Helvetica, sans-serif; }
+.userContainer .avatar .name { width: 100%; color: #FFF; display: block; font-size: 20pt; font-weight: bold; text-align: center; padding: 10px 0 0 0; background: rgba(0, 0, 0, 0.25); border-top: 1px solid rgba(255, 255, 255, 0.1); font-family: "Montserrat", Arial, Helvetica, sans-serif; }
+.userContainer .avatar .subText { width: 100%; font-size: 10pt; font-weight: 300; display: inline-block; color: rgba(255, 255, 255, 0.5); }
 .userContainer .stats { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin: 1px; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-preferred-size: 75%; flex-basis: 75%; border-top-right-radius: 4px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.15); }
 .userContainer .stats .level { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; }
 .userContainer .stats .level .levelImage { height: 150px; margin: 0 auto; display: block; padding: 10px 0; }
-.userContainer .stats .level .levelText { width: 100%; color: #FFF; display: block; font-size: 20pt; padding: 10px 0; font-weight: bold; text-align: center; background: rgba(0, 0, 0, 0.25); border-top: 1px solid rgba(255, 255, 255, 0.1); font-family: "Montserrat", Arial, Helvetica, sans-serif; }
+.userContainer .stats .level .levelText { width: 100%; color: #FFF; display: block; font-size: 20pt; padding: 10px 0 0 0; font-weight: bold; text-align: center; background: rgba(0, 0, 0, 0.25); border-top: 1px solid rgba(255, 255, 255, 0.1); font-family: "Montserrat", Arial, Helvetica, sans-serif; }
+.userContainer .stats .level .subText { width: 100%; font-size: 10pt; font-weight: 300; display: inline-block; color: rgba(255, 255, 255, 0.5); }
 .userContainer .stats .BR_Rank { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; position: relative; }
 .userContainer .stats .BR_Rank .RankImage { height: 150px; margin: 0 auto; display: block; padding: 10px 0; }
-.userContainer .stats .BR_Rank .pos { top: 57%; width: 100%; margin: 0 auto; font-size: 13pt; color: #D91616; font-weight: bold; text-align: center; position: absolute; display: inline-block; }
-.userContainer .stats .BR_Rank .unranked { top: 59.5%; width: 100%; color: #AAA; margin: 0 auto; font-size: 12pt; text-align: center; position: absolute; display: inline-block; }
-.userContainer .stats .BR_Rank .RankText { width: 100%; color: #FFF; display: block; font-size: 20pt; padding: 10px 0; font-weight: bold; text-align: center; background: rgba(0, 0, 0, 0.25); border-top: 1px solid rgba(255, 255, 255, 0.1); font-family: "Montserrat", Arial, Helvetica, sans-serif; }
+.userContainer .stats .BR_Rank .pos { top: 52%; width: 100%; margin: 0 auto; font-size: 13pt; color: #D91616; font-weight: bold; text-align: center; position: absolute; display: inline-block; }
+.userContainer .stats .BR_Rank .unranked { top: 54.25%; width: 100%; color: #AAA; margin: 0 auto; font-size: 12pt; text-align: center; position: absolute; display: inline-block; }
+.userContainer .stats .BR_Rank .RankText { width: 100%; color: #FFF; display: block; font-size: 20pt; padding: 10px 0 0 0; font-weight: bold; text-align: center; background: rgba(0, 0, 0, 0.25); border-top: 1px solid rgba(255, 255, 255, 0.1); font-family: "Montserrat", Arial, Helvetica, sans-serif; }
+.userContainer .stats .BR_Rank .subText { width: 100%; font-size: 10pt; font-weight: 300; display: inline-block; color: rgba(255, 255, 255, 0.5); }
 .userContainer .stats .Arenas_Rank { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; position: relative; }
 .userContainer .stats .Arenas_Rank .RankImage { height: 150px; margin: 0 auto; display: block; padding: 10px 0; }
-.userContainer .stats .Arenas_Rank .pos { top: 57%; width: 100%; margin: 0 auto; font-size: 13pt; color: #D91616; font-weight: bold; text-align: center; position: absolute; display: inline-block; }
-.userContainer .stats .Arenas_Rank .unranked { top: 59.5%; width: 100%; color: #AAA; margin: 0 auto; font-size: 12pt; text-align: center; position: absolute; display: inline-block; }
-.userContainer .stats .Arenas_Rank .RankText { width: 100%; color: #FFF; display: block; font-size: 20pt; padding: 10px 0; font-weight: bold; text-align: center; background: rgba(0, 0, 0, 0.25); border-top: 1px solid rgba(255, 255, 255, 0.1); font-family: "Montserrat", Arial, Helvetica, sans-serif; }
+.userContainer .stats .Arenas_Rank .pos { top: 52%; width: 100%; margin: 0 auto; font-size: 13pt; color: #D91616; font-weight: bold; text-align: center; position: absolute; display: inline-block; }
+.userContainer .stats .Arenas_Rank .unranked { top: 54.25%; width: 100%; color: #AAA; margin: 0 auto; font-size: 12pt; text-align: center; position: absolute; display: inline-block; }
+.userContainer .stats .Arenas_Rank .RankText { width: 100%; color: #FFF; display: block; font-size: 20pt; padding: 10px 0 0 0; font-weight: bold; text-align: center; background: rgba(0, 0, 0, 0.25); border-top: 1px solid rgba(255, 255, 255, 0.1); font-family: "Montserrat", Arial, Helvetica, sans-serif; }
+.userContainer .stats .Arenas_Rank .subText { width: 100%; font-size: 10pt; font-weight: 300; display: inline-block; color: rgba(255, 255, 255, 0.5); }
 
 .userInfoContainer { width: 80%; display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0 auto 50px auto; }
-.userInfoContainer .kills { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; }
-.userInfoContainer .twitch { -webkit-box-flex: 2; -ms-flex: 2; flex: 2; margin: 1px; overflow: auto; display: block; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.15); }
+.userInfoContainer .kills { -ms-flex-preferred-size: 25%; flex-basis: 25%; }
+.userInfoContainer .twitch { -webkit-box-flex: 2; -ms-flex: 2; flex: 2; margin: 1px; overflow: auto; display: block; -ms-flex-preferred-size: 50%; flex-basis: 50%; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.15); }
 .userInfoContainer .twitch .title { color: #FFF; font-size: 20pt; font-weight: bold; margin-bottom: 5px; display: inline-block; width: calc(100% - 32px); padding: 8px 16px 6px 16px; background: rgba(0, 0, 0, 0.25); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 .userInfoContainer .twitch .body { width: 90%; margin: 0 auto; display: block; }
 .userInfoContainer .twitch .body .NA { width: 100%; color: #FFF; display: block; padding: 8px 0; font-size: 18pt; font-weight: bold; text-align: center; }
-.userInfoContainer .twitter { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin: 1px; overflow: auto; max-height: 500px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.15); }
+.userInfoContainer .twitter { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin: 1px; overflow: auto; -ms-flex-preferred-size: 25%; flex-basis: 25%; max-height: 500px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.15); }
 .userInfoContainer .twitter .title { color: #FFF; font-size: 20pt; font-weight: bold; margin-bottom: 5px; display: inline-block; width: calc(100% - 32px); padding: 8px 16px 6px 16px; background: rgba(0, 0, 0, 0.25); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 .userInfoContainer .twitter .body { width: 90%; margin: 0 auto; display: block; }
 .userInfoContainer .twitter .body .NA { width: 100%; color: #FFF; display: block; padding: 8px 0; font-size: 18pt; font-weight: bold; text-align: center; }

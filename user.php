@@ -1,5 +1,6 @@
 <?php
     require_once("./include/nav.php");
+    date_default_timezone_set('UTC');
 
     $legendFile = file_get_contents("./GameData/legends.json");
     $legendIDs = json_decode($legendFile, true);
@@ -41,20 +42,32 @@
     <div class="userContainer">
         <span class="avatar">
             <img src="https://cdn.apexstats.dev/LegendIcons/<?php echo $legendIDs[$player['Legend']]['Name'] ?>.png" class="legend" />
-            <span class="name"><?php echo checkNick($player['PlayerNick'], $player['PlayerLevel'], $legendIDs[$player['Legend']]['Name']); ?></span>
+            <span class="name">
+                <?php echo checkNick($player['PlayerNick'], $player['PlayerLevel'], $legendIDs[$player['Legend']]['Name']); ?>
+                <span class="subText">Last Updated <?php echo date("h:i:s A T", $player['lastUpdated']); ?></span>
+            </span>
         </span>
         <span class="stats">
             <span class="level">
                 <img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" style="filter: drop-shadow(0 0 4px rgba(255, 234, 46, 0.35));" class="levelImage" />
-                <span class="levelText">Level <?php echo number_format($player['PlayerLevel']); ?></span>
+                <span class="levelText">
+                    Level <?php echo number_format($player['PlayerLevel']); ?>
+                    <span class="subText">Account Level</span>
+                </span>
             </span>
             <span class="BR_Rank">
                 <?php echo isPred($player['BR_RankScore'],$player['BR_isPred'], $player['BR_LadderPos']); ?>
-                <span class="RankText"><?php echo number_format($player['BR_RankScore']); ?> RP</span>
+                <span class="RankText">
+                    <?php echo number_format($player['BR_RankScore']); ?> RP
+                    <span class="subText">Battle Royal</span>
+                </span>
             </span>
             <span class="Arenas_Rank">
                 <?php echo isPred($player['Arenas_RankScore'], $player['Arenas_isPred'], $player['Arenas_LadderPos']); ?>
-                <span class="RankText"><?php echo number_format($player['Arenas_RankScore']); ?> RP</span>
+                <span class="RankText">
+                    <?php echo number_format($player['Arenas_RankScore']); ?> RP
+                    <span class="subText">Arenas</span>
+                </span>
             </span>
         </span>
     </div>
@@ -101,11 +114,5 @@
         var player = new Twitch.Player("TwitchStream", options);
         player.setVolume(0.5);
     </script>
-
-third box (under the first 2)
-total (counted) kills with each legend
-
-fourth box (maybe next to third box?)
-twitch stream/twitter widget if linked in DB
 
 <?php } require_once("./include/footer.php"); ?>
