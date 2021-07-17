@@ -80,8 +80,8 @@
     <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
     <script type="text/javascript">
         var options = {
-            width: 100%,
-            height: 100%,
+            width: "100%",
+            height: "auto",
             channel: "<?php echo $player['Twitch']; ?>",
         };
         var player = new Twitch.Player("TwitchStream", options);
