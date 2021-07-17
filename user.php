@@ -94,6 +94,8 @@
         var options = {
             width: "100%",
             height: "450px",
+            autoplay: false,
+            muted: false,
             channel: "<?php echo $player['Twitch']; ?>",
         };
         var player = new Twitch.Player("TwitchStream", options);
