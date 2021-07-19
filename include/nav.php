@@ -40,5 +40,5 @@
         <a href="https://ranked.apexstats.dev/" class="brand"><span class="text"><?php echo $typeTitle; ?></span></a>
         <a href="/" class="link <?php echo checkActive('/index'); ?>"><span class="text">Home</span></a>
         <a href="#" class="link <?php echo checkActive('/search'); ?> disabled"><span class="text">Search</span></a>
-        <a href="#" class="link <?php echo checkActive('/faq'); ?> disabled"><span class="text">FAQ</span></a>
+        <a href="#" class="link <?php echo checkActive('/faq'); ?> disabled"><span class="text">F.A.Q.</span></a>
     </nav>

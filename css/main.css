@@ -54,6 +54,12 @@ html, body {
   border-color: rgba(255, 0, 0, 0.7);
 }
 
+.nav .link.disabled, .nav .brand.disabled {
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.035);
+}
+
 .nav .link .text, .nav .brand .text {
   display: block;
   transform: skew(-30deg);
