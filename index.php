@@ -33,12 +33,25 @@
 
     // Minimum amount to reach Apex Predator
     $minimumPred = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
-?>
 
-<?php
-    while($player = mysqli_fetch_assoc($rankedQuery)) {
-        echo $player[$ladderPos];
+    while($row = mysqli_fetch_assoc($minimumPred)) {
+        $minPred = number_format($row[$RankScore]);
     }
 ?>
+
+<div class="header">
+    <span class="left">
+        <?php echo $text; ?> Ranked Stats <span class="small"><a href="?full">[See Full List]</a></span>
+        <span class="minimumRP">Approximate Minimum RP for Apex Predator: <b><?php echo $minPred; ?> RP</b></span>
+    </span>
+    <span class="right">
+        <a href="?X1"><i class="fab fa-xbox"></i></a><a href="?PS4"><i class="fab fa-playstation"></i></a><a href="?PC"><i class="fab fa-steam"></i></a>
+    </span>
+</div>
+
+[platform] ranked stats                             pc x1 ps4
+> minimum rp for pred: 12,345 RP
+
+# legend/name level rank (rp) socials
 
 <?php require_once("./include/footer.php"); ?>

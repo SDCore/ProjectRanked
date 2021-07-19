@@ -18,6 +18,8 @@
         <a href="/admin/login" class="adminLink">&copy;</a> SDCore <?php echo date("Y"); ?> &middot; Data updated hourly. Last updated <?php echo timeText($time); ?> ago.
     </footer>
 
+    <script src="https://kit.fontawesome.com/f9aca975cb.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
