@@ -2,6 +2,8 @@
     session_start();
     require_once(__DIR__."/../connect.php");
 
+    $DBConn = mysqli_connect($host, $user, $pass, $db);
+
     function checkActive($page) {
         if ($_SERVER['SCRIPT_NAME'] == $page.".php") return "active";
 

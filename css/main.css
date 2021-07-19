@@ -10,6 +10,11 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  background: url("https://cdn.apexstats.dev/ProjectRanked/Background_Season01.jpeg") no-repeat fixed center;
+  background-size: cover;
+}
+
 .nav {
   width: 100%;
   height: 50px;
@@ -25,6 +30,7 @@ html, body {
 .nav .link, .nav .brand {
   height: 100%;
   margin: 0 1px;
+  font-size: 15pt;
   color: #7F7F7F;
   min-width: 100px;
   line-height: 60px;
@@ -65,10 +71,26 @@ html, body {
   transform: skew(-30deg);
 }
 
-.nav .link {
-  font-size: 15pt;
-}
-
 .nav .brand {
   font-size: 16pt;
+  min-width: 150px;
+  border-bottom: 5px solid #DDD;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  padding: 5px 0;
+  position: fixed;
+  font-weight: bold;
+  text-align: center;
+  background: #161616;
+  border-top: 2px solid #666;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.footer .adminLink {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.25);
 }
