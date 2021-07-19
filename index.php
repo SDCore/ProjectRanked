@@ -1,6 +1,10 @@
 <?php
     $pageTitle = "Home"; require_once("./include/nav.php");
 
+    // Loading legend file w/ names
+    $legendFile = file_get_contents("./GameData/legends.json");
+    $legendIDs = json_decode($legendFile, true);
+
     // Detecting which platform to use for title
     if(isset($_GET['PC'])) {
         $platform = "PC";
@@ -37,6 +41,12 @@
     while($row = mysqli_fetch_assoc($minimumPred)) {
         $minPred = number_format($row[$RankScore]);
     }
+
+    function getNickname($nick, $legend, $level) {
+        if($nick != null) return $nick;
+
+        return $legend."#".$level;
+    }
 ?>
 
 <div class="header">
@@ -45,13 +55,16 @@
         <span class="minimumRP">Approximate Minimum RP for Apex Predator: <b><?php echo $minPred; ?> RP</b></span>
     </span>
     <span class="right">
-        <a href="?X1"><i class="fab fa-xbox"></i></a><a href="?PS4"><i class="fab fa-playstation"></i></a><a href="?PC"><i class="fab fa-steam"></i></a>
+        <a href="?X1" <?php if($platform == "X1") { echo 'class="active"'; } ?>><i class="fab fa-xbox"></i></a><a href="?PS4" <?php if($platform == "PS4") { echo 'class="active"'; } ?>><i class="fab fa-playstation"></i></a><a href="?PC" <?php if($platform == "PC") { echo 'class="active"'; } ?>><i class="fab fa-steam"></i></a>
     </span>
 </div>
 
-[platform] ranked stats                             pc x1 ps4
-> minimum rp for pred: 12,345 RP
-
-# legend/name level rank (rp) socials
+<div class="container">
+    <?php
+        while($player = mysqli_fetch_assoc($rankedQuery)) {
+            echo $player['PlayerID']." ".getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel'])."<br />";
+        }
+    ?>
+</div>
 
 <?php require_once("./include/footer.php"); ?>

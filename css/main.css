@@ -129,6 +129,11 @@ body {
   background: rgba(0, 0, 0, 0.75);
 }
 
+.header .right a.active {
+  background: black;
+  color: white;
+}
+
 .header .right a:hover {
   background: black;
   color: white;
@@ -146,6 +151,11 @@ body {
 .header .right a:nth-child(3) {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .footer {
