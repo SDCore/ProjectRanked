@@ -1,6 +1,12 @@
 <?php 
     session_start();
     require_once(__DIR__."/../connect.php");
+
+    function checkActive($page) {
+        if ($_SERVER['SCRIPT_NAME'] == $page.".php") return "active";
+
+        return null;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +16,7 @@
 <head>
     <title><?php if(isset($pageTitle)) { echo $pageTitle." -"; } ?> Apex Legends Ranked Leaderboard</title>
 
-    <link type="text/css" rel="stylesheet" href="<?php __DIR__; ?>/../css/main.css" />
+    <link type="text/css" rel="stylesheet" href="<?php __DIR__; ?>/../css/main.min.css" />
     <link rel="shortcut icon" type="image/x-icon" href="<?php __DIR__; ?>/../favicon.ico" />
 
     <meta charset="utf-8">
@@ -31,8 +37,8 @@
 <body>
 
     <nav class="nav">
-        <a href="/" class="brand"><?php echo $typeTitle; ?> Ranked</a>
-        <a href="/">Home</a>
-        <a href="#">Search</a>
-        <a href="#">FAQ</a>
+        <a href="https://ranked.apexstats.dev/" class="brand"><span class="text"><?php echo $typeTitle; ?></span></a>
+        <a href="/" class="link <?php echo checkActive('/index'); ?>"><span class="text">Home</span></a>
+        <a href="#" class="link <?php echo checkActive('/search'); ?> disabled"><span class="text">Search</span></a>
+        <a href="#" class="link <?php echo checkActive('/faq'); ?> disabled"><span class="text">FAQ</span></a>
     </nav>
