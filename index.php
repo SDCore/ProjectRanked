@@ -86,6 +86,14 @@
 
         return "?";
     }
+
+    function truncate($str) {
+        if (strlen($str) > 25) {
+            return $str = substr($str, 0, 26) . '...';
+        }else{
+            return $str;
+        }
+    }
 ?>
 
 <div class="header">
@@ -115,7 +123,7 @@
         while($player = mysqli_fetch_assoc($rankedQuery)) {
             echo '<div class="leaderboardList'.checkPos($player[$ladderPos]).'">';
                 echo '<span class="item i1" style="flex-basis: 5%;"><span class="text">'.ladderPos($player[$ladderPos], $player[$isPred]).'</span></span>';
-                echo '<span class="item i2" style="flex-basis: 40%;"><span class="text"><b><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$player['Legend']]['Name'].'.png" alt="Apex Legends Legend Icon" class="icon" /> '.getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel']).'</b></span></span>';
+                echo '<span class="item i2" style="flex-basis: 40%;"><span class="text"><b><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$player['Legend']]['Name'].'.png" alt="Apex Legends Legend Icon" class="icon" /> '.truncate(getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel'])).'</b></span></span>';
                 echo '<span class="item i2" style="flex-basis: 10%;"><span class="text"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" alt="Apex Legends Account Level Icon" class="icon" /> '.number_format($player['PlayerLevel']).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 30%;"><span class="text">'.isPred($player[$isPred], $player[$RankScore]).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 15%;"><span class="text">'.formatSocial($player['Twitter'], "Twitter").' '.formatSocial($player['Twitch'], "Twitch").'</span></span>';
