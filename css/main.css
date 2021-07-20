@@ -273,6 +273,28 @@ body {
   color: #6441A5;
 }
 
+.container .leaderboardList .item.i2 .tiktok {
+  color: #FFF;
+  margin: 0 5px;
+  vertical-align: middle;
+  transition: all 0.1s ease;
+}
+
+.container .leaderboardList .item.i2 .tiktok:hover {
+  color: #FF0050;
+}
+
+.container .leaderboardList .item.i2 .youtube {
+  color: #fff;
+  margin: 0 5px;
+  vertical-align: middle;
+  transition: all 0.1s ease;
+}
+
+.container .leaderboardList .item.i2 .youtube:hover {
+  color: #FF0000;
+}
+
 .container .leaderboardList.first .item {
   font-weight: bold;
   border-bottom: 2px solid #AA8C28;

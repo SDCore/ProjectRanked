@@ -68,7 +68,9 @@
         if($text == "N/A") return;
 
         if($type == "Twitter") return "<a href='https://twitter.com/".$text."' target='_blank' aria-label='Visit this users Twitter'><i class='fab fa-twitter twitter'></i></a>";
-        if($type == "Twitch") return "<a href='https://twitch.tv/".$text."' target='_blank' aria-label='Visit this users Twitter'><i class='fab fa-twitch twitch'></i></a>";
+        if($type == "Twitch") return "<a href='https://twitch.tv/".$text."' target='_blank' aria-label='Visit this users Twitch'><i class='fab fa-twitch twitch'></i></a>";
+        if($type == "TikTok") return "<a href='https://www.tiktok.com/@".$text."?' target='_blank' aria-label='Visit this users TikTok'><i class='fab fa-tiktok tiktok'></i></a>";
+        if($type == "YouTube") return "<a href='https://www.youtube.com/channel/".$text."' target='_blank' aria-label='Visit this users YouTube'><i class='fab fa-youtube youtube'></i></a>";
 
         return;
     }
@@ -109,8 +111,8 @@
 <div class="container">
     <div class="leaderboardTop">
         <span class="item i1" style="flex-basis: 5%;"><span class="text">#</span></span>
-        <span class="item i2" style="flex-basis: 40%;"><span class="text">Name</span></span>
-        <span class="item i2" style="flex-basis: 10%;"><span class="text">Level</span></span>
+        <span class="item i2" style="flex-basis: 39%;"><span class="text">Name</span></span>
+        <span class="item i2" style="flex-basis: 11%;"><span class="text">Level</span></span>
         <span class="item i2" style="flex-basis: 30%;"><span class="text">Rank (Score)</span></span>
         <span class="item i2" style="flex-basis: 15%;"><span class="text">Socials</span></span>
     </div>
@@ -123,10 +125,10 @@
         while($player = mysqli_fetch_assoc($rankedQuery)) {
             echo '<div class="leaderboardList'.checkPos($player[$ladderPos]).'">';
                 echo '<span class="item i1" style="flex-basis: 5%;"><span class="text">'.ladderPos($player[$ladderPos], $player[$isPred]).'</span></span>';
-                echo '<span class="item i2" style="flex-basis: 40%;"><span class="text" title="'.getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel']).'"><b><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$player['Legend']]['Name'].'.png" alt="Apex Legends Legend Icon" class="icon" /> '.truncate(getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel'])).'</b></span></span>';
-                echo '<span class="item i2" style="flex-basis: 10%;"><span class="text"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" alt="Apex Legends Account Level Icon" class="icon" /> '.number_format($player['PlayerLevel']).'</span></span>';
+                echo '<span class="item i2" style="flex-basis: 39%;"><span class="text" title="'.getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel']).'"><b><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$player['Legend']]['Name'].'.png" alt="Apex Legends Legend Icon" class="icon" /> '.truncate(getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel'])).'</b></span></span>';
+                echo '<span class="item i2" style="flex-basis: 11%;"><span class="text"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" alt="Apex Legends Account Level Icon" class="icon" /> '.number_format($player['PlayerLevel']).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 30%;"><span class="text">'.isPred($player[$isPred], $player[$RankScore]).'</span></span>';
-                echo '<span class="item i2" style="flex-basis: 15%;"><span class="text">'.formatSocial($player['Twitter'], "Twitter").' '.formatSocial($player['Twitch'], "Twitch").'</span></span>';
+                echo '<span class="item i2" style="flex-basis: 15%;"><span class="text">'.formatSocial($player['Twitter'], "Twitter").''.formatSocial($player['Twitch'], "Twitch").''.formatSocial($player['TikTok'], "TikTok").''.formatSocial($player['YouTube'], "YouTube").'</span></span>';
             echo '</div>';
         }
     ?>
