@@ -34,9 +34,9 @@
     $totalPages = ceil($totalRows / $records);
     
     if(isset($_GET['full'])) {
-        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 ORDER BY `$ladderPos` ASC, `$RankScore` DESC");
+        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC");
     }else{
-        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
+        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
     }
 
     // Minimum amount to reach Apex Predator
