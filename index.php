@@ -78,11 +78,19 @@
         if($pos == "2") return " second";
         if($pos == "3") return " third";
     }
+
+    function checkPage() {
+        if(isset($_GET['PC'])) return "?PC&";
+        if(isset($_GET['PS4'])) return "?PS4&";
+        if(isset($_GET['X1'])) return "?X1&";
+
+        return "?";
+    }
 ?>
 
 <div class="header">
     <span class="left">
-        <?php echo $text; ?> Ranked Stats <span class="small"><a href="?full">[See Full List]</a></span>
+        <?php echo $text; ?> Ranked Stats <?php if(!isset($_GET['full'])) {?><span class="small"><a href="?full">[See Full List]</span></a><?php } ?>
         <span class="minimumRP">Approximate Minimum RP for Apex Predator: <b><?php echo $minPred; ?> RP</b></span>
     </span>
     <span class="right">
@@ -108,6 +116,19 @@
                 echo '<span class="item i2" style="flex-basis: 30%;"><span class="text">'.isPred($player[$isPred], $player[$RankScore]).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 15%;"><span class="text">'.formatSocial($player['Twitter'], "Twitter").' '.formatSocial($player['Twitch'], "Twitch").'</span></span>';
             echo '</div>';
+        }
+    ?>
+
+    <?php
+        if(!isset($_GET['full'])) {
+    ?>
+        <div class="pagination">
+            <a href="<?php echo checkPage(); ?>page=1" class="page <?php if($page == 1) { echo 'disabled'; } ?>"><i class="fas fa-angle-double-left"></i> First</a>
+            <a href="<?php echo checkPage(); if($page <= 1) { echo '#'; } else { echo 'page='.($page - 1); } ?>" class="page <?php if($page <= 1) { echo 'disabled'; } ?>"><i class="fas fa-angle-left"></i> Previous</a>
+            <a href="<?php echo checkPage(); if($page >= $totalPages) { echo '#'; } else { echo 'page='.($page + 1); } ?>" class="page <?php if($page >= $totalPages) { echo 'disabled'; } ?>">Next <i class="fas fa-angle-right"></i></a>
+            <a href="<?php echo checkPage(); if($page >= $totalPages) { echo '#'; } else { echo 'page='.$totalPages; } ?>" class="page <?php if($page >= $totalPages) { echo 'disabled'; } ?>">Last <i class="fas fa-angle-double-right"></i></a>
+        </div>
+    <?php
         }
     ?>
 </div>

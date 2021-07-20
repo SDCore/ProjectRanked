@@ -121,7 +121,7 @@ body
 
 .container
     width: 80%
-    margin: 0 auto 25px auto
+    margin: 0 auto 50px auto
     .leaderboardTop
         display: flex
         font-size: 15pt
@@ -203,6 +203,43 @@ body
             &.i1
                 background: #B08D57
                 border-left: 4px solid #8F7247
+    .pagination
+        display: flex
+        background: rgba(0, 0, 0, 0.65)
+        .page
+            flex: 1
+            color: #FFF
+            padding: 10px 0
+            font-weight: bold
+            text-align: center
+            text-decoration: none
+            transition: all 0.2s ease
+            border-bottom: 3px solid rgba(150, 21, 17, 1)
+            &:nth-of-type(1)
+                flex-basis: 15%
+                background: rgba(255, 40, 30, 0.75)
+                border-left: 6px solid rgba(150, 21, 17, 1)
+                &:hover
+                    background: rgba(255, 40, 30, 1)
+            &:nth-of-type(2)
+                flex-basis: 35%
+                &:hover
+                    background: rgba(0, 0, 0, 0.6)
+            &:nth-of-type(3)
+                flex-basis: 35%
+                &:hover
+                    background: rgba(0, 0, 0, 0.6)
+            &:nth-of-type(4)
+                flex-basis: 15%
+                background: rgba(255, 40, 30, 0.75)
+                border-right: 6px solid rgba(150, 21, 17, 1)
+                &:hover
+                    background: rgba(255, 40, 30, 1)
+            &.disabled
+                cursor: default
+                pointer-events: none
+                background: rgba(0, 0, 0, 0.3)
+                color: rgba(255, 255, 255, 0.3)
 
 .footer
     bottom: 0
