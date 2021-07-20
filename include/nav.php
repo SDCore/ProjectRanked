@@ -13,16 +13,16 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title><?php if(isset($pageTitle)) { echo $pageTitle." -"; } ?> Apex Legends Ranked Leaderboard</title>
 
     <link type="text/css" rel="stylesheet" href="<?php __DIR__; ?>/../css/main.min.css" />
     <link rel="shortcut icon" type="image/x-icon" href="<?php __DIR__; ?>/../favicon.ico" />
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="author" content="SDCore" />
     <meta name="description" content="Ranked Leaderboards for Apex Legends. View Master and Apex Predator rankings for PC, PlayStation, and Xbox."/>

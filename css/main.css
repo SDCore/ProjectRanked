@@ -36,7 +36,7 @@ body {
   justify-content: center;
   border-bottom: 5px solid #0c0e0d;
   font-family: "EUROCAPS", Arial, Helvetica, sans-serif;
-  background: linear-gradient(0deg, black 0%, #323232 110%);
+  background: linear-gradient(0deg, black 0%, #3c3c3c 110%);
 }
 
 .nav .link, .nav .brand {
