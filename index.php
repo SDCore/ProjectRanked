@@ -108,9 +108,9 @@
     </div>
 
     <?php
-        /* if(mysqli_fetch_array($rankedQuery) < 1) {
+        if(mysqli_num_rows($rankedQuery) < 1) {
             echo '<div style="text-align: center; margin-bottom: 15px; color: #FFF; font-size: 20pt; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.95);">No Players Found</div>';
-        } */
+        }
 
         while($player = mysqli_fetch_assoc($rankedQuery)) {
             echo '<div class="leaderboardList'.checkPos($player[$ladderPos]).'">';
