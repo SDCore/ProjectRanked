@@ -4,6 +4,14 @@
     font-family: EUROCAPS
     src: url(../fonts/EUROCAPS.TTF)
 
+@keyframes leaderboardHover
+    0%
+        background: rgba(0, 0, 0, 0.7)
+    50%
+        background: rgba(0, 0, 0, 0.95)
+    100%
+        background: rgba(0, 0, 0, 0.7)
+
 html, body
     margin: 0
     padding: 0
@@ -121,6 +129,7 @@ body
         text-align: center
         margin: 10px 0 15px 0
         transform: skew(20deg)
+        background: rgba(0, 0, 0, 0.75)
         box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.75)
         .item
             padding: 8px 16px
@@ -132,8 +141,68 @@ body
                 background: rgba(255, 255, 255, 0.95)
                 border-left: 6px solid rgba(160, 160, 160, 0.85)
             &.i2
-                background: rgba(0, 0, 0, 0.75)
                 color: rgba(255, 255, 255, 0.95)
+    .leaderboardList
+        display: flex
+        margin-bottom: 8px
+        transform: skew(20deg)
+        background: rgba(0, 0, 0, 0.75)
+        box-shadow: -2px 2px 1px rgba(0, 0, 0, 0.5)
+        &:hover
+            animation: leaderboardHover 1.5s infinite
+        .item
+            padding: 8px 16px
+            text-align: center
+            position: relative
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+            border-bottom: 2px solid rgba(150, 21, 17, 0.85)
+            .text
+                color: #FFF
+                display: block
+                transform: skew(-20deg)
+            .icon
+                left: 0
+                max-height: 25px
+                position: absolute
+            &.i1
+                font-size: 14pt
+                background: rgba(255, 40, 30, 0.85)
+                border-left: 4px solid rgba(150, 21, 17, 0.85)
+            &.i2
+                font-size: 14pt
+                line-height: 24px
+                .twitter
+                    color: #FFF
+                    margin: 0 5px
+                    vertical-align: middle
+                    transition: all 0.1s ease
+                    &:hover
+                        color: #1DA1F2
+                .twitch
+                    color: #FFF
+                    margin: 0 5px
+                    vertical-align: middle
+                    transition: all 0.1s ease
+                    &:hover
+                        color: #6441A5
+        &.first .item
+            font-weight: bold
+            border-bottom: 2px solid #AA8C28
+            &.i1
+                background: #D4AF37
+                border-left: 4px solid #AA8C28
+        &.second .item
+            font-weight: bold
+            border-bottom: 2px solid #7E7E7E
+            &.i1
+                background: #A9A9A9
+                border-left: 4px solid #7E7E7E
+        &.third .item
+            font-weight: bold
+            border-bottom: 2px solid #8F7247
+            &.i1
+                background: #B08D57
+                border-left: 4px solid #8F7247
 
 .footer
     bottom: 0

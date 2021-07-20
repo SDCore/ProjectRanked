@@ -4,6 +4,18 @@
   src: url(../fonts/EUROCAPS.TTF);
 }
 
+@keyframes leaderboardHover {
+  0% {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  50% {
+    background: rgba(0, 0, 0, 0.95);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -165,6 +177,7 @@ body {
   text-align: center;
   margin: 10px 0 15px 0;
   transform: skew(20deg);
+  background: rgba(0, 0, 0, 0.75);
   box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.75);
 }
 
@@ -184,8 +197,102 @@ body {
 }
 
 .container .leaderboardTop .item.i2 {
-  background: rgba(0, 0, 0, 0.75);
   color: rgba(255, 255, 255, 0.95);
+}
+
+.container .leaderboardList {
+  display: flex;
+  margin-bottom: 8px;
+  transform: skew(20deg);
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: -2px 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+.container .leaderboardList:hover {
+  animation: leaderboardHover 1.5s infinite;
+}
+
+.container .leaderboardList .item {
+  padding: 8px 16px;
+  text-align: center;
+  position: relative;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+  border-bottom: 2px solid rgba(150, 21, 17, 0.85);
+}
+
+.container .leaderboardList .item .text {
+  color: #FFF;
+  display: block;
+  transform: skew(-20deg);
+}
+
+.container .leaderboardList .item .icon {
+  left: 0;
+  max-height: 25px;
+  position: absolute;
+}
+
+.container .leaderboardList .item.i1 {
+  font-size: 14pt;
+  background: rgba(255, 40, 30, 0.85);
+  border-left: 4px solid rgba(150, 21, 17, 0.85);
+}
+
+.container .leaderboardList .item.i2 {
+  font-size: 14pt;
+  line-height: 24px;
+}
+
+.container .leaderboardList .item.i2 .twitter {
+  color: #FFF;
+  margin: 0 5px;
+  vertical-align: middle;
+  transition: all 0.1s ease;
+}
+
+.container .leaderboardList .item.i2 .twitter:hover {
+  color: #1DA1F2;
+}
+
+.container .leaderboardList .item.i2 .twitch {
+  color: #FFF;
+  margin: 0 5px;
+  vertical-align: middle;
+  transition: all 0.1s ease;
+}
+
+.container .leaderboardList .item.i2 .twitch:hover {
+  color: #6441A5;
+}
+
+.container .leaderboardList.first .item {
+  font-weight: bold;
+  border-bottom: 2px solid #AA8C28;
+}
+
+.container .leaderboardList.first .item.i1 {
+  background: #D4AF37;
+  border-left: 4px solid #AA8C28;
+}
+
+.container .leaderboardList.second .item {
+  font-weight: bold;
+  border-bottom: 2px solid #7E7E7E;
+}
+
+.container .leaderboardList.second .item.i1 {
+  background: #A9A9A9;
+  border-left: 4px solid #7E7E7E;
+}
+
+.container .leaderboardList.third .item {
+  font-weight: bold;
+  border-bottom: 2px solid #8F7247;
+}
+
+.container .leaderboardList.third .item.i1 {
+  background: #B08D57;
+  border-left: 4px solid #8F7247;
 }
 
 .footer {

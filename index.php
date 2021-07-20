@@ -47,6 +47,33 @@
 
         return $legend."#".$level;
     }
+
+    function ladderPos($pos, $isPred) {
+        if($isPred == "1") return "#".$pos;
+
+        return "N/A";
+    }
+
+    function isPred($isPred, $rankScore) {
+        if($isPred == "0") return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Master.png' class='icon' style='filter: drop-shadow(0 0 4px rgba(255, 0, 255, 0.5));' /> Master (".number_format($rankScore).") RP";
+
+        return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Predator.png' class='icon' style='filter: drop-shadow(0 0 4px rgba(255, 0, 0, 0.75));' /> Apex Predator (".number_format($rankScore)." RP)";
+    }
+
+    function formatSocial($text, $type) {
+        if($text == "N/A") return;
+
+        if($type == "Twitter") return "<a href='https://twitter.com/".$text."' target='_blank'><i class='fab fa-twitter twitter'></i></a>";
+        if($type == "Twitch") return "<a href='https://twitch.tv/".$text."' target='_blank'><i class='fab fa-twitch twitch'></i></a>";
+
+        return;
+    }
+
+    function checkPos($pos) {
+        if($pos == "1") return " first";
+        if($pos == "2") return " second";
+        if($pos == "3") return " third";
+    }
 ?>
 
 <div class="header">
@@ -70,7 +97,13 @@
 
     <?php
         while($player = mysqli_fetch_assoc($rankedQuery)) {
-            echo $player['PlayerID']." ".getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel'])." ".$player['PlayerLevel']." ".$player[$RankScore]." ".$player[$ladderPos]." ".$player[$isPred]." ".$player['Twitter']." ".$player['Twitch']." ".$player['lastUpdated']."<br />";
+            echo '<div class="leaderboardList'.checkPos($player[$ladderPos]).'">';
+                echo '<span class="item i1" style="flex-basis: 5%;"><span class="text">'.ladderPos($player[$ladderPos], $player[$isPred]).'</span></span>';
+                echo '<span class="item i2" style="flex-basis: 40%;"><span class="text"><b><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$player['Legend']]['Name'].'.png" class="icon" /> '.getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel']).'</b></span></span>';
+                echo '<span class="item i2" style="flex-basis: 10%;"><span class="text"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" class="icon" /> '.number_format($player['PlayerLevel']).'</span></span>';
+                echo '<span class="item i2" style="flex-basis: 30%;"><span class="text">'.isPred($player[$isPred], $player[$RankScore]).'</span></span>';
+                echo '<span class="item i2" style="flex-basis: 15%;"><span class="text">'.formatSocial($player['Twitter'], "Twitter").' '.formatSocial($player['Twitch'], "Twitch").'</span></span>';
+            echo '</div>';
         }
     ?>
 </div>
