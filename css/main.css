@@ -98,7 +98,7 @@ body {
 }
 
 .header .left {
-  width: 50%;
+  width: 75%;
   color: #FFF;
   font-size: 22pt;
   font-weight: bold;
@@ -128,7 +128,7 @@ body {
 }
 
 .header .right {
-  width: 50%;
+  width: 25%;
 }
 
 .header .right a {

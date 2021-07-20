@@ -29,18 +29,18 @@
 
     $records = 50;
     $offset = ($page - 1) * $records;
-    $totalPlayers = mysqli_query($DBConn, "SELECT COUNT(*) FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000");
+    $totalPlayers = mysqli_query($DBConn, "SELECT COUNT(*) FROM $DB_RankPeriod WHERE `Platform` = '$platform' AND `$RankScore` >= 10000");
     $totalRows = mysqli_fetch_array($totalPlayers)[0];
     $totalPages = ceil($totalRows / $records);
     
     if(isset($_GET['full'])) {
-        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC");
+        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC");
     }else{
-        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
+        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
     }
 
     // Minimum amount to reach Apex Predator
-    $minimumPred = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
+    $minimumPred = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
 
     while($row = mysqli_fetch_assoc($minimumPred)) {
         $minPred = number_format($row[$RankScore]);
@@ -90,7 +90,7 @@
 
 <div class="header">
     <span class="left">
-        <?php echo $text; ?> Ranked Stats <?php if(!isset($_GET['full'])) {?><span class="small"><a href="?full">[See Full List]</span></a><?php } ?>
+        <?php echo $text; ?> Ranked Stats for <?php echo $Name_RankPeriod; ?> <?php if(!isset($_GET['full'])) {?><span class="small"><a href="?full">[See Full List]</a></span><?php } ?>
         <span class="minimumRP">Approximate Minimum RP for Apex Predator: <b><?php echo $minPred; ?> RP</b></span>
     </span>
     <span class="right">
@@ -108,6 +108,10 @@
     </div>
 
     <?php
+        if(mysqli_fetch_array($rankedQuery) == 0) {
+            echo '<div style="text-align: center; margin-bottom: 15px; color: #FFF; font-size: 20pt; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.95);">No Players Found</div>';
+        }
+
         while($player = mysqli_fetch_assoc($rankedQuery)) {
             echo '<div class="leaderboardList'.checkPos($player[$ladderPos]).'">';
                 echo '<span class="item i1" style="flex-basis: 5%;"><span class="text">'.ladderPos($player[$ladderPos], $player[$isPred]).'</span></span>';
