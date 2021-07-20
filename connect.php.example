@@ -1,0 +1,13 @@
+<?php
+    $debug = true or false;
+    $host = "DB Host IP";
+    $user = "DB Username";
+    $pass = "DB Password";
+    $db = "Database";
+    $typeTitle = "Site Title/Type";
+    $typeTitleShort = "Short Site Title/Type";
+    $isPred = "Table Type";
+    $RankScore = "Table Type";
+    $ladderPos = "Table Type";
+    $GoogleAnalytics = "Google Analytics Abbreviation";
+    $DB_RankPeriod = "Current Ranked Period for DB";

@@ -18,7 +18,7 @@ if(!$DBConn) {
   die("Error: Connection failed. " . mysqli_connect_error());
 }
 
-$playerCount = mysqli_query($DBConn, "SELECT * FROM projectRanked ORDER BY `id` DESC LIMIT 1");
+$playerCount = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod ORDER BY `id` DESC LIMIT 1");
 
 while ($row = mysqli_fetch_assoc($playerCount)) {
     $setID = $row['id'];
@@ -32,7 +32,7 @@ while ($row = mysqli_fetch_assoc($playerCount)) {
 }
 
 for($i = 1; $i < $setID + 2; $i++) {
-  $getPlayer = "SELECT * FROM projectRanked WHERE id = $i";
+  $getPlayer = "SELECT * FROM $DB_RankPeriod WHERE id = $i";
   $queryPlayer = mysqli_query($DBConn, $getPlayer);
 
   while($row = mysqli_fetch_array($queryPlayer)) {
@@ -48,7 +48,7 @@ for($i = 1; $i < $setID + 2; $i++) {
 
     if($BR_LadderPos == -1) $BR_LadderPos = "9999";
 
-    mysqli_query($DBConn, "UPDATE projectRanked SET PlayerNick = '".$nickname."', PlayerLevel = '".$json['accountInfo']['level']."', Legend = '".$json['accountInfo']['active']['legend']."', BR_RankScore = '".$json['accountInfo']['Ranked_BR']['score']."', BR_LadderPos = '".$BR_LadderPos."', BR_isPred = '".isPred($BR_isPred)."', lastUpdated = '".time()."' WHERE PlayerID = '".$json['userData']['userID']."'");
+    mysqli_query($DBConn, "UPDATE $DB_RankPeriod SET PlayerNick = '".$nickname."', PlayerLevel = '".$json['accountInfo']['level']."', Legend = '".$json['accountInfo']['active']['legend']."', BR_RankScore = '".$json['accountInfo']['Ranked_BR']['score']."', BR_LadderPos = '".$BR_LadderPos."', BR_isPred = '".isPred($BR_isPred)."', lastUpdated = '".time()."' WHERE PlayerID = '".$json['userData']['userID']."'");
 
     // sleep(1);
   }

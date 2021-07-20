@@ -7,7 +7,7 @@
 
     $PID = $_GET['id'];
     $DBConn = mysqli_connect($host, $user, $pass, $db);
-    $getPlayer = mysqli_query($DBConn, "SELECT * FROM `projectRanked` WHERE `PlayerID` = '$PID'");
+    $getPlayer = mysqli_query($DBConn, "SELECT * FROM `$DB_RankPeriod` WHERE `PlayerID` = '$PID'");
     $player = mysqli_fetch_assoc($getPlayer);
 
     if(mysqli_num_rows($getPlayer) < 1) { echo '<div style="font-size: 25pt; width: 100%; text-align: center; color: #FFF; margin-top: 25px; font-weight: bold; text-shadow: 0 4px 0 rgba(0, 0, 0, 0.9);">User does not exist.</div>'; }

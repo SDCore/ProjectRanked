@@ -24,13 +24,13 @@
 
     $records = 50;
     $offset = ($page - 1) * $records;
-    $totalPlayers = "SELECT COUNT(*) FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000";
+    $totalPlayers = "SELECT COUNT(*) FROM $DB_RankPeriod WHERE `Platform` = '$platform' AND `$RankScore` >= 10000";
     $result = mysqli_query($DBConn, $totalPlayers);
     $totalRows = mysqli_fetch_array($result)[0];
     $totalPages = ceil($totalRows / $records);
 
-    $rankedQuery = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
-    $minimumPred = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
+    $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
+    $minimumPred = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
 ?>
 
 <div class="containerTitle">

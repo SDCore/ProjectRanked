@@ -15,12 +15,12 @@
         $name = $_POST['username'];
         $plat = $_POST['platformOption'];
 
-        $checkID = mysqli_query($DBConn, "SELECT * FROM projectRanked WHERE `PlayerID` = '$uid'");
+        $checkID = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod WHERE `PlayerID` = '$uid'");
 
         if(mysqli_fetch_array($checkID) > 0) {
             $resp = '<span class="error">A user with that ID already exists.</span>';
         }else{
-            mysqli_query($DBConn, "INSERT INTO projectRanked (PlayerID, PlayerName, PlayerNick, Platform, Twitter, Twitch) VALUES ('$uid', '$name', '', '$plat', 'N/A', 'N/A')");
+            mysqli_query($DBConn, "INSERT INTO $DB_RankPeriod (PlayerID, PlayerName, PlayerNick, Platform, Twitter, Twitch) VALUES ('$uid', '$name', '', '$plat', 'N/A', 'N/A')");
             $resp = '<span class="succ">User added successfully.</span>';
         }
     }
