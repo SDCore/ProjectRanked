@@ -61,10 +61,10 @@
 
 <div class="container">
     <div class="leaderboardTop">
-        <span class="item i1"><span class="text">#</span></span>
+        <span class="item i1" style="flex-basis: 5%;"><span class="text">#</span></span>
         <span class="item i2" style="flex-basis: 40%;"><span class="text">Name</span></span>
         <span class="item i2" style="flex-basis: 10%;"><span class="text">Level</span></span>
-        <span class="item i2" style="flex-basis: 30%;"><span class="text">Rank (RP)</span></span>
+        <span class="item i2" style="flex-basis: 30%;"><span class="text">Rank (Score)</span></span>
         <span class="item i2" style="flex-basis: 15%;"><span class="text">Socials</span></span>
     </div>
 

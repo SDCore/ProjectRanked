@@ -158,6 +158,36 @@ body {
   margin: 0 auto 25px auto;
 }
 
+.container .leaderboardTop {
+  display: flex;
+  font-size: 15pt;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0 15px 0;
+  transform: skew(20deg);
+  box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.75);
+}
+
+.container .leaderboardTop .item {
+  padding: 8px 16px;
+  border-bottom: 2px solid rgba(160, 160, 160, 0.85);
+}
+
+.container .leaderboardTop .item .text {
+  display: block;
+  transform: skew(-20deg);
+}
+
+.container .leaderboardTop .item.i1 {
+  background: rgba(255, 255, 255, 0.95);
+  border-left: 6px solid rgba(160, 160, 160, 0.85);
+}
+
+.container .leaderboardTop .item.i2 {
+  background: rgba(0, 0, 0, 0.75);
+  color: rgba(255, 255, 255, 0.95);
+}
+
 .footer {
   bottom: 0;
   width: 100%;
