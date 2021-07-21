@@ -4,6 +4,25 @@
 
     $DBConn = mysqli_connect($host, $user, $pass, $db);
 
+    if ($_SERVER['SCRIPT_NAME']=="/user.php") {
+        $PID = $_GET['id'];
+        $getPlayer = mysqli_query($DBConn, "SELECT * FROM `$DB_RankPeriod` WHERE `PlayerID` = '$PID'");
+        $player = mysqli_fetch_assoc($getPlayer);
+
+        if(mysqli_num_rows($getPlayer) < 1) {
+            $pageTitle = "N/A";
+        }else{
+            $legendFile = file_get_contents("./GameData/legends.json");
+            $legendIDs = json_decode($legendFile, true);
+
+            if($player['PlayerNick'] == null) {
+                $pageTitle = $legendIDs[$player['Legend']]['Name']."#".$player['PlayerLevel'];
+            }else{
+                $pageTitle = $player['PlayerNick'];
+            }
+        }
+    }
+
     function checkActive($page) {
         if ($_SERVER['SCRIPT_NAME'] == $page.".php") return "active";
 

@@ -251,6 +251,15 @@ body {
   line-height: 24px;
 }
 
+.container .leaderboardList .item.i2 a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.container .leaderboardList .item.i2 a:hover {
+  text-decoration: underline;
+}
+
 .container .leaderboardList .item.i2 .twitter {
   color: #FFF;
   margin: 0 5px;
