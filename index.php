@@ -75,10 +75,22 @@
         return;
     }
 
-    function checkPos($pos) {
-        if($pos == "1") return " first";
-        if($pos == "2") return " second";
-        if($pos == "3") return " third";
+    function checkPos($pos, $isPred) {
+        if($isPred == 0) {
+            if($pos == "1") return " first";
+            if($pos == "2") return " second";
+            if($pos == "3") return " third";
+
+            return " master";
+        }
+
+        if($isPred == 1) {
+            if($pos == "1") return " first";
+            if($pos == "2") return " second";
+            if($pos == "3") return " third";
+
+            return " pred";
+        }
     }
 
     function checkPage() {
@@ -123,7 +135,7 @@
         }
 
         while($player = mysqli_fetch_assoc($rankedQuery)) {
-            echo '<div class="leaderboardList'.checkPos($player[$ladderPos]).'">';
+            echo '<div class="leaderboardList'.checkPos($player[$ladderPos], $player[$isPred]).'">';
                 echo '<span class="item i1" style="flex-basis: 5%;"><span class="text">'.ladderPos($player[$ladderPos], $player[$isPred]).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 39%;"><span class="text" title="'.getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel']).'"><b><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$player['Legend']]['Name'].'.png" alt="Apex Legends Legend Icon" class="icon" /> <a href="/user?id='.$player['PlayerID'].'">'.truncate(getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel'])).'</a></b></span></span>';
                 echo '<span class="item i2" style="flex-basis: 11%;"><span class="text"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" alt="Apex Legends Account Level Icon" class="icon" /> '.number_format($player['PlayerLevel']).'</span></span>';

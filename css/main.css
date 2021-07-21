@@ -242,8 +242,6 @@ body {
 
 .container .leaderboardList .item.i1 {
   font-size: 14pt;
-  background: rgba(255, 40, 30, 0.85);
-  border-left: 4px solid rgba(150, 21, 17, 0.85);
 }
 
 .container .leaderboardList .item.i2 {
@@ -332,6 +330,24 @@ body {
 .container .leaderboardList.third .item.i1 {
   background: #B08D57;
   border-left: 4px solid #8F7247;
+}
+
+.container .leaderboardList.pred .item {
+  border-bottom: 2px solid rgba(150, 21, 17, 0.85);
+}
+
+.container .leaderboardList.pred .item.i1 {
+  background: rgba(255, 40, 30, 0.85);
+  border-left: 4px solid rgba(150, 21, 17, 0.85);
+}
+
+.container .leaderboardList.master .item {
+  border-bottom: 2px solid rgba(99, 61, 134, 0.85);
+}
+
+.container .leaderboardList.master .item.i1 {
+  background: rgba(146, 91, 198, 0.85);
+  border-left: 4px solid rgba(99, 61, 134, 0.85);
 }
 
 .container .pagination {

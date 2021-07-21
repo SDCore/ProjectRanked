@@ -38,7 +38,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?php if(isset($pageTitle)) { echo $pageTitle." -"; } ?> Apex Legends Ranked Leaderboard</title>
+    <title><?php if(isset($pageTitle)) { echo $pageTitle." &#8212;"; } ?> Apex Legends <?php echo $typeTitle; ?> Ranked Leaderboard</title>
 
     <link type="text/css" rel="stylesheet" href="<?php __DIR__; ?>/../css/main.min.css" />
     <link rel="shortcut icon" type="image/x-icon" href="<?php __DIR__; ?>/../favicon.ico" />
