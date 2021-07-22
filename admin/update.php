@@ -42,8 +42,8 @@ for($i = 1; $i < $setID + 2; $i++) {
 
     $json = json_decode($getJson, true);
 
-    $BR_LadderPos = $json['accountInfo']['Ranked_BR']['ladderPos'];
-    $BR_isPred = $json['accountInfo']['Ranked_BR']['name'];
+    $BR_LadderPos = $json['accountInfo']['Ranked']['BR']['ladderPos'];
+    $BR_isPred = $json['accountInfo']['Ranked']['BR']['name'];
     $nickname = mysqli_real_escape_string($DBConn, $json['userData']['username']);
 
     if($BR_LadderPos == -1) $BR_LadderPos = "9999";
