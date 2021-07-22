@@ -48,7 +48,7 @@ for($i = 1; $i < $setID + 2; $i++) {
 
     if($BR_LadderPos == -1) $BR_LadderPos = "9999";
 
-    mysqli_query($DBConn, "UPDATE $DB_RankPeriod SET PlayerNick = '".$nickname."', PlayerLevel = '".$json['accountInfo']['level']."', Legend = '".$json['accountInfo']['active']['legend']."', BR_RankScore = '".$json['accountInfo']['Ranked_BR']['score']."', BR_LadderPos = '".$BR_LadderPos."', BR_isPred = '".isPred($BR_isPred)."', lastUpdated = '".time()."' WHERE PlayerID = '".$json['userData']['userID']."'");
+    mysqli_query($DBConn, "UPDATE $DB_RankPeriod SET PlayerNick = '".$nickname."', PlayerLevel = '".$json['accountInfo']['level']."', Legend = '".$json['accountInfo']['active']['legend']."', BR_RankScore = '".$json['accountInfo']['Ranked']['BR']['score']."', BR_LadderPos = '".$BR_LadderPos."', BR_isPred = '".isPred($BR_isPred)."', lastUpdated = '".time()."' WHERE PlayerID = '".$json['userData']['userID']."'");
 
     // sleep(1);
   }
