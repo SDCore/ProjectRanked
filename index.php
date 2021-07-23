@@ -1,5 +1,6 @@
 <?php
-    $pageTitle = "Home"; require_once("./include/nav.php");
+    $pageTitle = "Home";
+    require_once("./include/nav.php");
 
     // Loading legend file w/ names
     $legendFile = file_get_contents("./GameData/legends.json");

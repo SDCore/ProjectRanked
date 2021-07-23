@@ -12,6 +12,9 @@
 
         return $time." minute";
     }
+
+    // Close connection
+    mysqli_close($DBConn);
 ?>
 
     <footer class="footer">
