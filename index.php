@@ -112,7 +112,7 @@
 
 <div class="header">
     <span class="left">
-        <?php echo $text; ?> Ranked Stats for <?php echo $Name_RankPeriod; ?> <?php if(!isset($_GET['full'])) {?><span class="small"><a href="?full">[See Full List]</a></span><?php } ?>
+        <?php echo $text; ?> Ranked Stats for <?php echo $Name_RankPeriod; ?> <?php if(!isset($_GET['full'])) {?><span class="small"><a href="?<?php echo $platform; ?>&full">[See Full List]</a></span><?php } ?>
         <span class="minimumRP">Approximate Minimum RP for Apex Predator: <b><?php echo $minPred; ?> RP</b></span>
     </span>
     <span class="right">
