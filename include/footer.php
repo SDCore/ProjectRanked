@@ -1,34 +1,28 @@
-<?php 
-    $DBConn = mysqli_connect($host, $user, $pass, $db);
+<?php
+    $lastUpdated = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod ORDER BY `id` DESC");
 
-    $recentQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod ORDER BY `BR_RankScore` ASC");
-
-    while ($row = mysqli_fetch_assoc($recentQuery)) {
+    while($row = mysqli_fetch_assoc($lastUpdated)) {
         $time = $row['lastUpdated'];
     }
 
-    function time2string($timeline) {
-        $periods = array('minute' => 60);
-        $ret = "";
-    
-        foreach($periods AS $name => $seconds){
-            $num = floor($timeline / $seconds);
-            $timeline -= ($num * $seconds);
-            $ret .= $num.' '.$name.(($num > 1 || $num == 0) ? 's' : '').' ';
-        }
-    
-        return trim($ret);
+    function timeText($time) {
+        $time = floor((time() - $time) / 60);
+
+        if($time > 1 || $time == 0) return $time." minutes";
+
+        return $time." minute";
     }
+
+    // Close connection
+    mysqli_close($DBConn);
 ?>
-    
-    <!-- Footer -->
+
     <footer class="footer">
-        <div class="inner">
-            <b><a href="/admin/login" style="text-decoration: none; color: rgba(255, 255, 255, 0.25);">&copy;</a> SDCore <?php echo date("Y"); ?>. &middot; Data updated every hour. &middot; Last updated <?php echo time2string(time()-$time); ?> ago.</b> <?php if(isset($_SESSION['user'])) { echo "<span style='float: right;'>".$_SESSION['username']." &middot; <a href='../admin/' style='color: rgba(255, 255, 255, 0.5); text-decoration: none;'>Admin</a> &middot; <a href='../logout' style='color: rgba(255, 255, 255, 0.5); text-decoration: none;'>Sign Out</a></span>"; } ?>
-        </div>
+        <a href="/admin/login" class="adminLink">&copy;</a> SDCore <?php echo date("Y"); ?> &middot; Data updated hourly. Last updated <?php echo timeText($time); ?> ago.<?php if(isset($_SESSION["user"])) { echo " &middot; <a href='../logout' class='adminLink'>Log Out</a>"; } else {} ?>
     </footer>
 
     <script src="https://kit.fontawesome.com/f9aca975cb.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
