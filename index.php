@@ -139,9 +139,9 @@
     <div class="leaderboardTop">
         <span class="item i1" style="flex-basis: 4%;"><span class="text">#</span></span>
         <span class="item i2" style="flex-basis: 42%;"><span class="text">Name</span></span>
-        <span class="item i2" style="flex-basis: 12%;"><span class="text">Level</span></span>
+        <span class="item i2 hidden" style="flex-basis: 12%;"><span class="text">Level</span></span>
         <span class="item i2" style="flex-basis: 31%;"><span class="text">Rank (Score)</span></span>
-        <span class="item i2" style="flex-basis: 11%;"><span class="text">Socials</span></span>
+        <span class="item i2 hidden" style="flex-basis: 11%;"><span class="text">Socials</span></span>
     </div>
 
     <?php
@@ -153,9 +153,9 @@
             echo '<div class="leaderboardList'.checkPos($player[$ladderPos], $player[$isPred]).'">';
                 echo '<span class="item i1" style="flex-basis: 4%;"><span class="text">'.ladderPos($player[$ladderPos], $player[$isPred]).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 42%;"><span class="text" title="'.getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel']).'"><b><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$player['Legend']]['Name'].'.png" alt="Apex Legends Legend Icon" class="icon" /> <a href="/user?id='.$player['PlayerID'].'">'.truncate(getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel'])).'</a></b></span></span>';
-                echo '<span class="item i2" style="flex-basis: 12%;"><span class="text"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" alt="Apex Legends Account Level Icon" class="icon" /> '.number_format($player['PlayerLevel']).'</span></span>';
+                echo '<span class="item i2 hidden" style="flex-basis: 12%;"><span class="text"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" alt="Apex Legends Account Level Icon" class="icon" /> '.number_format($player['PlayerLevel']).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 31%;"><span class="text">'.isPred($player[$isPred], $player[$RankScore]).'</span></span>';
-                echo '<span class="item i2" style="flex-basis: 11%;"><span class="text">'.formatSocial($player['Twitter'], "Twitter").''.formatSocial($player['Twitch'], "Twitch").''.formatSocial($player['TikTok'], "TikTok").''.formatSocial($player['YouTube'], "YouTube").'</span></span>';
+                echo '<span class="item i2 hidden" style="flex-basis: 11%;"><span class="text">'.formatSocial($player['Twitter'], "Twitter").''.formatSocial($player['Twitch'], "Twitch").''.formatSocial($player['TikTok'], "TikTok").''.formatSocial($player['YouTube'], "YouTube").'</span></span>';
             echo '</div>';
         }
     ?>

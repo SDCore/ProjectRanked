@@ -69,6 +69,20 @@ body
         border-bottom: 5px solid #DDD
         color: rgba(255, 255, 255, 0.75)
 
+@media (max-width: 600px)
+  .nav
+    width: 100%
+    height: auto
+    flex-direction: column
+    .link, .brand
+        width: 100%
+        margin: 0px
+        padding: 0px
+        display: block
+        transform: skew(0deg)
+        .text
+            transform: skew(0deg)
+
 .header
     width: 80%
     display: flex
@@ -308,6 +322,27 @@ body
                 pointer-events: none
                 background: rgba(0, 0, 0, 0.3)
                 color: rgba(255, 255, 255, 0.3)
+
+@media (max-width: 600px)
+    .container 
+        width: 98%    
+        .leaderboardTop
+            transform: skew(0deg)
+            .hidden
+                display: none
+            .item .text
+                transform: skew(0deg)
+        .leaderboardList
+            display: flex
+            transform: skew(0deg)
+            flex-direction: column
+            .hidden
+                display: none
+            .item
+                display: inline-block
+                .text
+                    transform: skew(0deg)
+                    word-wrap: break-word
 
 .adminAddUser
     width: 45%

@@ -90,6 +90,24 @@ body {
   color: rgba(255, 255, 255, 0.75);
 }
 
+@media (max-width: 600px) {
+  .nav {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+  .nav .link, .nav .brand {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    transform: skew(0deg);
+  }
+  .nav .link .text, .nav .brand .text {
+    transform: skew(0deg);
+  }
+}
+
 .header {
   width: 80%;
   display: flex;
@@ -457,6 +475,36 @@ body {
   pointer-events: none;
   background: rgba(0, 0, 0, 0.3);
   color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 98%;
+  }
+  .container .leaderboardTop {
+    transform: skew(0deg);
+  }
+  .container .leaderboardTop .hidden {
+    display: none;
+  }
+  .container .leaderboardTop .item .text {
+    transform: skew(0deg);
+  }
+  .container .leaderboardList {
+    display: flex;
+    transform: skew(0deg);
+    flex-direction: column;
+  }
+  .container .leaderboardList .hidden {
+    display: none;
+  }
+  .container .leaderboardList .item {
+    display: inline-block;
+  }
+  .container .leaderboardList .item .text {
+    transform: skew(0deg);
+    word-wrap: break-word;
+  }
 }
 
 .adminAddUser {
