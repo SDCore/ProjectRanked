@@ -43,7 +43,7 @@
     $minimumPred = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
 
     while($row = mysqli_fetch_assoc($minimumPred)) {
-        $minPred = number_format($row[$RankScore]);
+        $minPred = $row[$RankScore];
     }
 
     function getNickname($nick, $legend, $level) {
@@ -102,10 +102,24 @@
     }
 
     function truncate($str) {
-        if (strlen($str) > 25) {
-            return $str = substr($str, 0, 26) . '...';
+        if (strlen($str) > 28) {
+            return $str = substr($str, 0, 29) . '...';
         }else{
             return $str;
+        }
+    }
+
+    function minPred($min, $type) {
+        if($type == "BR") {
+            if($min < 10000) return 10000;
+
+            return $min;
+        }
+
+        if($type == "Arenas") {
+            if($min < 10000) return 10000;
+
+            return $min;
         }
     }
 ?>
@@ -113,7 +127,7 @@
 <div class="header">
     <span class="left">
         <?php echo $text; ?> Ranked Stats for <?php echo $Name_RankPeriod; ?> <?php if(!isset($_GET['full'])) {?><span class="small"><a href="?<?php echo $platform; ?>&full">[See Full List]</a></span><?php } ?>
-        <span class="minimumRP">Approximate Minimum RP for Apex Predator: <b><?php echo $minPred; ?> RP</b></span>
+        <span class="minimumRP">Approximate Minimum RP for Apex Predator: <b><?php echo number_format(minPred($minPred, $typeTitleShort)); ?> RP</b></span>
     </span>
     <span class="right">
         <a href="?X1" <?php if($platform == "X1") { echo 'class="active x1"'; } ?>><i class="fab fa-xbox"></i></a><a href="?PS4" <?php if($platform == "PS4") { echo 'class="active ps4"'; } ?>><i class="fab fa-playstation"></i></a><a href="?PC" <?php if($platform == "PC") { echo 'class="active pc"'; } ?>><i class="fab fa-steam"></i></a>
@@ -122,11 +136,11 @@
 
 <div class="container">
     <div class="leaderboardTop">
-        <span class="item i1" style="flex-basis: 5%;"><span class="text">#</span></span>
-        <span class="item i2" style="flex-basis: 39%;"><span class="text">Name</span></span>
-        <span class="item i2" style="flex-basis: 11%;"><span class="text">Level</span></span>
-        <span class="item i2" style="flex-basis: 30%;"><span class="text">Rank (Score)</span></span>
-        <span class="item i2" style="flex-basis: 15%;"><span class="text">Socials</span></span>
+        <span class="item i1" style="flex-basis: 4%;"><span class="text">#</span></span>
+        <span class="item i2" style="flex-basis: 42%;"><span class="text">Name</span></span>
+        <span class="item i2" style="flex-basis: 12%;"><span class="text">Level</span></span>
+        <span class="item i2" style="flex-basis: 31%;"><span class="text">Rank (Score)</span></span>
+        <span class="item i2" style="flex-basis: 11%;"><span class="text">Socials</span></span>
     </div>
 
     <?php
@@ -136,11 +150,11 @@
 
         while($player = mysqli_fetch_assoc($rankedQuery)) {
             echo '<div class="leaderboardList'.checkPos($player[$ladderPos], $player[$isPred]).'">';
-                echo '<span class="item i1" style="flex-basis: 5%;"><span class="text">'.ladderPos($player[$ladderPos], $player[$isPred]).'</span></span>';
-                echo '<span class="item i2" style="flex-basis: 39%;"><span class="text" title="'.getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel']).'"><b><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$player['Legend']]['Name'].'.png" alt="Apex Legends Legend Icon" class="icon" /> <a href="/user?id='.$player['PlayerID'].'">'.truncate(getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel'])).'</a></b></span></span>';
-                echo '<span class="item i2" style="flex-basis: 11%;"><span class="text"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" alt="Apex Legends Account Level Icon" class="icon" /> '.number_format($player['PlayerLevel']).'</span></span>';
-                echo '<span class="item i2" style="flex-basis: 30%;"><span class="text">'.isPred($player[$isPred], $player[$RankScore]).'</span></span>';
-                echo '<span class="item i2" style="flex-basis: 15%;"><span class="text">'.formatSocial($player['Twitter'], "Twitter").''.formatSocial($player['Twitch'], "Twitch").''.formatSocial($player['TikTok'], "TikTok").''.formatSocial($player['YouTube'], "YouTube").'</span></span>';
+                echo '<span class="item i1" style="flex-basis: 4%;"><span class="text">'.ladderPos($player[$ladderPos], $player[$isPred]).'</span></span>';
+                echo '<span class="item i2" style="flex-basis: 42%;"><span class="text" title="'.getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel']).'"><b><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$player['Legend']]['Name'].'.png" alt="Apex Legends Legend Icon" class="icon" /> <a href="/user?id='.$player['PlayerID'].'">'.truncate(getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel'])).'</a></b></span></span>';
+                echo '<span class="item i2" style="flex-basis: 12%;"><span class="text"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" alt="Apex Legends Account Level Icon" class="icon" /> '.number_format($player['PlayerLevel']).'</span></span>';
+                echo '<span class="item i2" style="flex-basis: 31%;"><span class="text">'.isPred($player[$isPred], $player[$RankScore]).'</span></span>';
+                echo '<span class="item i2" style="flex-basis: 11%;"><span class="text">'.formatSocial($player['Twitter'], "Twitter").''.formatSocial($player['Twitch'], "Twitch").''.formatSocial($player['TikTok'], "TikTok").''.formatSocial($player['YouTube'], "YouTube").'</span></span>';
             echo '</div>';
         }
     ?>
