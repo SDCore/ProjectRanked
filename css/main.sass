@@ -6,145 +6,172 @@
 
 @keyframes leaderboardHover
     0%
-        background: rgba(255, 255, 255, 0.8)
+        background: rgba(0, 0, 0, 0.7)
     50%
-        background: rgba(255, 255, 255, 0.6)
+        background: rgba(0, 0, 0, 0.95)
     100%
-        background: rgba(255, 255, 255, 0.8)
-    
-body
+        background: rgba(0, 0, 0, 0.7)
+
+html, body
     margin: 0
     padding: 0
     font-family: Arial, Helvetica, sans-serif
-    background: url("https://cdn.apexstats.dev/ProjectRanked/Background_Season01.jpeg") no-repeat fixed center
+
+body
+    background: url("https://cdn.apexstats.dev/ProjectRanked/Background_Season09_Small.png") no-repeat fixed center
     background-size: cover
 
 .nav
     width: 100%
-    display: block
-    background: rgba(0, 0, 0, 0)
-    border-bottom: 7px solid rgba(12, 14, 13, 1)
+    height: 50px
+    display: flex
+    padding: 0 0 5px 0
+    flex-direction: row
+    justify-content: center
+    border-bottom: 5px solid rgba(12, 14, 13, 1)
     font-family: "EUROCAPS", Arial, Helvetica, sans-serif
-    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(45, 45, 45, 1) 110%)
-    .inner
-        width: 85%
-        height: 75px
-        display: flex
-        margin: 0 auto
-        flex-wrap: nowrap
-        flex-direction: row
-        justify-content: center
-        .link, .brand
-            order: 0
-            height: 100%
-            margin: 0 1px
-            flex: 0 1 auto
-            font-size: 16pt
-            padding: 0 20px
-            color: #5E5E5E
-            min-width: 150px
-            align-self: auto
-            line-height: 80px
-            text-align: center
-            font-weight: bold
-            text-decoration: none
-            transform: skew(30deg)
-            transition: all 0.2s ease
-            border-bottom: 7px solid #4D4D4D
-            background: rgba(255, 255, 255, 0.075)
-            .text
-                display: block
-                transform: skew(-30deg)
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(60, 60, 60, 1) 110%)
+    .link, .brand
+        height: 100%
+        margin: 0 1px
+        font-size: 15pt
+        color: #7F7F7F
+        min-width: 100px
+        line-height: 60px
+        font-weight: bold
+        text-align: center
+        text-decoration: none
+        transform: skew(30deg)
+        padding: 0 15px 5px 15px
+        transition: all 0.2s ease
+        border-bottom: 5px solid #4D4D4D
+        background: rgba(255, 255, 255, 0.075)
+        &:hover
+            color: #FFF
+            border-color: rgba(255, 255, 255, 0.95)
+        &.active
+            color: #FFF
+            background: rgba(255, 0, 0, 0.55)
+            border-color: rgba(255, 0, 0, 0.6)
             &:hover
-                color: #FFF
-                transition: all 0.2s ease
-                border-color: rgba(255, 255, 255, 0.95)
-            &.active
-                color: #FFF
-                background: rgba(255, 0, 0, 0.55)
-                border-color: rgba(255, 0, 0, 0.6)
-                &:hover
-                    background: rgba(255, 0, 0, 0.65)
-                    border-color: rgba(255, 0, 0, 0.7)
-        .brand
-            color: #DDD
-            font-size: 18pt
-            min-width: 150px
-            border-bottom: 7px solid #DDD
+                background: rgba(255, 0, 0, 0.65)
+                border-color: rgba(255, 0, 0, 0.7)
+        &.disabled
+            pointer-events: none
+            color: rgba(255, 255, 255, 0.2)
+            background: rgba(255, 255, 255, 0.035)
+        .text
+            display: block
+            transform: skew(-30deg)
+    .brand
+        font-size: 16pt
+        min-width: 150px
+        border-bottom: 5px solid #DDD
+        color: rgba(255, 255, 255, 0.75)
 
-.containerTitle
+.header
     width: 80%
-    height: 40px
-    margin: 0 auto
-    margin-top: 10px
+    display: flex
+    margin: 10px auto 5px auto
     font-family: "Montserrat", Arial, Helvetica, sans-serif
     .left
-        height: 100%
+        width: 75%
         color: #FFF
-        font-size: 25pt
+        font-size: 22pt
         font-weight: bold
-        line-height: 40px
-        text-shadow: 0 4px 0 rgba(0, 0, 0, 1)
-        .full
-            color: #FFF
-            font-size: 15pt
-            font-weight: normal
-            text-decoration: none
-            &:hover
-                text-decoration: underline
+        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.95)
+        .small
+            font-size: 14pt
+            font-weight: 300
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75)
+            a
+                color: #FFF
+                text-decoration: none
+                &:hover
+                    text-decoration: underline
+        .minimumRP
+            font-size: 14pt
+            font-weight: 300
+            display: inline-block
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75)
     .right
-        height: 100%
-        float: right
-        line-height: 40px
-        border-radius: 4px
-        border: 1px solid rgba(255, 255, 255, 0.2)
+        width: 25%
         a
-            float: left
-            height: 40px
-            display: block
-            padding: 0 10px
+            float: right
             font-size: 20pt
+            padding: 5px 15px
             text-decoration: none
             transition: all 0.2s ease
             background: rgba(0, 0, 0, 0.5)
             color: rgba(255, 255, 255, 0.5)
             &.active
-                color: #FFF
-                font-weight: bold
                 background: rgba(0, 0, 0, 1)
+                color: rgba(255, 255, 255, 1)
+                &.pc
+                    color: #FFFFFF
+                &.ps4
+                    color: #2E6DB4
+                &.x1
+                    color: #107C10
             &:hover
                 background: rgba(0, 0, 0, 1)
                 color: rgba(255, 255, 255, 1)
-            &:first-child
-                border-top-left-radius: 4px
-                border-bottom-left-radius: 4px
-            &:nth-child(2)
-                border-left: 1px solid rgba(255, 255, 255, 0.15)
-                border-right: 1px solid rgba(255, 255, 255, 0.15)
-            &:last-child
+            &:nth-child(1)
                 border-top-right-radius: 4px
                 border-bottom-right-radius: 4px
+            &:nth-child(3)
+                border-top-left-radius: 4px
+                border-bottom-left-radius: 4px
 
-.minimumPred
-    width: 80%
-    color: #FFF
-    margin: 0 auto
-    font-weight: 100
-    font-family: "Montserrat", Arial, Helvetica, sans-serif
+.adminLogin
+    width: 45%
+    padding: 8px 20px
+    border-radius: 3px
+    margin: 15px auto 0 auto
+    background: rgba(0, 0, 0, 0.75)
+    .title
+        color: #FFF
+        display: block
+        font-size: 25pt
+        font-weight: bold
+        margin: 15px 0 10px 0
+        text-align: center
+    .error
+        color: #F00
+        display: block
+        font-weight: bold
+        text-align: center
+    .group
+        width: 100%
+        margin: 15px 0 10px 0
+        .title
+            color: #FFF
+            font-size: 16pt
+        .input
+            width: 100%
+            font-size: 14pt
+            padding: 4px 10px
+            text-align: center
+            box-sizing: border-box
+    .submit
+        width: 100%
+        font-size: 16pt
+        padding: 6px 15px
+        font-weight: bold
+        margin: 10px 0 5px 0
 
 .container
     width: 80%
-    margin: 0 auto
-    margin-top: 5px
-    margin-bottom: 25px
-    .title
-        width: 100%
+    margin: 0 auto 50px auto
+    .leaderboardTop
         display: flex
         font-size: 15pt
         font-weight: bold
         text-align: center
         margin: 10px 0 15px 0
         transform: skew(20deg)
+        background: rgba(0, 0, 0, 0.75)
+        box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.75)
         .item
             padding: 8px 16px
             border-bottom: 2px solid rgba(160, 160, 160, 0.85)
@@ -152,473 +179,211 @@ body
                 display: block
                 transform: skew(-20deg)
             &.i1
-                flex-basis: 5%
-                background: #FFF
+                background: rgba(255, 255, 255, 0.95)
                 border-left: 6px solid rgba(160, 160, 160, 0.85)
             &.i2
-                background: rgba(0, 0, 0, 0.5)
                 color: rgba(255, 255, 255, 0.95)
-    .list
-        width: 100%
+    .leaderboardList
         display: flex
-        font-size: 13pt
-        font-weight: bold
-        line-height: 32px
-        text-align: center
-        margin-bottom: 10px
+        margin-bottom: 8px
         transform: skew(20deg)
+        background: rgba(0, 0, 0, 0.75)
+        box-shadow: -2px 2px 1px rgba(0, 0, 0, 0.5)
         &:hover
             animation: leaderboardHover 1.5s infinite
         .item
-            padding: 4px 16px
-            border-bottom: 2px solid rgba(150, 21, 17, 0.8)
+            padding: 8px 16px
+            text-align: center
+            position: relative
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+            border-bottom: 2px solid rgba(150, 21, 17, 0.85)
             .text
-                display: block
-                position: relative
-                transform: skew(-20deg)
-                text-shadow: 0 2px 0 rgba(0, 0, 0, 0.9)
-            a
                 color: #FFF
-                text-decoration: none
+                display: block
+                transform: skew(-20deg)
             .icon
-                top: 5px
+                left: 0
                 max-height: 25px
-                position: relative
-                &.legend
-                    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 1))
-                &.level
-                    filter: drop-shadow(0 0 2px rgba(255, 234, 46, 0.7))
+                position: absolute
             &.i1
-                flex-basis: 5%
-                font-size: 15pt
-                color: rgba(255, 255, 255, 0.9)
-                background: rgba(255, 40, 30, 0.85)
-                border-left: 4px solid rgba(150, 21, 17, 0.8)
+                font-size: 14pt
             &.i2
-                background: rgba(0, 0, 0, 0.5)
-                color: rgba(255, 255, 255, 0.8)
-                .icoTwitter
+                font-size: 14pt
+                line-height: 24px
+                a
                     color: #FFF
-                    line-height: 32px
-                    margin-right: 10px
+                    text-decoration: none
+                    &:hover
+                        text-decoration: underline
+                .twitter
+                    color: #FFF
+                    margin: 0 5px
                     vertical-align: middle
                     transition: all 0.1s ease
                     &:hover
                         color: #1DA1F2
-                .icoTwitch
-                    line-height: 32px
-                    margin-right: 10px
+                .twitch
+                    color: #FFF
+                    margin: 0 5px
                     vertical-align: middle
                     transition: all 0.1s ease
-                    color: rgba(255, 255, 255, 0.95)
                     &:hover
                         color: #6441A5
+                .tiktok
+                    color: #FFF
+                    margin: 0 5px
+                    vertical-align: middle
+                    transition: all 0.1s ease
+                    &:hover
+                        color: #FF0050
+                .youtube
+                    color: #fff
+                    margin: 0 5px
+                    vertical-align: middle
+                    transition: all 0.1s ease
+                    &:hover
+                        color: #FF0000
         &.first .item
-            color: #FFF
-            font-size: 16pt
+            font-weight: bold
             border-bottom: 2px solid #AA8C28
             &.i1
                 background: #D4AF37
-                border-left: 6px solid #AA8C28
+                border-left: 4px solid #AA8C28
         &.second .item
-            color: #FFF
-            font-size: 16pt
+            font-weight: bold
             border-bottom: 2px solid #7E7E7E
             &.i1
                 background: #A9A9A9
-                border-left: 5px solid #7E7E7E
+                border-left: 4px solid #7E7E7E
         &.third .item
-            color: #FFF
-            font-size: 15pt
+            font-weight: bold
             border-bottom: 2px solid #8F7247
             &.i1
                 background: #B08D57
                 border-left: 4px solid #8F7247
-
-.loginContainer
-    width: 35%
-    padding: 4px 20px
-    background: #FFF
-    border-radius: 5px
-    margin: 10px auto 0 auto
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5)
-    .title
-        display: block
-        font-size: 20pt
-        text-align: center
-    .loginError
-        display: block
-        font-weight: bold
-        text-align: center
-        color: rgba(255, 0, 0, 0.75)
-    .inner
-        width: 90%
-        margin: 10px auto
-        .group
-            width: 100%
-            .error
-                width: 100%
-                display: block
-                font-weight: bold
-                color: rgba(255, 0, 0, 0.75)
-            .groupTitle
-                font-size: 16pt
-                font-weight: bold
-            .input
-                width: 100%
-                font-size: 12pt
-                margin: 5px 0 15px 0
-        .submit
-            width: 100%
-            border: none
-            color: #FFF
-            cursor: pointer
-            font-size: 12pt
-            font-weight: bold
-            padding: 12px 16px
-            background: rgba(0, 0, 255, 0.75)
-
-.adminContainer
-    width: 75%
-    margin: 0 auto
-    margin-top: 15px
-    .addUser
-        width: 50%
-        margin: 0 auto
-        padding: 6px 12px
-        background: #FFF
-        border-radius: 3px
-        .title
-            display: block
-            font-size: 20pt
-            font-weight: bold
-            text-align: center
-        .inputTitle
-            display: block
-            font-size: 16pt
-        .newUser
-            width: 100%
-            font-size: 14pt
-            padding: 6px 12px
-            box-sizing: border-box
-        .submitButton
-            width: 100%
-            font-size: 14pt
-            font-weight: bold
-            padding: 8px 20px
-        .error
-            width: 100%
-            display: block
-            font-weight: bold
-            text-align: center
-            color: rgba(255, 0, 0, 0.7)
-        .succ
-            width: 100%
-            display: block
-            font-weight: bold
-            text-align: center
-            color: rgba(0, 192, 0, 0.7)
-    
-.pagination
-    width: 80%
-    display: flex
-    margin: 0 auto
-    margin-bottom: 65px
-    background: rgba(0, 0, 0, 0.5)
-    .page
-        flex: 1
-        color: #FFF
-        padding: 10px 0
-        font-size: 15pt
-        font-weight: bold
-        text-align: center
-        text-decoration: none
-        transition: all 0.2s ease
-        border-bottom: 2px solid rgba(255, 0, 0, 0.5)
-        &.first
-            flex-basis: 15%
-            background: rgba(255, 40, 30, 0.65)
-            border-left: 4px solid rgba(150, 21, 17, 0.6)
-            &:hover
-                background: rgba(255, 40, 30, 0.9)
-        &.prev
-            flex-basis: 35%
-            &:hover
-                background: rgba(0, 0, 0, 0.6)
-        &.next
-            flex-basis: 35%
-            &:hover
-                background: rgba(0, 0, 0, 0.6)
-        &.last
-            flex-basis: 15%
-            background: rgba(255, 40, 30, 0.65)
-            border-right: 4px solid rgba(150, 21, 17, 0.6)
-            &:hover
-                background: rgba(255, 40, 30, 0.9)
-        &.disabled
-            cursor: default
-            pointer-events: none
-            background: rgba(0, 0, 0, 0.3)
-            color: rgba(255, 255, 255, 0.3)
-
-.userContainer
-    width: 80%
-    display: flex
-    margin: 0 auto
-    margin-top: 15px
-    .avatar
-        flex: 1
-        margin: 1px
-        flex-basis: 25%
-        border-top-left-radius: 4px
-        background: rgba(0, 0, 0, 0.5)
-        border: 1px solid rgba(255, 255, 255, 0.15)
-        .legend
-            height: 150px
-            margin: 0 auto
-            display: block
-            padding: 10px 0
-        .name
-            width: 100%
-            color: #FFF
-            display: block
-            font-size: 20pt
-            font-weight: bold
-            text-align: center
-            padding: 10px 0 0 0
-            background: rgba(0, 0, 0, 0.25)
-            border-top: 1px solid rgba(255, 255, 255, 0.1)
-            font-family: "Montserrat", Arial, Helvetica, sans-serif
-        .subText
-            width: 100%
-            font-size: 10pt
-            font-weight: 300
-            display: inline-block
-            color: rgba(255, 255, 255, 0.5)
-    .stats
-        flex: 1
-        margin: 1px
+        &.pred .item
+            border-bottom: 2px solid rgba(150, 21, 17, 0.85)
+            &.i1
+                background: rgba(255, 40, 30, 0.85)
+                border-left: 4px solid rgba(150, 21, 17, 0.85)
+        &.master .item
+            border-bottom: 2px solid rgba(99, 61, 134, 0.85)
+            &.i1
+                background: rgba(146, 91, 198, 0.85)
+                border-left: 4px solid rgba(99, 61, 134, 0.85)
+    .pagination
         display: flex
-        flex-basis: 75%
-        border-top-right-radius: 4px
-        background: rgba(0, 0, 0, 0.5)
-        border: 1px solid rgba(255, 255, 255, 0.15)
-        .level
+        background: rgba(0, 0, 0, 0.65)
+        .page
             flex: 1
-            .levelImage
-                height: 150px
-                margin: 0 auto
-                display: block
-                padding: 10px 0
-            .levelText
-                width: 100%
-                color: #FFF
-                display: block
-                font-size: 20pt
-                padding: 10px 0 0 0
-                font-weight: bold
-                text-align: center
-                background: rgba(0, 0, 0, 0.25)
-                border-top: 1px solid rgba(255, 255, 255, 0.1)
-                font-family: "Montserrat", Arial, Helvetica, sans-serif
-            .subText
-                width: 100%
-                font-size: 10pt
-                font-weight: 300
-                display: inline-block
-                color: rgba(255, 255, 255, 0.5)
-        .BR_Rank
-            flex: 1
-            position: relative
-            .RankImage
-                height: 150px
-                margin: 0 auto
-                display: block
-                padding: 10px 0
-            .pos
-                top: 52%
-                width: 100%
-                margin: 0 auto
-                font-size: 13pt
-                color: #D91616
-                font-weight: bold
-                text-align: center
-                position: absolute
-                display: inline-block
-            .unranked
-                top: 54.25%
-                width: 100%
-                color: #AAA
-                margin: 0 auto
-                font-size: 12pt
-                text-align: center
-                position: absolute
-                display: inline-block
-            .RankText
-                width: 100%
-                color: #FFF
-                display: block
-                font-size: 20pt
-                padding: 10px 0 0 0
-                font-weight: bold
-                text-align: center
-                background: rgba(0, 0, 0, 0.25)
-                border-top: 1px solid rgba(255, 255, 255, 0.1)
-                font-family: "Montserrat", Arial, Helvetica, sans-serif
-            .subText
-                width: 100%
-                font-size: 10pt
-                font-weight: 300
-                display: inline-block
-                color: rgba(255, 255, 255, 0.5)
-        .Arenas_Rank
-            flex: 1
-            position: relative
-            .RankImage
-                height: 150px
-                margin: 0 auto
-                display: block
-                padding: 10px 0
-            .pos
-                top: 52%
-                width: 100%
-                margin: 0 auto
-                font-size: 13pt
-                color: #D91616
-                font-weight: bold
-                text-align: center
-                position: absolute
-                display: inline-block
-            .unranked
-                top: 54.25%
-                width: 100%
-                color: #AAA
-                margin: 0 auto
-                font-size: 12pt
-                text-align: center
-                position: absolute
-                display: inline-block
-            .RankText
-                width: 100%
-                color: #FFF
-                display: block
-                font-size: 20pt
-                padding: 10px 0 0 0
-                font-weight: bold
-                text-align: center
-                background: rgba(0, 0, 0, 0.25)
-                border-top: 1px solid rgba(255, 255, 255, 0.1)
-                font-family: "Montserrat", Arial, Helvetica, sans-serif
-            .subText
-                width: 100%
-                font-size: 10pt
-                font-weight: 300
-                display: inline-block
-                color: rgba(255, 255, 255, 0.5)
+            color: #FFF
+            padding: 10px 0
+            font-weight: bold
+            text-align: center
+            text-decoration: none
+            transition: all 0.2s ease
+            border-bottom: 3px solid rgba(150, 21, 17, 1)
+            &:nth-of-type(1)
+                flex-basis: 15%
+                background: rgba(255, 40, 30, 0.75)
+                border-left: 6px solid rgba(150, 21, 17, 1)
+                &:hover
+                    background: rgba(255, 40, 30, 1)
+            &:nth-of-type(2)
+                flex-basis: 35%
+                &:hover
+                    background: rgba(0, 0, 0, 0.6)
+            &:nth-of-type(3)
+                flex-basis: 35%
+                &:hover
+                    background: rgba(0, 0, 0, 0.6)
+            &:nth-of-type(4)
+                flex-basis: 15%
+                background: rgba(255, 40, 30, 0.75)
+                border-right: 6px solid rgba(150, 21, 17, 1)
+                &:hover
+                    background: rgba(255, 40, 30, 1)
+            &.disabled
+                cursor: default
+                pointer-events: none
+                background: rgba(0, 0, 0, 0.3)
+                color: rgba(255, 255, 255, 0.3)
 
-.userInfoContainer
-    width: 80%
-    display: flex
-    margin: 0 auto 50px auto
-    .kills
-        flex: 1
-        margin: 1px
-        overflow: auto
+.adminAddUser
+    width: 45%
+    padding: 8px 20px
+    border-radius: 3px
+    margin: 15px auto 0 auto
+    background: rgba(0, 0, 0, 0.75)
+    .title
+        color: #FFF
         display: block
-        flex-basis: 25%
-        background: rgba(0, 0, 0, 0.5)
-        border: 1px solid rgba(255, 255, 255, 0.15)
-        .title
-            color: #FFF
-            font-size: 20pt
-            font-weight: bold
-            margin-bottom: 5px
-            display: inline-block
-            width: calc(100% - 32px)
-            padding: 8px 16px 6px 16px
-            background: rgba(0, 0, 0, 0.25)
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1)
-        .body
-            width: 90%
-            margin: 0 auto
-            display: block
-            .NA
-                width: 100%
-                color: #FFF
-                display: block
-                padding: 8px 0
-                font-size: 18pt
-                font-weight: bold
-                text-align: center
-    .twitch
-        flex: 2
-        margin: 1px
-        overflow: auto
+        font-size: 25pt
+        font-weight: bold
+        margin: 15px 0 10px 0
+        text-align: center
+    .error
+        color: #F00
         display: block
-        flex-basis: 50%
-        background: rgba(0, 0, 0, 0.5)
-        border: 1px solid rgba(255, 255, 255, 0.15)
+        font-weight: bold
+        text-align: center
+    .success
+        color: #0F0
+        display: block
+        font-weight: bold
+        text-align: center
+    .group
+        width: 100%
+        margin: 15px 0 10px 0
         .title
             color: #FFF
-            font-size: 20pt
-            font-weight: bold
-            margin-bottom: 5px
-            display: inline-block
-            width: calc(100% - 32px)
-            padding: 8px 16px 6px 16px
-            background: rgba(0, 0, 0, 0.25)
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1)
-        .body
-            width: 90%
-            margin: 0 auto
-            display: block
-            .NA
-                width: 100%
-                color: #FFF
-                display: block
-                padding: 8px 0
-                font-size: 18pt
-                font-weight: bold
-                text-align: center
-    .twitter
-        flex: 1
-        margin: 1px
-        overflow: auto
-        flex-basis: 25%
-        max-height: 500px
-        background: rgba(0, 0, 0, 0.5)
-        border: 1px solid rgba(255, 255, 255, 0.15)
-        .title
-            color: #FFF
-            font-size: 20pt
-            font-weight: bold
-            margin-bottom: 5px
-            display: inline-block
-            width: calc(100% - 32px)
-            padding: 8px 16px 6px 16px
-            background: rgba(0, 0, 0, 0.25)
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1)
-        .body
-            width: 90%
-            margin: 0 auto
-            display: block
-            .NA
-                width: 100%
-                color: #FFF
-                display: block
-                padding: 8px 0
-                font-size: 18pt
-                font-weight: bold
-                text-align: center
+            font-size: 16pt
+        .input
+            width: 100%
+            font-size: 14pt
+            padding: 4px 10px
+            text-align: center
+            box-sizing: border-box
+    .submit
+        width: 100%
+        font-size: 16pt
+        padding: 6px 15px
+        font-weight: bold
+        margin: 10px 0 5px 0
+
+.addUserButtons
+    width: 35%
+    margin: 25px auto 0 auto
+    .title
+        color: #FFF
+        display: block
+        font-size: 30pt
+        font-weight: bold
+        text-shadow: 0 4px 0 rgba(0, 0, 0, 0.85)
+    a
+        width: 100%
+        color: #FFF
+        display: block
+        margin: 15px 0
+        padding: 8px 0
+        font-size: 24pt
+        font-weight: bold
+        text-align: center
+        border-radius: 3px
+        text-decoration: none
+        background: rgba(0, 0, 0, 0.7)
+        border: 1px solid rgba(255, 255, 255, 0.5)
 
 .footer
     bottom: 0
     width: 100%
+    padding: 5px 0
     position: fixed
+    font-weight: bold
+    text-align: center
     background: #161616
     border-top: 2px solid #666
-    .inner
-        width: 80%
-        padding: 6px
-        margin: 0 auto
+    color: rgba(255, 255, 255, 0.25)
+    .adminLink
+        text-decoration: none
         color: rgba(255, 255, 255, 0.25)

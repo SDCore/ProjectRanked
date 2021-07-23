@@ -1,6 +1,11 @@
-<?php
+<?php 
     $pageTitle = "Admin Login";
     require_once("../include/nav.php");
+
+    if(isset($_SESSION["user"])){
+        header("location: dashboard");
+        exit;
+    }
 
     $username_err = $password_err = $username = "";
 
@@ -54,7 +59,7 @@
                                 $_SESSION["username"] = $username;                            
                                 
                                 // Redirect user to welcome page
-                                header("location: index");
+                                header("location: dashboard");
                             } else{
                                 // Password is not valid, display a generic error message
                                 $login_err = "Invalid username or password.";
@@ -72,30 +77,25 @@
                 mysqli_stmt_close($stmt);
             }
         }
-        
-        // Close connection
-        mysqli_close($DBConn);
     }      
 ?>
 
-    <form action="#" method="post">
-        <div class="loginContainer">
-            <span class="title">Admin Login</span>
-            <span class="loginError"><?php if(!empty($login_err)) { echo $login_err; } ?></span>
-            <div class="inner">
-                <div class="group">
-                    <span class="groupTitle">Username</span>
-                    <span class="error"><?php echo $username_err; ?></span>
-                    <input type="text" name="username" class="input" value="<?php echo $username; ?>" />
-                </div>
-                <div class="group">
-                    <span class="groupTitle">Password</span>
-                    <span class="error"><?php echo $password_err; ?></span>
-                    <input type="password" name="password" class="input" />
-                </div>
-                <input type="submit" class="submit" value="Sign In" />
-            </div>
+<form action="#" method="post">
+    <div class="adminLogin">
+        <span class="title">Admin Login</span>
+        <span class="error"><?php if(!empty($login_err)) { echo $login_err; } ?></span>
+        <div class="group">
+            <span class="title">Username</span>
+            <span class="error"><?php echo $username_err; ?></span>
+            <input type="text" name="username" class="input" value="<?php echo $username; ?>" required="required" />
         </div>
-    </form>
+        <div class="group">
+            <span class="title">Password</span>
+            <span class="error"><?php echo $password_err; ?></span>
+            <input type="password" name="password" class="input" required="required" />
+        </div>
+        <input type="submit" class="submit" value="Sign In" />
+    </div>
+</form>
 
 <?php require_once("../include/footer.php"); ?>
