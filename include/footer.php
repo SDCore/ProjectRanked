@@ -1,5 +1,5 @@
 <?php
-    $lastUpdated = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod ORDER BY `lastUpdated` DESC");
+    $lastUpdated = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod ORDER BY `id` DESC");
 
     while($row = mysqli_fetch_assoc($lastUpdated)) {
         $time = $row['lastUpdated'];
