@@ -18,7 +18,7 @@
 ?>
 
     <footer class="footer">
-        <a href="/admin/login" class="adminLink">&copy;</a> SDCore <?php echo date("Y"); ?> &middot; Data updated hourly. Last updated <?php echo timeText($time); ?> ago.
+        <a href="/admin/login" class="adminLink">&copy;</a> SDCore <?php echo date("Y"); ?> &middot; Data updated hourly. Last updated <?php echo timeText($time); ?> ago.<?php if(isset($_SESSION["user"])) { echo " &middot; <a href='../logout' class='adminLink'>Log Out</a>"; } else {} ?>
     </footer>
 
     <script src="https://kit.fontawesome.com/f9aca975cb.js" crossorigin="anonymous"></script>
