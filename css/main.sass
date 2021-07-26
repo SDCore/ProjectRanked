@@ -206,9 +206,12 @@ body
         &:hover
             animation: leaderboardHover 1.5s infinite
         .item
+            overflow: hidden
             padding: 8px 16px
             text-align: center
             position: relative
+            white-space: nowrap
+            text-overflow: ellipsis
             text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
             border-bottom: 2px solid rgba(150, 21, 17, 0.85)
             .text
@@ -360,12 +363,15 @@ body
         color: rgba(255, 255, 255, 0.85)
         .name
             flex-basis: 70%
+            overflow: hidden
+            white-space: nowrap
+            text-overflow: ellipsis
         .socials
             display: flex
             flex-basis: 30%
             text-align: center
             a
-                flex-basis: 25%
+                flex: 1
                 transition: all 0.1s ease
                 color: rgba(255, 255, 255, 0.85)
             .twitter:hover
