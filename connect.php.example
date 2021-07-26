@@ -11,4 +11,6 @@
     $ladderPos = "Table Type";
     $GoogleAnalytics = "Google Analytics Abbreviation";
     $Name_RankPeriod = "Current Season and Split";
-    $DB_RankPeriod = "Current Ranked Period for DB";
+    $DB_RankPeriod_Current = "Current Rank Period";
+    $DB_RankPeriod_01 = "Rank Period _01 for DB";
+    $DB_RankPeriod_02 = "Rank Period _02 for DB";

@@ -30,18 +30,18 @@
 
     $records = 50;
     $offset = ($page - 1) * $records;
-    $totalPlayers = mysqli_query($DBConn, "SELECT COUNT(*) FROM $DB_RankPeriod WHERE `Platform` = '$platform' AND `$RankScore` >= 10000");
+    $totalPlayers = mysqli_query($DBConn, "SELECT COUNT(*) FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= 10000");
     $totalRows = mysqli_fetch_array($totalPlayers)[0];
     $totalPages = ceil($totalRows / $records);
     
     if(isset($_GET['full'])) {
-        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC");
+        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC");
     }else{
-        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
+        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
     }
 
     // Minimum amount to reach Apex Predator
-    $minimumPred = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
+    $minimumPred = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
 
     while($row = mysqli_fetch_assoc($minimumPred)) {
         $minPred = $row[$RankScore];
@@ -152,7 +152,7 @@
         while($player = mysqli_fetch_assoc($rankedQuery)) {
             echo '<div class="leaderboardList'.checkPos($player[$ladderPos], $player[$isPred]).'">';
                 echo '<span class="item i1" style="flex-basis: 4%;"><span class="text">'.ladderPos($player[$ladderPos], $player[$isPred]).'</span></span>';
-                echo '<span class="item i2" style="flex-basis: 42%;"><span class="text" title="'.getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel']).'"><b><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$player['Legend']]['Name'].'.png" alt="Apex Legends Legend Icon" class="icon" /> <a href="/user?id='.$player['PlayerID'].'">'.truncate(getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel'])).'</a></b></span></span>';
+                echo '<span class="item i2" style="flex-basis: 42%;"><span class="text" title="'.getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel']).'"><b><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$player['Legend']]['Name'].'.png" alt="Apex Legends Legend Icon" class="icon" /> <a href="/user?id='.$player['PlayerID'].'">'.getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel']).'</a></b></span></span>';
                 echo '<span class="item i2 hidden" style="flex-basis: 12%;"><span class="text"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" alt="Apex Legends Account Level Icon" class="icon" /> '.number_format($player['PlayerLevel']).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 31%;"><span class="text">'.isPred($player[$isPred], $player[$RankScore]).'</span></span>';
                 echo '<span class="item i2 hidden" style="flex-basis: 11%;"><span class="text">'.formatSocial($player['Twitter'], "Twitter").''.formatSocial($player['Twitch'], "Twitch").''.formatSocial($player['TikTok'], "TikTok").''.formatSocial($player['YouTube'], "YouTube").'</span></span>';

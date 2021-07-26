@@ -217,7 +217,10 @@ body
             .text
                 color: #FFF
                 display: block
+                overflow: hidden
+                white-space: nowrap
                 transform: skew(-20deg)
+                text-overflow: ellipsis
             .icon
                 left: 0
                 max-height: 25px
@@ -351,24 +354,25 @@ body
     width: 80%
     margin: 15px auto 50px auto
     .title
+        width: 100%
         display: flex
         font-size: 25pt
+        margin: 0 0 1px 
         font-weight: bold
-        margin: 0 0 1px 0
-        padding: 12px 24px
-        width: calc(100% - 48px)
         border-top-left-radius: 3px
         border-top-right-radius: 3px
         background: rgba(0, 0, 0, 0.75)
         color: rgba(255, 255, 255, 0.85)
         .name
-            flex-basis: 70%
+            flex-basis: 75%
             overflow: hidden
             white-space: nowrap
             text-overflow: ellipsis
+            padding: 12px 0 12px 25px
         .socials
             display: flex
-            flex-basis: 30%
+            flex-basis: 25%
+            padding: 12px 0
             text-align: center
             a
                 flex: 1
@@ -387,9 +391,53 @@ body
         display: flex
         .box
             flex: 1
+            display: flex
             background: rgba(0, 0, 0, 0.75)
             &:nth-of-type(2)
+                flex: 2
                 margin: 0 1px
+            .inner
+                flex: 1
+                flex-direction: column
+                .image
+                    flex: 1
+                    width: 100%
+                    display: flex
+                    padding: 10px 0
+                    position: relative
+                    justify-content: center
+                    img
+                        width: 150px
+                    .innerText
+                        top: 133px
+                        font-size: 10pt
+                        position: absolute
+                        color: rgba(255, 255, 255, 0.5)
+                        &.pred
+                            top: 128px
+                            color: rgba(255, 255, 255, 0.85)
+                        &.master
+                            color: rgba(255, 255, 255, 0.85)
+                .text
+                    flex: 1
+                    width: 100%
+                    display: block
+                    padding: 5px 0
+                    font-size: 18pt
+                    font-weight: bold
+                    text-align: center
+                    background: rgba(0, 0, 0, 0.25)
+                    color: rgba(255, 255, 255, 0.75)
+                .label
+                    flex: 1
+                    width: 100%
+                    display: block
+                    padding: 5px 0
+                    font-size: 14pt
+                    font-weight: bold
+                    text-align: center
+                    background: rgba(0, 0, 0, 0.35)
+                    color: rgba(255, 255, 255, 0.7)
 
 .adminAddUser
     width: 45%

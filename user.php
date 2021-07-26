@@ -7,9 +7,14 @@
         $UID = 0;
     }
 
-    $playerQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod WHERE `PlayerID` = '$UID'");
+    $playerQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `PlayerID` = '$UID'");
+
+    $rankPeriod01 = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_01 WHERE `PlayerID` = '$UID'");
+    $rankPeriod02 = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_02 WHERE `PlayerID` = '$UID'");
 
     $PlayerNotExist = "<div style='text-align: center; width: 100%; color: #FFF; font-size: 20pt; text-shadow: 0 2px 0 rgba(0, 0, 0, 1); font-weight: bold; margin-top: 25px;'>A player with that ID does not exist.</div>";
+
+
 
     function getNickname($nick, $legend, $level) {
         if($nick != null) return $nick;
@@ -30,6 +35,30 @@
         if($platform == "PS4") return "playstation";
         if($platform == "X1") return "xbox";
     }
+
+    function BR_RankImage($isPred, $rankScore) {
+        if($isPred == 1) {
+            return '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Predator_2.png" /><div class="innerText pred">'.number_format($rankScore).' RP</div>';
+        }
+
+        return '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Master_2.png" /><div class="innerText master">'.number_format($rankScore).' RP</div>';
+    }
+
+    function BR_RankPeriodText($rankPeriod, $id) {
+        include("connect.php");
+        $DBConn = mysqli_connect($host, $user, $pass, $db);
+        $period = mysqli_query($DBConn, "SELECT * FROM $rankPeriod WHERE `PlayerID` = '$id'");
+
+        if(mysqli_num_rows($period) < 1) {
+            echo 'N/A';
+        } else {
+            while($Ranked = mysqli_fetch_assoc($period)) {
+                if($Ranked['BR_isPred'] == 1) return "[#".$Ranked['BR_LadderPos']."] Apex Predator";
+
+                return "Master";
+            }
+        }
+    }
 ?>
 
 <div class="user">
@@ -37,21 +66,72 @@
         if($UID == 0 || mysqli_num_rows($playerQuery) < 1) { echo $PlayerNotExist; return; }
 
         while($player = mysqli_fetch_assoc($playerQuery)) {
+            $twitter = $player['Twitter'];
+            $twitch = $player['Twitch'];
+            $tiktok = $player['TikTok'];
+            $youtube = $player['YouTube'];
     ?>
         <span class="title">
-            <span class="name"><i class="fab fa-<?php echo platformIcon($player['Platform']); ?>"></i> <?php echo truncate(getNickname($player['PlayerNick'], $player['Legend'], $player['Level'])); ?></span>
+            <span class="name"><i class="fab fa-<?php echo platformIcon($player['Platform']); ?>"></i> <?php echo getNickname($player['PlayerNick'], $player['Legend'], $player['PlayerLevel']); ?></span>
             <span class="socials">
-                <a href="https://twitter.com/<?php echo $player['Twitter']; ?>" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://twitch.tv/<?php echo $player['Twitch']; ?>" target="_blank" class="twitch"><i class="fab fa-twitch"></i></a>
-                <a href="https://tiktok.com/@<?php echo $player['TikTok']; ?>" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://youtube.com/channel/<?php echo $player['YouTube']; ?>" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+                <?php if($twitter != "N/A") { ?><a href="https://twitter.com/<?php echo $player['Twitter']; ?>" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a><?php } ?>
+                <?php if($twitch != "N/A") { ?><a href="https://twitch.tv/<?php echo $player['Twitch']; ?>" target="_blank" class="twitch"><i class="fab fa-twitch"></i></a><?php } ?>
+                <?php if($tiktok != "N/A") { ?><a href="https://tiktok.com/@<?php echo $player['TikTok']; ?>" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a><?php } ?>
+                <?php if($youtube != "N/A") { ?><a href="https://youtube.com/channel/<?php echo $player['YouTube']; ?>" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a><?php } ?>
             </span>
         </span>
 
         <span class="placement">
-            <span class="box">account level</span>
-            <span class="box">battle royale</span>
-            <span class="box">arenas</span>
+            <span class="box">
+                <span class="inner">
+                    <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" /></span>
+                    <span class="text"><?php echo number_format($player['PlayerLevel']); ?></span>
+                    <span class="label">Account Level</span>
+                </span>
+            </span>
+            <span class="box">
+                <span class="inner">
+                    <span class="image">
+                        <?php
+                            if(mysqli_num_rows($rankPeriod01) < 1) {
+                                echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Unranked_3.png" /><div class="innerText">Unranked</div>';
+                            } else {
+                                while($Ranked_01 = mysqli_fetch_assoc($rankPeriod01)) {
+                                    echo BR_RankImage($Ranked_01['BR_isPred'], $Ranked_01['BR_RankScore']);
+                                }
+                            }
+                        ?>
+                    </span>
+                    <span class="text">
+                        <?php echo BR_RankPeriodText($DB_RankPeriod_01, $UID); ?>
+                    </span>
+                    <span class="label">Battle Royale Split 1</span>
+                </span>
+                <span class="inner">
+                    <span class="image">
+                        <?php
+                            if(mysqli_num_rows($rankPeriod02) < 1) {
+                                echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Unranked_3.png" /><div class="innerText">Unranked</div>';
+                            } else {
+                                while($Ranked_01 = mysqli_fetch_assoc($rankPeriod02)) {
+                                    echo BR_RankImage($Ranked_01['BR_isPred'], $Ranked_01['BR_RankScore']);
+                                }
+                            }
+                        ?>
+                    </span>
+                    <span class="text">
+                        <?php echo BR_RankPeriodText($DB_RankPeriod_02, $UID); ?>
+                    </span>
+                    <span class="label">Battle Royale Split 2</span>
+                </span>
+            </span>
+            <span class="box">
+                <span class="inner">
+                    <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Unranked_3.png" /></span>
+                    <span class="text">Coming Season 10!</span>
+                    <span class="label">Arenas</span>
+                </span>
+            </span>
         </span>
     <?php } ?>
 </div>

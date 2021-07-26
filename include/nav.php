@@ -6,7 +6,7 @@
 
     if ($_SERVER['SCRIPT_NAME']=="/user.php") {
         $PID = $_GET['id'];
-        $getPlayer = mysqli_query($DBConn, "SELECT * FROM `$DB_RankPeriod` WHERE `PlayerID` = '$PID'");
+        $getPlayer = mysqli_query($DBConn, "SELECT * FROM `$DB_RankPeriod_Current` WHERE `PlayerID` = '$PID'");
         $player = mysqli_fetch_assoc($getPlayer);
 
         if(mysqli_num_rows($getPlayer) < 1) {
