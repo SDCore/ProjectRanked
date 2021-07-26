@@ -626,7 +626,7 @@ body {
   font-weight: bold;
   text-align: center;
   background: rgba(0, 0, 0, 0.25);
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .user .placement .box .inner .label {
@@ -635,9 +635,128 @@ body {
   display: block;
   padding: 5px 0;
   font-size: 14pt;
-  font-weight: bold;
+  font-weight: 300;
   text-align: center;
   background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.user .userInfo {
+  display: flex;
+  margin: 1px 0 0 0;
+}
+
+.user .userInfo .box {
+  flex: 1;
+  height: 500px;
+}
+
+.user .userInfo .box:nth-of-type(2) {
+  flex: 2;
+  margin: 0 1px;
+}
+
+.user .userInfo .box.twitter {
+  height: 500px;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.user .userInfo .box.twitter::-webkit-scrollbar {
+  display: none;
+}
+
+.user .userInfo .box .title {
+  font-size: 22pt;
+  background: none;
+  padding: 6px 12px;
+  width: calc(100% - 24px);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.user .userInfo .box .BR_History {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
+  height: calc(500px - 47px);
+}
+
+.user .userInfo .box .BR_History::-webkit-scrollbar {
+  display: none;
+}
+
+.user .userInfo .box .BR_History .item {
+  width: 100%;
+  margin: 1px 0 0 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.user .userInfo .box .BR_History .item:first-child {
+  margin: 0;
+}
+
+.user .userInfo .box .BR_History .item .top {
+  padding: 20px;
+  display: block;
+  font-size: 20pt;
+  font-weight: bold;
+  width: calc(100% - 40px);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.user .userInfo .box .BR_History .item .inner {
+  display: flex;
+  justify-content: center;
+}
+
+.user .userInfo .box .BR_History .item .inner .split01 {
+  flex: 1;
+  display: flex;
+  padding: 0 0 10px 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user .userInfo .box .BR_History .item .inner .split01 img {
+  flex: 1;
+  width: 75px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+.user .userInfo .box .BR_History .item .inner .split01 .text {
+  flex: 1;
+  width: 100%;
+  display: block;
+  font-size: 14pt;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.user .userInfo .box .BR_History .item .inner .split02 {
+  flex: 1;
+  display: flex;
+  padding: 0 0 10px 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user .userInfo .box .BR_History .item .inner .split02 img {
+  flex: 1;
+  width: 75px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+.user .userInfo .box .BR_History .item .inner .split02 .text {
+  flex: 1;
+  width: 100%;
+  display: block;
+  font-size: 14pt;
+  text-align: center;
   color: rgba(255, 255, 255, 0.7);
 }
 

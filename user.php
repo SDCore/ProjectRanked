@@ -133,6 +133,63 @@
                 </span>
             </span>
         </span>
+
+        <span class="userInfo">
+            <span class="box twitter">
+                <span class="title" style="background: none;">Twitter</span>
+                <?php if($player['Twitter'] == "N/A") { echo "<span style='text-align: center; width: 100%; font-weight: bold; display: block; color: rgba(255, 255, 255, 0.5); font-size: 14pt;'>N/A</span>"; } else { ?>
+                    <a class="twitter-timeline" data-dnt="true" data-theme="dark" href="https://twitter.com/<?php echo $player['Twitter'] ?>"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <?php } ?>
+            </span>
+            <span class="box">
+                <span class="title">BR Ranked History</span>
+                <span class="BR_History">
+                <span class="item">
+                        <span class="top" style="background: url('https://cdn.apexstats.dev/ProjectRanked/Season/Season_9.png') center no-repeat; background-color: rgba(0, 0, 0, 0.5);">Season 9</span>
+                        <span class="inner">
+                            <span class="split01">
+                                <?php
+                                    if(mysqli_num_rows(mysqli_query($DBConn, "SELECT * FROM Ranked_S009_01 WHERE `PlayerID` = '$UID'")) < 1) {
+                                        echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Unranked_3.png" /><span class="text">Unranked</span>';
+                                    } else {
+                                        $result = mysqli_query($DBConn, "SELECT * FROM Ranked_S009_01 WHERE `PlayerID` = '".$player['PlayerID']."' LIMIT 1");
+                                        $row = mysqli_fetch_assoc($result);
+                                        
+                                        if($row['BR_isPred'] == "1") {
+                                            echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Predator_2.png" /><span class="text">[#'.$row['BR_LadderPos'].'] Apex Predator ('.number_format($row['BR_RankScore']).' RP)</span>';
+                                        }else{
+                                            echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Master_2.png" /><span class="text">Master ('.number_format($row['BR_RankScore']).' RP)</span>';
+                                        }
+                                    }
+                                ?>
+                            </span>
+                            <span class="split02">
+                                <?php
+                                    if(mysqli_num_rows(mysqli_query($DBConn, "SELECT * FROM Ranked_S009_02 WHERE `PlayerID` = '".$player['PlayerID']."' LIMIT 1")) < 1) {
+                                        echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Unranked_3.png" /><span class="text">Unranked</span>';
+                                    } else {
+                                        $result = mysqli_query($DBConn, "SELECT * FROM Ranked_S009_02 WHERE `PlayerID` = '".$player['PlayerID']."' LIMIT 1");
+                                        $row = mysqli_fetch_assoc($result);
+                                        
+                                        if($row['BR_isPred'] == "1") {
+                                            echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Predator_2.png" /><span class="text">[#'.$row['BR_LadderPos'].'] Apex Predator ('.number_format($row['BR_RankScore']).' RP)</span>';
+                                        }else{
+                                            echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Master_2.png" /> <span class="text">Master ('.number_format($row['BR_RankScore']).' RP)</span>';
+                                        }
+                                    }
+                                ?>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </span>
+            <span class="box">
+                <span class="title">Arena Ranked History</span>
+                <span class="Arenas_History">
+                    <span style="background: rgba(0, 0, 0, 0.75); text-align: center; width: 100%; font-weight: bold; display: block; color: rgba(255, 255, 255, 0.75); font-size: 14pt; padding: 10px 0;">Coming Season 10!</span>
+                </span>
+            </span>
+        </span>
     <?php } ?>
 </div>
 
