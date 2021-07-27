@@ -444,9 +444,15 @@ body
         .box
             flex: 1
             height: 500px
+            &:nth-of-type(1)
+                flex-basis: 25%
             &:nth-of-type(2)
                 flex: 2
                 margin: 0 1px
+                flex-basis: 37.5%
+            &:nth-of-type(3)
+                flex: 2
+                flex-basis: 37.5%
             &.twitter
                 height: 500px
                 overflow: auto
