@@ -351,7 +351,7 @@ body
                     word-wrap: break-word
 
 .user
-    width: 80%
+    width: 90%
     margin: 15px auto 50px auto
     .title
         width: 100%
@@ -521,6 +521,26 @@ body
                                 font-size: 14pt
                                 text-align: center
                                 color: rgba(255, 255, 255, 0.7)
+
+@media (max-width: 600px)
+    .user
+        width: 98%
+        margin: 15px auto 50px auto
+        .title
+            text-align: center
+            flex-direction: column
+            .socials
+                font-size: 14pt
+        .placement
+            flex-direction: column
+        .userInfo
+            flex-direction: column
+            .box
+                &:nth-of-type(1)
+                    display: none
+                .BR_History
+                    height: auto
+                    margin-bottom: 1px
 
 .adminAddUser
     width: 45%

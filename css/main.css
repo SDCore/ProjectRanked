@@ -514,7 +514,7 @@ body {
 }
 
 .user {
-  width: 80%;
+  width: 90%;
   margin: 15px auto 50px auto;
 }
 
@@ -758,6 +758,33 @@ body {
   font-size: 14pt;
   text-align: center;
   color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 600px) {
+  .user {
+    width: 98%;
+    margin: 15px auto 50px auto;
+  }
+  .user .title {
+    text-align: center;
+    flex-direction: column;
+  }
+  .user .title .socials {
+    font-size: 14pt;
+  }
+  .user .placement {
+    flex-direction: column;
+  }
+  .user .userInfo {
+    flex-direction: column;
+  }
+  .user .userInfo .box:nth-of-type(1) {
+    display: none;
+  }
+  .user .userInfo .box .BR_History {
+    height: auto;
+    margin-bottom: 1px;
+  }
 }
 
 .adminAddUser {
