@@ -58,7 +58,12 @@
 <body>
 
     <nav class="nav">
-        <a href="https://ranked.apexstats.dev/" class="brand"><span class="text"><?php echo $typeTitle; ?></span></a>
+        <a href="https://ranked.apexstats.dev/" class="brand">
+            <span class="text">
+                <span class="top"><?php echo $SeasonName; ?></span>
+                <span class="bottom"><?php echo $typeTitle; ?></span>
+            </span>
+        </a>
         <a href="/" class="link <?php echo checkActive('/index'); ?>"><span class="text">Home</span></a>
         <a href="#" class="link <?php echo checkActive('/search'); ?> disabled"><span class="text">Search</span></a>
         <a href="#" class="link <?php echo checkActive('/faq'); ?> disabled"><span class="text">F.A.Q.</span></a>

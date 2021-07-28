@@ -86,9 +86,31 @@ body {
 
 .nav .brand {
   font-size: 16pt;
-  min-width: 150px;
-  border-bottom: 5px solid #DDD;
+  min-width: 200px;
+  padding: 0 15px 5px 25px;
   color: rgba(255, 255, 255, 0.75);
+  background: rgba(103, 2, 170, 0.75);
+  border-bottom: 5px solid rgba(237, 126, 0, 0.95);
+}
+
+.nav .brand .text {
+  display: flex;
+  line-height: 20px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.nav .brand .text .top {
+  top: 8px;
+  font-size: 14pt;
+  position: relative;
+  color: rgba(253, 178, 92, 0.95);
+}
+
+.nav .brand .text .bottom {
+  top: 6px;
+  position: relative;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 @media (max-width: 600px) {
