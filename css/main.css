@@ -53,12 +53,12 @@ body {
   padding: 0 15px 5px 15px;
   transition: all 0.2s ease;
   border-bottom: 5px solid #4D4D4D;
-  background: rgba(255, 255, 255, 0.075);
+  background: rgba(255, 255, 255, 0.125);
 }
 
 .nav .link:hover, .nav .brand:hover {
   color: #FFF;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.225);
   border-color: rgba(255, 255, 255, 0.95);
 }
 
@@ -133,6 +133,9 @@ body {
   }
   .nav .link .text, .nav .brand .text {
     transform: skew(0deg);
+  }
+  .nav .brand {
+    height: 55px;
   }
 }
 
