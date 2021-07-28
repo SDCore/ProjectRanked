@@ -60,9 +60,9 @@
     }
 
     function isPred($isPred, $rankScore) {
-        if($isPred == "0") return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Master.png' alt='Apex Legends Master Ranked Badge' class='icon' style='filter: drop-shadow(0 0 4px rgba(255, 0, 255, 0.5));' /> Master (".number_format($rankScore).") RP";
+        if($isPred == "0") return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Master.png' alt='Apex Legends Master Ranked Badge' class='icon' /> Master (".number_format($rankScore).") RP";
 
-        return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Predator.png'  alt='Apex Legends Apex Predator Ranked Badge' class='icon' style='filter: drop-shadow(0 0 4px rgba(255, 0, 0, 0.75));' /> Apex Predator (".number_format($rankScore)." RP)";
+        return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Predator.png'  alt='Apex Legends Apex Predator Ranked Badge' class='icon' /> Apex Predator (".number_format($rankScore)." RP)";
     }
 
     function formatSocial($text, $type) {
