@@ -65,6 +65,7 @@
             </span>
         </a>
         <a href="/" class="link <?php echo checkActive('/index'); ?>"><span class="text">Home</span></a>
+        <a href="/" class="link <?php echo checkActive('/history'); ?> disabled"><span class="text">History</span></a>
         <a href="#" class="link <?php echo checkActive('/search'); ?> disabled"><span class="text">Search</span></a>
         <a href="#" class="link <?php echo checkActive('/faq'); ?> disabled"><span class="text">F.A.Q.</span></a>
         <a href="#" class="link disabled" target="_blank"><span class="text">Discord</span></a>
