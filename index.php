@@ -30,18 +30,18 @@
 
     $records = 50;
     $offset = ($page - 1) * $records;
-    $totalPlayers = mysqli_query($DBConn, "SELECT COUNT(*) FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= 10000");
+    $totalPlayers = mysqli_query($DBConn, "SELECT COUNT(*) FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $DB_RankScore");
     $totalRows = mysqli_fetch_array($totalPlayers)[0];
     $totalPages = ceil($totalRows / $records);
     
     if(isset($_GET['full'])) {
-        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC");
+        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $DB_RankScore AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC");
     }else{
-        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
+        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $DB_RankScore AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
     }
 
     // Minimum amount to reach Apex Predator
-    $minimumPred = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= 10000 AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
+    $minimumPred = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $DB_RankScore AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
 
     while($row = mysqli_fetch_assoc($minimumPred)) {
         $minPred = $row[$RankScore];
@@ -112,13 +112,13 @@
 
     function minPred($min, $type) {
         if($type == "BR") {
-            if($min < 10000) return 10000;
+            if($min < $DB_RankScore) return $DB_RankScore;
 
             return $min;
         }
 
         if($type == "Arenas") {
-            if($min < 10000) return 10000;
+            if($min < $DB_RankScore) return $DB_RankScore;
 
             return $min;
         }

@@ -16,6 +16,7 @@
 
     // DB Site Config
     $isPred = "BR/Arenas_isPred";
+    $DB_RankScore = "Amount of Rank Score";
     $RankScore = "BR/Arenas_RankScore";
     $ladderPos = "BR/Arenas_LadderPos";
     $DB_RankPeriod_01 = "Ranked_S0##_01";
