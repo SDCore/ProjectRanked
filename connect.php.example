@@ -1,16 +1,23 @@
 <?php
+    // Debug
     $debug = true or false;
-    $host = "DB Host IP";
-    $user = "DB Username";
-    $pass = "DB Password";
-    $db = "Database";
-    $typeTitle = "Site Title/Type";
-    $typeTitleShort = "Short Site Title/Type";
-    $isPred = "Table Type";
-    $RankScore = "Table Type";
-    $ladderPos = "Table Type";
-    $GoogleAnalytics = "Google Analytics Abbreviation";
-    $Name_RankPeriod = "Current Season and Split";
-    $DB_RankPeriod_Current = "Current Rank Period";
-    $DB_RankPeriod_01 = "Rank Period _01 for DB";
-    $DB_RankPeriod_02 = "Rank Period _02 for DB";
+
+    // DB Credentials
+    $host = "Host IP";
+    $user = "Host User";
+    $pass = "Host Pass";
+    $db = "Host DB";
+
+    // Site Layout Config
+    $typeTitleShort = "BR or Arenas";
+    $SeasonName = "Season Title";
+    $typeTitle = "Battle Royale or Arenas";
+    $Name_RankPeriod = "Season Title: Split 1/2";
+
+    // DB Site Config
+    $isPred = "BR/Arenas_isPred";
+    $RankScore = "BR/Arenas_RankScore";
+    $ladderPos = "BR/Arenas_LadderPos";
+    $DB_RankPeriod_01 = "Ranked_S0##_01";
+    $DB_RankPeriod_02 = "Ranked_S0##_02";
+    $DB_RankPeriod_Current = "Ranked_S0##_01/2";
