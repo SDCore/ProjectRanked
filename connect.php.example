@@ -2,6 +2,9 @@
     // Debug
     $debug = true or false;
 
+    // Google Analytics
+    $GoogleAnalytics = "BR";
+
     // DB Credentials
     $host = "Host IP";
     $user = "Host User";
