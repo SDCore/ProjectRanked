@@ -222,6 +222,11 @@ body {
   border-bottom-left-radius: 4px;
 }
 
+.header .bottom {
+  float: left;
+  display: block;
+}
+
 .adminLogin {
   width: 45%;
   padding: 8px 20px;

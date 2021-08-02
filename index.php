@@ -40,6 +40,8 @@
         $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $DB_RankScore AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
     }
 
+    $rankedCount = mysqli_fetch_assoc(mysqli_query($DBConn, "SELECT COUNT(*) as total FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $DB_RankScore"));
+
     // Minimum amount to reach Apex Predator
     $minimumPred = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $DB_RankScore AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
 
@@ -110,15 +112,15 @@
         }
     }
 
-    function minPred($min, $type) {
+    function minPred($min, $type, $amount) {
         if($type == "BR") {
-            if($min < $DB_RankScore) return $DB_RankScore;
+            if($min < $amount) return $amount;
 
             return $min;
         }
 
         if($type == "Arenas") {
-            if($min < $DB_RankScore) return $DB_RankScore;
+            if($min < $amount) return $amount;
 
             return $min;
         }
@@ -128,7 +130,7 @@
 <div class="header">
     <span class="left">
         <?php echo $text; ?> Ranked Stats for <?php echo $Name_RankPeriod; ?> <?php if(!isset($_GET['full'])) {?><span class="small"><a href="?<?php echo $platform; ?>&full">[See Full List]</a></span><?php } ?>
-        <span class="minimumRP">Approximate Minimum RP for Apex Predator: <b><?php echo number_format(minPred($minPred, $typeTitleShort)); ?> RP</b></span>
+        <span class="minimumRP">Approximate Minimum RP for Apex Predator Based on <?php echo $rankedCount['total'] ." ". $platform; ?> Players: <b><?php echo number_format(minPred($minPred, $typeTitleShort, $DB_RankScore)); ?> RP</b></span>
     </span>
     <span class="right">
         <a href="?X1" <?php if($platform == "X1") { echo 'class="active x1"'; } ?>><i class="fab fa-xbox"></i></a><a href="?PS4" <?php if($platform == "PS4") { echo 'class="active ps4"'; } ?>><i class="fab fa-playstation"></i></a><a href="?PC" <?php if($platform == "PC") { echo 'class="active pc"'; } ?>><i class="fab fa-steam"></i></a>
