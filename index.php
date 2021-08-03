@@ -35,15 +35,15 @@
     $totalPages = ceil($totalRows / $records);
     
     if(isset($_GET['full'])) {
-        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $DB_RankScore AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC");
+        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $Rank_Gold AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC");
     }else{
-        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $DB_RankScore AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
+        $rankedQuery = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $Rank_Gold AND `isBlacklisted` = 0 ORDER BY `$ladderPos` ASC, `$RankScore` DESC LIMIT $offset, $records");
     }
 
-    $rankedCount = mysqli_fetch_assoc(mysqli_query($DBConn, "SELECT COUNT(*) as total FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $DB_RankScore"));
+    $rankedCount = mysqli_fetch_assoc(mysqli_query($DBConn, "SELECT COUNT(*) as total FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $Rank_Gold"));
 
     // Minimum amount to reach Apex Predator
-    $minimumPred = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $DB_RankScore AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
+    $minimumPred = mysqli_query($DBConn, "SELECT * FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $Rank_Master AND `$isPred` = '1' ORDER BY `$ladderPos` DESC LIMIT 1");
 
     while($row = mysqli_fetch_assoc($minimumPred)) {
         $minPred = $row[$RankScore];
@@ -62,9 +62,27 @@
     }
 
     function isPred($isPred, $rankScore) {
-        if($isPred == "0") return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Master.png' alt='Apex Legends Master Ranked Badge' class='icon' /> Master (".number_format($rankScore).") RP";
+        include("./connect.php");
 
-        return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Predator.png'  alt='Apex Legends Apex Predator Ranked Badge' class='icon' /> Apex Predator (".number_format($rankScore)." RP)";
+        if($isPred == "1") {
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Predator_2.png'  alt='Apex Legends Apex Predator Ranked Badge' class='icon' /> Apex Predator (".number_format($rankScore)." RP)";
+        }else if($rankScore < $Rank_Bronze) {
+            return 'Unranked (0 RP)';
+        }else if($rankScore < $Rank_Silver) {
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Bronze.png' alt='Apex Legends Bronze Ranked Badge' class='icon' /> Bronze (".number_format($rankScore)." RP)";
+        }else if($rankScore < $Rank_Gold) {
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Silver.png' alt='Apex Legends Silver Ranked Badge' class='icon' /> Silver (".number_format($rankScore)." RP)";
+        }else if($rankScore < $Rank_Platinum) {
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Gold.png' alt='Apex Legends Gold Ranked Badge' class='icon' /> Gold (".number_format($rankScore)." RP)";
+        }else if($rankScore < $Rank_Diamond) {
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Platinum.png' alt='Apex Legends Platinum Ranked Badge' class='icon' /> Platinum (".number_format($rankScore)." RP)";
+        }else if($rankScore < $Rank_Master) {
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Diamond.png' alt='Apex Legends Diamond Ranked Badge' class='icon' /> Diamond (".number_format($rankScore)." RP)";
+        }else{
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Master.png' alt='Apex Legends Master Ranked Badge' class='icon' /> Master (".number_format($rankScore)." RP)";
+        }
+
+        // return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Master.png' alt='Apex Legends Master Ranked Badge' class='icon' /> Master (".number_format($rankScore)." RP)";
     }
 
     function formatSocial($text, $type) {
@@ -112,15 +130,15 @@
         }
     }
 
-    function minPred($min, $type, $amount) {
+    function minPred($min, $type, $amount, $master) {
         if($type == "BR") {
-            if($min < $amount) return $amount;
+            if($min < $master) return $master;
 
             return $min;
         }
 
         if($type == "Arenas") {
-            if($min < $amount) return $amount;
+            if($min < $master) return $master;
 
             return $min;
         }
@@ -130,7 +148,7 @@
 <div class="header">
     <span class="left">
         <?php echo $text; ?> Ranked Stats for <?php if($typeTitleShort == "BR") { echo $Name_RankPeriod; } else { echo $SeasonName; } ?> <?php if(!isset($_GET['full'])) {?><span class="small"><a href="?<?php echo $platform; ?>&full">[See Full List]</a></span><?php } ?>
-        <span class="minimumRP">Approximate Minimum RP for Apex Predator Based on <?php echo $rankedCount['total'] ." ". $platform; ?> Players: <b><?php echo number_format(minPred($minPred, $typeTitleShort, $DB_RankScore)); ?> RP</b></span>
+        <span class="minimumRP">Approximate Minimum RP for Apex Predator Based on <?php echo $rankedCount['total'] ." ". $platform; ?> Players: <b><?php echo number_format(minPred($minPred, $typeTitleShort, $DB_RankScore, $Rank_Master)); ?> RP</b></span>
     </span>
     <span class="right">
         <a href="?X1" <?php if($platform == "X1") { echo 'class="active x1"'; } ?>><i class="fab fa-xbox"></i></a><a href="?PS4" <?php if($platform == "PS4") { echo 'class="active ps4"'; } ?>><i class="fab fa-playstation"></i></a><a href="?PC" <?php if($platform == "PC") { echo 'class="active pc"'; } ?>><i class="fab fa-steam"></i></a>
