@@ -129,7 +129,7 @@
 
 <div class="header">
     <span class="left">
-        <?php echo $text; ?> Ranked Stats for <?php echo $Name_RankPeriod; ?> <?php if(!isset($_GET['full'])) {?><span class="small"><a href="?<?php echo $platform; ?>&full">[See Full List]</a></span><?php } ?>
+        <?php echo $text; ?> Ranked Stats for <?php if($typeTitleShort == "BR") { echo $Name_RankPeriod; } else { echo $SeasonName; } ?> <?php if(!isset($_GET['full'])) {?><span class="small"><a href="?<?php echo $platform; ?>&full">[See Full List]</a></span><?php } ?>
         <span class="minimumRP">Approximate Minimum RP for Apex Predator Based on <?php echo $rankedCount['total'] ." ". $platform; ?> Players: <b><?php echo number_format(minPred($minPred, $typeTitleShort, $DB_RankScore)); ?> RP</b></span>
     </span>
     <span class="right">
