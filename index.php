@@ -61,10 +61,10 @@
         return "N/A";
     }
 
-    function isPred($isPred, $rankScore) {
+    function isPred($pred, $rankScore) {
         include("./connect.php");
 
-        if($isPred == "1") {
+        if($pred == "1") {
             return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Predator_2.png'  alt='Apex Legends Apex Predator Ranked Badge' class='icon' /> Apex Predator (".number_format($rankScore)." RP)";
         }else if($rankScore < $Rank_Bronze) {
             return 'Unranked (0 RP)';
