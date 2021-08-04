@@ -59,6 +59,30 @@
             }
         }
     }
+
+    function Arena_RankImage($pred, $rankScore) {
+        if($pred == 1) {
+            return '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Predator_2.png" /><div class="innerText pred">'.number_format($rankScore).' RP</div>';
+        }
+
+        return '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Master_2.png" /><div class="innerText master">'.number_format($rankScore).' RP</div>';
+    }
+
+    function Arena_RankPeriodText($rankPeriod, $id) {
+        include("connect.php");
+        $DBConn = mysqli_connect($host, $user, $pass, $db);
+        $period = mysqli_query($DBConn, "SELECT * FROM $rankPeriod WHERE `PlayerID` = '$id'");
+
+        if(mysqli_num_rows($period) < 1) {
+            echo 'N/A';
+        } else {
+            while($Ranked = mysqli_fetch_assoc($period)) {
+                if($Ranked['Arena_isPred'] == 1) return "[#".$Ranked['Arena_LadderPos']."] Apex Predator";
+
+                return "Master";
+            }
+        }
+    }
 ?>
 
 <div class="user">
@@ -127,8 +151,18 @@
             </span>
             <span class="box">
                 <span class="inner">
-                    <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Unranked_3.png" /></span>
-                    <span class="text">Coming Season 10!</span>
+                    <span class="image">
+                        <?php
+                            if(mysqli_num_rows($rankPeriod01) < 1) {
+                                echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Unranked_3.png" /><div class="innerText">Unranked</div>';
+                            } else {
+                                while($Ranked_01 = mysqli_fetch_assoc($rankPeriod01)) {
+                                    echo Arena_RankImage($Ranked_01['Arenas_isPred'], $Ranked_01['Arenas_RankScore']);
+                                }
+                            }
+                        ?>
+                    </span>
+                    <span class="text"><?php echo Arena_RankPeriodText($DB_RankPeriod_01, $UID); ?></span>
                     <span class="label">Arenas</span>
                 </span>
             </span>
@@ -144,7 +178,44 @@
             <span class="box">
                 <span class="title">BR Ranked History</span>
                 <span class="BR_History">
-                <span class="item">
+                    <span class="item">
+                        <span class="top" style="background: url('https://cdn.apexstats.dev/ProjectRanked/Season/Season_10.png') center no-repeat; background-color: rgba(0, 0, 0, 0.5);">Season 10</span>
+                        <span class="inner">
+                        <span class="split01">
+                                <?php
+                                    if(mysqli_num_rows(mysqli_query($DBConn, "SELECT * FROM Ranked_S010_01 WHERE `PlayerID` = '$UID'")) < 1) {
+                                        echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Unranked_3.png" /><span class="text">Unranked</span>';
+                                    } else {
+                                        $result = mysqli_query($DBConn, "SELECT * FROM Ranked_S010_01 WHERE `PlayerID` = '".$player['PlayerID']."' LIMIT 1");
+                                        $row = mysqli_fetch_assoc($result);
+                                        
+                                        if($row['BR_isPred'] == "1") {
+                                            echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Predator_2.png" /><span class="text">[#'.$row['BR_LadderPos'].'] Apex Predator ('.number_format($row['BR_RankScore']).' RP)</span>';
+                                        }else{
+                                            echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Master_2.png" /><span class="text">Master ('.number_format($row['BR_RankScore']).' RP)</span>';
+                                        }
+                                    }
+                                ?>
+                            </span>
+                            <span class="split02">
+                                <?php
+                                    if(mysqli_num_rows(mysqli_query($DBConn, "SELECT * FROM Ranked_S010_02 WHERE `PlayerID` = '$UID'")) < 1) {
+                                        echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Unranked_3.png" /><span class="text">Unranked</span>';
+                                    } else {
+                                        $result = mysqli_query($DBConn, "SELECT * FROM Ranked_S010_02 WHERE `PlayerID` = '".$player['PlayerID']."' LIMIT 1");
+                                        $row = mysqli_fetch_assoc($result);
+                                        
+                                        if($row['BR_isPred'] == "1") {
+                                            echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Predator_2.png" /><span class="text">[#'.$row['BR_LadderPos'].'] Apex Predator ('.number_format($row['BR_RankScore']).' RP)</span>';
+                                        }else{
+                                            echo '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Master_2.png" /><span class="text">Master ('.number_format($row['BR_RankScore']).' RP)</span>';
+                                        }
+                                    }
+                                ?>
+                            </span>
+                        </span>
+                    </span>
+                    <span class="item">
                         <span class="top" style="background: url('https://cdn.apexstats.dev/ProjectRanked/Season/Season_9.png') center no-repeat; background-color: rgba(0, 0, 0, 0.5);">Season 9</span>
                         <span class="inner">
                             <span class="split01">
