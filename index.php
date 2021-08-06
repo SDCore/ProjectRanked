@@ -30,7 +30,7 @@
 
     $records = 50;
     $offset = ($page - 1) * $records;
-    $totalPlayers = mysqli_query($DBConn, "SELECT COUNT(*) FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $DB_RankScore");
+    $totalPlayers = mysqli_query($DBConn, "SELECT COUNT(*) FROM $DB_RankPeriod_Current WHERE `Platform` = '$platform' AND `$RankScore` >= $Rank_Gold");
     $totalRows = mysqli_fetch_array($totalPlayers)[0];
     $totalPages = ceil($totalRows / $records);
     
