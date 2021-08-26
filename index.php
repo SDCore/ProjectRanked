@@ -61,25 +61,31 @@
         return "N/A";
     }
 
-    function isPred($pred, $rankScore) {
+    function isPred($pred, $rankScore, $type) {
         include("./connect.php");
 
+        if($type == "BR") {
+            $points = "RP";
+        }else{
+            $points = "AP";
+        }
+
         if($pred == "1") {
-            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Predator_2.png'  alt='Apex Legends Apex Predator Ranked Badge' class='icon' /> Apex Predator (".number_format($rankScore)." RP)";
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Predator_2.png'  alt='Apex Legends Apex Predator Ranked Badge' class='icon' /> Apex Predator (".number_format($rankScore)." ".$points.")";
         }else if($rankScore < $Rank_Bronze) {
             return 'Unranked (0 RP)';
         }else if($rankScore < $Rank_Silver) {
-            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Bronze.png' alt='Apex Legends Bronze Ranked Badge' class='icon' /> Bronze (".number_format($rankScore)." RP)";
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Bronze.png' alt='Apex Legends Bronze Ranked Badge' class='icon' /> Bronze (".number_format($rankScore)." ".$points.")";
         }else if($rankScore < $Rank_Gold) {
-            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Silver.png' alt='Apex Legends Silver Ranked Badge' class='icon' /> Silver (".number_format($rankScore)." RP)";
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Silver.png' alt='Apex Legends Silver Ranked Badge' class='icon' /> Silver (".number_format($rankScore)." ".$points.")";
         }else if($rankScore < $Rank_Platinum) {
             return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Gold.png' alt='Apex Legends Gold Ranked Badge' class='icon' /> Gold (".number_format($rankScore)." RP)";
         }else if($rankScore < $Rank_Diamond) {
-            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Platinum.png' alt='Apex Legends Platinum Ranked Badge' class='icon' /> Platinum (".number_format($rankScore)." RP)";
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Platinum.png' alt='Apex Legends Platinum Ranked Badge' class='icon' /> Platinum (".number_format($rankScore)." ".$points.")";
         }else if($rankScore < $Rank_Master) {
-            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Diamond.png' alt='Apex Legends Diamond Ranked Badge' class='icon' /> Diamond (".number_format($rankScore)." RP)";
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Diamond.png' alt='Apex Legends Diamond Ranked Badge' class='icon' /> Diamond (".number_format($rankScore)." ".$points.")";
         }else{
-            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Master.png' alt='Apex Legends Master Ranked Badge' class='icon' /> Master (".number_format($rankScore)." RP)";
+            return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Master.png' alt='Apex Legends Master Ranked Badge' class='icon' /> Master (".number_format($rankScore)." ".$points.")";
         }
 
         // return "<img src='https://cdn.apexstats.dev/ProjectRanked/Badges/Master.png' alt='Apex Legends Master Ranked Badge' class='icon' /> Master (".number_format($rankScore)." RP)";
@@ -174,7 +180,7 @@
                 echo '<span class="item i1" style="flex-basis: 4%;"><span class="text">'.ladderPos($player[$ladderPos], $player[$isPred]).'</span></span>';
                 echo '<span class="item i2" style="flex-basis: 42%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><span class="text" title="'.getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel']).'" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><b><img src="https://cdn.apexstats.dev/LegendIcons/'.$legendIDs[$player['Legend']]['Name'].'.png" alt="Apex Legends Legend Icon" class="icon" /> <a href="/user?id='.$player['PlayerID'].'">'.getNickname($player['PlayerNick'], $legendIDs[$player['Legend']]['Name'], $player['PlayerLevel']).'</a></b></span></span>';
                 echo '<span class="item i2 hidden" style="flex-basis: 12%;"><span class="text"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" alt="Apex Legends Account Level Icon" class="icon" /> '.number_format($player['PlayerLevel']).'</span></span>';
-                echo '<span class="item i2" style="flex-basis: 31%;"><span class="text">'.isPred($player[$isPred], $player[$RankScore]).'</span></span>';
+                echo '<span class="item i2" style="flex-basis: 31%;"><span class="text">'.isPred($player[$isPred], $player[$RankScore], $typeTitleShort).'</span></span>';
                 echo '<span class="item i2 hidden" style="flex-basis: 11%;"><span class="text">'.formatSocial($player['Twitter'], "Twitter").''.formatSocial($player['Twitch'], "Twitch").''.formatSocial($player['TikTok'], "TikTok").''.formatSocial($player['YouTube'], "YouTube").'</span></span>';
             echo '</div>';
         }
