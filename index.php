@@ -154,7 +154,7 @@
 <div class="header">
     <span class="left">
         <?php echo $text; ?> Ranked Stats for <?php if($typeTitleShort == "BR") { echo $Name_RankPeriod; } else { echo $SeasonName; } ?> <?php if(!isset($_GET['full'])) {?><span class="small"><a href="?<?php echo $platform; ?>&full">[See Full List]</a></span><?php } ?>
-        <span class="minimumRP">Approximate Minimum RP for Apex Predator Based on <?php echo $rankedCount['total'] ." ". $platform; ?> Players: <b><?php echo number_format(minPred($minPred, $typeTitleShort, $DB_RankScore, $Rank_Master)); ?> RP</b></span>
+        <span class="minimumRP">Approximate Minimum <?php if($typeTitleShort == "BR") { echo "RP"; }else{ echo "AP"; } ?> for Apex Predator Based on <?php echo $rankedCount['total'] ." ". $platform; ?> Players: <b><?php echo number_format(minPred($minPred, $typeTitleShort, $DB_RankScore, $Rank_Master)); ?> <?php if($typeTitleShort == "BR") { echo "RP"; }else{ echo "AP"; } ?></b></span>
     </span>
     <span class="right">
         <a href="?X1" <?php if($platform == "X1") { echo 'class="active x1"'; } ?>><i class="fab fa-xbox"></i></a><a href="?PS4" <?php if($platform == "PS4") { echo 'class="active ps4"'; } ?>><i class="fab fa-playstation"></i></a><a href="?PC" <?php if($platform == "PC") { echo 'class="active pc"'; } ?>><i class="fab fa-steam"></i></a>
