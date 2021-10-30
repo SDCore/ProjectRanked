@@ -85,16 +85,28 @@ body {
 }
 
 .nav .brand {
+  overflow: hidden;
   font-size: 16pt;
   min-width: 200px;
   padding: 0 15px 5px 25px;
   color: rgba(255, 255, 255, 0.75);
-  background: #30788c;
   border-bottom: 5px solid #cdb863;
 }
 
+.nav .brand::before {
+  top: 0;
+  left: 0;
+  content: "";
+  width: 150%;
+  height: 100%;
+  position: absolute;
+  transform: skew(-30deg);
+  transform-origin: top left;
+  background: #30788c;
+  background: url("../imgs/navBack.png");
+}
+
 .nav .brand:hover {
-  background: #256374;
   border-bottom: 5px solid #ac9a52;
 }
 
@@ -103,17 +115,18 @@ body {
   line-height: 20px;
   align-items: center;
   flex-direction: column;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.8);
 }
 
 .nav .brand .text .top {
-  top: 8px;
+  top: 10px;
   font-size: 14pt;
   position: relative;
   color: #cdb863;
 }
 
 .nav .brand .text .bottom {
-  top: 6px;
+  top: 8px;
   position: relative;
   color: rgba(255, 255, 255, 0.95);
 }

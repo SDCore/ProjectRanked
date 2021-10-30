@@ -65,27 +65,38 @@ body
             display: block
             transform: skew(-30deg)
     .brand
+        overflow: hidden
         font-size: 16pt
         min-width: 200px
         padding: 0 15px 5px 25px
         color: rgba(255, 255, 255, 0.75)
-        background: rgba(48, 120, 140, 1)
         border-bottom: 5px solid rgba(205, 184, 99, 1)
+        &::before
+            top: 0
+            left: 0
+            content: ""
+            width: 150%
+            height: 100%
+            position: absolute
+            transform: skew(-30deg)
+            transform-origin: top left
+            background: rgba(48, 120, 140, 1)
+            background: url("../imgs/navBack.png")
         &:hover
-            background: rgba(37, 99, 116, 1)
             border-bottom: 5px solid rgba(172, 154, 82, 1)
         .text
             display: flex
             line-height: 20px
             align-items: center
             flex-direction: column
+            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.8)
             .top
-                top: 8px
+                top: 10px
                 font-size: 14pt
                 position: relative
                 color: rgba(205, 184, 99, 1)
             .bottom
-                top: 6px
+                top: 8px
                 position: relative
                 color: rgba(255, 255, 255, 0.95)
 
