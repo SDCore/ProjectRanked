@@ -90,7 +90,8 @@ body {
   min-width: 200px;
   padding: 0 15px 5px 25px;
   color: rgba(255, 255, 255, 0.75);
-  border-bottom: 5px solid #cdb863;
+  background: #b83230;
+  border-bottom: 5px solid #1dced6;
 }
 
 .nav .brand::before {
@@ -102,12 +103,11 @@ body {
   position: absolute;
   transform: skew(-30deg);
   transform-origin: top left;
-  background: #30788c;
-  background: url("../imgs/navBack.png");
+  background: url("");
 }
 
 .nav .brand:hover {
-  border-bottom: 5px solid #ac9a52;
+  border-bottom: 5px solid #148e94;
 }
 
 .nav .brand .text {
@@ -122,7 +122,7 @@ body {
   top: 10px;
   font-size: 14pt;
   position: relative;
-  color: #cdb863;
+  color: #1dced6;
 }
 
 .nav .brand .text .bottom {
