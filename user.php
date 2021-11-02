@@ -77,7 +77,7 @@
             echo 'N/A';
         } else {
             while($Ranked = mysqli_fetch_assoc($period)) {
-                if($Ranked['Arena_isPred'] == 1) return "[#".$Ranked['Arena_LadderPos']."] Apex Predator";
+                if($Ranked['Arenas_isPred'] == 1) return "[#".$Ranked['Arenas_LadderPos']."] Apex Predator";
 
                 return "Master";
             }
