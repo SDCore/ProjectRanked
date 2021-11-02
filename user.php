@@ -179,7 +179,7 @@
                 <span class="title">BR Ranked History</span>
                 <span class="BR_History">
                 <span class="item">
-                        <span class="top" style="background: url('https://cdn.apexstats.dev/ProjectRanked/Season/Season_11.png') center no-repeat; background-color: rgba(0, 0, 0, 0.5);">Season 10</span>
+                        <span class="top" style="background: url('https://cdn.apexstats.dev/ProjectRanked/Season/Season_11.png') center no-repeat; background-color: rgba(0, 0, 0, 0.5);">Season 11</span>
                         <span class="inner">
                         <span class="split01">
                                 <?php
