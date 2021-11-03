@@ -23,7 +23,7 @@ html, body {
 }
 
 body {
-  background: url("https://cdn.apexstats.dev/ProjectRanked/LeaderboardBackground/Season011/Background.png") no-repeat fixed center;
+  background: url("https://cdn.apexstats.dev/ProjectRanked/LeaderboardBackground/Season011/Background_Small.png") no-repeat fixed center;
   background-size: cover;
 }
 
@@ -103,7 +103,7 @@ body {
   position: absolute;
   transform: skew(-30deg);
   transform-origin: top left;
-  background: url("");
+  background: url("https://cdn.apexstats.dev/ProjectRanked/NavBackground/Season11.png");
 }
 
 .nav .brand:hover {
