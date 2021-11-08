@@ -98,12 +98,13 @@ body {
   top: 0;
   left: 0;
   content: "";
-  width: 150%;
+  width: 125%;
   height: 100%;
   position: absolute;
   transform: skew(-30deg);
   transform-origin: top left;
   background: url("https://cdn.apexstats.dev/ProjectRanked/NavBackground/Season11.png");
+  background-position: center;
 }
 
 .nav .brand:hover {
