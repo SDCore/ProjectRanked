@@ -29,4 +29,11 @@
                 <span class="bottom">Ranked Type</span>
             </span>
         </a>
+        <a href="#">Home</a>
+        <!-- <a href="#">Home</a> -->
+        <!-- <a href="#">History</a> -->
+        <!-- <a href="#">Search</a> -->
+        <!-- <a href="#">F.A.Q.</a> -->
+        <!-- <a href="#">Submit</a> -->
+        <!-- <a href="#">Discord</a> -->
     </nav>
