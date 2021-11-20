@@ -2,26 +2,11 @@
     // Debug
     $debug = true or false;
 
-    // Google Analytics
-    $GoogleAnalytics = "BR";
-
     // DB Credentials
     $host = "Host IP";
     $user = "Host User";
     $pass = "Host Pass";
     $db = "Host DB";
 
-    // Site Layout Config
-    $typeTitleShort = "BR or Arenas";
-    $SeasonName = "Season Title";
-    $typeTitle = "Battle Royale or Arenas";
-    $Name_RankPeriod = "Season Title: Split 1/2";
-
-    // DB Site Config
-    $isPred = "BR/Arenas_isPred";
-    $DB_RankScore = "Amount of Rank Score";
-    $RankScore = "BR/Arenas_RankScore";
-    $ladderPos = "BR/Arenas_LadderPos";
-    $DB_RankPeriod_01 = "Ranked_S0##_01";
-    $DB_RankPeriod_02 = "Ranked_S0##_02";
-    $DB_RankPeriod_Current = "Ranked_S0##_01/2";
+    // Info
+    $RankType = "BR or Arenas";

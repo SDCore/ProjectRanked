@@ -8,16 +8,8 @@ html, body
     font-family: Arial, Helvetica, sans-serif
 
 body
-    background: url("https://cdn.apexstats.dev/ProjectRanked/LeaderboardBackground/Season011/Background_Small.png") no-repeat fixed center
+    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("https://cdn.apexstats.dev/ProjectRanked/LeaderboardBackground/Season011/Background_Small.png") no-repeat fixed center
     background-size: cover
-    &::before
-        content: ''
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
-        background: rgba(0, 0, 0, 0.5)
 
 .nav
     width: 100%
@@ -98,5 +90,135 @@ body
                 top: 7px
                 position: relative
                 color: rgba(255, 255, 255, 0.95)
-        
-        
+
+.container
+    z-index: 1
+    width: 80%
+    margin: 0 auto 50px auto
+    .top
+        display: flex
+        font-size: 15pt
+        font-weight: bold
+        text-align: center
+        margin: 10px 0 15px 0
+        transform: skew(20deg)
+        backdrop-filter: blur(15px)
+        background: rgba(0, 0, 0, 0.5)
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.85)
+        .item
+            padding: 8px 16px
+            border-bottom: 2px solid rgba(160, 160, 160, 0.85)
+            .inner
+                display: block
+                transform: skew(-20deg)
+            &.i1
+                background: rgba(255, 255, 255, 0.95)
+                border-left: 6px solid rgba(160, 160, 160, 0.85)
+            &.i2
+                color: rgba(255, 255, 255, 0.95)
+    .list
+        display: flex
+        font-size: 13pt
+        margin: 0 0 8px 0
+        font-weight: bol
+        transform: skew(20deg)
+        transition: all 0.2s ease
+        backdrop-filter: blur(15px)
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.7)
+        &:hover
+            background: rgba(0, 0, 0, 0.5)
+        .item
+            padding: 8px 16px
+            text-align: center
+            position: relative
+            background: rgba(0, 0, 0, 0.65)
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+            .inner
+                display: block
+                overflow: hidden
+                white-space: nowrap
+                transform: skew(-20deg)
+                text-overflow: ellipsis
+                color: rgba(255, 255, 255, 0.95)
+                a
+                    font-size: 13pt
+                    text-decoration: none
+                    color: rgba(255, 255, 255, 0.95)
+                    &:hover
+                        text-decoration: underline
+        &.Predator
+            text-align: center
+            position: relative
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+            border-bottom: 2px solid rgba(160, 18, 0, 0.85)
+            .bold
+                font-size: 15pt
+                font-weight: bold
+                padding: 8px 16px
+                backdrop-filter: blur(10px)
+                background: rgba(230, 28, 0, 0.85)
+                border-left: 4px solid rgba(160, 18, 0, 0.85)
+            .inner
+                display: block
+                overflow: hidden
+                white-space: nowrap
+                transform: skew(-20deg)
+                text-overflow: ellipsis
+                color: rgba(255, 255, 255, 0.95)
+        &.Master
+            text-align: center
+            position: relative
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+            border-bottom: 2px solid rgba(94, 59, 128, 0.85)
+            .bold
+                font-size: 15pt
+                font-weight: bold
+                padding: 8px 16px
+                backdrop-filter: blur(10px)
+                background: rgba(146, 91, 198, 0.85)
+                border-left: 4px solid rgba(94, 59, 128, 0.85)
+            .inner
+                display: block
+                overflow: hidden
+                white-space: nowrap
+                transform: skew(-20deg)
+                text-overflow: ellipsis
+                color: rgba(255, 255, 255, 0.95)
+        &.Diamond
+            text-align: center
+            position: relative
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+            border-bottom: 2px solid rgba(41, 80, 117, 0.85)
+            .bold
+                font-size: 15pt
+                font-weight: bold
+                padding: 8px 16px
+                backdrop-filter: blur(10px)
+                background: rgba(56, 110, 160, 0.85)
+                border-left: 4px solid rgba(41, 80, 117, 0.85)
+            .inner
+                display: block
+                overflow: hidden
+                white-space: nowrap
+                transform: skew(-20deg)
+                text-overflow: ellipsis
+                color: rgba(255, 255, 255, 0.95)
+        &.Platinum
+            text-align: center
+            position: relative
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+            border-bottom: 2px solid rgba(50, 107, 105, 0.85)
+            .bold
+                font-size: 15pt
+                font-weight: bold
+                padding: 8px 16px
+                backdrop-filter: blur(10px)
+                background: rgba(63, 138, 136, 0.85)
+                border-left: 4px solid rgba(50, 107, 105, 0.85)
+            .inner
+                display: block
+                overflow: hidden
+                white-space: nowrap
+                transform: skew(-20deg)
+                text-overflow: ellipsis
+                color: rgba(255, 255, 255, 0.95)

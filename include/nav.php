@@ -3,7 +3,7 @@
 
     $DBConn = mysqli_connect($host, $user, $pass, $db);
 
-    $NavInfo = mysqli_fetch_array(mysqli_query($DBConn, "SELECT * FROM seasonInfo")) or die(mysqli_error($DBConn));
+    $SeasonInfo = mysqli_fetch_array(mysqli_query($DBConn, "SELECT * FROM seasonInfo")) or die(mysqli_error($DBConn));
 
     function active($page) {
         if ($_SERVER['SCRIPT_NAME'] == $page.".php") return "active";
@@ -42,7 +42,7 @@
     <nav class="nav">
         <a href="https://ranked.apexstats.dev/" class="brand">
             <span class="inner">
-                <span class="top"><?php echo $NavInfo['name']; ?></span>
+                <span class="top"><?php echo $SeasonInfo['name']; ?></span>
                 <span class="bottom"><?php echo rankType($RankType); ?></span>
             </span>
         </a>
