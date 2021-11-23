@@ -1,6 +1,7 @@
 <?php
     $title = "Home";
     require_once("./include/nav.php");
+    include_once("./include/platform.php");
 
     $CurrentRankPeriod = "Ranked_S0".$SeasonInfo['number']."_0".$SeasonInfo['currentSplit'];
     $DBRankScore = $RankType."_RankScore";
@@ -12,8 +13,8 @@
 
     function platform() {
         if(isset($_GET['PC'])) return "PC";
-        if(isset($_GET['Xbox'])) return "Xbox";
-        if(isset($_GET['PlayStation'])) return "PlayStation";
+        if(isset($_GET['Xbox'])) return "X1";
+        if(isset($_GET['PlayStation'])) return "PS4";
 
         return "PC";
     }
@@ -38,8 +39,8 @@
 
     function checkPage() {
         if(isset($_GET['PC'])) return "?PC&";
-        if(isset($_GET['PS4'])) return "?PS4&";
-        if(isset($_GET['X1'])) return "?X1&";
+        if(isset($_GET['PlayStation'])) return "?PlayStation&";
+        if(isset($_GET['Xbox'])) return "?Xbox&";
 
         return "?";
     }

@@ -121,6 +121,41 @@ body {
   color: rgba(255, 255, 255, 0.95);
 }
 
+.platformList {
+  top: calc(50% - 120px);
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+}
+
+.platformList a {
+  width: 75px;
+  font-size: 20pt;
+  padding: 10px 10px;
+  text-align: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(15px);
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.platformList a:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.platformList a:first-child {
+  border-top-right-radius: 20px;
+}
+
+.platformList a:last-child {
+  border-bottom-right-radius: 20px;
+}
+
+.platformList .active {
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+}
+
 .container {
   width: 80%;
   margin: 0 auto 50px auto;
