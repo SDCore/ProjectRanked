@@ -19,6 +19,14 @@
         return "PC";
     }
 
+    function platformText() {
+        if(isset($_GET['PC'])) return "PC";
+        if(isset($_GET['Xbox'])) return "Xbox";
+        if(isset($_GET['PlayStation'])) return "PlayStation";
+
+        return "PC";
+    }
+
     function scoreType($type) {
         if($type == "BR") return "RP";
         if($type == "Arenas") return "AP";
@@ -34,6 +42,8 @@
     $offset = ($page - 1) * $amount;
     $totalRows = mysqli_fetch_array(mysqli_query($DBConn, "SELECT COUNT(*) FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBRankScore` >= ".$RankFile['Platinum']))[0];
     $pages = ceil($totalRows / $amount);
+
+    $minPred = mysqli_fetch_assoc(mysqli_query($DBConn, "SELECT `$DBRankScore` FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBisPred` = '1' ORDER BY `$DBLadderPos` DESC LIMIT 1"));
 
     $playerList = mysqli_query($DBConn, "SELECT * FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBRankScore` >= ".$RankFile['Platinum']." ORDER BY `$DBLadderPos` ASC, `$DBRankScore` DESC LIMIT $offset, $amount");
 
@@ -74,9 +84,9 @@
 
         return $legend."#".$level;
     }
-?>
 
-Rank Info
+    include_once("./include/header.php");
+?>
 
 <div class="container">
     <div class="top">
