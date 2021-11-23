@@ -92,7 +92,6 @@ body
                 color: rgba(255, 255, 255, 0.95)
 
 .container
-    z-index: 1
     width: 80%
     margin: 0 auto 50px auto
     .top
@@ -118,7 +117,7 @@ body
                 color: rgba(255, 255, 255, 0.95)
     .list
         display: flex
-        font-size: 13pt
+        font-size: 15pt
         margin: 0 0 8px 0
         font-weight: bol
         transform: skew(20deg)
@@ -126,99 +125,86 @@ body
         backdrop-filter: blur(15px)
         box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.9)
         &:hover
-            background: rgba(0, 0, 0, 0.5)
+            background: rgba(0, 0, 0, 0.6)
         .item
             padding: 8px 16px
             text-align: center
             position: relative
             background: rgba(0, 0, 0, 0.65)
             text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+            .icon
+                left: 5%
+                width: 26px
+                position: absolute
+                transform: skew(-20deg)
             .inner
                 display: block
                 overflow: hidden
+                text-align: center
                 white-space: nowrap
                 transform: skew(-20deg)
                 text-overflow: ellipsis
                 color: rgba(255, 255, 255, 0.95)
                 a
-                    font-size: 13pt
                     text-decoration: none
                     color: rgba(255, 255, 255, 0.95)
                     &:hover
                         text-decoration: underline
-        &.Predator
-            text-align: center
-            position: relative
-            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+        &.Predator 
             border-bottom: 2px solid rgba(160, 18, 0, 0.85)
             .bold
-                font-size: 15pt
                 font-weight: bold
-                padding: 8px 16px
-                backdrop-filter: blur(10px)
                 background: rgba(230, 28, 0, 0.85)
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
                 border-left: 4px solid rgba(160, 18, 0, 0.85)
-            .inner
-                display: block
-                overflow: hidden
-                white-space: nowrap
-                transform: skew(-20deg)
-                text-overflow: ellipsis
-                color: rgba(255, 255, 255, 0.95)
-        &.Master
-            text-align: center
-            position: relative
-            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+        &.Master 
             border-bottom: 2px solid rgba(94, 59, 128, 0.85)
             .bold
-                font-size: 15pt
                 font-weight: bold
-                padding: 8px 16px
-                backdrop-filter: blur(10px)
                 background: rgba(146, 91, 198, 0.85)
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
                 border-left: 4px solid rgba(94, 59, 128, 0.85)
-            .inner
-                display: block
-                overflow: hidden
-                white-space: nowrap
-                transform: skew(-20deg)
-                text-overflow: ellipsis
-                color: rgba(255, 255, 255, 0.95)
-        &.Diamond
-            text-align: center
-            position: relative
-            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+        &.Diamond 
             border-bottom: 2px solid rgba(41, 80, 117, 0.85)
             .bold
-                font-size: 15pt
                 font-weight: bold
-                padding: 8px 16px
-                backdrop-filter: blur(10px)
                 background: rgba(56, 110, 160, 0.85)
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
                 border-left: 4px solid rgba(41, 80, 117, 0.85)
-            .inner
-                display: block
-                overflow: hidden
-                white-space: nowrap
-                transform: skew(-20deg)
-                text-overflow: ellipsis
-                color: rgba(255, 255, 255, 0.95)
-        &.Platinum
-            text-align: center
-            position: relative
-            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+        &.Platinum 
             border-bottom: 2px solid rgba(50, 107, 105, 0.85)
             .bold
-                font-size: 15pt
                 font-weight: bold
-                padding: 8px 16px
-                backdrop-filter: blur(10px)
                 background: rgba(63, 138, 136, 0.85)
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
                 border-left: 4px solid rgba(50, 107, 105, 0.85)
-            .inner
-                display: block
-                overflow: hidden
-                white-space: nowrap
-                transform: skew(-20deg)
-                text-overflow: ellipsis
-                color: rgba(255, 255, 255, 0.95)
+            
+.pagination
+    display: flex
+    margin: 25px 0 0 0
+    backdrop-filter: blur(10px)
+    background: rgba(0, 0, 0, 0.5)
+    border-bottom: 4px solid rgba(160, 18, 0, 0.75)
+    clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%)
+    .page
+        flex: 1
+        padding: 15px 0
+        font-weight: bold
+        text-align: center
+        text-decoration: none
+        transition: all 0.2s ease
+        color: rgba(255, 255, 255, 0.95)
+        &:nth-of-type(1), &:nth-of-type(4)
+            flex-basis: 15%
+            background: rgba(204, 24, 0, 0.85)
+            &:hover
+                background: rgba(245, 29, 0, 0.85)
+        &:nth-of-type(2), &:nth-of-type(3)
+            flex-basis: 35%
+            &:hover
+                background: rgba(0, 0, 0, 0.3)
+        &.disabled
+            cursor: default
+            pointer-events: none
+            background: rgba(0, 0, 0, 0.3)
+            color: rgba(255, 255, 255, 0.3)

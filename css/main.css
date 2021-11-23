@@ -122,7 +122,6 @@ body {
 }
 
 .container {
-  z-index: 1;
   width: 80%;
   margin: 0 auto 50px auto;
 }
@@ -160,7 +159,7 @@ body {
 
 .container .list {
   display: flex;
-  font-size: 13pt;
+  font-size: 15pt;
   margin: 0 0 8px 0;
   font-weight: bol;
   transform: skew(20deg);
@@ -170,7 +169,7 @@ body {
 }
 
 .container .list:hover {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .container .list .item {
@@ -181,9 +180,17 @@ body {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
 }
 
+.container .list .item .icon {
+  left: 5%;
+  width: 26px;
+  position: absolute;
+  transform: skew(-20deg);
+}
+
 .container .list .item .inner {
   display: block;
   overflow: hidden;
+  text-align: center;
   white-space: nowrap;
   transform: skew(-20deg);
   text-overflow: ellipsis;
@@ -191,7 +198,6 @@ body {
 }
 
 .container .list .item .inner a {
-  font-size: 13pt;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.95);
 }
@@ -201,101 +207,88 @@ body {
 }
 
 .container .list.Predator {
-  text-align: center;
-  position: relative;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
   border-bottom: 2px solid rgba(160, 18, 0, 0.85);
 }
 
 .container .list.Predator .bold {
-  font-size: 15pt;
   font-weight: bold;
-  padding: 8px 16px;
-  backdrop-filter: blur(10px);
   background: rgba(230, 28, 0, 0.85);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
   border-left: 4px solid rgba(160, 18, 0, 0.85);
 }
 
-.container .list.Predator .inner {
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  transform: skew(-20deg);
-  text-overflow: ellipsis;
-  color: rgba(255, 255, 255, 0.95);
-}
-
 .container .list.Master {
-  text-align: center;
-  position: relative;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
   border-bottom: 2px solid rgba(94, 59, 128, 0.85);
 }
 
 .container .list.Master .bold {
-  font-size: 15pt;
   font-weight: bold;
-  padding: 8px 16px;
-  backdrop-filter: blur(10px);
   background: rgba(146, 91, 198, 0.85);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
   border-left: 4px solid rgba(94, 59, 128, 0.85);
 }
 
-.container .list.Master .inner {
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  transform: skew(-20deg);
-  text-overflow: ellipsis;
-  color: rgba(255, 255, 255, 0.95);
-}
-
 .container .list.Diamond {
-  text-align: center;
-  position: relative;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
   border-bottom: 2px solid rgba(41, 80, 117, 0.85);
 }
 
 .container .list.Diamond .bold {
-  font-size: 15pt;
   font-weight: bold;
-  padding: 8px 16px;
-  backdrop-filter: blur(10px);
   background: rgba(56, 110, 160, 0.85);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
   border-left: 4px solid rgba(41, 80, 117, 0.85);
 }
 
-.container .list.Diamond .inner {
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  transform: skew(-20deg);
-  text-overflow: ellipsis;
-  color: rgba(255, 255, 255, 0.95);
-}
-
 .container .list.Platinum {
-  text-align: center;
-  position: relative;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
   border-bottom: 2px solid rgba(50, 107, 105, 0.85);
 }
 
 .container .list.Platinum .bold {
-  font-size: 15pt;
   font-weight: bold;
-  padding: 8px 16px;
-  backdrop-filter: blur(10px);
   background: rgba(63, 138, 136, 0.85);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
   border-left: 4px solid rgba(50, 107, 105, 0.85);
 }
 
-.container .list.Platinum .inner {
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  transform: skew(-20deg);
-  text-overflow: ellipsis;
+.pagination {
+  display: flex;
+  margin: 25px 0 0 0;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 4px solid rgba(160, 18, 0, 0.75);
+  clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
+}
+
+.pagination .page {
+  flex: 1;
+  padding: 15px 0;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
   color: rgba(255, 255, 255, 0.95);
+}
+
+.pagination .page:nth-of-type(1), .pagination .page:nth-of-type(4) {
+  flex-basis: 15%;
+  background: rgba(204, 24, 0, 0.85);
+}
+
+.pagination .page:nth-of-type(1):hover, .pagination .page:nth-of-type(4):hover {
+  background: rgba(245, 29, 0, 0.85);
+}
+
+.pagination .page:nth-of-type(2), .pagination .page:nth-of-type(3) {
+  flex-basis: 35%;
+}
+
+.pagination .page:nth-of-type(2):hover, .pagination .page:nth-of-type(3):hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.pagination .page.disabled {
+  cursor: default;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.3);
 }

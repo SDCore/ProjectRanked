@@ -29,12 +29,20 @@
         $page = 1;
     }
 
-    $amount = 50;
+    $amount = 25;
     $offset = ($page - 1) * $amount;
     $totalRows = mysqli_fetch_array(mysqli_query($DBConn, "SELECT COUNT(*) FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBRankScore` >= ".$RankFile['Platinum']))[0];
     $pages = ceil($totalRows / $amount);
 
     $playerList = mysqli_query($DBConn, "SELECT * FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBRankScore` >= ".$RankFile['Platinum']." ORDER BY `$DBLadderPos` ASC, `$DBRankScore` DESC LIMIT $offset, $amount");
+
+    function checkPage() {
+        if(isset($_GET['PC'])) return "?PC&";
+        if(isset($_GET['PS4'])) return "?PS4&";
+        if(isset($_GET['X1'])) return "?X1&";
+
+        return "?";
+    }
 
     function checkRank($isPred, $score, $file) {
         if($isPred == "1") return "Predator";
@@ -46,12 +54,12 @@
     }
 
     function rankText($isPred, $score, $file, $type) {
-        if($isPred == "1") return "Apex Predator (".number_format($score)." ".$type.")";
+        if($isPred == "1") return "Apex Predator <b>(".number_format($score)." ".$type.")</b>";
 
-        if($score < $file['Diamond']) return "Platinum (".number_format($score)." ".$type.")";
-        if($score < $file['Master']) return "Diamond (".number_format($score)." ".$type.")";
+        if($score < $file['Diamond']) return "Platinum <b>(".number_format($score)." ".$type.")</b>";
+        if($score < $file['Master']) return "Diamond <b>(".number_format($score)." ".$type.")</b>";
 
-        return "Master (".number_format($score)." ".$type.")";
+        return "Master <b>(".number_format($score)." ".$type.")</b>";
     }
 
     function checkPos($pos) {
@@ -72,19 +80,31 @@ Rank Info
 <div class="container">
     <div class="top">
         <span class="item i1" style="flex-basis: 5%;"><span class="inner">#</span></span>
-        <span class="item i2" style="flex-basis: 45%;"><span class="inner">Name</span></span>
-        <span class="item i2" style="flex-basis: 15%;"><span class="inner">Level</span></span>
+        <span class="item i2" style="flex-basis: 44%;"><span class="inner">Name</span></span>
+        <span class="item i2" style="flex-basis: 16%;"><span class="inner">Account Level</span></span>
         <span class="item i2" style="flex-basis: 35%;"><span class="inner">Rank (Score)</span></span>
     </div>
 
     <?php
         while($player = mysqli_fetch_assoc($playerList)) {
+            $levelIcon = '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" class="icon" />';
+            $rankIcon = '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/'.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).'.png" class="icon" />';
+
             echo '<div class="list '.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).'">';
-                echo '<span class="bold" style="flex-basis: 5%;"><span class="inner">'.checkPos($player[$DBLadderPos]).'</span></span>';
-                echo '<span class="item" style="flex-basis: 45%;"><span class="inner"><a href="#">'.nickname($player['PlayerNick'], $Legendfile[$player['Legend']]['Name'], $player['PlayerLevel']).'</a></span></span>';
-                echo '<span class="item" style="flex-basis: 15%;"><span class="inner">Level '.number_format($player['PlayerLevel']).'</span></span>';
-                echo '<span class="item" style="flex-basis: 35%;"><span class="inner">'.rankText($player[$DBisPred], $player[$DBRankScore], $RankFile, scoreType($RankType)).'</span></span>';
+                echo '<span class="item bold" style="flex-basis: 5%;"><span class="inner">'.checkPos($player[$DBLadderPos]).'</span></span>';
+                echo '<span class="item" style="flex-basis: 44%;"><span class="inner"><a href="#">'.nickname($player['PlayerNick'], $Legendfile[$player['Legend']]['Name'], $player['PlayerLevel']).'</a></span></span>';
+                echo '<span class="item" style="flex-basis: 16%;">'.$levelIcon.'<span class="inner">Level <b>'.number_format($player['PlayerLevel']).'</b></span></span>';
+                echo '<span class="item" style="flex-basis: 35%;">'.$rankIcon.'<span class="inner">'.rankText($player[$DBisPred], $player[$DBRankScore], $RankFile, scoreType($RankType)).'</span></span>';
             echo '</div>';
         }
     ?>
+
+    <div class="pagination">
+        <a href="<?php echo checkPage(); ?>page=1" class="page <?php if($page == 1) { echo 'disabled'; } ?>"><i class="fas fa-angle-double-left"></i> First</a>
+        <a href="<?php echo checkPage(); if($page <= 1) { echo '#'; } else { echo 'page='.($page - 1); } ?>" class="page <?php if($page <= 1) { echo 'disabled'; } ?>"><i class="fas fa-angle-left"></i> Previous</a>
+        <a href="<?php echo checkPage(); if($page >= $pages) { echo '#'; } else { echo 'page='.($page + 1); } ?>" class="page <?php if($page >= $pages) { echo 'disabled'; } ?>">Next <i class="fas fa-angle-right"></i></a>
+        <a href="<?php echo checkPage(); ?>page=<?php echo $pages; ?>" class="page <?php if($page >= $pages) { echo 'disabled'; } ?>">Last <i class="fas fa-angle-double-right"></i></a>
+    </div>
 </div>
+
+<?php require_once("./include/footer.php"); ?>

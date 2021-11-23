@@ -50,6 +50,6 @@
         <a href="#" class="link disabled"><span class="inner">History</span></a>
         <a href="#" class="link disabled"><span class="inner">Search</span></a>
         <a href="/faq" class="<?php echo active('/faq'); ?>"><span class="inner">F.A.Q.</span></a>
-        <a href="#" class="link disabled"><span class="inner">Submit</span></a>
+        <!-- <a href="#" class="link disabled"><span class="inner">Submit</span></a> -->
         <a href="#" class="link disabled"><span class="inner">Discord</span></a>
     </nav>
