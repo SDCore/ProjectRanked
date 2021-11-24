@@ -45,7 +45,7 @@
 
     $minPred = mysqli_fetch_assoc(mysqli_query($DBConn, "SELECT `$DBRankScore` FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBisPred` = '1' ORDER BY `$DBLadderPos` DESC LIMIT 1"));
 
-    $playerList = mysqli_query($DBConn, "SELECT * FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBRankScore` >= ".$RankFile['Platinum']." ORDER BY `$DBLadderPos` ASC, `$DBRankScore` DESC LIMIT $offset, $amount");
+    $playerList = mysqli_query($DBConn, "SELECT * FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBRankScore` >= ".$RankFile['Platinum']." AND not(`$DBRankScore` >= ".$minPred[$DBRankScore]." and `$DBisPred` != '1') ORDER BY `$DBLadderPos` ASC, `$DBRankScore` DESC LIMIT $offset, $amount");
 
     function checkPage() {
         if(isset($_GET['PC'])) return "?PC&";
