@@ -34,13 +34,17 @@
         if($debug == false) {
             if($RankType == "BR") require_once(__DIR__."/../analytics/BR.html");
             if($RankType == "Arenas") require_once(__DIR__."/../analytics/Arenas.html");
+
+            $homeLink = "https://ranked.apexstats.dev/";
+        }else{
+            $homeLink = "/";
         }
     ?>
 </head>
 
 <body>
     <nav class="nav">
-        <a href="https://ranked.apexstats.dev/" class="brand">
+        <a href="<?php echo $homeLink; ?>" class="brand">
             <span class="inner">
                 <span class="top"><?php echo $SeasonInfo['name']; ?></span>
                 <span class="bottom"><?php echo rankType($RankType); ?></span>
