@@ -269,7 +269,7 @@ body {
 .container .list.Predator .bold {
   font-weight: bold;
   background: rgba(230, 28, 0, 0.85);
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.75);
   border-left: 4px solid rgba(160, 18, 0, 0.85);
 }
 
@@ -280,7 +280,7 @@ body {
 .container .list.Master .bold {
   font-weight: bold;
   background: rgba(146, 91, 198, 0.85);
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.75);
   border-left: 4px solid rgba(94, 59, 128, 0.85);
 }
 
@@ -291,7 +291,7 @@ body {
 .container .list.Diamond .bold {
   font-weight: bold;
   background: rgba(56, 110, 160, 0.85);
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.75);
   border-left: 4px solid rgba(41, 80, 117, 0.85);
 }
 
@@ -302,8 +302,35 @@ body {
 .container .list.Platinum .bold {
   font-weight: bold;
   background: rgba(63, 138, 136, 0.85);
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.75);
   border-left: 4px solid rgba(50, 107, 105, 0.85);
+}
+
+.container .list.First {
+  border-bottom: 2px solid #aa8c28;
+}
+
+.container .list.First .bold {
+  background: #d4af37;
+  border-left: 4px solid #aa8c28;
+}
+
+.container .list.Second {
+  border-bottom: 2px solid #7e7e7e;
+}
+
+.container .list.Second .bold {
+  background: darkgray;
+  border-left: 4px solid #7e7e7e;
+}
+
+.container .list.Third {
+  border-bottom: 2px solid #745c38;
+}
+
+.container .list.Third .bold {
+  background: #b08d57;
+  border-left: 4px solid #745c38;
 }
 
 .pagination {

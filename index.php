@@ -85,6 +85,14 @@
         return $legend."#".$level;
     }
 
+    function posStyle($pos) {
+        if($pos == "1") return "First";
+        if($pos == "2") return "Second";
+        if($pos == "3") return "Third";
+
+        return;
+    }
+
     include_once("./include/header.php");
 ?>
 
@@ -101,7 +109,7 @@
             $levelIcon = '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" class="icon" />';
             $rankIcon = '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/'.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).'.png" class="icon" />';
 
-            echo '<div class="list '.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).'">';
+            echo '<div class="list '.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).' '.posStyle($player[$DBLadderPos]).'">';
                 echo '<span class="item bold" style="flex-basis: 5%;"><span class="inner">'.checkPos($player[$DBLadderPos]).'</span></span>';
                 echo '<span class="item" style="flex-basis: 44%;"><span class="inner"><a href="#">'.nickname($player['PlayerNick'], $Legendfile[$player['Legend']]['Name'], $player['PlayerLevel']).'</a></span></span>';
                 echo '<span class="item" style="flex-basis: 16%;">'.$levelIcon.'<span class="inner">Level <b>'.number_format($player['PlayerLevel']).'</b></span></span>';
