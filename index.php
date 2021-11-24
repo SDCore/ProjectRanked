@@ -65,12 +65,12 @@
     }
 
     function rankText($isPred, $score, $file, $type) {
-        if($isPred == "1") return "Apex Predator <b>(".number_format($score)." ".$type.")</b>";
+        if($isPred == "1") return "Apex Predator &#8212; <b>".number_format($score)." ".$type."</b>";
 
-        if($score < $file['Diamond']) return "Platinum <b>(".number_format($score)." ".$type.")</b>";
-        if($score < $file['Master']) return "Diamond <b>(".number_format($score)." ".$type.")</b>";
+        if($score < $file['Diamond']) return "Platinum &#8212; <b>".number_format($score)." ".$type."</b>";
+        if($score < $file['Master']) return "Diamond &#8212; <b>".number_format($score)." ".$type."</b>";
 
-        return "Master <b>(".number_format($score)." ".$type.")</b>";
+        return "Master &#8212; <b>".number_format($score)." ".$type."</b>";
     }
 
     function checkPos($pos) {
@@ -93,7 +93,7 @@
         <span class="item i1" style="flex-basis: 5%;"><span class="inner">#</span></span>
         <span class="item i2" style="flex-basis: 44%;"><span class="inner">Name</span></span>
         <span class="item i2" style="flex-basis: 16%;"><span class="inner">Account Level</span></span>
-        <span class="item i2" style="flex-basis: 35%;"><span class="inner">Rank (Score)</span></span>
+        <span class="item i2" style="flex-basis: 35%;"><span class="inner">Rank &#8212; Score</span></span>
     </div>
 
     <?php
