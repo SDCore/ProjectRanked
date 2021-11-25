@@ -1,6 +1,12 @@
 <?php 
     require_once(__DIR__."/../connect.php");
 
+    if($debug == true) {
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+    }
+
     $DBConn = mysqli_connect($host, $user, $pass, $db);
 
     $SeasonInfo = mysqli_fetch_array(mysqli_query($DBConn, "SELECT * FROM seasonInfo")) or die(mysqli_error($DBConn));
