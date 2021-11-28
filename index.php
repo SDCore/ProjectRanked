@@ -2,11 +2,6 @@
     $title = "Home";
     require_once("./include/nav.php");
     include_once("./include/platform.php");
-
-    $CurrentRankPeriod = "Ranked_S0".$SeasonInfo['number']."_0".$SeasonInfo['currentSplit'];
-    $DBRankScore = $RankType."_RankScore";
-    $DBLadderPos = $RankType."_LadderPos";
-    $DBisPred = $RankType."_isPred";
     
     $RankFile = json_decode(file_get_contents("./GameData/".$RankType."_RankPosition.json"), true);
     $Legendfile = json_decode(file_get_contents("./GameData/Legends.json"), true);
@@ -80,12 +75,6 @@
         return "#".$pos;
     }
 
-    function nickname($nick, $legend, $level) {
-        if($nick != null) return $nick;
-
-        return $legend."#".$level;
-    }
-
     function posStyle($pos) {
         if($pos == "1") return "First";
         if($pos == "2") return "Second";
@@ -112,7 +101,7 @@
 
             echo '<div class="list '.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).' '.posStyle($player[$DBLadderPos]).'">';
                 echo '<span class="item bold" style="flex-basis: 5%;"><span class="inner">'.checkPos($player[$DBLadderPos]).'</span></span>';
-                echo '<span class="item" style="flex-basis: 44%;"><span class="inner"><a href="#">'.nickname($player['PlayerNick'], $Legendfile[$player['Legend']]['Name'], $player['PlayerLevel']).'</a></span></span>';
+                echo '<span class="item" style="flex-basis: 44%;"><span class="inner"><a href="/user/'.$player['PlayerID'].'">'.nickname($player['PlayerNick'], $Legendfile[$player['Legend']]['Name'], $player['PlayerLevel']).'</a></span></span>';
                 echo '<span class="item" style="flex-basis: 16%;">'.$levelIcon.'<span class="inner">Level <b>'.number_format($player['PlayerLevel']).'</b></span></span>';
                 echo '<span class="item" style="flex-basis: 35%;">'.$rankIcon.'<span class="inner">'.rankText($player[$DBisPred], $player[$DBRankScore], $RankFile, scoreType($RankType)).'</span></span>';
             echo '</div>';

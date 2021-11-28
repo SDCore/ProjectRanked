@@ -18,7 +18,7 @@
     </div>
     <div class="faq">
         <div class="question">
-            Why does the leaderboard not show any rank under Gold?
+            Why does the leaderboard not show any rank under Platinum?
         </div>
         <div class="answer">
             Most of the playerbase is going to be Plat+, so I don't see too much value in showing anything below that rank. There are people added to the database that are Gold or below, they just don't show up. This might be changed in the future, but for now, it's mainly a leaderboard for people looking to grind ranked and see where they place against other similar players.

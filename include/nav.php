@@ -21,6 +21,31 @@
         if($type == "BR") return "Battle Royale";
         if($type == "Arenas") return "Arenas";
     }
+
+    function nickname($nick, $legend, $level) {
+        if($nick != null) return $nick;
+
+        return $legend."#".$level;
+    }
+
+    function userTitle($db, $rank, $id) {
+        $userRequest = mysqli_query($db, "SELECT * FROM $rank WHERE `PlayerID` = '$id'");
+        $userQuery = mysqli_fetch_assoc($userRequest);
+        $Legendfile = json_decode(file_get_contents("./GameData/Legends.json"), true);
+
+        if($id == 0 || mysqli_num_rows($userRequest) < 1) { 
+            echo "<title>N/A &#8212; Apex Legends Ranked Leaderboards</title>";
+        }else{
+            echo "<title>".nickname($userQuery['PlayerNick'], $Legendfile[$userQuery['Legend']]['Name'], $userQuery['PlayerLevel'])." &#8212; Apex Legends Ranked Leaderboards</title>";
+        }
+    }
+
+    $CurrentRankPeriod = "Ranked_S0".$SeasonInfo['number']."_0".$SeasonInfo['currentSplit'];
+    $RankPeriod01 = "Ranked_S0".$SeasonInfo['number']."_01";
+    $RankPeriod02 = "Ranked_S0".$SeasonInfo['number']."_02";
+    $DBRankScore = $RankType."_RankScore";
+    $DBLadderPos = $RankType."_LadderPos";
+    $DBisPred = $RankType."_isPred";
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +56,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?php echo $title; ?> &#8212; Apex Legends Ranked Leaderboards</title>
+    <?php
+        if($title == "User") {
+            userTitle($DBConn, $CurrentRankPeriod, $_GET['id']);
+        }else{
+            echo "<title>".$title." &#8212; Apex Legends Ranked Leaderboards</title>";
+        }
+    ?>
 
     <link type="text/css" rel="stylesheet" href="<?php __DIR__; ?>/../css/main.min.css" />
     <link rel="shortcut icon" type="image/x-icon" href="<?php __DIR__; ?>/../favicon.ico" />
