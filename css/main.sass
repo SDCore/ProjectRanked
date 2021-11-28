@@ -275,6 +275,76 @@ body
     background: rgba(0, 0, 0, 0.5)
     color: rgba(255, 255, 255, 0.8)
 
+.user
+    width: 85%
+    margin: 15px auto
+    .username
+        flex: 1
+        display: flex
+        font-size: 25pt
+        font-weight: bold
+        padding: 6px 15px
+        margin-bottom: 1px
+        width: calc(100% - 30px)
+        backdrop-filter: blur(10px)
+        background: rgba(0, 0, 0, 0.5)
+        color: rgba(255, 255, 255, 0.85)
+    .placement
+        width: 100%
+        display: flex
+        .box
+            flex: 1
+            display: flex
+            backdrop-filter: blur(10px)
+            background: rgba(0, 0, 0, 0.5)
+            &:nth-of-type(2)
+                flex: 2
+                margin: 0 1px
+            &:nth-of-type(3)
+                flex: 2
+            .inner
+                flex: 1
+                flex-direction: column
+                .image
+                    flex: 1
+                    width: 100%
+                    display: flex
+                    padding: 10px 0
+                    position: relative
+                    justify-content: center
+                    img
+                        width: 150px
+                    .innerText
+                        top: 133px
+                        font-size: 10pt
+                        position: absolute
+                        color: rgba(255, 255, 255, 0.5)
+                        &.pred
+                            top: 128px
+                            color: rgba(255, 255, 255, 0.85)
+                        &.master
+                            color: rgba(255, 255, 255, 0.85)
+                .text
+                    flex: 1
+                    width: 100%
+                    display: block
+                    padding: 5px 0
+                    font-size: 16pt
+                    font-weight: bold
+                    text-align: center
+                    background: rgba(0, 0, 0, 0.25)
+                    color: rgba(255, 255, 255, 0.9)
+                .label
+                    flex: 1
+                    width: 100%
+                    display: block
+                    padding: 4px 0
+                    font-size: 13pt
+                    font-weight: 300
+                    text-align: center
+                    background: rgba(0, 0, 0, 0.35)
+                    color: rgba(255, 255, 255, 0.7)
+
 .faq
     margin: 15px 0 0 0
     .question
