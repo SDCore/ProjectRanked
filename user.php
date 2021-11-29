@@ -59,7 +59,7 @@
     </span>
     <span class="history">
         <span class="box">
-            <div class="season">Season 10</div>
+            <div class="season">Season 10 &#8212; Emergence</div>
             <span class="inner">
                 <?php echo rankInfo($DBConn, "Ranked_S010_01", $UID, "BR"); ?>
             </span>
@@ -68,7 +68,7 @@
             </span>
         </span>
         <span class="box">
-            <div class="season">Season 10</div>
+            <div class="season">Season 10 &#8212; Emergence</div>
             <span class="inner">
                 <?php echo rankInfo($DBConn, "Ranked_S010_02", $UID, "Arenas"); ?>
             </span>
@@ -76,7 +76,7 @@
     </span>
     <span class="history">
         <span class="box">
-            <div class="season">Season 09</div>
+            <div class="season">Season 09 &#8212; Legacy</div>
             <span class="inner">
                 <?php echo rankInfo($DBConn, "Ranked_S009_01", $UID, "BR"); ?>
             </span>
@@ -85,7 +85,7 @@
             </span>
         </span>
         <span class="box">
-            <div class="season">Season 09</div>
+            <div class="season">Season 09 &#8212; Legacy</div>
             <span class="inner">
                 <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/Arenas/Unranked.png" /></span>
                 <span class="top">N/A</span>

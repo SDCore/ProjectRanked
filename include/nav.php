@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     require_once(__DIR__."/../connect.php");
 
     if($debug == true) {
@@ -10,8 +11,8 @@
     $DBConn = mysqli_connect($host, $user, $pass, $db);
 
     $SeasonInfo = mysqli_fetch_array(mysqli_query($DBConn, "SELECT * FROM seasonInfo")) or die(mysqli_error($DBConn));
-    $Legendfile = json_decode(file_get_contents("./GameData/Legends.json"), true);
-    $RankFile = json_decode(file_get_contents("./GameData/".$RankType."_RankPosition.json"), true);
+    $Legendfile = json_decode(file_get_contents(__DIR__."/../GameData/Legends.json"), true);
+    $RankFile = json_decode(file_get_contents(__DIR__."/../GameData/".$RankType."_RankPosition.json"), true);
 
     function active($page) {
         if ($_SERVER['SCRIPT_NAME'] == $page.".php") return "active";
