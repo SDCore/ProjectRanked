@@ -28,31 +28,36 @@
         <span class="box">
             <span class="inner">
                 <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" /></span>
-                <span class="text"><?php echo number_format($playerQuery['PlayerLevel']); ?></span>
+                <span class="top"><?php echo number_format($playerQuery['PlayerLevel']); ?></span>
+                <span class="bottom">Level</span>
                 <span class="label">Account Level</span>
             </span>
         </span>
         <span class="box">
             <span class="inner">
                 <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/BR/Bronze.png" /></span>
-                <span class="text">Bronze</span>
+                <span class="top">0 RP</span>
+                <span class="bottom">Bronze</span>
                 <span class="label">BR Ranked Split 1</span>
             </span>
             <span class="inner">
                 <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/BR/Bronze.png" /></span>
-                <span class="text">Bronze</span>
-                <span class="label">BR Ranked Split 2</span>
+                <span class="top">0 RP</span>
+                <span class="bottom">Bronze</span>
+                <span class="label">BR Ranked Split 1</span>
             </span>
         </span>
         <span class="box">
             <span class="inner">
                 <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/Arenas/Unranked.png" /></span>
-                <span class="text">Unranked</span>
+                <span class="top">0 RP</span>
+                <span class="bottom">Unranked</span>
                 <span class="label">Arenas Ranked Split 1</span>
             </span>
             <span class="inner">
                 <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/Arenas/Unranked.png" /></span>
-                <span class="text">Unranked</span>
+                <span class="top">0 RP</span>
+                <span class="bottom">Unranked</span>
                 <span class="label">Arenas Ranked Split 1</span>
             </span>
         </span>
