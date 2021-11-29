@@ -2,8 +2,6 @@
     $title = "Home";
     require_once("./include/nav.php");
     include_once("./include/platform.php");
-    
-    $RankFile = json_decode(file_get_contents("./GameData/".$RankType."_RankPosition.json"), true);
 
     function platform() {
         if(isset($_GET['PC'])) return "PC";
