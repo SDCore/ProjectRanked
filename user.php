@@ -12,46 +12,13 @@
     $playerQuery = mysqli_fetch_assoc($playerRequest);
     if($UID == 0 || mysqli_num_rows($playerRequest) < 1) { echo '<div class="noPlayer">Player with that ID does not exist.</div>'; return; }
 
-    $splitOneInfo = mysqli_fetch_assoc(mysqli_query($DBConn, "SELECT * FROM `$RankPeriod01` WHERE `PlayerID` = '$UID'"));
-    $splitTwoInfo = mysqli_fetch_assoc(mysqli_query($DBConn, "SELECT * FROM `$RankPeriod02` WHERE `PlayerID` = '$UID'"));
-
     function platformIcon($platform) {
         if($platform == "PC") return "steam";
         if($platform == "PS4") return "playstation";
         if($platform == "X1") return "xbox";
     }
 
-    function rankImage($pred, $pos, $score, $type) {
-        $ScoreFile = json_decode(file_get_contents("./GameData/".$type."_RankPosition.json"), true);
-
-        if($score == 0) return "Unranked";
-
-        if($pred == 1) return "Apex Predator";
-
-        if($score < $ScoreFile['Silver']) return "Bronze";
-        if($score < $ScoreFile['Gold']) return "Silver";
-        if($score < $ScoreFile['Platinum']) return "Gold";
-        if($score < $ScoreFile['Diamond']) return "Platinum";
-        if($score < $ScoreFile['Master']) return "Diamond";
-
-        return "Master";
-    }
-
-    function rankName($pred, $pos, $score, $type) {
-        $ScoreFile = json_decode(file_get_contents("./GameData/".$type."_RankPosition.json"), true);
-
-        if($score == 0) return "Unranked";
-
-        if($pred == 1) return "[#".$pos."] Apex Predator";
-
-        if($score < $ScoreFile['Silver']) return "Bronze";
-        if($score < $ScoreFile['Gold']) return "Silver";
-        if($score < $ScoreFile['Platinum']) return "Gold";
-        if($score < $ScoreFile['Diamond']) return "Platinum";
-        if($score < $ScoreFile['Master']) return "Diamond";
-
-        return "Master";
-    }
+    require_once("./include/user/rankInfo.php");
 ?>
 
 <div class="user">
@@ -67,30 +34,62 @@
         </span>
         <span class="box">
             <span class="inner">
-                <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/BR/<?php echo rankImage($splitOneInfo['BR_isPred'], $splitOneInfo['BR_LadderPos'],  $splitOneInfo['BR_RankScore'], "BR"); ?>.png" /></span>
-                <span class="top"><?php echo number_format($splitOneInfo['BR_RankScore']); ?> RP</span>
-                <span class="bottom"><?php echo rankName($splitOneInfo['BR_isPred'], $splitOneInfo['BR_LadderPos'], $splitOneInfo['BR_RankScore'], "BR"); ?></span>
+                <?php echo rankInfo($DBConn, $RankPeriod01, $UID, "BR"); ?>
                 <span class="label">BR Ranked Split 1</span>
             </span>
             <span class="inner">
-                <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/BR/<?php echo rankImage($splitTwoInfo['BR_isPred'], $splitTwoInfo['BR_LadderPos'], $splitTwoInfo['BR_RankScore'], "BR"); ?>.png" /></span>
-                <span class="top"><?php echo number_format($splitTwoInfo['BR_RankScore']); ?> RP</span>
-                <span class="bottom"><?php echo rankName($splitTwoInfo['BR_isPred'], $splitTwoInfo['BR_LadderPos'], $splitTwoInfo['BR_RankScore'], "BR"); ?></span>
+                <?php echo rankInfo($DBConn, $RankPeriod02, $UID, "BR"); ?>
                 <span class="label">BR Ranked Split 2</span>
             </span>
         </span>
         <span class="box">
             <span class="inner">
-                <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/Arenas/<?php echo rankImage($splitOneInfo['Arenas_isPred'], $splitOneInfo['Arenas_LadderPos'],  $splitOneInfo['Arenas_RankScore'], "Arenas"); ?>.png" /></span>
-                <span class="top"><?php echo number_format($splitOneInfo['Arenas_RankScore']); ?> AP</span>
-                <span class="bottom"><?php echo rankName($splitOneInfo['Arenas_isPred'], $splitOneInfo['Arenas_LadderPos'], $splitOneInfo['Arenas_RankScore'], "Arenas"); ?></span>
+                <?php echo rankInfo($DBConn, $RankPeriod01, $UID, "Arenas"); ?>
                 <span class="label">Arenas Ranked Split 1</span>
             </span>
             <span class="inner">
-                <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/Arenas/<?php echo rankImage($splitTwoInfo['Arenas_isPred'], $splitTwoInfo['Arenas_LadderPos'],  $splitTwoInfo['Arenas_RankScore'], "Arenas"); ?>.png" /></span>
-                <span class="top"><?php echo number_format($splitTwoInfo['Arenas_RankScore']); ?> AP</span>
-                <span class="bottom"><?php echo rankName($splitTwoInfo['Arenas_isPred'], $splitTwoInfo['Arenas_LadderPos'], $splitTwoInfo['Arenas_RankScore'], "Arenas"); ?></span>
+                <?php echo rankInfo($DBConn, $RankPeriod02, $UID, "Arenas"); ?>
                 <span class="label">Arenas Ranked Split 2</span>
+            </span>
+        </span>
+    </span>
+    <span class="history">
+        <span class="title">BR Ranked History</span>
+        <span class="title">Arenas Ranked History</span>
+    </span>
+    <span class="history">
+        <span class="box">
+            <div class="season">Season 10</div>
+            <span class="inner">
+                <?php echo rankInfo($DBConn, "Ranked_S010_01", $UID, "BR"); ?>
+            </span>
+            <span class="inner">
+                <?php echo rankInfo($DBConn, "Ranked_S010_02", $UID, "BR"); ?>
+            </span>
+        </span>
+        <span class="box">
+            <div class="season">Season 10</div>
+            <span class="inner">
+                <?php echo rankInfo($DBConn, "Ranked_S010_02", $UID, "Arenas"); ?>
+            </span>
+        </span>
+    </span>
+    <span class="history">
+        <span class="box">
+            <div class="season">Season 09</div>
+            <span class="inner">
+                <?php echo rankInfo($DBConn, "Ranked_S009_01", $UID, "BR"); ?>
+            </span>
+            <span class="inner">
+                <?php echo rankInfo($DBConn, "Ranked_S009_02", $UID, "BR"); ?>
+            </span>
+        </span>
+        <span class="box">
+            <div class="season">Season 09</div>
+            <span class="inner">
+                <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/Arenas/Unranked.png" /></span>
+                <span class="top">N/A</span>
+                <span class="bottom">N/A</span>
             </span>
         </span>
     </span>
