@@ -34,25 +34,25 @@
         </span>
         <span class="box">
             <span class="inner">
-                <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Master_2.png" /></span>
-                <span class="text">Platinum</span>
+                <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/BR/Bronze.png" /></span>
+                <span class="text">Bronze</span>
                 <span class="label">BR Ranked Split 1</span>
             </span>
             <span class="inner">
-                <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Master_2.png" /></span>
-                <span class="text">Platinum</span>
+                <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/BR/Bronze.png" /></span>
+                <span class="text">Bronze</span>
                 <span class="label">BR Ranked Split 2</span>
             </span>
         </span>
         <span class="box">
             <span class="inner">
-                <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Master_2.png" /></span>
-                <span class="text">Platinum</span>
+                <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/Arenas/Unranked.png" /></span>
+                <span class="text">Unranked</span>
                 <span class="label">Arenas Ranked Split 1</span>
             </span>
             <span class="inner">
-                <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Master_2.png" /></span>
-                <span class="text">Platinum</span>
+                <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/Arenas/Unranked.png" /></span>
+                <span class="text">Unranked</span>
                 <span class="label">Arenas Ranked Split 1</span>
             </span>
         </span>
