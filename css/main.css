@@ -403,7 +403,6 @@ body {
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.5);
   color: rgba(255, 255, 255, 0.85);
-  clip-path: polygon(0 0, 98% 0%, 100% 100%, 0% 100%);
 }
 
 .user .placement {
