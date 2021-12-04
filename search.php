@@ -1,0 +1,68 @@
+<?php
+    $title = "User Search";
+    require_once("./include/nav.php");
+
+    $UID = 0;
+
+    if(isset($_GET['user'])) {
+        $user = $_GET['user'];
+    }
+    $minLength = 3;
+
+    if(strlen($user) >= $minLength) {
+        $user = htmlspecialchars($user);
+        $user = mysqli_real_escape_string($DBConn, $user);
+
+        $results = mysqli_query($DBConn, "SELECT * FROM $CurrentRankPeriod WHERE (`PlayerNick` LIKE '%".$user."%')");
+    }else{
+        $error = "<span class='error'>Your search must contain 3 or more characters</span>";
+    }
+
+    function icon($platform) {
+        if($platform == "PC") return '<i class="fab fa-steam"></i>';
+        if($platform == "X1") return '<i class="fab fa-xbox"></i>';
+        if($platform == "PS4") return '<i class="fab fa-playstation"></i>';
+    }
+
+    require_once("./include/rankInfo.php");
+?>
+
+<div class="search">
+    <span class="help">* Search users by their current in-game name</span>
+    <div class="searchBox">
+        <form action="" method="GET">
+            <input type="text" id="user" name="user" placeholder="Username" />
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <div class="results">
+        <div class="top">
+            <span class="item" style="flex-basis: 40%;"><span class="inner">Username</span></span>
+            <span class="item" style="flex-basis: 30%;"><span class="inner">Battle Royale Rank</span></span>
+            <span class="item" style="flex-basis: 30%;"><span class="inner">Arenas Rank</span></span>
+        </div>
+        <?php 
+            if(isset($_GET['user'])) {
+                if(isset($error)) {
+                    echo $error;
+                }else{
+                    if(mysqli_num_rows($results) < 1) {
+                        echo "<span class='error'>No players found with that username</span>";
+                    }else{
+                        while($player = mysqli_fetch_assoc($results)) {
+                            echo '<a href="/user/'.$player['PlayerID'].'" class="list">';
+                                echo '<span class="item" style="flex-basis: 40%; font-weight: bold;">'.icon($player['Platform']).' '.$player['PlayerNick'].'</span>';
+                                echo '<span class="item" style="flex-basis: 30%;">'.rankName($player['BR_isPred'], $player['BR_LadderPos'], $player['BR_RankScore'], "BR").' &#8212; '.number_format($player['BR_RankScore']).' RP</span>';
+                                echo '<span class="item" style="flex-basis: 30%;">'.rankName($player['Arenas_isPred'], $player['Arenas_LadderPos'], $player['Arenas_RankScore'], "Arenas").' &#8212; '.number_format($player['Arenas_RankScore']).' AP</span>';
+                            echo '</a>';
+                        }
+                    }
+                }
+            }else{
+                echo '<span class="error">-</span>';
+            }
+        ?>
+    </div>
+</div>
+
+<?php require_once("./include/footer.php"); ?>

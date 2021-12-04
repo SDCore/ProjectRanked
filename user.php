@@ -18,7 +18,7 @@
         if($platform == "X1") return "xbox";
     }
 
-    require_once("./include/user/rankInfo.php");
+    require_once("./include/rankInfo.php");
 ?>
 
 <div class="user">
