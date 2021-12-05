@@ -29,12 +29,10 @@
 
 <div class="search">
     <span class="help">* Search users by their current in-game name</span>
-    <div class="searchBox">
-        <form action="" method="GET">
-            <input type="text" id="user" name="user" placeholder="Username" />
-            <input type="submit" value="Search">
-        </form>
-    </div>
+    <form action="" method="GET" class="searchBox">
+        <input type="text" id="user" name="user" class="input" <?php if(isset($_GET['user'])) { echo 'value="'.$user.'"'; } else { echo 'placeholder="Username"'; } ?> autoFocus />
+        <input type="submit" class="button" value="Search">
+    </form>
     <div class="results">
         <div class="top">
             <span class="item" style="flex-basis: 40%;"><span class="inner">Username</span></span>
