@@ -21,7 +21,7 @@
         <a href="/admin/index">&copy;</a> StryderDev <?php echo date("Y"); ?> &middot; Data updated hourly. Last updated <?php echo timeText($time); ?> ago.
     </footer>
     
-    <script src="https://kit.fontawesome.com/f9aca975cb.js" crossorigin="anonymous"></script>
+    <script rel="preload" src="https://kit.fontawesome.com/f9aca975cb.js" crossorigin="anonymous"></script>
 
 </body>
 

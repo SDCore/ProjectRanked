@@ -521,6 +521,12 @@ body
         font-weight: bold
         text-align: center
         color: rgba(255, 255, 255, 0.95)
+    .error
+        width: 100%
+        display: block
+        font-weight: bold
+        text-align: center
+        color: rgba(255, 0, 0, 0.9)
     .group 
         width: 100%
         .title
@@ -539,6 +545,28 @@ body
         font-size: 15pt
         font-weight: bold
         padding: 8px 20px
+
+.addUserButtons
+    margin: 15px 0
+    .title
+        display: block
+        font-size: 25pt
+        padding: 4px 10px
+        margin: 0 0 1px 0
+        font-weight: bold
+        width: calc(100% - 20px)
+        backdrop-filter: blur(10px)
+        background: rgba(0, 0, 0, 0.5)
+        color: rgba(255, 255, 255, 0.95)
+    .buttons
+        display: flex
+        .button
+            flex: 1
+            backdrop-filter: blur(10px)
+            background: rgba(0, 0, 0, 0.5)
+            &:nth-child(2)
+                margin: 0 1px
+                
 
 .footer
     bottom: 0
