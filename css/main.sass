@@ -508,7 +508,7 @@ body
         background: rgba(0, 0, 0, 0.5)
         color: rgba(255, 255, 255, 0.75)
 
-.login
+.adminForm
     width: 45%
     padding: 8px 20px
     margin: 20px auto
@@ -527,6 +527,12 @@ body
         font-weight: bold
         text-align: center
         color: rgba(255, 0, 0, 0.9)
+    .success
+        width: 100%
+        display: block
+        font-weight: bold
+        text-align: center
+        color: rgba(0, 255, 0, 0.9)
     .group 
         width: 100%
         .title
@@ -535,7 +541,9 @@ body
             font-weight: normal
         .input
             width: 100%
+            outline: none
             font-size: 15pt
+            text-align: center
             font-weight: normal
             margin-bottom: 10px
             box-sizing: border-box
@@ -562,10 +570,19 @@ body
         display: flex
         .button
             flex: 1
+            font-size: 16pt
+            padding: 8px 20px
+            font-weight: bold
+            text-align: center
+            text-decoration: none
+            transition: all 0.2s ease
             backdrop-filter: blur(10px)
             background: rgba(0, 0, 0, 0.5)
+            color: rgba(255, 255, 255, 0.95)
             &:nth-child(2)
                 margin: 0 1px
+            &:hover
+                background: rgba(0, 0, 0, 0.75)
                 
 
 .footer

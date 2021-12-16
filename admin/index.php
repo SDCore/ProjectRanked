@@ -81,18 +81,18 @@
 ?>
 
 <form action="#" method="post">
-    <div class="login">
+    <div class="adminForm">
         <span class="title">Admin Login</span>
         <span class="error"><?php if(!empty($login_err)) { echo $login_err; } ?></span>
         <div class="group">
             <span class="title">Username</span>
             <span class="error"><?php echo $username_err; ?></span>
-            <input type="text" name="username" class="input" value="<?php echo $username; ?>" required="required" />
+            <input type="text" name="username" class="input" value="<?php echo $username; ?>" required="required" placeholder="Username" />
         </div>
         <div class="group">
             <span class="title">Password</span>
             <span class="error"><?php echo $password_err; ?></span>
-            <input type="password" name="password" class="input" required="required" />
+            <input type="password" name="password" class="input" required="required" placeholder="Password" />
         </div>
         <input type="submit" class="submit" value="Sign In" />
     </div>
