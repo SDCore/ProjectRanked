@@ -16,7 +16,7 @@
         if(mysqli_fetch_array($checkID) > 0) {
             $resp = '<span class="error">A user with that ID already exists.</span>';
         }else{
-            mysqli_query($DBConn, "INSERT INTO $CurrentRankPeriod (PlayerID, PlayerName, PlayerNick, Platform, Twitter, Twitch, TikTok, YouTube) VALUES ('$uid', '$name', '', 'X1', 'N/A', 'N/A', 'N/A', 'N/A')");
+            mysqli_query($DBConn, "INSERT INTO $CurrentRankPeriod (PlayerID, PlayerName, PlayerNick, Platform) VALUES ('$uid', '$name', '', 'X1')");
             $resp = '<span class="success">User added successfully.</span>';
         }
     }
