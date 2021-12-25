@@ -6,6 +6,7 @@
     function platform() {
         if(isset($_GET['PC'])) return "PC";
         if(isset($_GET['Xbox'])) return "X1";
+        if(isset($_GET['Switch'])) return "SWITCH";
         if(isset($_GET['PlayStation'])) return "PS4";
 
         return "PC";
@@ -14,6 +15,7 @@
     function platformText() {
         if(isset($_GET['PC'])) return "PC";
         if(isset($_GET['Xbox'])) return "Xbox";
+        if(isset($_GET['Switch'])) return "Nintendo Switch";
         if(isset($_GET['PlayStation'])) return "PlayStation";
 
         return "PC";

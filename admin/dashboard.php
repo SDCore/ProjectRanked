@@ -15,6 +15,7 @@
             <a class="button" href="./add/PC"><i class="fab fa-steam"></i> PC</a>
             <a class="button" href="./add/PlayStation"><i class="fab fa-playstation"></i> PlayStation</a>
             <a class="button" href="./add/Xbox"><i class="fab fa-xbox"></i> Xbox</a>
+            <a class="button" href="./add/Switch"><i class="fas fa-gamepad"></i> Nintendo Switch</a>
         </span>
     </div>
 </div>

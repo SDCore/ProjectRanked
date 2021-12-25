@@ -22,6 +22,7 @@
         if($platform == "PC") return '<i class="fab fa-steam"></i>';
         if($platform == "X1") return '<i class="fab fa-xbox"></i>';
         if($platform == "PS4") return '<i class="fab fa-playstation"></i>';
+        if($platform == "SWITCH") return '<i class="fas fa-gamepad"></i>';
     }
 
     require_once("./include/rankInfo.php");

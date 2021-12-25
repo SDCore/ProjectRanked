@@ -13,16 +13,17 @@
     if($UID == 0 || mysqli_num_rows($playerRequest) < 1) { echo '<div class="noPlayer">Player with that ID does not exist.</div>'; return; }
 
     function platformIcon($platform) {
-        if($platform == "PC") return "steam";
-        if($platform == "PS4") return "playstation";
-        if($platform == "X1") return "xbox";
+        if($platform == "PC") return "<i class='fab fa-steam'>";
+        if($platform == "PS4") return "<i class='fab fa-playstation'>";
+        if($platform == "X1") return "<i class='fab fa-xbox'>";
+        if($platform == "SWITCH") return "<i class='fas fa-gamepad'>";
     }
 
     require_once("./include/rankInfo.php");
 ?>
 
 <div class="user">
-    <div class="username"><i class="fab fa-<?php echo platformIcon($playerQuery['Platform']); ?>"></i>&nbsp;<?php echo nickname($playerQuery['PlayerNick'], $Legendfile[$playerQuery['Legend']]['Name'], $playerQuery['PlayerLevel']); ?></div>
+    <div class="username"><?php echo platformIcon($playerQuery['Platform']); ?></i>&nbsp;<?php echo nickname($playerQuery['PlayerNick'], $Legendfile[$playerQuery['Legend']]['Name'], $playerQuery['PlayerLevel']); ?></div>
     <span class="placement">
         <span class="box">
             <span class="inner">
