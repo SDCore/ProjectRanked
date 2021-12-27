@@ -149,6 +149,14 @@ body
         .item
             padding: 8px 16px
             border-bottom: 2px solid rgba(160, 160, 160, 0.85)
+            &:nth-child(1)
+                flex-basis: 5%
+            &:nth-child(2)
+                flex-basis: 44%
+            &:nth-child(3)
+                flex-basis: 16%
+            &:nth-child(4)
+                flex-basis: 35%
             .inner
                 display: block
                 transform: skew(-20deg)
@@ -173,6 +181,14 @@ body
             position: relative
             background: rgba(0, 0, 0, 0.65)
             text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+            &:nth-child(1)
+                flex-basis: 5%
+            &:nth-child(2)
+                flex-basis: 44%
+            &:nth-child(3)
+                flex-basis: 16%
+            &:nth-child(4)
+                flex-basis: 35%
             .icon
                 left: 5%
                 width: 26px
@@ -234,6 +250,30 @@ body
             .bold
                 background: rgba(176, 141, 87, 1)
                 border-left: 4px solid rgba(116, 92, 56, 1)
+
+@media (max-width: 1200px)
+    .container .top .item
+        &:nth-child(1)
+            flex-basis: 8%
+        &:nth-child(2)
+            flex-basis: 46%
+        &:nth-child(3)
+            display: none
+        &:nth-child(4)
+            flex-basis: 46%
+        .icon
+            display: none
+    .container .list .item
+        &:nth-child(1)
+            flex-basis: 8%
+        &:nth-child(2)
+            flex-basis: 46%
+        &:nth-child(3)
+            display: none
+        &:nth-child(4)
+            flex-basis: 46%
+        .icon
+            display: none
             
 .pagination
     display: flex

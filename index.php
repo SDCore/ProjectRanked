@@ -87,10 +87,10 @@
 
 <div class="container">
     <div class="top">
-        <span class="item i1" style="flex-basis: 5%;"><span class="inner">#</span></span>
-        <span class="item i2" style="flex-basis: 44%;"><span class="inner">Name</span></span>
-        <span class="item i2" style="flex-basis: 16%;"><span class="inner">Account Level</span></span>
-        <span class="item i2" style="flex-basis: 35%;"><span class="inner">Rank &#8212; Score</span></span>
+        <span class="item i1"><span class="inner">#</span></span>
+        <span class="item i2"><span class="inner">Name</span></span>
+        <span class="item i2"><span class="inner">Account Level</span></span>
+        <span class="item i2"><span class="inner">Rank &#8212; Score</span></span>
     </div>
 
     <?php
@@ -99,10 +99,10 @@
             $rankIcon = '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/'.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).'.png" class="icon" />';
 
             echo '<div class="list '.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).' '.posStyle($player[$DBLadderPos]).'">';
-                echo '<span class="item bold" style="flex-basis: 5%;"><span class="inner">'.checkPos($player[$DBLadderPos]).'</span></span>';
-                echo '<span class="item" style="flex-basis: 44%;"><span class="inner"><a href="/user/'.$player['PlayerID'].'">'.nickname($player['PlayerNick'], $Legendfile[$player['Legend']]['Name'], $player['PlayerLevel']).'</a></span></span>';
-                echo '<span class="item" style="flex-basis: 16%;">'.$levelIcon.'<span class="inner">Level <b>'.number_format($player['PlayerLevel']).'</b></span></span>';
-                echo '<span class="item" style="flex-basis: 35%;">'.$rankIcon.'<span class="inner">'.rankText($player[$DBisPred], $player[$DBRankScore], $RankFile, scoreType($RankType)).'</span></span>';
+                echo '<span class="item bold"><span class="inner">'.checkPos($player[$DBLadderPos]).'</span></span>';
+                echo '<span class="item"><span class="inner"><a href="/user/'.$player['PlayerID'].'">'.nickname($player['PlayerNick'], $Legendfile[$player['Legend']]['Name'], $player['PlayerLevel']).'</a></span></span>';
+                echo '<span class="item">'.$levelIcon.'<span class="inner">Level <b>'.number_format($player['PlayerLevel']).'</b></span></span>';
+                echo '<span class="item">'.$rankIcon.'<span class="inner">'.rankText($player[$DBisPred], $player[$DBRankScore], $RankFile, scoreType($RankType)).'</span></span>';
             echo '</div>';
         }
     ?>
