@@ -2,10 +2,10 @@
     $title = "Stats";
     require_once("./include/nav.php");
 
-    function getRankedDist($con, $less, $greater, $type, $current, $pred, $min, $plat, $pos) {
-        $minPred = mysqli_fetch_assoc(mysqli_query($con, "SELECT `$type` FROM $current WHERE `Platform` = '$platform' AND `$pred` = '1' ORDER BY `$pos` DESC LIMIT 1"));
+    function getRankedDist($con, $less, $greater, $type, $current, $pred, $plat, $pos) {
+        $minPred = mysqli_fetch_assoc(mysqli_query($con, "SELECT `$type` FROM $current WHERE `Platform` = '$plat' AND `$pred` = '1' ORDER BY `$pos` DESC LIMIT 1"));
 
-        $query = "SELECT COUNT(*) FROM $current WHERE `$type` < $less AND `$type` >= $greater AND `$pred` = '0' AND NOT(`$type` >= '$minPred' AND `$DBisPred` != '1')";
+        $query = "SELECT COUNT(*) FROM $current WHERE `$type` < $less AND `$type` >= $greater AND `$pred` != '1'";
 
         return mysqli_fetch_array(mysqli_query($con, $query))[0];
     }
@@ -24,18 +24,32 @@
             type: 'column'
         },
         title: {
-            text: 'Title'
+            text: 'Rank Tier Distribution'
+        },
+        xAxis: {
+            categories: [
+                'Bronze',
+                'Silver',
+                'Gold',
+                'Platinum',
+                'Diamond',
+            ],
         },
         series: [{
-            name: "Stats",
+            name: "Rank Tier",
             data: [
-                <?php echo getRankedDist($DBConn, "1200", "0", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", $minPred['BR_RankScore'], "PC", "BR_LadderPos"); ?>,
-                <?php echo getRankedDist($DBConn, "2800", "1200", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", $minPred['BR_RankScore'], "PC", "BR_LadderPos"); ?>,
-                <?php echo getRankedDist($DBConn, "4800", "2800", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", $minPred['BR_RankScore'], "PC", "BR_LadderPos"); ?>,
-                <?php echo getRankedDist($DBConn, "7200", "4800", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", $minPred['BR_RankScore'], "PC", "BR_LadderPos"); ?>,
-                <?php echo getRankedDist($DBConn, "10000", "7200", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", $minPred['BR_RankScore'], "PC", "BR_LadderPos"); ?>
+                { y: <?php echo getRankedDist($DBConn, "1200", "0", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#B08D57"},
+                { y: <?php echo getRankedDist($DBConn, "2800", "1200", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#BEC2CB"},
+                { y: <?php echo getRankedDist($DBConn, "4800", "2800", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#D4AF37"},
+                { y: <?php echo getRankedDist($DBConn, "7200", "4800", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#A0B2C6"},
+                { y: <?php echo getRankedDist($DBConn, "10000", "7200", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#70D1F4"}
             ]
-        }]
+        }],
+        yAxis: {
+            title: {
+                text: "Player Count"
+            },
+        }
     });
 </script>
 
