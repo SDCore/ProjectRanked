@@ -38,11 +38,11 @@
         series: [{
             name: "Rank Tier",
             data: [
-                { y: <?php echo getRankedDist($DBConn, "1200", "0", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#B08D57"},
+                { y: <?php echo getRankedDist($DBConn, "1200", "0", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#73482B"},
                 { y: <?php echo getRankedDist($DBConn, "2800", "1200", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#BEC2CB"},
                 { y: <?php echo getRankedDist($DBConn, "4800", "2800", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#D4AF37"},
-                { y: <?php echo getRankedDist($DBConn, "7200", "4800", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#A0B2C6"},
-                { y: <?php echo getRankedDist($DBConn, "10000", "7200", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#70D1F4"}
+                { y: <?php echo getRankedDist($DBConn, "7200", "4800", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#75A4AD"},
+                { y: <?php echo getRankedDist($DBConn, "10000", "7200", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#396FA1"}
             ]
         }],
         yAxis: {
