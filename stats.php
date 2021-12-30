@@ -5,7 +5,7 @@
     function getRankedDist($con, $less, $greater, $type, $current, $pred, $plat, $pos) {
         $minPred = mysqli_fetch_assoc(mysqli_query($con, "SELECT `$type` FROM $current WHERE `Platform` = '$plat' AND `$pred` = '1' ORDER BY `$pos` DESC LIMIT 1"));
 
-        $query = "SELECT COUNT(*) FROM $current WHERE `$type` < $less AND `$type` >= $greater AND `$pred` != '1'";
+        $query = "SELECT COUNT(*) FROM $current WHERE `$type` < $less AND `$type` >= $greater AND `$pred` != '1' AND NOT(`$type` >= '$minPred[$type]')";
 
         return mysqli_fetch_array(mysqli_query($con, $query))[0];
     }
@@ -24,7 +24,7 @@
             type: 'column'
         },
         title: {
-            text: 'Rank Tier Distribution'
+            text: 'PC Rank Tier Distribution'
         },
         xAxis: {
             categories: [
@@ -33,6 +33,7 @@
                 'Gold',
                 'Platinum',
                 'Diamond',
+                'Master'
             ],
         },
         series: [{
@@ -42,7 +43,8 @@
                 { y: <?php echo getRankedDist($DBConn, "2800", "1200", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#BEC2CB"},
                 { y: <?php echo getRankedDist($DBConn, "4800", "2800", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#D4AF37"},
                 { y: <?php echo getRankedDist($DBConn, "7200", "4800", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#75A4AD"},
-                { y: <?php echo getRankedDist($DBConn, "10000", "7200", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#396FA1"}
+                { y: <?php echo getRankedDist($DBConn, "10000", "7200", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#396FA1"},
+                { y: <?php echo getRankedDist($DBConn, "99999", "10000", "BR_RankScore", $CurrentRankPeriod, "BR_isPred", "PC", "BR_LadderPos"); ?>, color: "#925BC6"}
             ]
         }],
         yAxis: {
