@@ -20,6 +20,7 @@
     }
 
     require_once("./include/rankInfo.php");
+    require_once("./include/rankDiv.php");
 ?>
 
 <div class="user">

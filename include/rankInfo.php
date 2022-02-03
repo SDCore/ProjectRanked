@@ -27,11 +27,17 @@
 
         if($pred == 1) return "[#".$pos."] Apex Predator";
 
-        if($score < $ScoreFile['Silver']) return "Bronze";
-        if($score < $ScoreFile['Gold']) return "Silver";
-        if($score < $ScoreFile['Platinum']) return "Gold";
-        if($score < $ScoreFile['Diamond']) return "Platinum";
-        if($score < $ScoreFile['Master']) return "Diamond";
+        if($type == "BR") {
+            $rankDiv = brRankDiv($score);
+        }else{
+            $rankDiv = arenasRankDiv($score);
+        }
+
+        if($score < $ScoreFile['Silver']) return "Bronze ".$rankDiv;
+        if($score < $ScoreFile['Gold']) return "Silver ".$rankDiv;
+        if($score < $ScoreFile['Platinum']) return "Gold ".$rankDiv;
+        if($score < $ScoreFile['Diamond']) return "Platinum ".$rankDiv;
+        if($score < $ScoreFile['Master']) return "Diamond ".$rankDiv;
 
         return "Master";
     }
