@@ -61,6 +61,26 @@
     </span>
     <span class="history">
         <span class="box">
+            <div class="season">Season 11 &#8212; Escape</div>
+            <span class="inner">
+                <?php echo rankInfo($DBConn, "Ranked_S011_01", $UID, "BR"); ?>
+            </span>
+            <span class="inner">
+                <?php echo rankInfo($DBConn, "Ranked_S011_02", $UID, "BR"); ?>
+            </span>
+        </span>
+        <span class="box">
+            <div class="season">Season 11 &#8212; Escape</div>
+            <span class="inner">
+                <?php echo rankInfo($DBConn, "Ranked_S011_01", $UID, "Arenas"); ?>
+            </span>
+            <span class="inner">
+                <?php echo rankInfo($DBConn, "Ranked_S011_02", $UID, "Arenas"); ?>
+            </span>
+        </span>
+    </span>
+    <span class="history">
+        <span class="box">
             <div class="season">Season 10 &#8212; Emergence</div>
             <span class="inner">
                 <?php echo rankInfo($DBConn, "Ranked_S010_01", $UID, "BR"); ?>
