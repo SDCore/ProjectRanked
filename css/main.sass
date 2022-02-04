@@ -389,12 +389,25 @@ body
         width: 100%
         display: flex
         margin-top: 1px
+        flex-wrap: wrap
         .title
             font-size: 19pt
             font-weight: bold
             padding: 6px 15px
             background: rgba(0, 0, 0, 0.75)
             color: rgba(255, 255, 255, 0.95)
+        .season
+            flex: 1
+            width: 100%
+            display: block
+            font-size: 15pt
+            flex-basis: 100%
+            padding: 4px 10px
+            font-weight: bold
+            text-align: center
+            backdrop-filter: blur(10px)
+            background: rgba(0, 0, 0, 0.65)
+            color: rgba(255, 255, 255, 0.9)
         .box
             background: rgba(0, 0, 0, 0.5)
         .box, .title
@@ -402,16 +415,6 @@ body
             display: flex
             flex-wrap: wrap
             backdrop-filter: blur(10px)
-            .season
-                width: 100%
-                display: block
-                font-size: 15pt
-                flex-basis: 100%
-                padding: 4px 10px
-                font-weight: bold
-                text-align: center
-                background: rgba(0, 0, 0, 0.25)
-                color: rgba(255, 255, 255, 0.9)
             &:nth-of-type(1)
                 flex: 2
                 margin-right: 1px
