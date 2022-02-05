@@ -47,6 +47,7 @@
         if(isset($_GET['PC'])) return "?PC&";
         if(isset($_GET['PlayStation'])) return "?PlayStation&";
         if(isset($_GET['Xbox'])) return "?Xbox&";
+        if(isset($_GET['Switch'])) return "?Switch&";
 
         return "?";
     }
