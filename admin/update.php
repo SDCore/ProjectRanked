@@ -54,11 +54,15 @@
             if($BR_LadderPos == -1) $BR_LadderPos = "9999";
             if($Arena_LadderPos == -1) $Arena_LadderPos = "9999";
 
-            mysqli_query($DBConn, "UPDATE $CurrentRankPeriod SET PlayerNick = '".$nickname."', PlayerLevel = '".$json['account']['level']."', Legend = '".$json['active']['legend']."', BR_RankScore = '".$json['ranked']['BR']['score']."', BR_LadderPos = '".$BR_LadderPos."', BR_isPred = '".isPred($BR_isPred)."', Arenas_RankScore = '".$json['ranked']['Arenas']['score']."', Arenas_LadderPos = '".$Arena_LadderPos."', Arenas_isPred = '".isPred($Arena_isPred)."', lastUpdated = '".time()."' WHERE PlayerID = '".$json['user']['id']."'");
+            // mysqli_query($DBConn, "UPDATE $CurrentRankPeriod SET PlayerNick = '".$nickname."', PlayerLevel = '".$json['account']['level']."', Legend = '".$json['active']['legend']."', BR_RankScore = '".$json['ranked']['BR']['score']."', BR_LadderPos = '".$BR_LadderPos."', BR_isPred = '".isPred($BR_isPred)."', Arenas_RankScore = '".$json['ranked']['Arenas']['score']."', Arenas_LadderPos = '".$Arena_LadderPos."', Arenas_isPred = '".isPred($Arena_isPred)."', lastUpdated = '".time()."' WHERE PlayerID = '".$json['user']['id']."'");
+
+            echo "id: ".$json['user']['id'];
+
+            mysqli_query($DBConn, "UPDATE $CurrentRankPeriod SET `PlayerNick` = '".$nickname."' WHERE PlayerID = '".$json['user']['id']."'");
 
             // sleep(1);
         }
 
-        if($i == $setID + 2)
+        if($i == 2)
             break;
     }
