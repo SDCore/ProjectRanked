@@ -11,7 +11,6 @@
     $DBConn = mysqli_connect($host, $user, $pass, $db);
 
     $SeasonInfo = mysqli_fetch_array(mysqli_query($DBConn, "SELECT * FROM seasonInfo")) or die(mysqli_error($DBConn));
-    $Legendfile = json_decode(file_get_contents(__DIR__."/../GameData/Legends.json"), true);
     $RankFile = json_decode(file_get_contents(__DIR__."/../GameData/".$RankType."_RankPosition.json"), true);
 
     function active($page) {
