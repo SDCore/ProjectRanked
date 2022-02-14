@@ -4,7 +4,7 @@
     include_once("./include/platform.php");
     include("./include/rankDiv.php");
 
-    $legends = file_get_contents($_SERVER['DOCUMENT_ROOT']."/GameData/Legends.json");
+    $legends = file_get_contents($_SERVER['DOCUMENT_ROOT']."/GameData/LegendList.json");
     $Legendfile = json_decode($legends, true);
 
     function platform() {
