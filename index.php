@@ -4,7 +4,8 @@
     include_once("./include/platform.php");
     include("./include/rankDiv.php");
 
-    $Legendfile = json_decode(file_get_contents("./GameData/Legends.json"), true);
+    $legends = file_get_contents("./GameData/Legends.json");
+    $Legendfile = json_decode($legends, true);
 
     function platform() {
         if(isset($_GET['PC'])) return "PC";
