@@ -26,10 +26,18 @@
     </div>
     <div class="faq">
         <div class="question">
-            Why do certain people show as unranked in earlier rank periods, while others have their rank on their profile?
+            Why do some people not have a ranked history (ie. show "Unranked"), while others do?
         </div>
         <div class="answer">
             I (currently) manually add each person to the database, so in earlier ranked seasons, there were less people than there are in later/current rank seasons. So the fact that they show as "Unranked" could be because they weren't in the database at that time, or they simply didn't play ranked for that season.
+        </div>
+    </div>
+    <div class="faq">
+        <div class="question">
+            Why do some people have "Legend#1234" as their name?
+        </div>
+        <div class="answer">
+            Some people don't have publicly displayed names, have removed their name entirely, or have names that can't be processed (ie. are in another language). If this happens, it'll show their currently active legend followed by their current level.
         </div>
     </div>
 </div>
