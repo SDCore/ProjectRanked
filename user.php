@@ -2,8 +2,6 @@
     $title = "User";
     require_once("./include/nav.php");
 
-    $Legendfile = json_decode(file_get_contents("./GameData/Legends.json"), true);
-
     if(isset($_GET['id'])) {
         $UID = $_GET['id'];
     }else{
