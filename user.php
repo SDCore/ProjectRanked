@@ -2,6 +2,8 @@
     $title = "User";
     require_once("./include/nav.php");
 
+    $Legendfile = json_decode(file_get_contents("./GameData/Legends.json"), true);
+
     if(isset($_GET['id'])) {
         $UID = $_GET['id'];
     }else{
@@ -24,7 +26,7 @@
 ?>
 
 <div class="user">
-    <div class="username"><?php echo platformIcon($playerQuery['Platform']); ?></i>&nbsp;<?php echo nickname($playerQuery['PlayerNick'], $Legendfile[$playerQuery['Legend']]['Name'], $playerQuery['PlayerLevel']); ?></div>
+    <div class="username"><?php echo platformIcon($playerQuery['Platform']); ?></i>&nbsp;<?php echo nickname($playerQuery['PlayerNick'], $Legendfile[$playerQuery['Legend']], $playerQuery['PlayerLevel']); ?></div>
     <span class="placement">
         <span class="box">
             <span class="inner">

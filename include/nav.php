@@ -11,7 +11,6 @@
     $DBConn = mysqli_connect($host, $user, $pass, $db);
 
     $SeasonInfo = mysqli_fetch_array(mysqli_query($DBConn, "SELECT * FROM seasonInfo")) or die(mysqli_error($DBConn));
-    $Legendfile = json_decode(file_get_contents(__DIR__."/../GameData/Legends.json"), true);
     $RankFile = json_decode(file_get_contents(__DIR__."/../GameData/".$RankType."_RankPosition.json"), true);
 
     function active($page) {
@@ -39,7 +38,7 @@
         if($id == 0 || mysqli_num_rows($userRequest) < 1) { 
             echo "<title>N/A &#8212; Apex Legends Ranked Leaderboards</title>";
         }else{
-            echo "<title>".nickname($userQuery['PlayerNick'], $Legendfile[$userQuery['Legend']]['Name'], $userQuery['PlayerLevel'])." &#8212; Apex Legends Ranked Leaderboards</title>";
+            echo "<title>".nickname($userQuery['PlayerNick'], $Legendfile[$userQuery['Legend']], $userQuery['PlayerLevel'])." &#8212; Apex Legends Ranked Leaderboards</title>";
         }
     }
 

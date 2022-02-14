@@ -4,6 +4,8 @@
     include_once("./include/platform.php");
     include("./include/rankDiv.php");
 
+    $Legendfile = json_decode(file_get_contents("./GameData/Legends.json"), true);
+
     function platform() {
         if(isset($_GET['PC'])) return "PC";
         if(isset($_GET['Xbox'])) return "X1";
@@ -108,7 +110,7 @@
 
             echo '<div class="list '.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).' '.posStyle($player[$DBLadderPos]).'">';
                 echo '<span class="item bold"><span class="inner">'.checkPos($player[$DBLadderPos]).'</span></span>';
-                echo '<span class="item"><span class="inner"><a href="/user/'.$player['PlayerID'].'">'.nickname($player['PlayerNick'], $Legendfile[$player['Legend']]['Name'], $player['PlayerLevel']).'</a></span></span>';
+                echo '<span class="item"><span class="inner"><a href="/user/'.$player['PlayerID'].'">'.nickname($player['PlayerNick'], $Legendfile[$player['Legend']], $player['PlayerLevel']).'</a></span></span>';
                 echo '<span class="item">'.$levelIcon.'<span class="inner">Level <b>'.number_format($player['PlayerLevel']).'</b></span></span>';
                 echo '<span class="item">'.$rankIcon.'<span class="inner">'.rankText($player[$DBisPred], $player[$DBRankScore], $RankFile, scoreType($RankType), $RankType).'</span></span>';
             echo '</div>';
