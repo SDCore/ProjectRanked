@@ -8,6 +8,22 @@
         $UID = 0;
     }
 
+    if($debug == true) {
+        $stream_opts = [
+            "ssl" => [
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ]
+        ];
+    }else{
+        $stream_opts = [
+            "ssl" => [
+                "verify_peer"=>true,
+                "verify_peer_name"=>true,
+            ]
+        ];  
+    }
+
     $playerRequest = mysqli_query($DBConn, "SELECT * FROM $CurrentRankPeriod WHERE `PlayerID` = '$UID'");
     $playerQuery = mysqli_fetch_assoc($playerRequest);
     if($UID == 0 || mysqli_num_rows($playerRequest) < 1) { echo '<div class="noPlayer">Player with that ID does not exist.</div>'; return; }
@@ -19,12 +35,25 @@
         if($platform == "SWITCH") return "<i class='fas fa-gamepad'>";
     }
 
+    function isOnline($platform, $id, $stream_opts) {
+        // https://api.apexstats.dev/isOnline?platform=pc&id=1008828103914
+        $onlineAPI = file_get_contents("https://api.apexstats.dev/isOnline?platform=".$platform."&id=".$id, false, stream_context_create($stream_opts));
+
+        $status = json_decode($onlineAPI, true);
+
+        if($status['user']['status']['online'] == 0) {
+            return "Offline";
+        }else{
+            return "Online";
+        }
+    }
+
     require_once("./include/rankInfo.php");
     require_once("./include/rankDiv.php");
 ?>
 
 <div class="user">
-    <div class="username"><?php echo platformIcon($playerQuery['Platform']); ?></i>&nbsp;<?php echo nickname($playerQuery['PlayerNick'], $Legendfile[$playerQuery['Legend']], $playerQuery['PlayerLevel']); ?></div>
+    <div class="username"><span class="status"><?php echo isOnline($playerQuery['Platform'], $playerQuery['PlayerID'], $stream_opts); ?></span><?php echo platformIcon($playerQuery['Platform']); ?></i>&nbsp;<?php echo nickname($playerQuery['PlayerNick'], $Legendfile[$playerQuery['Legend']], $playerQuery['PlayerLevel']); ?></div>
     <span class="placement">
         <span class="box">
             <span class="inner">
