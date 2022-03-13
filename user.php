@@ -53,7 +53,16 @@
 ?>
 
 <div class="user">
-    <div class="username"><span class="status"><?php echo isOnline($playerQuery['Platform'], $playerQuery['PlayerID'], $stream_opts); ?></span><?php echo platformIcon($playerQuery['Platform']); ?></i>&nbsp;<?php echo nickname($playerQuery['PlayerNick'], $Legendfile[$playerQuery['Legend']], $playerQuery['PlayerLevel']); ?></div>
+    <div class="username"><span class="status"><?php /* echo isOnline($playerQuery['Platform'], $playerQuery['PlayerID'], $stream_opts); */ ?></span><?php echo platformIcon($playerQuery['Platform']); ?></i>&nbsp;<?php echo nickname($playerQuery['PlayerNick'], $Legendfile[$playerQuery['Legend']], $playerQuery['PlayerLevel']); ?></div>
+    
+    <?php
+        if($playerQuery['isBlacklisted'] == 1) {
+            echo "<div style='background: rgba(255, 0, 0, 0.75); backdrop-filter: blur(10px); padding: 5px; margin-bottom: 1px; text-align: center; color: #FFF; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);'>";
+                echo "<b>ATTENTION:</b> This user has been blacklisted from appearing on the leaderboards.";
+            echo "</div>";
+        }
+    ?>
+    
     <span class="placement">
         <span class="box">
             <span class="inner">
