@@ -95,6 +95,40 @@ body
                 position: relative
                 color: rgba(0, 0, 0, 0.95)
 
+.miniNav
+    width: 100%
+    height: 40px
+    display: flex
+    padding: 5px 0 5px 0
+    flex-direction: row
+    justify-content: center
+    backdrop-filter: saturate(90%) blur(10px)
+    border-bottom: 3px solid rgba(0, 0, 0, 0.75)
+    font-family: "EUROCAPS", Arial, Helvetica, sans-serif
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) -50%, rgba(47, 48, 52, 0.75) 110%)
+    .link
+        height: calc(100% + 1px)
+        margin: 0 1px
+        font-size: 14pt
+        min-width: 100px
+        line-height: 47px
+        font-weight: bold
+        text-align: center
+        text-decoration: none
+        transform: skew(40deg)
+        padding: 0 13px 3px 13px
+        transition: all 0.2s ease
+        color: rgba(215, 215, 215, 0.75)
+        background: rgba(255, 255, 255, 0.05)
+        border-bottom: 4px solid rgba(140, 140, 140, 0.75)
+        .inner
+            display: block
+            transform: skew(-40deg)
+        &:hover
+            color: rgba(255, 255, 255, 0.95)
+            background: rgba(255, 255, 255, 0.15)
+            border-color: rgba(255, 255, 255, 0.95)
+
 .platformList
     top: calc(50% - 120px)
     display: flex
@@ -251,6 +285,13 @@ body
             .bold
                 background: rgba(176, 141, 87, 1)
                 border-left: 4px solid rgba(116, 92, 56, 1)
+    .historyInfo
+        width: 100%
+        display: block
+        font-size: 20pt
+        margin-top: 20px
+        text-align: center
+        color: rgba(255, 255, 255, 0.95)
 
 @media (max-width: 1200px)
     .container .top .item

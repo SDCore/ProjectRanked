@@ -95,7 +95,7 @@
             </span>
         </a>
         <a href="/" class="<?php echo active('/index'); ?>"><span class="inner">Home</span></a>
-        <a href="#" class="link disabled"><span class="inner">History</span></a>
+        <!-- <a href="/history/index" class="link"><span class="inner">History</span></a> -->
         <a href="/search" class="<?php echo active('/search'); ?>"><span class="inner">Search</span></a>
         <!-- <a href="/stats" class="link"><span class="inner">Stats</span></a> -->
         <a href="/faq" class="<?php echo active('/faq'); ?>"><span class="inner">FAQ</span></a>
