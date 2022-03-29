@@ -18,6 +18,14 @@
     </div>
     <div class="faq">
         <div class="question">
+            Are mobile leaderboards coming?
+        </div>
+        <div class="answer">
+            The mobile version of Apex is developed by Tencent, not Respawn. More or less, it runs on a different version and the backend is different compared to the main version, so the ways that we use to get info for the main version of Apex do not work for mobile. There's a slim chance in the future that we might have stats on mobile users, but it's not in the cards right now.
+        </div>
+    </div>
+    <div class="faq">
+        <div class="question">
             Why does the leaderboard not show any rank under Platinum?
         </div>
         <div class="answer">
