@@ -36,16 +36,23 @@
     }
 
     function isOnline($platform, $id, $stream_opts) {
-        // https://api.apexstats.dev/isOnline?platform=pc&id=1008828103914
         $onlineAPI = file_get_contents("https://api.apexstats.dev/isOnline?platform=".$platform."&id=".$id, false, stream_context_create($stream_opts));
 
         $status = json_decode($onlineAPI, true);
 
-        if($status['user']['status']['online'] == 0) {
-            return "Offline";
-        }else{
-            return "Online";
+        $user = $status['user']['status'];
+
+        if ($user['online'] == 1 && $user['ingame'] == 0) {
+            if ($user['matchLength'] != -1) return "<span class='lobby'>Lobby (".gmdate("i\m s\s", $user['matchLength']).")</span>";
+
+            return "<span class='lobby'>Lobby</span>";
+        }else if($user['online'] == 1 && $user['ingame'] == 1) {
+            if ($user['matchLength'] != -1) return "<span class='match'>In a Match (".gmdate("i\m s\s", $user['matchLength']).")</span>";
+
+            return "<span class='match'>In a Match</span>";
         }
+
+        return "<span class='offline'>Offline / Invite Only</span>";
     }
 
     require_once("./include/rankInfo.php");
@@ -53,7 +60,7 @@
 ?>
 
 <div class="user">
-    <div class="username"><span class="status"><?php /* echo isOnline($playerQuery['Platform'], $playerQuery['PlayerID'], $stream_opts); */ ?></span><?php echo platformIcon($playerQuery['Platform']); ?></i>&nbsp;<?php echo nickname($playerQuery['PlayerNick'], $Legendfile[$playerQuery['Legend']], $playerQuery['PlayerLevel']); ?></div>
+    <div class="username"><?php echo platformIcon($playerQuery['Platform']); ?></i>&nbsp;<?php echo nickname($playerQuery['PlayerNick'], $Legendfile[$playerQuery['Legend']], $playerQuery['PlayerLevel']); ?></div>
     
     <?php
         if($playerQuery['isBlacklisted'] == 1) {
@@ -62,6 +69,8 @@
             echo "</div>";
         }
     ?>
+
+    <span class="status"><?php echo isOnline($playerQuery['Platform'], $playerQuery['PlayerID'], $stream_opts); ?></span>
     
     <span class="placement">
         <span class="box">

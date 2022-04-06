@@ -74,8 +74,8 @@ body {
   min-width: 200px;
   overflow: hidden;
   padding: 0 15px 5px 25px;
-  background: #f8f700;
-  border-bottom: 5px solid black;
+  background: rgb(248, 247, 0);
+  border-bottom: 5px solid rgb(0, 0, 0);
 }
 .nav .brand::before {
   top: 0;
@@ -89,8 +89,8 @@ body {
   background: url("https://cdn.apexstats.dev/ProjectRanked/NavBackground/Season12.png") center;
 }
 .nav .brand:hover {
-  background: #cecb00;
-  border-bottom: 5px solid white;
+  background: rgb(206, 203, 0);
+  border-bottom: 5px solid rgb(255, 255, 255);
 }
 .nav .brand .inner {
   display: flex;
@@ -103,7 +103,7 @@ body {
   top: 9px;
   font-size: 14pt;
   position: relative;
-  color: #ec0e23;
+  color: rgb(236, 14, 35);
 }
 .nav .brand .inner .bottom {
   top: 7px;
@@ -177,7 +177,7 @@ body {
   border-bottom-right-radius: 20px;
 }
 .platformList .active {
-  color: white;
+  color: rgb(255, 255, 255);
   background: rgba(0, 0, 0, 0.8);
 }
 
@@ -333,25 +333,25 @@ body {
   border-left: 4px solid rgba(50, 107, 105, 0.85);
 }
 .container .list.First {
-  border-bottom: 2px solid #aa8c28;
+  border-bottom: 2px solid rgb(170, 140, 40);
 }
 .container .list.First .bold {
-  background: #d4af37;
-  border-left: 4px solid #aa8c28;
+  background: rgb(212, 175, 55);
+  border-left: 4px solid rgb(170, 140, 40);
 }
 .container .list.Second {
-  border-bottom: 2px solid #7e7e7e;
+  border-bottom: 2px solid rgb(126, 126, 126);
 }
 .container .list.Second .bold {
-  background: darkgray;
-  border-left: 4px solid #7e7e7e;
+  background: rgb(169, 169, 169);
+  border-left: 4px solid rgb(126, 126, 126);
 }
 .container .list.Third {
-  border-bottom: 2px solid #745c38;
+  border-bottom: 2px solid rgb(116, 92, 56);
 }
 .container .list.Third .bold {
-  background: #b08d57;
-  border-left: 4px solid #745c38;
+  background: rgb(176, 141, 87);
+  border-left: 4px solid rgb(116, 92, 56);
 }
 .container .historyInfo {
   width: 100%;
@@ -458,11 +458,23 @@ body {
   font-weight: bold;
   padding: 6px 15px;
   margin-bottom: 1px;
+  justify-content: center;
   width: calc(100% - 30px);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.5);
   color: rgba(255, 255, 255, 0.85);
+}
+.user .status {
+  flex: 1;
+  display: flex;
+  font-size: 15pt;
+  padding: 3px 7px;
+  margin: 0 0 1px 0;
+  justify-content: center;
+  width: calc(100% - 14px);
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.7);
 }
 .user .placement {
   width: 100%;
