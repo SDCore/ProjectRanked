@@ -318,6 +318,26 @@ body {
 .container .list .item:nth-child(4) {
   flex-basis: 35%;
 }
+.container .list .item .lobby {
+  top: -4px;
+  left: -5px;
+  font-size: 5pt;
+  position: relative;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-name: lobbyHover;
+          animation-name: lobbyHover;
+  color: rgba(0, 225, 0, 0.75);
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+.container .list .item .offline {
+  top: -4px;
+  left: -5px;
+  color: gray;
+  font-size: 5pt;
+  position: relative;
+}
 .container .list .item .icon {
   left: 5%;
   width: 26px;
@@ -777,6 +797,26 @@ body {
 }
 .search .list:hover {
   background: rgba(0, 0, 0, 0.65);
+}
+.search .list .lobby {
+  top: -4px;
+  left: -5px;
+  font-size: 5pt;
+  position: relative;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-name: lobbyHover;
+          animation-name: lobbyHover;
+  color: rgba(0, 225, 0, 0.75);
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+.search .list .offline {
+  top: -4px;
+  left: -5px;
+  color: gray;
+  font-size: 5pt;
+  position: relative;
 }
 .search .list .item {
   padding: 6px 15px;

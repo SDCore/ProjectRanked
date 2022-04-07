@@ -90,6 +90,14 @@
         return;
     }
 
+    function isOnline($status) {
+        if ($status == 1) {
+            return "<span class='lobby'><i class='fa-solid fa-circle'></i></span>";
+        }
+
+        return "<span class='offline'><i class='fa-solid fa-circle'></i></span>";
+    }
+
     include_once("./include/header.php");
 ?>
 
@@ -108,7 +116,7 @@
 
             echo '<div class="list '.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).' '.posStyle($player[$DBLadderPos]).'">';
                 echo '<span class="item bold"><span class="inner">'.checkPos($player[$DBLadderPos]).'</span></span>';
-                echo '<span class="item"><span class="inner"><a href="/user/'.$player['PlayerID'].'">'.nickname($player['PlayerNick'], $Legendfile[$player['Legend']], $player['PlayerLevel']).'</a></span></span>';
+                echo '<span class="item"><span class="inner"><a href="/user/'.$player['PlayerID'].'">'.isOnline($player['PlayerStatus']).' '.nickname($player['PlayerNick'], $Legendfile[$player['Legend']], $player['PlayerLevel']).'</a></span></span>';
                 echo '<span class="item">'.$levelIcon.'<span class="inner">Level <b>'.number_format($player['PlayerLevel']).'</b></span></span>';
                 echo '<span class="item">'.$rankIcon.'<span class="inner">'.rankText($player[$DBisPred], $player[$DBRankScore], $RankFile, scoreType($RankType), $RankType).'</span></span>';
             echo '</div>';
