@@ -29,10 +29,10 @@
     if($UID == 0 || mysqli_num_rows($playerRequest) < 1) { echo '<div class="noPlayer">Player with that ID does not exist.</div>'; return; }
 
     function platformIcon($platform) {
-        if($platform == "PC") return "<i class='fab fa-steam'>";
-        if($platform == "PS4") return "<i class='fab fa-playstation'>";
-        if($platform == "X1") return "<i class='fab fa-xbox'>";
-        if($platform == "SWITCH") return "<i class='fas fa-gamepad'>";
+        if($platform == "PC") return "<i class='fab fa-steam'></i>";
+        if($platform == "PS4") return "<i class='fab fa-playstation'></i>";
+        if($platform == "X1") return "<i class='fab fa-xbox'></i>";
+        if($platform == "SWITCH") return "<i class='fas fa-gamepad'></i>";
     }
 
     function isOnline($platform, $id, $stream_opts) {
@@ -43,16 +43,16 @@
         $user = $status['user']['status'];
 
         if ($user['online'] == 1 && $user['ingame'] == 0) {
-            if ($user['matchLength'] != -1) return "<span class='lobby'>Lobby (".gmdate("i\m s\s", $user['matchLength']).")</span>";
+            if ($user['matchLength'] != -1) return "<span class='lobby'><i class='fa-solid fa-circle'></i></span> Lobby (".gmdate("i\m s\s", $user['matchLength']).")";
 
-            return "<span class='lobby'>Lobby</span>";
+            return "<span class='lobby'><i class='fa-solid fa-circle'></i></span> Lobby";
         }else if($user['online'] == 1 && $user['ingame'] == 1) {
-            if ($user['matchLength'] != -1) return "<span class='match'>In a Match (".gmdate("i\m s\s", $user['matchLength']).")</span>";
+            if ($user['matchLength'] != -1) return "<span class='match'><i class='fa-solid fa-circle'></i></span> In a Match (".gmdate("i\m s\s", $user['matchLength']).")";
 
-            return "<span class='match'>In a Match</span>";
+            return "<span class='match'><i class='fa-solid fa-circle'></i></span> In a Match";
         }
 
-        return "<span class='offline'>Offline / Invite Only</span>";
+        return "<span class='offline'><i class='fa-solid fa-circle'></i></span> Offline / Invite Only";
     }
 
     require_once("./include/rankInfo.php");
@@ -60,7 +60,10 @@
 ?>
 
 <div class="user">
-    <div class="username"><?php echo platformIcon($playerQuery['Platform']); ?></i>&nbsp;<?php echo nickname($playerQuery['PlayerNick'], $Legendfile[$playerQuery['Legend']], $playerQuery['PlayerLevel']); ?></div>
+    <div class="userInfo">
+        <div class="name"><?php echo platformIcon($playerQuery['Platform']); ?>&nbsp;<?php echo nickname($playerQuery['PlayerNick'], $Legendfile[$playerQuery['Legend']],  $playerQuery['PlayerLevel']); ?></div>
+        <div class="status"><?php echo isOnline($playerQuery['Platform'], $playerQuery['PlayerID'], $stream_opts); ?></div>
+    </div>
     
     <?php
         if($playerQuery['isBlacklisted'] == 1) {
@@ -69,8 +72,6 @@
             echo "</div>";
         }
     ?>
-
-    <span class="status"><?php echo isOnline($playerQuery['Platform'], $playerQuery['PlayerID'], $stream_opts); ?></span>
     
     <span class="placement">
         <span class="box">

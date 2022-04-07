@@ -3,6 +3,50 @@
   font-family: EUROCAPS;
   src: url(../fonts/EUROCAPS.TTF);
 }
+@-webkit-keyframes matchHover {
+  0% {
+    text-shadow: 0 0 5px rgba(250, 166, 26, 0.75), 0 0 10px rgba(250, 166, 26, 0.75);
+  }
+  50% {
+    text-shadow: 0 0 0 rgba(250, 166, 26, 0);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(250, 166, 26, 0.75), 0 0 10px rgba(250, 166, 26, 0.75);
+  }
+}
+@keyframes matchHover {
+  0% {
+    text-shadow: 0 0 5px rgba(250, 166, 26, 0.75), 0 0 10px rgba(250, 166, 26, 0.75);
+  }
+  50% {
+    text-shadow: 0 0 0 rgba(250, 166, 26, 0);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(250, 166, 26, 0.75), 0 0 10px rgba(250, 166, 26, 0.75);
+  }
+}
+@-webkit-keyframes lobbyHover {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 225, 0, 0.75), 0 0 10px rgba(0, 225, 0, 0.75);
+  }
+  50% {
+    text-shadow: 0 0 0 rgba(0, 225, 0, 0);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(0, 225, 0, 0.75), 0 0 10px rgba(0, 225, 0, 0.75);
+  }
+}
+@keyframes lobbyHover {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 225, 0, 0.75), 0 0 10px rgba(0, 225, 0, 0.75);
+  }
+  50% {
+    text-shadow: 0 0 0 rgba(0, 225, 0, 0);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(0, 225, 0, 0.75), 0 0 10px rgba(0, 225, 0, 0.75);
+  }
+}
 html, body {
   margin: 0;
   padding: 0;
@@ -451,30 +495,61 @@ body {
   width: 95%;
   margin: 15px auto 50px auto;
 }
-.user .username {
+.user .userInfo {
+  width: 100%;
+  display: flex;
+  margin: 0 0 1px 0;
+}
+.user .userInfo .name {
   flex: 1;
   display: flex;
   font-size: 25pt;
+  margin: 0 1px 0 0;
   font-weight: bold;
   padding: 6px 15px;
-  margin-bottom: 1px;
   justify-content: center;
-  width: calc(100% - 30px);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.5);
   color: rgba(255, 255, 255, 0.85);
 }
-.user .status {
+.user .userInfo .status {
   flex: 1;
   display: flex;
-  font-size: 15pt;
-  padding: 3px 7px;
-  margin: 0 0 1px 0;
+  font-size: 20pt;
+  align-items: center;
   justify-content: center;
-  width: calc(100% - 14px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.5);
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
+}
+.user .userInfo .status .match {
+  font-size: 8pt;
+  margin: 0 7px 0 0;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-name: matchHover;
+          animation-name: matchHover;
+  color: rgba(250, 166, 26, 0.75);
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+.user .userInfo .status .lobby {
+  font-size: 8pt;
+  margin: 0 7px 0 0;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-name: lobbyHover;
+          animation-name: lobbyHover;
+  color: rgba(0, 225, 0, 0.75);
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+.user .userInfo .status .offline {
+  font-size: 8pt;
+  margin: 0 7px 0 0;
+  color: gray;
 }
 .user .placement {
   width: 100%;
