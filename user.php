@@ -122,7 +122,7 @@
                         echo rankInfo($DBConn, $RankPeriod01, $UID, "BR");
                     }
                 ?>
-                <span class="label">BR Ranked Split 1</span>
+                <span class="label">Battle Royale Split 1</span>
             </span>
             <span class="inner">
                 <?php
@@ -132,7 +132,7 @@
                         echo rankInfo($DBConn, $RankPeriod02, $UID, "BR");
                     }
                 ?>
-                <span class="label">BR Ranked Split 2</span>
+                <span class="label">Battle Royale Split 2</span>
             </span>
         </span>
         <span class="box">
@@ -144,7 +144,7 @@
                         echo rankInfo($DBConn, $RankPeriod01, $UID, "Arenas");
                     }
                 ?>
-                <span class="label">Arenas Ranked Split 1</span>
+                <span class="label">Arenas Split 1</span>
             </span>
             <span class="inner">
             <?php
@@ -154,13 +154,13 @@
                         echo rankInfo($DBConn, $RankPeriod02, $UID, "Arenas");
                     }
                 ?>
-                <span class="label">Arenas Ranked Split 2</span>
+                <span class="label">Arenas Split 2</span>
             </span>
         </span>
     </span>
     <span class="history">
-        <span class="title">BR Ranked History</span>
-        <span class="title">Arenas Ranked History</span>
+        <span class="title">Battle Royale History</span>
+        <span class="title">Arenas History</span>
     </span>
     <span class="history">
         <div class="season">Season 11 &#8212; Escape</div>
