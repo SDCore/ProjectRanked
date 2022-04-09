@@ -55,6 +55,37 @@
         return "<span class='offline'><i class='fa-solid fa-circle'></i></span> Offline / Invite Only";
     }
 
+    function checkLadderPos($ladderPos) {
+        if ($ladderPos <= 750 && $ladderPos >= 1) return 1;
+
+        return 0;
+    }
+
+    function currentRank($ID, $Platform, $Type, $stream_opts) {
+        $rankFile = file_get_contents("https://api.apexstats.dev/id?platform=".$Platform."&id=".$ID, false, stream_context_create($stream_opts));
+        $rank = json_decode($rankFile, true);
+        $rankBR = $rank['ranked']['BR'];
+        $rankArenas = $rank['ranked']['Arenas'];
+
+        if($Type == "BR") {
+            $suffix = "RP";
+            $image = "BR";
+        }else{
+            $suffix = "AP";
+            $image = "Arenas";
+        }
+
+        if($Type == "BR") {
+            return '<span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/'.$image.'/'.$rankBR['name'].'.png" /></span>
+            <span class="top">'.number_format($rankBR['score']).' '.$suffix.'</span>
+            <span class="bottom">'.rankName(checkLadderPos($rankBR['ladderPos']), $rankBR['ladderPos'], $rankBR['score'], "BR").'</span>';
+        }else{
+            return '<span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/'.$image.'/'.$rankArenas['name'].'.png" /></span>
+            <span class="top">'.number_format($rankArenas['score']).' '.$suffix.'</span>
+            <span class="bottom">'.rankName(checkLadderPos($rankArenas['ladderPos']), $rankArenas['ladderPos'], $rankArenas['score'], "Arenas").'</span>';
+        }
+    }
+
     require_once("./include/rankInfo.php");
     require_once("./include/rankDiv.php");
 ?>
@@ -84,21 +115,45 @@
         </span>
         <span class="box">
             <span class="inner">
-                <?php echo rankInfo($DBConn, $RankPeriod01, $UID, "BR"); ?>
+                <?php
+                    if($SeasonInfo['currentSplit'] == "1") {
+                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], "BR", $stream_opts);
+                    }else{
+                        echo rankInfo($DBConn, $RankPeriod01, $UID, "BR");
+                    }
+                ?>
                 <span class="label">BR Ranked Split 1</span>
             </span>
             <span class="inner">
-                <?php echo rankInfo($DBConn, $RankPeriod02, $UID, "BR"); ?>
+                <?php
+                    if($SeasonInfo['currentSplit'] == "2") {
+                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], "BR", $stream_opts);
+                    }else{
+                        echo rankInfo($DBConn, $RankPeriod02, $UID, "BR");
+                    }
+                ?>
                 <span class="label">BR Ranked Split 2</span>
             </span>
         </span>
         <span class="box">
             <span class="inner">
-                <?php echo rankInfo($DBConn, $RankPeriod01, $UID, "Arenas"); ?>
+                <?php
+                    if($SeasonInfo['currentSplit'] == "1") {
+                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], "Arenas", $stream_opts);
+                    }else{
+                        echo rankInfo($DBConn, $RankPeriod01, $UID, "Arenas");
+                    }
+                ?>
                 <span class="label">Arenas Ranked Split 1</span>
             </span>
             <span class="inner">
-                <?php echo rankInfo($DBConn, $RankPeriod02, $UID, "Arenas"); ?>
+            <?php
+                    if($SeasonInfo['currentSplit'] == "2") {
+                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], "Arenas", $stream_opts);
+                    }else{
+                        echo rankInfo($DBConn, $RankPeriod02, $UID, "Arenas");
+                    }
+                ?>
                 <span class="label">Arenas Ranked Split 2</span>
             </span>
         </span>
