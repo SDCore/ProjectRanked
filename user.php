@@ -77,11 +77,17 @@
 
         if($Type == "BR") {
             return '<span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/'.$image.'/'.$rankBR['name'].'.png" /></span>
-            <span class="top">'.number_format($rankBR['score']).' '.$suffix.'</span>
+            <span class="top">
+                <span class="current">'.number_format($rankBR['score']).' '.$suffix.'</span>
+                <span class="prev">V -500 RP</span>
+            </span>
             <span class="bottom">'.rankName(checkLadderPos($rankBR['ladderPos']), $rankBR['ladderPos'], $rankBR['score'], "BR").'</span>';
         }else{
             return '<span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/'.$image.'/'.$rankArenas['name'].'.png" /></span>
-            <span class="top">'.number_format($rankArenas['score']).' '.$suffix.'</span>
+            <span class="top">
+                <span class="current">'.number_format($rankArenas['score']).' '.$suffix.'</span>
+                <span class="prev">^ -500 AP</span>
+            </span>
             <span class="bottom">'.rankName(checkLadderPos($rankArenas['ladderPos']), $rankArenas['ladderPos'], $rankArenas['score'], "Arenas").'</span>';
         }
     }
