@@ -50,6 +50,19 @@
         return 0;
     }
 
+    function previousPoints($database, $stryder, $prev) {
+        // if database == stryder
+        // set prev points to current prev point value
+        // if database != stryder
+        // update prev points to new current value
+
+        if($database == $stryder) {
+            return $prev;
+        }else if($database != $stryder) {
+            return $database;
+        }
+    }
+
     for($i = 1; $i < $setID + 2; $i++) {
         $getPlayer = "SELECT * FROM $CurrentRankPeriod WHERE id = $i";
         $queryPlayer = mysqli_query($DBConn, $getPlayer);
@@ -87,7 +100,7 @@
                 $arenasLadderPos = $json['ranked']['Arenas']['ladderPos'];
             }
 
-            mysqli_query($DBConn, "UPDATE $CurrentRankPeriod SET `PlayerNick` = '".$nickname."', `PlayerLevel` = '".$level."', `PlayerStatus` = '".$json['user']['status']['online']."', `Legend` = '".$legend."', `BR_RankScore` = '".$brScore."', `BR_RankScorePrev` = '".$brPrevScore."', `BR_isPred` = '".isPred($brIsPred)."', `BR_LadderPos` = '".$brLadderPos."', `Arenas_RankScore` = '".$arenasScore."', `Arenas_RankScorePrev` = '".$arenasPrevScore."', `Arenas_isPred` = '".isPred($arenasIsPred)."', `Arenas_LadderPos` = '".$arenasLadderPos."', `lastUpdated` = '".time()."' WHERE PlayerID = '".$UserID."'");
+            mysqli_query($DBConn, "UPDATE $CurrentRankPeriod SET `PlayerNick` = '".$nickname."', `PlayerLevel` = '".$level."', `PlayerStatus` = '".$json['user']['status']['online']."', `Legend` = '".$legend."', `BR_RankScore` = '".$brScore."', `BR_RankScorePrev` = '".previousPoints($row['BR_RankScore'], $brScore, $row['BR_RankScorePrev'])."', `BR_isPred` = '".isPred($brIsPred)."', `BR_LadderPos` = '".$brLadderPos."', `Arenas_RankScore` = '".$arenasScore."', `Arenas_RankScorePrev` = '".previousPoints($row['Arenas_RankScore'], $arenasScore, $row['Arenas_RankScorePrev'])."', `Arenas_isPred` = '".isPred($arenasIsPred)."', `Arenas_LadderPos` = '".$arenasLadderPos."', `lastUpdated` = '".time()."' WHERE PlayerID = '".$UserID."'");
 
             // sleep(1);
         }
