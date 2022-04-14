@@ -47,6 +47,7 @@
     $RankPeriod01 = "Ranked_S0".$SeasonInfo['number']."_01";
     $RankPeriod02 = "Ranked_S0".$SeasonInfo['number']."_02";
     $DBRankScore = $RankType."_RankScore";
+    $DBRankScorePrev = $RankType."_RankScorePrev";
     $DBLadderPos = $RankType."_LadderPos";
     $DBisPred = $RankType."_isPred";
 ?>

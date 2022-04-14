@@ -98,6 +98,16 @@
         return "<span class='offline'><i class='fa-solid fa-circle'></i></span>";
     }
 
+    function scoreChange($current, $prev) {
+        if($current < $prev) {
+            return '<span class="prev neg"><i class="fa-solid fa-angle-down"></i></span>';
+        }else if($current > $prev) {
+            return '<span class="prev posi"><i class="fa-solid fa-angle-up"></i></span>';
+        }else{
+            return '<span class="prev"><i class="fa-solid fa-equals"></i></span>';
+        }
+    }
+
     include_once("./include/header.php");
 ?>
 
@@ -118,7 +128,7 @@
                 echo '<span class="item bold"><span class="inner">'.checkPos($player[$DBLadderPos]).'</span></span>';
                 echo '<span class="item"><span class="inner"><a href="/user/'.$player['PlayerID'].'">'.isOnline($player['PlayerStatus']).' '.nickname($player['PlayerNick'], $Legendfile[$player['Legend']], $player['PlayerLevel']).'</a></span></span>';
                 echo '<span class="item">'.$levelIcon.'<span class="inner">Level <b>'.number_format($player['PlayerLevel']).'</b></span></span>';
-                echo '<span class="item">'.$rankIcon.'<span class="inner">'.rankText($player[$DBisPred], $player[$DBRankScore], $RankFile, scoreType($RankType), $RankType).'</span></span>';
+                echo '<span class="item">'.$rankIcon.'<span class="inner">'.rankText($player[$DBisPred], $player[$DBRankScore], $RankFile, scoreType($RankType), $RankType).' '.scoreChange($player[$DBRankScore], $player[$DBRankScorePrev]).'</span></span>';
             echo '</div>';
         }
     ?>

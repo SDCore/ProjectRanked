@@ -267,13 +267,13 @@ body {
   flex-basis: 5%;
 }
 .container .top .item:nth-child(2) {
-  flex-basis: 44%;
+  flex-basis: 40%;
 }
 .container .top .item:nth-child(3) {
-  flex-basis: 16%;
+  flex-basis: 15%;
 }
 .container .top .item:nth-child(4) {
-  flex-basis: 35%;
+  flex-basis: 40%;
 }
 .container .top .item .inner {
   display: block;
@@ -310,13 +310,13 @@ body {
   flex-basis: 5%;
 }
 .container .list .item:nth-child(2) {
-  flex-basis: 44%;
+  flex-basis: 40%;
 }
 .container .list .item:nth-child(3) {
-  flex-basis: 16%;
+  flex-basis: 15%;
 }
 .container .list .item:nth-child(4) {
-  flex-basis: 35%;
+  flex-basis: 40%;
 }
 .container .list .item .lobby {
   top: -4px;
@@ -359,6 +359,17 @@ body {
 }
 .container .list .item .inner a:hover {
   text-decoration: underline;
+}
+.container .list .item .inner .prev {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-left: 4px;
+}
+.container .list .item .inner .prev.posi {
+  color: green;
+}
+.container .list .item .inner .prev.neg {
+  color: red;
 }
 .container .list.Predator {
   border-bottom: 2px solid rgba(160, 18, 0, 0.85);
