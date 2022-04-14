@@ -61,7 +61,21 @@
         return 0;
     }
 
-    function currentRank($ID, $Platform, $Type, $stream_opts) {
+    function scoreChange($current, $prev, $suffix) {
+        if($current < $prev) {
+            $newScore = $prev - $current;
+
+            return '<span class="prev neg"><i class="fa-solid fa-angle-down"></i> -'.$newScore.' '.$suffix.'</span>';
+        }else if($current > $prev) {
+            $newScore = $current - $prev;
+
+            return '<span class="prev posi"><i class="fa-solid fa-angle-up"></i> +'.$newScore.' '.$suffix.'</span>';
+        }else{
+            return '<span class="prev"><i class="fa-solid fa-equals"></i> 0 '.$suffix.'</span>';
+        }
+    }
+
+    function currentRank($ID, $Platform, $Score, $Type, $stream_opts) {
         $rankFile = file_get_contents("https://api.apexstats.dev/id?platform=".$Platform."&id=".$ID, false, stream_context_create($stream_opts));
         $rank = json_decode($rankFile, true);
         $rankBR = $rank['ranked']['BR'];
@@ -79,14 +93,14 @@
             return '<span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/'.$image.'/'.$rankBR['name'].'.png" /></span>
             <span class="top">
                 <span class="current">'.number_format($rankBR['score']).' '.$suffix.'</span>
-                <span class="prev">V -500 RP</span>
+                '.scoreChange($rankBR['score'], $Score, "RP").'
             </span>
             <span class="bottom">'.rankName(checkLadderPos($rankBR['ladderPos']), $rankBR['ladderPos'], $rankBR['score'], "BR").'</span>';
         }else{
             return '<span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/'.$image.'/'.$rankArenas['name'].'.png" /></span>
             <span class="top">
                 <span class="current">'.number_format($rankArenas['score']).' '.$suffix.'</span>
-                <span class="prev">^ -500 AP</span>
+                '.scoreChange($rankArenas['score'], $Score, "AP").'
             </span>
             <span class="bottom">'.rankName(checkLadderPos($rankArenas['ladderPos']), $rankArenas['ladderPos'], $rankArenas['score'], "Arenas").'</span>';
         }
@@ -123,7 +137,7 @@
             <span class="inner">
                 <?php
                     if($SeasonInfo['currentSplit'] == "1") {
-                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], "BR", $stream_opts);
+                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['BR_RankScorePrev'], "BR", $stream_opts);
                     }else{
                         echo rankInfo($DBConn, $RankPeriod01, $UID, "BR");
                     }
@@ -133,7 +147,7 @@
             <span class="inner">
                 <?php
                     if($SeasonInfo['currentSplit'] == "2") {
-                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], "BR", $stream_opts);
+                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['BR_RankScorePrev'], "BR", $stream_opts);
                     }else{
                         echo rankInfo($DBConn, $RankPeriod02, $UID, "BR");
                     }
@@ -145,7 +159,7 @@
             <span class="inner">
                 <?php
                     if($SeasonInfo['currentSplit'] == "1") {
-                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], "Arenas", $stream_opts);
+                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['Arenas_RankScorePrev'], "Arenas", $stream_opts);
                     }else{
                         echo rankInfo($DBConn, $RankPeriod01, $UID, "Arenas");
                     }
@@ -155,7 +169,7 @@
             <span class="inner">
             <?php
                     if($SeasonInfo['currentSplit'] == "2") {
-                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], "Arenas", $stream_opts);
+                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['Arenas_RankScorePrev'], "Arenas", $stream_opts);
                     }else{
                         echo rankInfo($DBConn, $RankPeriod02, $UID, "Arenas");
                     }
