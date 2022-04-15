@@ -1,0 +1,790 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700&display=swap')
+    
+@font-face
+    font-family: EUROCAPS
+    src: url(../fonts/EUROCAPS.TTF)
+
+@keyframes matchHover
+    0%
+        text-shadow: 0 0 5px rgba(250, 166, 26, 0.75), 0 0 10px rgba(250, 166, 26, 0.75)
+    50%
+        text-shadow: 0 0 0 rgba(250, 166, 26, 0)
+    100%
+        text-shadow: 0 0 5px rgba(250, 166, 26, 0.75), 0 0 10px rgba(250, 166, 26, 0.75)
+
+@keyframes lobbyHover
+    0%
+        text-shadow: 0 0 5px rgba(0, 225, 0, 0.75), 0 0 10px rgba(0, 225, 0, 0.75)
+    50%
+        text-shadow: 0 0 0 rgba(0, 225, 0, 0)
+    100%
+        text-shadow: 0 0 5px rgba(0, 225, 0, 0.75), 0 0 10px rgba(0, 225, 0, 0.75)
+    
+html, body
+    margin: 0
+    padding: 0
+    font-family: Arial, Helvetica, sans-serif
+
+body
+    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("https://cdn.apexstats.dev/ProjectRanked/LeaderboardBackground/Season012/Background_Small.png") no-repeat fixed center
+    background-size: cover
+
+.nav
+    width: 100%
+    height: 50px
+    display: flex
+    padding: 0 0 5px 0
+    flex-direction: row
+    justify-content: center
+    backdrop-filter: saturate(180%) blur(10px)
+    border-bottom: 5px solid rgba(0, 0, 0, 0.75)
+    font-family: "EUROCAPS", Arial, Helvetica, sans-serif
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(47, 48, 52, 0.75) 110%)
+    .link, .brand, .active
+        height: 100%
+        margin: 0 1px
+        font-size: 15pt
+        min-width: 100px
+        line-height: 60px
+        font-weight: bold
+        text-align: center
+        text-decoration: none
+        transform: skew(40deg)
+        padding: 0 15px 5px 15px
+        transition: all 0.2s ease
+        &.disabled
+            display: none
+            pointer-events: none
+            color: rgba(255, 255, 255, 0.15)
+            background: rgba(255, 255, 255, 0.035)
+        .inner
+            display: block
+            transform: skew(-40deg)
+    .link, .brand
+        color: rgba(176, 176, 176, 0.75)
+        background: rgba(255, 255, 255, 0.05)
+        border-bottom: 5px solid rgba(140, 140, 140, 0.75)
+        &:hover
+            color: rgba(255, 255, 255, 0.95)
+            background: rgba(255, 255, 255, 0.15)
+            border-color: rgba(255, 255, 255, 0.95)
+    .active
+        color: rgba(255, 255, 255, 0.95)
+        background: rgba(255, 30, 0, 0.55)
+        border-bottom: 5px solid rgba(255, 30, 0, 0.65)
+        &:hover
+            background: rgba(255, 30, 0, 0.65)
+            border-color: rgba(255, 30, 0, 0.75)
+    .brand
+        font-size: 16pt
+        min-width: 200px
+        overflow: hidden
+        padding: 0 15px 5px 25px
+        background: rgba(248, 247, 0, 1)
+        border-bottom: 5px solid rgba(0, 0, 0, 1)
+        &::before
+            top: 0
+            left: 0
+            content: ""
+            width: 120%
+            height: 100%
+            position: absolute
+            transform: skew(-40deg)
+            transform-origin: top left
+            background: url("https://cdn.apexstats.dev/ProjectRanked/NavBackground/Season12.png") center
+        &:hover
+            background: rgba(206, 203, 0, 1)
+            border-bottom: 5px solid rgba(255, 255, 255, 1)
+        .inner
+            display: flex
+            line-height: 20px
+            align-items: center
+            flex-direction: column
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2)
+            .top
+                top: 9px
+                font-size: 14pt
+                position: relative
+                color: rgba(236, 14, 35, 1)
+            .bottom
+                top: 7px
+                position: relative
+                color: rgba(0, 0, 0, 0.95)
+
+.miniNav
+    width: 100%
+    height: 40px
+    display: flex
+    padding: 5px 0 5px 0
+    flex-direction: row
+    justify-content: center
+    backdrop-filter: saturate(90%) blur(10px)
+    border-bottom: 3px solid rgba(0, 0, 0, 0.75)
+    font-family: "EUROCAPS", Arial, Helvetica, sans-serif
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) -50%, rgba(47, 48, 52, 0.75) 110%)
+    .link
+        height: calc(100% + 1px)
+        margin: 0 1px
+        font-size: 14pt
+        min-width: 100px
+        line-height: 47px
+        font-weight: bold
+        text-align: center
+        text-decoration: none
+        transform: skew(40deg)
+        padding: 0 13px 3px 13px
+        transition: all 0.2s ease
+        color: rgba(215, 215, 215, 0.75)
+        background: rgba(255, 255, 255, 0.05)
+        border-bottom: 4px solid rgba(140, 140, 140, 0.75)
+        .inner
+            display: block
+            transform: skew(-40deg)
+        &:hover
+            color: rgba(255, 255, 255, 0.95)
+            background: rgba(255, 255, 255, 0.15)
+            border-color: rgba(255, 255, 255, 0.95)
+
+.platformList
+    top: calc(50% - 120px)
+    display: flex
+    position: fixed
+    flex-direction: column
+    a
+        width: 60px
+        font-size: 20pt
+        padding: 10px 10px
+        text-align: center
+        transition: all 0.2s ease
+        backdrop-filter: blur(15px)
+        background: rgba(0, 0, 0, 0.5)
+        color: rgba(255, 255, 255, 0.5)
+        &:hover
+            background: rgba(0, 0, 0, 0.8)
+        &:first-child
+            border-top-right-radius: 20px
+        &:last-child
+            border-bottom-right-radius: 20px
+    .active
+        color: rgba(255, 255, 255, 1)
+        background: rgba(0, 0, 0, 0.8)
+
+.header
+    width: 80%
+    display: flex
+    flex-direction: column
+    margin: 10px auto 5px auto
+    color: rgba(255, 255, 255, 0.9)
+    font-family: "MONTSERRAT", Arial, Helvetica, sans-serif
+    .top
+        font-size: 22pt
+        font-weight: bold
+        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.95)
+    .bottom
+        font-size: 15pt
+        text-shadow: 0 2px 0 rgba(0, 0, 0, 0.85)
+
+.container
+    width: 80%
+    margin: 0 auto 50px auto
+    .top
+        display: flex
+        font-size: 15pt
+        font-weight: bold
+        text-align: center
+        margin: 10px 0 15px 0
+        transform: skew(20deg)
+        backdrop-filter: blur(15px)
+        background: rgba(0, 0, 0, 0.5)
+        box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.9)
+        .item
+            padding: 8px 16px
+            border-bottom: 2px solid rgba(160, 160, 160, 0.85)
+            &:nth-child(1)
+                flex-basis: 5%
+            &:nth-child(2)
+                flex-basis: 40%
+            &:nth-child(3)
+                flex-basis: 15%
+            &:nth-child(4)
+                flex-basis: 40%
+            .inner
+                display: block
+                transform: skew(-20deg)
+            &.i1
+                background: rgba(255, 255, 255, 0.95)
+                border-left: 6px solid rgba(160, 160, 160, 0.85)
+            &.i2
+                color: rgba(255, 255, 255, 0.95)
+    .list
+        display: flex
+        font-size: 14pt
+        margin: 0 0 8px 0
+        transform: skew(20deg)
+        transition: all 0.2s ease
+        backdrop-filter: blur(15px)
+        box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.9)
+        &:hover
+            background: rgba(0, 0, 0, 0.6)
+        .item
+            padding: 8px 16px
+            text-align: center
+            position: relative
+            background: rgba(0, 0, 0, 0.65)
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+            &:nth-child(1)
+                flex-basis: 5%
+            &:nth-child(2)
+                flex-basis: 40%
+            &:nth-child(3)
+                flex-basis: 15%
+            &:nth-child(4)
+                flex-basis: 40%
+            .lobby
+                top: -4px
+                left: -5px
+                font-size: 5pt
+                position: relative
+                animation-duration: 5s
+                animation-name: lobbyHover
+                color: rgba(0, 225, 0, 0.75)
+                animation-iteration-count: infinite
+            .offline
+                top: -4px
+                left: -5px
+                color: gray
+                font-size: 5pt
+                position: relative
+            .icon
+                left: 5%
+                width: 26px
+                position: absolute
+                transform: skew(-20deg)
+            .inner
+                display: block
+                overflow: hidden
+                text-align: center
+                white-space: nowrap
+                transform: skew(-20deg)
+                text-overflow: ellipsis
+                color: rgba(255, 255, 255, 0.95)
+                a
+                    text-decoration: none
+                    color: rgba(255, 255, 255, 0.95)
+                    &:hover
+                        text-decoration: underline
+                .prev
+                    font-size: 9pt
+                    font-weight: 400
+                    margin-left: 4px
+                    &.posi
+                        color: green
+                    &.neg
+                        color: red
+        &.Predator 
+            border-bottom: 2px solid rgba(160, 18, 0, 0.85)
+            .bold
+                font-weight: bold
+                background: rgba(230, 28, 0, 0.85)
+                text-shadow: 0 2px 0 rgba(0, 0, 0, 0.75)
+                border-left: 4px solid rgba(160, 18, 0, 0.85)
+        &.Master 
+            border-bottom: 2px solid rgba(94, 59, 128, 0.85)
+            .bold
+                font-weight: bold
+                background: rgba(146, 91, 198, 0.85)
+                text-shadow: 0 2px 0 rgba(0, 0, 0, 0.75)
+                border-left: 4px solid rgba(94, 59, 128, 0.85)
+        &.Diamond 
+            border-bottom: 2px solid rgba(41, 80, 117, 0.85)
+            .bold
+                font-weight: bold
+                background: rgba(56, 110, 160, 0.85)
+                text-shadow: 0 2px 0 rgba(0, 0, 0, 0.75)
+                border-left: 4px solid rgba(41, 80, 117, 0.85)
+        &.Platinum 
+            border-bottom: 2px solid rgba(50, 107, 105, 0.85)
+            .bold
+                font-weight: bold
+                background: rgba(63, 138, 136, 0.85)
+                text-shadow: 0 2px 0 rgba(0, 0, 0, 0.75)
+                border-left: 4px solid rgba(50, 107, 105, 0.85)
+        &.First
+            border-bottom: 2px solid rgba(170, 140, 40, 1)
+            .bold
+                background: rgba(212, 175, 55, 1)
+                border-left: 4px solid rgba(170, 140, 40, 1)
+        &.Second
+            border-bottom: 2px solid rgba(126, 126, 126, 1)
+            .bold
+                background: rgba(169, 169, 169, 1)
+                border-left: 4px solid rgba(126, 126, 126, 1)
+        &.Third
+            border-bottom: 2px solid rgba(116, 92, 56, 1)
+            .bold
+                background: rgba(176, 141, 87, 1)
+                border-left: 4px solid rgba(116, 92, 56, 1)
+    .historyInfo
+        width: 100%
+        display: block
+        font-size: 20pt
+        margin-top: 20px
+        text-align: center
+        color: rgba(255, 255, 255, 0.95)
+
+@media (max-width: 1200px)
+    .container .top .item
+        &:nth-child(1)
+            flex-basis: 8%
+        &:nth-child(2)
+            flex-basis: 46%
+        &:nth-child(3)
+            display: none
+        &:nth-child(4)
+            flex-basis: 46%
+        .icon
+            display: none
+    .container .list .item
+        &:nth-child(1)
+            flex-basis: 8%
+        &:nth-child(2)
+            flex-basis: 46%
+        &:nth-child(3)
+            display: none
+        &:nth-child(4)
+            flex-basis: 46%
+        .icon
+            display: none
+            
+.pagination
+    display: flex
+    margin: 25px 0 0 0
+    backdrop-filter: blur(10px)
+    background: rgba(0, 0, 0, 0.5)
+    border-bottom: 4px solid rgba(160, 18, 0, 0.75)
+    clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%)
+    .page
+        flex: 1
+        padding: 15px 0
+        font-weight: bold
+        text-align: center
+        text-decoration: none
+        transition: all 0.2s ease
+        color: rgba(255, 255, 255, 0.95)
+        &:nth-of-type(1), &:nth-of-type(4)
+            flex-basis: 15%
+            background: rgba(204, 24, 0, 0.85)
+            &:hover
+                background: rgba(245, 29, 0, 0.85)
+        &:nth-of-type(2), &:nth-of-type(3)
+            flex-basis: 35%
+            &:hover
+                background: rgba(0, 0, 0, 0.3)
+        &.disabled
+            cursor: default
+            pointer-events: none
+            background: rgba(0, 0, 0, 0.3)
+            color: rgba(255, 255, 255, 0.3)
+
+.noPlayer
+    width: 80%
+    padding: 6px
+    font-size: 25pt
+    font-weight: bold
+    margin: 15px auto
+    text-align: center
+    backdrop-filter: blur(10px)
+    background: rgba(0, 0, 0, 0.5)
+    color: rgba(255, 255, 255, 0.8)
+
+.user
+    width: 95%
+    margin: 15px auto 50px auto
+    .userInfo
+        width: 100%
+        display: flex
+        margin: 0 0 1px 0
+        .name
+            flex: 1
+            display: flex
+            font-size: 25pt
+            margin: 0 1px 0 0
+            font-weight: bold
+            padding: 6px 15px
+            justify-content: center
+            backdrop-filter: blur(10px)
+            background: rgba(0, 0, 0, 0.5)
+            color: rgba(255, 255, 255, 0.85)
+        .status
+            flex: 1
+            display: flex
+            font-size: 20pt
+            align-items: center
+            justify-content: center
+            backdrop-filter: blur(10px)
+            background: rgba(0, 0, 0, 0.5)
+            color: rgba(255, 255, 255, 0.8)
+            .match
+                font-size: 8pt
+                margin: 0 7px 0 0
+                animation-duration: 5s
+                animation-name: matchHover
+                color: rgba(250, 166, 26, 0.75)
+                animation-iteration-count: infinite
+            .lobby
+                font-size: 8pt
+                margin: 0 7px 0 0
+                animation-duration: 5s
+                animation-name: lobbyHover
+                color: rgba(0, 225, 0, 0.75)
+                animation-iteration-count: infinite
+            .offline
+                font-size: 8pt
+                margin: 0 7px 0 0
+                color: gray
+    .placement
+        width: 100%
+        display: flex
+        .box
+            flex: 1
+            display: flex
+            backdrop-filter: blur(10px)
+            background: rgba(0, 0, 0, 0.5)
+            &:nth-of-type(2)
+                flex: 2
+                margin: 0 1px
+            &:nth-of-type(3)
+                flex: 2
+            .inner
+                flex: 1
+                flex-direction: column
+                .image
+                    flex: 1
+                    width: 100%
+                    display: flex
+                    padding: 10px 0
+                    position: relative
+                    justify-content: center
+                    img
+                        width: 150px
+                .top
+                    flex: 1
+                    width: 100%
+                    height: 35px
+                    display: block
+                    padding: 5px 0
+                    font-size: 15pt
+                    font-weight: bold
+                    line-height: 35px
+                    text-align: center
+                    background: rgba(0, 0, 0, 0.25)
+                    color: rgba(255, 255, 255, 0.9)
+                    .current
+                        width: 100%
+                        display: block
+                        font-size: 14pt
+                        line-height: 24px
+                    .prev
+                        width: 100%
+                        display: block
+                        font-size: 9pt
+                        font-weight: 400
+                        line-height: 11px
+                        &.posi
+                            color: green
+                        &.neg
+                            color: red
+                .bottom
+                    flex: 1
+                    width: 100%
+                    display: block
+                    padding: 4px 0
+                    font-size: 14pt
+                    font-weight: bold
+                    text-align: center
+                    background: rgba(0, 0, 0, 0.35)
+                    color: rgba(255, 255, 255, 0.8)
+                .label
+                    flex: 1
+                    width: 100%
+                    display: block
+                    padding: 3px 0
+                    font-size: 13pt
+                    font-weight: 300
+                    text-align: center
+                    background: rgba(0, 0, 0, 0.45)
+                    color: rgba(255, 255, 255, 0.7)
+    .history
+        width: 100%
+        display: flex
+        margin-top: 1px
+        flex-wrap: wrap
+        .title
+            font-size: 19pt
+            font-weight: bold
+            padding: 6px 15px
+            background: rgba(0, 0, 0, 0.75)
+            color: rgba(255, 255, 255, 0.95)
+        .season
+            flex: 1
+            width: 100%
+            display: block
+            font-size: 15pt
+            flex-basis: 100%
+            padding: 4px 10px
+            font-weight: bold
+            text-align: center
+            backdrop-filter: blur(10px)
+            background: rgba(0, 0, 0, 0.65)
+            color: rgba(255, 255, 255, 0.9)
+        .box
+            background: rgba(0, 0, 0, 0.5)
+        .box, .title
+            flex: 1
+            display: flex
+            flex-wrap: wrap
+            backdrop-filter: blur(10px)
+            &:nth-of-type(1)
+                flex: 2
+                margin-right: 1px
+            &:nth-of-type(2)
+                flex: 2
+            .inner
+                flex: 1
+                flex-direction: column
+                .image
+                    flex: 1
+                    width: 100%
+                    display: flex
+                    padding: 10px 0
+                    justify-content: center
+                    img
+                        width: 150px
+                .top
+                    flex: 1
+                    width: 100%
+                    display: block
+                    padding: 5px 0
+                    font-size: 15pt
+                    font-weight: bold
+                    text-align: center
+                    background: rgba(0, 0, 0, 0.25)
+                    color: rgba(255, 255, 255, 0.9)
+                .bottom
+                    flex: 1
+                    width: 100%
+                    display: block
+                    padding: 4px 0
+                    font-size: 14pt
+                    font-weight: bold
+                    text-align: center
+                    background: rgba(0, 0, 0, 0.35)
+                    color: rgba(255, 255, 255, 0.8)
+
+.search
+    width: 80%
+    margin: 5px auto 50px auto
+    .help
+        font-size: 10pt
+        font-weight: bold
+        color: rgba(255, 255, 255, 0.8)
+    .searchBox
+        display: flex
+        padding: 6px 15px
+        width: calc(100% - 30px)
+        backdrop-filter: blur(15px)
+        background: rgba(0, 0, 0, 0.5)
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5)
+        .input
+            border: none
+            outline: none
+            flex-basis: 75%
+            font-size: 20pt
+            background: none
+            padding: 4px 10px
+            border-radius: 4px
+            margin: 0 15px 0 0
+            transition: all 0.2s ease
+            color: rgba(255, 255, 255, 0.9)
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5)
+            &:focus
+                border-bottom: 2px solid rgba(255, 255, 255, 0.9)
+        .button
+            border: none
+            flex-basis: 25%
+            font-size: 20pt
+            cursor: pointer
+            font-weight: bold
+            border-radius: 4px
+            transition: all 0.2s ease
+            backdrop-filter: blur(10px)
+            background: rgba(255, 255, 255, 0.5)
+            border-bottom: 2px solid rgba(255, 255, 255, 0.75)
+            &:hover
+                background: rgba(255, 255, 255, 0.9)
+    .top
+        display: flex
+        font-size: 16pt
+        font-weight: bold
+        text-align: center
+        margin: 10px 0 8px 0
+        backdrop-filter: blur(15px)
+        background: rgba(0, 0, 0, 0.5)
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.9)
+        border-bottom: 2px solid rgba(255, 255, 255, 0.25)
+        .item
+            padding: 8px 16px
+            color: rgba(255, 255, 255, 0.95)
+    .list
+        display: flex
+        font-size: 14pt
+        margin: 0 0 4px 0
+        text-decoration: none
+        transition: all 0.2s ease
+        backdrop-filter: blur(10px)
+        background: rgba(0, 0, 0, 0.5)
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.9)
+        &:hover
+            background: rgba(0, 0, 0, 0.65)
+        .lobby
+            top: -4px
+            left: -5px
+            font-size: 5pt
+            position: relative
+            animation-duration: 5s
+            animation-name: lobbyHover
+            color: rgba(0, 225, 0, 0.75)
+            animation-iteration-count: infinite
+        .offline
+            top: -4px
+            left: -5px
+            color: gray
+            font-size: 5pt
+            position: relative
+        .item
+            padding: 6px 15px
+            text-align: center
+            color: rgba(255, 255, 255, 0.95)
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+    .error
+        display: block
+        font-size: 14pt
+        padding: 4px 10px
+        font-weight: bold
+        text-align: center
+        width: calc(100% - 20px)
+        background: rgba(0, 0, 0, 0.5)
+        color: rgba(255, 255, 255, 0.95)
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.9)
+
+.faq
+    margin: 15px 0 0 0
+    .question
+        font-size: 16pt
+        font-weight: bold
+        padding: 6px 15px
+        backdrop-filter: blur(10px)
+        color: rgba(10, 10, 10, 0.9)
+        background: rgba(200, 200, 200, 0.7)
+        border-bottom: 5px solid rgba(125, 125, 125, 0.85)
+    .answer
+        font-size: 14pt
+        padding: 6px 15px
+        text-align: justify
+        backdrop-filter: blur(10px)
+        background: rgba(0, 0, 0, 0.5)
+        color: rgba(255, 255, 255, 0.75)
+
+.adminForm
+    width: 45%
+    padding: 8px 20px
+    margin: 20px auto
+    backdrop-filter: blur(10px)
+    background: rgba(0, 0, 0, 0.5)
+    .title
+        display: block
+        margin: 15px 0
+        font-size: 25pt
+        font-weight: bold
+        text-align: center
+        color: rgba(255, 255, 255, 0.95)
+    .error
+        width: 100%
+        display: block
+        font-weight: bold
+        text-align: center
+        color: rgba(255, 0, 0, 0.9)
+    .success
+        width: 100%
+        display: block
+        font-weight: bold
+        text-align: center
+        color: rgba(0, 255, 0, 0.9)
+    .group 
+        width: 100%
+        .title
+            font-size: 16pt
+            margin-bottom: 5px
+            font-weight: normal
+        .input
+            width: 100%
+            outline: none
+            font-size: 15pt
+            text-align: center
+            font-weight: normal
+            margin-bottom: 10px
+            box-sizing: border-box
+    .submit
+        width: 100%
+        margin: 5px 0
+        font-size: 15pt
+        font-weight: bold
+        padding: 8px 20px
+
+.addUserButtons
+    margin: 15px 0
+    .title
+        display: block
+        font-size: 25pt
+        padding: 4px 10px
+        margin: 0 0 1px 0
+        font-weight: bold
+        width: calc(100% - 20px)
+        backdrop-filter: blur(10px)
+        background: rgba(0, 0, 0, 0.5)
+        color: rgba(255, 255, 255, 0.95)
+    .buttons
+        display: flex
+        .button
+            flex: 1
+            font-size: 16pt
+            padding: 8px 20px
+            font-weight: bold
+            text-align: center
+            text-decoration: none
+            transition: all 0.2s ease
+            backdrop-filter: blur(10px)
+            background: rgba(0, 0, 0, 0.5)
+            color: rgba(255, 255, 255, 0.95)
+            &:nth-child(2)
+                margin: 0 1px
+            &:nth-child(3)
+                margin: 0 1px 0 0
+            &:hover
+                background: rgba(0, 0, 0, 0.75)
+                
+
+.footer
+    bottom: 0
+    width: 100%
+    padding: 5px 0
+    position: fixed
+    font-weight: bold
+    text-align: center
+    backdrop-filter: blur(10px)
+    background: rgba(0, 0, 0, 0.75)
+    color: rgba(255, 255, 255, 0.5)
+    border-top: 2px solid rgba(60, 60, 60, 0.9)
+    a
+        text-decoration: none
+        color: rgba(255, 255, 255, 0.5)
