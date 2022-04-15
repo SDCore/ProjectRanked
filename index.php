@@ -1,7 +1,7 @@
 <?php
     $title = "Home";
     require_once("./include/nav.php");
-    include_once("./include/platform.php");
+    include_once("./include/sideNav.php");
     include("./include/rankDiv.php");
 
     function platform() {
@@ -42,6 +42,8 @@
 
 
     $playerList = mysqli_query($DBConn, "SELECT * FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBRankScore` >= ".$RankFile['Platinum']." AND NOT(`$DBRankScore` >= ".$minPred[$DBRankScore]." and `$DBisPred` != '1') ORDER BY `$DBLadderPos` ASC, `$DBRankScore` DESC LIMIT $offset, $amount");
+
+    $predCount = mysqli_fetch_array(mysqli_query($DBConn, "SELECT COUNT(*) FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBisPred` = '1'"))[0];
 
     function checkPage() {
         if(isset($_GET['PC'])) return "?PC&";

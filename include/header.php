@@ -15,10 +15,11 @@
 ?>
 
 <div class="header">
-    <div class="top">
-        <?php echo platformText(); ?> Ranked Stats for <?php echo $SeasonInfo['name']; ?>: Split <?php echo $SeasonInfo['currentSplit']; ?>
-    </div>
-    <div class="bottom">
-    <?php echo scoreType($RankType); ?> Threshold for Apex Predator Based on <?php echo $totalRows; ?> Players: <b><?php echo number_format(minPred($minPred[$DBRankScore], $RankType, $DBRankScore, $RankFile['Master']))." ".scoreType($RankType); ?></b>
+    <div class="top"><?= platformText(); ?> Ranked Stats</div>
+    <div class="middle"><b><?= $SeasonInfo['name']; ?></b> &#8212; Split <?= $SeasonInfo['currentSplit']; ?></div>
+    <div class="stats">
+        <span class="threshold">Predator Threshold: <?= number_format(minPred($minPred[$DBRankScore], $RankType, $DBRankScore, $RankFile['Master'])); ?> <?= scoreType($RankType); ?></span>
+        <!-- <span class="predCount">Apex Predator Count: <?= $predCount; ?></span> -->
+        <span class="playerCount">Based on <?= $totalRows; ?> <?= platformText() ?> Players</span>
     </div>
 </div>
