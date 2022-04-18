@@ -124,3 +124,48 @@
             .bold
                 background: $platinum
                 border-left: 4px solid $platinumBorder
+        &.First
+            border-bottom: 2px solid $firstBorder
+            .bold
+                background: $first
+                border-left: 4px solid $firstBorder
+        &.Second
+            border-bottom: 2px solid $secondBorder
+            .bold
+                background: $second
+                border-left: 4px solid $secondBorder
+        &.Third
+            border-bottom: 2px solid $thirdBorder
+            .bold
+                background: $third
+                border-left: 4px solid $thirdBorder
+
+@media (max-width: 1200px)
+    .container
+        width: 100%
+        .top
+            transform: skew(0deg)
+            .item 
+                &:nth-of-type(1)
+                    flex-basis: 10%
+                &:nth-of-type(2)
+                    flex-basis: 45%
+                &:nth-of-type(3)
+                    display: none
+                &:nth-of-type(4)
+                    flex-basis: 45%
+                .inner
+                    transform: skew(0deg)
+        .list
+            transform: skew(0deg)
+            .item 
+                &:nth-of-type(1)
+                    flex-basis: 10%
+                &:nth-of-type(2)
+                    flex-basis: 45%
+                &:nth-of-type(3)
+                    display: none
+                &:nth-of-type(4)
+                    flex-basis: 45%
+                .inner
+                    transform: skew(0deg)
