@@ -1,1 +1,11 @@
-@use "./abstracts/variables" as *;
+// Base Stuff
+@use "./abstracts/global" as *;
+
+// Nav Styles
+@use "./nav/nav" as *;
+@use "./nav/footer" as *;
+@use "./nav/sidenav" as *;
+@use "./nav/header" as *;
+
+// Stats
+@use "./content/stats" as *;

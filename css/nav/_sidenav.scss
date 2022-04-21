@@ -1,0 +1,32 @@
+@use "../abstracts/variables" as *;
+
+.sideNav {
+	top: calc(50% - 120px);
+	display: flex;
+	z-index: 9999;
+	position: fixed;
+	flex-direction: column;
+	a {
+		width: 60px;
+		padding: 10px;
+		font-size: 20pt;
+		text-align: center;
+		transition: all 0.2s ease;
+		backdrop-filter: $blur;
+		background: rgba(0, 0, 0, 0.5);
+		color: rgba(255, 255, 255, 0.5);
+		&:hover {
+			background: rgba(0, 0, 0, 0.8);
+		}
+		&:first-child {
+			border-top-right-radius: 10px;
+		}
+		&:last-child {
+			border-bottom-right-radius: 10px;
+		}
+	}
+	.active {
+		color: rgba(255, 255, 255, 1);
+		background: rgba(0, 0, 0, 0.8);
+	}
+}

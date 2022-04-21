@@ -1,0 +1,29 @@
+// Main Background
+$backgroundColor: rgba(0, 0, 0, 0.5);
+
+// Blur
+$blur: blur(10px);
+
+// Skew
+$navSkew: skew(40deg);
+$navSkewNeg: skew(-40deg);
+$skew: skew(20deg);
+$skewNeg: skew(-20deg);
+
+// Rank Colors
+$pred: rgba(230, 28, 0, 0.85);
+$predBorder: rgba(160, 18, 0, 0.85);
+$master: rgba(146, 91, 198, 0.85);
+$masterBorder: rgba(94, 59, 128, 0.85);
+$diamond: rgba(56, 110, 160, 0.85);
+$diamondBorder: rgba(41, 80, 117, 0.85);
+$platinum: rgba(63, 138, 136, 0.85);
+$platinumBorder: rgba(50, 107, 105, 0.85);
+
+// Placement Colors
+$first: rgba(212, 175, 55, 1);
+$firstBorder: rgba(170, 140, 40, 1);
+$second: rgba(169, 169, 169, 1);
+$secondBorder: rgba(126, 126, 126, 1);
+$third: rgba(176, 141, 87, 1);
+$thirdBorder: rgba(116, 92, 56, 1);
