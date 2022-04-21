@@ -1,11 +1,16 @@
-// Base Stuff
+// Base
 @use "./abstracts/global" as *;
 
-// Nav Styles
+// Nav
 @use "./nav/nav" as *;
 @use "./nav/footer" as *;
 @use "./nav/sidenav" as *;
 @use "./nav/header" as *;
+@use "./nav/pagination" as *;
 
-// Stats
+// Content
 @use "./content/stats" as *;
+@use "./content/user" as *;
+
+// Misc
+@use "./misc/noPlayer" as *;

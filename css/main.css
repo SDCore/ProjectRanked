@@ -195,6 +195,43 @@ body {
   font-size: 13pt;
 }
 
+.pagination {
+  display: flex;
+  margin: 15px 0 0 0;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 4px solid rgba(160, 18, 0, 0.75);
+  clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
+}
+.pagination .page {
+  flex: 1;
+  padding: 15px 0;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  color: rgba(255, 255, 255, 0.95);
+}
+.pagination .page:nth-of-type(1), .pagination .page:nth-of-type(4) {
+  flex-basis: 15%;
+  background: rgba(204, 24, 0, 0.85);
+}
+.pagination .page:nth-of-type(1):hover, .pagination .page:nth-of-type(4):hover {
+  background: rgba(245, 29, 0, 0.85);
+}
+.pagination .page:nth-of-type(2), .pagination .page:nth-of-type(3) {
+  flex-basis: 35%;
+}
+.pagination .page:nth-of-type(2):hover, .pagination .page:nth-of-type(3):hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+.pagination .page.disabled {
+  cursor: default;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.3);
+}
+
 @keyframes lobbyHover {
   0% {
     text-shadow: 0 0 5px rgba(0, 225, 0, 0.75), 0 0 10px rgba(0, 225, 0, 0.75);
@@ -379,6 +416,271 @@ body {
 .container .list.Third .bold {
   background: rgb(176, 141, 87);
   border-left: 4px solid rgb(116, 92, 56);
+}
+
+@keyframes matchHover {
+  0% {
+    text-shadow: 0 0 5px rgba(250, 166, 26, 0.75), 0 0 10px rgba(250, 166, 26, 0.75);
+  }
+  50% {
+    text-shadow: 0 0 0 rgba(250, 166, 26, 0);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(250, 166, 26, 0.75), 0 0 10px rgba(250, 166, 26, 0.75);
+  }
+}
+@keyframes lobbyHover {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 225, 0, 0.75), 0 0 10px rgba(0, 225, 0, 0.75);
+  }
+  50% {
+    text-shadow: 0 0 0 rgba(0, 225, 0, 0);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(0, 225, 0, 0.75), 0 0 10px rgba(0, 225, 0, 0.75);
+  }
+}
+.user {
+  width: 95%;
+  margin: 15px auto 50px auto;
+}
+.user .userInfo {
+  width: 100%;
+  display: flex;
+  margin: 0 0 1px 0;
+}
+.user .userInfo .name {
+  flex: 1;
+  display: flex;
+  font-size: 25pt;
+  margin: 0 1px 0 0;
+  font-weight: bold;
+  padding: 6px 15px;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border-top-left-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.85);
+}
+.user .userInfo .status {
+  flex: 1;
+  display: flex;
+  font-size: 20pt;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border-top-right-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+}
+.user .userInfo .status .match {
+  font-size: 8pt;
+  margin: 0 7px 0 0;
+  animation-duration: 5s;
+  animation-name: matchHover;
+  color: rgba(250, 166, 26, 0.75);
+  animation-iteration-count: infinite;
+}
+.user .userInfo .status .lobby {
+  font-size: 8pt;
+  margin: 0 7px 0 0;
+  animation-duration: 5s;
+  animation-name: lobbyHover;
+  color: rgba(0, 225, 0, 0.75);
+  animation-iteration-count: infinite;
+}
+.user .userInfo .status .offline {
+  color: gray;
+  font-size: 8pt;
+  margin: 0 7px 0 0;
+}
+.user .placement {
+  width: 100%;
+  display: flex;
+}
+.user .placement .box {
+  flex: 1;
+  display: flex;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+}
+.user .placement .box .inner {
+  flex: 1;
+  flex-direction: column;
+}
+.user .placement .box .inner .image {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  padding: 10px 0;
+  position: relative;
+  justify-content: center;
+}
+.user .placement .box .inner .image img {
+  width: 150px;
+}
+.user .placement .box .inner .top {
+  flex: 1;
+  width: 100%;
+  height: 35px;
+  display: block;
+  padding: 5px 0;
+  font-size: 15pt;
+  font-weight: bold;
+  line-height: 35px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.9);
+}
+.user .placement .box .inner .top .current {
+  width: 100%;
+  display: block;
+  font-size: 14pt;
+  line-height: 24px;
+}
+.user .placement .box .inner .top .prev {
+  width: 100%;
+  display: block;
+  font-size: 9pt;
+  font-weight: 400;
+  line-height: 11px;
+}
+.user .placement .box .inner .top .prev.posi {
+  color: green;
+}
+.user .placement .box .inner .top .prev.neg {
+  color: red;
+}
+.user .placement .box .inner .bottom {
+  flex: 1;
+  width: 100%;
+  display: block;
+  padding: 4px 0;
+  font-size: 14pt;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.8);
+}
+.user .placement .box .inner .label {
+  flex: 1;
+  width: 100%;
+  display: block;
+  padding: 3px 0;
+  font-size: 13pt;
+  font-weight: 300;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.45);
+  color: rgba(255, 255, 255, 0.7);
+}
+.user .placement .box:nth-of-type(2) {
+  flex: 2;
+  margin: 0 1px;
+}
+.user .placement .box:nth-of-type(3) {
+  flex: 2;
+}
+.user .history {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1px 0 0 0;
+}
+.user .history .title {
+  flex: 1;
+  font-size: 19pt;
+  font-weight: bold;
+  padding: 6px 15px;
+  background: rgba(0, 0, 0, 0.75);
+  color: rgba(255, 255, 255, 0.95);
+}
+.user .history .title:nth-of-type(1) {
+  margin: 0 1px 0 0;
+}
+.user .history .season {
+  flex: 1;
+  width: 100%;
+  display: block;
+  font-size: 15pt;
+  flex-basis: 100%;
+  padding: 4px 10px;
+  font-weight: bold;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.65);
+  color: rgba(255, 255, 255, 0.9);
+}
+.user .history .box {
+  background: rgba(0, 0, 0, 0.5);
+}
+.user .history .box,
+.user .history .box .title {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  backdrop-filter: blur(10px);
+}
+.user .history .box .inner,
+.user .history .box .title .inner {
+  flex: 1;
+  flex-direction: column;
+}
+.user .history .box .inner .image,
+.user .history .box .title .inner .image {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  padding: 10px 0;
+  justify-content: center;
+}
+.user .history .box .inner .image img,
+.user .history .box .title .inner .image img {
+  width: 150px;
+}
+.user .history .box .inner .top,
+.user .history .box .title .inner .top {
+  flex: 1;
+  width: 100%;
+  display: block;
+  padding: 5px 0;
+  font-size: 15pt;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.9);
+}
+.user .history .box .inner .bottom,
+.user .history .box .title .inner .bottom {
+  flex: 1;
+  width: 100%;
+  display: block;
+  padding: 4px 0;
+  font-size: 14pt;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.8);
+}
+.user .history .box:nth-of-type(1),
+.user .history .box .title:nth-of-type(1) {
+  flex: 2;
+  margin-right: 1px;
+}
+.user .history .box:nth-of-type(2),
+.user .history .box .title:nth-of-type(2) {
+  flex: 2;
+}
+
+.noPlayer {
+  width: 80%;
+  padding: 6px;
+  font-size: 25pt;
+  font-weight: bold;
+  margin: 15px auto;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /*# sourceMappingURL=main.css.map */

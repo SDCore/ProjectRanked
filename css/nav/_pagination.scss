@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as *;
+
+.pagination {
+	display: flex;
+	margin: 15px 0 0 0;
+	backdrop-filter: $blur;
+	background: rgba(0, 0, 0, 0.5);
+	border-bottom: 4px solid rgba(160, 18, 0, 0.75);
+	clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
+	.page {
+		flex: 1;
+		padding: 15px 0;
+		font-weight: bold;
+		text-align: center;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		color: rgba(255, 255, 255, 0.95);
+		&:nth-of-type(1),
+		&:nth-of-type(4) {
+			flex-basis: 15%;
+			background: rgba(204, 24, 0, 0.85);
+			&:hover {
+				background: rgba(245, 29, 0, 0.85);
+			}
+		}
+		&:nth-of-type(2),
+		&:nth-of-type(3) {
+			flex-basis: 35%;
+			&:hover {
+				background: rgba(0, 0, 0, 0.3);
+			}
+		}
+		&.disabled {
+			cursor: default;
+			pointer-events: none;
+			background: rgba(0, 0, 0, 0.3);
+			color: rgba(255, 255, 255, 0.3);
+		}
+	}
+}
