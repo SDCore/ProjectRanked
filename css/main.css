@@ -671,6 +671,136 @@ body {
   flex: 2;
 }
 
+@keyframes matchHover {
+  0% {
+    text-shadow: 0 0 5px rgba(250, 166, 26, 0.75), 0 0 10px rgba(250, 166, 26, 0.75);
+  }
+  50% {
+    text-shadow: 0 0 0 rgba(250, 166, 26, 0);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(250, 166, 26, 0.75), 0 0 10px rgba(250, 166, 26, 0.75);
+  }
+}
+@keyframes lobbyHover {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 225, 0, 0.75), 0 0 10px rgba(0, 225, 0, 0.75);
+  }
+  50% {
+    text-shadow: 0 0 0 rgba(0, 225, 0, 0);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(0, 225, 0, 0.75), 0 0 10px rgba(0, 225, 0, 0.75);
+  }
+}
+.search {
+  width: 80%;
+  margin: 5px auto 50px auto;
+}
+.search .help {
+  font-size: 10pt;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.8);
+}
+.search .searchBox {
+  width: calc(100% - 30px);
+  display: flex;
+  padding: 6px 15px;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+.search .searchBox .input {
+  border: none;
+  outline: none;
+  flex-basis: 75%;
+  font-size: 20pt;
+  background: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin: 0 15px 0 0;
+  transition: all 0.2s ease;
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+.search .searchBox .input:focus {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+}
+.search .searchBox .button {
+  border: none;
+  flex-basis: 25%;
+  font-size: 20pt;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.75);
+}
+.search .top {
+  display: flex;
+  font-size: 16pt;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0 8px 0;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.9);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+}
+.search .top .item {
+  padding: 8px 16px;
+  color: rgba(255, 255, 255, 0.95);
+}
+.search .list {
+  display: flex;
+  font-size: 14pt;
+  margin: 0 0 4px 0;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+.search .list:hover {
+  background: rgba(0, 0, 0, 0.65);
+}
+.search .list .lobby {
+  top: -4px;
+  left: -5px;
+  font-size: 5pt;
+  position: relative;
+  animation-duration: 5s;
+  animation-name: lobbyHover;
+  color: rgba(0, 225, 0, 0.75);
+  animation-iteration-count: infinite;
+}
+.search .list .offline {
+  top: -4px;
+  left: -5px;
+  color: gray;
+  font-size: 5pt;
+  position: relative;
+}
+.search .list .item {
+  padding: 6px 15px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+}
+.search .error {
+  width: calc(100% - 20px);
+  display: block;
+  font-size: 14pt;
+  padding: 4px 10px;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
 .noPlayer {
   width: 80%;
   padding: 6px;
@@ -678,6 +808,29 @@ body {
   font-weight: bold;
   margin: 15px auto;
   text-align: center;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.faq {
+  margin: 15px 0 0 0;
+}
+.faq .question {
+  font-size: 16pt;
+  font-weight: bold;
+  padding: 6px 15px;
+  backdrop-filter: blur(10px);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: rgba(10, 10, 10, 0.95);
+  background: rgba(200, 200, 200, 0.9);
+  border-bottom: 3px solid rgba(125, 125, 125, 0.85);
+}
+.faq .answer {
+  font-size: 14pt;
+  padding: 6px 15px;
+  text-align: justify;
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.5);
   color: rgba(255, 255, 255, 0.8);

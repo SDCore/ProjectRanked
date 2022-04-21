@@ -1,0 +1,24 @@
+@use "../abstracts/variables" as *;
+
+.faq {
+	margin: 15px 0 0 0;
+	.question {
+		font-size: 16pt;
+		font-weight: bold;
+		padding: 6px 15px;
+		backdrop-filter: $blur;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+		color: rgba(10, 10, 10, 0.95);
+		background: rgba(200, 200, 200, 0.9);
+		border-bottom: 3px solid rgba(125, 125, 125, 0.85);
+	}
+	.answer {
+		font-size: 14pt;
+		padding: 6px 15px;
+		text-align: justify;
+		backdrop-filter: $blur;
+		background: rgba(0, 0, 0, 0.5);
+		color: rgba(255, 255, 255, 0.8);
+	}
+}

@@ -11,6 +11,8 @@
 // Content
 @use "./content/stats" as *;
 @use "./content/user" as *;
+@use "./content/search" as *;
 
 // Misc
 @use "./misc/noPlayer" as *;
+@use "./misc/faq" as *;
