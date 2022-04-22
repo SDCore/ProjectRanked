@@ -9,14 +9,14 @@
     }
 
     if($debug == true) {
-        $stream_opts = [
+        $streamOpts = [
             "ssl" => [
                 "verify_peer"=>false,
                 "verify_peer_name"=>false,
             ]
         ];
     }else{
-        $stream_opts = [
+        $streamOpts = [
             "ssl" => [
                 "verify_peer"=>true,
                 "verify_peer_name"=>true,
@@ -35,8 +35,8 @@
         if($platform == "SWITCH") return "<i class='fas fa-gamepad'></i>";
     }
 
-    function isOnline($platform, $id, $stream_opts) {
-        $onlineAPI = file_get_contents("https://api.apexstats.dev/isOnline?platform=".$platform."&id=".$id, false, stream_context_create($stream_opts));
+    function isOnline($platform, $id, $streamOpts) {
+        $onlineAPI = file_get_contents("https://api.apexstats.dev/isOnline?platform=".$platform."&id=".$id, false, stream_context_create($streamOpts));
 
         $status = json_decode($onlineAPI, true);
 
@@ -75,8 +75,8 @@
         }
     }
 
-    function currentRank($ID, $Platform, $Score, $Type, $stream_opts) {
-        $rankFile = file_get_contents("https://api.apexstats.dev/id?platform=".$Platform."&id=".$ID, false, stream_context_create($stream_opts));
+    function currentRank($ID, $Platform, $Score, $Type, $streamOpts) {
+        $rankFile = file_get_contents("https://api.apexstats.dev/id?platform=".$Platform."&id=".$ID, false, stream_context_create($streamOpts));
         $rank = json_decode($rankFile, true);
         $rankBR = $rank['ranked']['BR'];
         $rankArenas = $rank['ranked']['Arenas'];
@@ -113,7 +113,7 @@
 <div class="user">
     <div class="userInfo">
         <div class="name"><?php echo platformIcon($playerQuery['Platform']); ?>&nbsp;<?php echo nickname($playerQuery['PlayerNick'], $Legendfile[$playerQuery['Legend']],  $playerQuery['PlayerLevel']); ?></div>
-        <div class="status"><?php echo isOnline($playerQuery['Platform'], $playerQuery['PlayerID'], $stream_opts); ?></div>
+        <div class="status"><?php echo isOnline($playerQuery['Platform'], $playerQuery['PlayerID'], $streamOpts); ?></div>
     </div>
     
     <?php
@@ -137,7 +137,7 @@
             <span class="inner">
                 <?php
                     if($SeasonInfo['currentSplit'] == "1") {
-                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['BR_RankScorePrev'], "BR", $stream_opts);
+                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['BR_RankScorePrev'], "BR", $streamOpts);
                     }else{
                         echo rankInfo($DBConn, $RankPeriod01, $UID, "BR");
                     }
@@ -147,7 +147,7 @@
             <span class="inner">
                 <?php
                     if($SeasonInfo['currentSplit'] == "2") {
-                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['BR_RankScorePrev'], "BR", $stream_opts);
+                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['BR_RankScorePrev'], "BR", $streamOpts);
                     }else{
                         echo rankInfo($DBConn, $RankPeriod02, $UID, "BR");
                     }
@@ -159,7 +159,7 @@
             <span class="inner">
                 <?php
                     if($SeasonInfo['currentSplit'] == "1") {
-                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['Arenas_RankScorePrev'], "Arenas", $stream_opts);
+                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['Arenas_RankScorePrev'], "Arenas", $streamOpts);
                     }else{
                         echo rankInfo($DBConn, $RankPeriod01, $UID, "Arenas");
                     }
@@ -169,7 +169,7 @@
             <span class="inner">
             <?php
                     if($SeasonInfo['currentSplit'] == "2") {
-                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['Arenas_RankScorePrev'], "Arenas", $stream_opts);
+                        echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['Arenas_RankScorePrev'], "Arenas", $streamOpts);
                     }else{
                         echo rankInfo($DBConn, $RankPeriod02, $UID, "Arenas");
                     }

@@ -1,12 +1,9 @@
 // Base
 @use "./abstracts/global" as *;
 
-// Nav
-@use "./nav/nav" as *;
-@use "./nav/footer" as *;
-@use "./nav/sidenav" as *;
-@use "./nav/header" as *;
-@use "./nav/pagination" as *;
+// Admin
+@use "./admin/login" as *;
+@use "./admin/addUserButtons" as *;
 
 // Content
 @use "./content/stats" as *;
@@ -16,3 +13,10 @@
 // Misc
 @use "./misc/noPlayer" as *;
 @use "./misc/faq" as *;
+
+// Nav
+@use "./nav/nav" as *;
+@use "./nav/footer" as *;
+@use "./nav/sidenav" as *;
+@use "./nav/header" as *;
+@use "./nav/pagination" as *;

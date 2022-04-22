@@ -12,14 +12,14 @@
     set_time_limit(0);
 
     if($debug == true) {
-        $stream_opts = [
+        $streamOpts = [
             "ssl" => [
                 "verify_peer"=>false,
                 "verify_peer_name"=>false,
             ]
         ];
     }else{
-        $stream_opts = [
+        $streamOpts = [
             "ssl" => [
                 "verify_peer"=>true,
                 "verify_peer_name"=>true,
@@ -70,7 +70,7 @@
         while($row = mysqli_fetch_array($queryPlayer)) {
             $url = "https://api.apexstats.dev/id?platform=".$row['Platform']."&id=".$row['PlayerID'];
 
-            $getJson = file_get_contents($url, false, stream_context_create($stream_opts));
+            $getJson = file_get_contents($url, false, stream_context_create($streamOpts));
 
             $json = json_decode($getJson, true);
 

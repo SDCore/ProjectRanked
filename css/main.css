@@ -15,221 +15,97 @@ body {
   background-size: cover;
 }
 
-.nav {
-  width: 100%;
-  height: 50px;
-  display: flex;
-  padding: 0 0 5px 0;
-  flex-direction: row;
-  backdrop-filter: blur(10px);
-  justify-content: center;
-  border-bottom: 5px solid rgba(0, 0, 0, 0.75);
-  font-family: "EUROCAPS", Arial, Helvetica, sans-serif;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(47, 48, 52, 0.75) 110%);
-}
-.nav .link,
-.nav .brand,
-.nav .active {
-  height: 100%;
-  margin: 0 1px;
-  font-size: 15pt;
-  min-width: 100px;
-  line-height: 60px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  transform: skew(40deg);
-  padding: 0 15px 5px 15px;
-  transition: all 0.2s ease;
-}
-.nav .link .inner,
-.nav .brand .inner,
-.nav .active .inner {
-  display: block;
-  transform: skew(-40deg);
-}
-.nav .link,
-.nav .brand {
-  color: rgba(176, 176, 176, 0.75);
-  background: rgba(255, 255, 255, 0.05);
-  border-bottom: 5px solid rgba(140, 140, 140, 0.75);
-}
-.nav .link:hover,
-.nav .brand:hover {
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.95);
-}
-.nav .active {
-  color: rgba(255, 255, 255, 0.95);
-  background: rgba(255, 30, 0, 0.55);
-  border-bottom: 5px solid rgba(255, 30, 0, 0.65);
-}
-.nav .active:hover {
-  background: rgba(255, 30, 0, 0.65);
-  border-color: rgba(255, 30, 0, 0.75);
-}
-.nav .brand {
-  min-width: 200px;
-  overflow: hidden;
-  padding: 0 15px 5px 25px;
-  background: rgb(255, 247, 0);
-  border-bottom: 5px solid rgb(0, 0, 0);
-}
-.nav .brand::before {
-  top: 0;
-  left: 0;
-  content: "";
-  width: 120%;
-  height: 100%;
-  position: absolute;
-  transform: skew(-40deg);
-  transform-origin: top left;
-  background: url("https://cdn.apexstats.dev/ProjectRanked/NavBackground/Season12.png") center;
-}
-.nav .brand:hover {
-  background: rgb(206, 203, 0);
-  border-bottom: 5px solid rgb(255, 255, 255);
-}
-.nav .brand .inner {
-  display: flex;
-  line-height: 20px;
-  align-items: center;
-  flex-direction: column;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-}
-.nav .brand .inner .top {
-  top: 9px;
-  font-size: 14pt;
-  position: relative;
-  color: rgb(236, 14, 35);
-}
-.nav .brand .inner .bottom {
-  top: 7px;
-  font-size: 16pt;
-  position: relative;
-  color: rgba(0, 0, 0, 0.95);
-}
-
-.footer {
-  bottom: 0;
-  width: 100%;
-  padding: 5px 0;
-  position: fixed;
-  font-weight: 600;
-  text-align: center;
-  backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.9);
-  color: rgba(255, 255, 255, 0.25);
-  border-top: 2px solid rgba(60, 60, 60, 0.9);
-}
-.footer a {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.25);
-}
-
-.sideNav {
-  top: calc(50% - 120px);
-  display: flex;
-  z-index: 9999;
-  position: fixed;
-  flex-direction: column;
-}
-.sideNav a {
-  width: 60px;
-  padding: 10px;
-  font-size: 20pt;
-  text-align: center;
-  transition: all 0.2s ease;
+.adminForm {
+  width: 50%;
+  padding: 8px 20px;
+  margin: 20px auto;
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.5);
-  color: rgba(255, 255, 255, 0.5);
 }
-.sideNav a:hover {
-  background: rgba(0, 0, 0, 0.8);
+.adminForm .title {
+  display: block;
+  margin: 15px 0;
+  font-size: 25pt;
+  font-weight: bold;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.95);
 }
-.sideNav a:first-child {
-  border-top-right-radius: 10px;
+.adminForm .group {
+  width: 100%;
 }
-.sideNav a:last-child {
-  border-bottom-right-radius: 10px;
+.adminForm .group .title {
+  font-size: 16pt;
+  margin-bottom: 5px;
+  font-weight: normal;
 }
-.sideNav .active {
-  color: rgb(255, 255, 255);
-  background: rgba(0, 0, 0, 0.8);
+.adminForm .group .input {
+  width: 100%;
+  outline: none;
+  font-size: 15pt;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+.adminForm .submit {
+  width: 100%;
+  margin: 5px 0;
+  font-size: 15pt;
+  font-weight: bold;
+  padding: 8px 20px;
+}
+.adminForm .error {
+  width: 100%;
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  color: rgba(255, 0, 0, 0.9);
+}
+.adminForm .success {
+  width: 100%;
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  color: rgba(0, 255, 0, 0.9);
 }
 
-.header {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  margin: 10px auto 5px auto;
-  font-family: "MONTSERRAT", Arial, Helvetica, sans-serif;
+.addUserButtons {
+  margin: 15px 0;
 }
-.header .top {
-  font-size: 20pt;
+.addUserButtons .title {
+  width: calc(100% - 40px);
+  display: block;
+  font-size: 25pt;
+  padding: 8px 20px;
   font-weight: bold;
-  padding: 0 0 0 5px;
+  margin: 0 0 5px 0;
   text-align: center;
-  color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 50%, rgba(255, 255, 255, 0) 100%);
 }
-.header .middle {
-  padding: 3px 0;
+.addUserButtons .buttons {
+  display: flex;
+}
+.addUserButtons .buttons .button {
+  flex: 1;
   font-size: 16pt;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.85);
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
-}
-.header .stats {
-  display: flex;
-  padding: 4px 0;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.9);
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
-}
-.header .stats .threshold,
-.header .stats .predCount,
-.header .stats .playerCount {
-  flex: 1;
-  font-size: 13pt;
-}
-
-.pagination {
-  display: flex;
-  margin: 15px 0 0 0;
-  backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.5);
-  border-bottom: 4px solid rgba(160, 18, 0, 0.75);
-  clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
-}
-.pagination .page {
-  flex: 1;
-  padding: 15px 0;
+  padding: 4px 10px;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
   transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
   color: rgba(255, 255, 255, 0.95);
 }
-.pagination .page:nth-of-type(1), .pagination .page:nth-of-type(4) {
-  flex-basis: 15%;
-  background: rgba(204, 24, 0, 0.85);
+.addUserButtons .buttons .button:nth-child(2) {
+  margin: 0 1px;
 }
-.pagination .page:nth-of-type(1):hover, .pagination .page:nth-of-type(4):hover {
-  background: rgba(245, 29, 0, 0.85);
+.addUserButtons .buttons .button:nth-child(3) {
+  margin: 0 1px 0 0;
 }
-.pagination .page:nth-of-type(2), .pagination .page:nth-of-type(3) {
-  flex-basis: 35%;
-}
-.pagination .page:nth-of-type(2):hover, .pagination .page:nth-of-type(3):hover {
-  background: rgba(0, 0, 0, 0.3);
-}
-.pagination .page.disabled {
-  cursor: default;
-  pointer-events: none;
-  background: rgba(0, 0, 0, 0.3);
-  color: rgba(255, 255, 255, 0.3);
+.addUserButtons .buttons .button:hover {
+  background: rgba(0, 0, 0, 0.75);
 }
 
 @keyframes lobbyHover {
@@ -834,6 +710,223 @@ body {
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.5);
   color: rgba(255, 255, 255, 0.8);
+}
+
+.nav {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  padding: 0 0 5px 0;
+  flex-direction: row;
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.75);
+  font-family: "EUROCAPS", Arial, Helvetica, sans-serif;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(47, 48, 52, 0.75) 110%);
+}
+.nav .link,
+.nav .brand,
+.nav .active {
+  height: 100%;
+  margin: 0 1px;
+  font-size: 15pt;
+  min-width: 100px;
+  line-height: 60px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transform: skew(40deg);
+  padding: 0 15px 5px 15px;
+  transition: all 0.2s ease;
+}
+.nav .link .inner,
+.nav .brand .inner,
+.nav .active .inner {
+  display: block;
+  transform: skew(-40deg);
+}
+.nav .link,
+.nav .brand {
+  color: rgba(176, 176, 176, 0.75);
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 5px solid rgba(140, 140, 140, 0.75);
+}
+.nav .link:hover,
+.nav .brand:hover {
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.95);
+}
+.nav .active {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 30, 0, 0.55);
+  border-bottom: 5px solid rgba(255, 30, 0, 0.65);
+}
+.nav .active:hover {
+  background: rgba(255, 30, 0, 0.65);
+  border-color: rgba(255, 30, 0, 0.75);
+}
+.nav .brand {
+  min-width: 200px;
+  overflow: hidden;
+  padding: 0 15px 5px 25px;
+  background: rgb(255, 247, 0);
+  border-bottom: 5px solid rgb(0, 0, 0);
+}
+.nav .brand::before {
+  top: 0;
+  left: 0;
+  content: "";
+  width: 120%;
+  height: 100%;
+  position: absolute;
+  transform: skew(-40deg);
+  transform-origin: top left;
+  background: url("https://cdn.apexstats.dev/ProjectRanked/NavBackground/Season12.png") center;
+}
+.nav .brand:hover {
+  background: rgb(206, 203, 0);
+  border-bottom: 5px solid rgb(255, 255, 255);
+}
+.nav .brand .inner {
+  display: flex;
+  line-height: 20px;
+  align-items: center;
+  flex-direction: column;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+.nav .brand .inner .top {
+  top: 9px;
+  font-size: 14pt;
+  position: relative;
+  color: rgb(236, 14, 35);
+}
+.nav .brand .inner .bottom {
+  top: 7px;
+  font-size: 16pt;
+  position: relative;
+  color: rgba(0, 0, 0, 0.95);
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  padding: 5px 0;
+  position: fixed;
+  font-weight: 600;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.9);
+  color: rgba(255, 255, 255, 0.25);
+  border-top: 2px solid rgba(60, 60, 60, 0.9);
+}
+.footer a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.sideNav {
+  top: calc(50% - 120px);
+  display: flex;
+  z-index: 9999;
+  position: fixed;
+  flex-direction: column;
+}
+.sideNav a {
+  width: 60px;
+  padding: 10px;
+  font-size: 20pt;
+  text-align: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+}
+.sideNav a:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.sideNav a:first-child {
+  border-top-right-radius: 10px;
+}
+.sideNav a:last-child {
+  border-bottom-right-radius: 10px;
+}
+.sideNav .active {
+  color: rgb(255, 255, 255);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.header {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto 5px auto;
+  font-family: "MONTSERRAT", Arial, Helvetica, sans-serif;
+}
+.header .top {
+  font-size: 20pt;
+  font-weight: bold;
+  padding: 0 0 0 5px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.9);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 50%, rgba(255, 255, 255, 0) 100%);
+}
+.header .middle {
+  padding: 3px 0;
+  font-size: 16pt;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
+}
+.header .stats {
+  display: flex;
+  padding: 4px 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
+}
+.header .stats .threshold,
+.header .stats .predCount,
+.header .stats .playerCount {
+  flex: 1;
+  font-size: 13pt;
+}
+
+.pagination {
+  display: flex;
+  margin: 15px 0 0 0;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 4px solid rgba(160, 18, 0, 0.75);
+  clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
+}
+.pagination .page {
+  flex: 1;
+  padding: 15px 0;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  color: rgba(255, 255, 255, 0.95);
+}
+.pagination .page:nth-of-type(1), .pagination .page:nth-of-type(4) {
+  flex-basis: 15%;
+  background: rgba(204, 24, 0, 0.85);
+}
+.pagination .page:nth-of-type(1):hover, .pagination .page:nth-of-type(4):hover {
+  background: rgba(245, 29, 0, 0.85);
+}
+.pagination .page:nth-of-type(2), .pagination .page:nth-of-type(3) {
+  flex-basis: 35%;
+}
+.pagination .page:nth-of-type(2):hover, .pagination .page:nth-of-type(3):hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+.pagination .page.disabled {
+  cursor: default;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 /*# sourceMappingURL=main.css.map */
