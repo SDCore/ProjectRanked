@@ -886,7 +886,7 @@ body {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
 }
 .header .stats .threshold,
-.header .stats .predCount,
+.header .stats .splitTime,
 .header .stats .playerCount {
   flex: 1;
   font-size: 13pt;
