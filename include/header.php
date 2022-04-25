@@ -22,7 +22,7 @@
     function splitTimestamp($time) {
         $timestamp = $time - time();
 
-        return gmdate(timeTextHeader("d", "\d\a\y").", ".timeTextHeader("h", "\h\o\u\\r").", ".timeTextHeader("i", "\m\i\\n\u\\t\\e"), $timestamp);
+        return gmdate(timeTextHeader("d", "\d\a\y").", ".timeTextHeader("H", "\h\o\u\\r").", ".timeTextHeader("i", "\m\i\\n\u\\t\\e"), $timestamp);
     }
 ?>
 
