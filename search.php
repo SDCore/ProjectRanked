@@ -60,8 +60,8 @@
                         while($player = mysqli_fetch_assoc($results)) {
                             echo '<a href="/user/'.$player['PlayerID'].'" class="list">';
                                 echo '<span class="item" style="flex-basis: 40%; font-weight: bold;">'.isOnline($player['PlayerStatus']).' '.icon($player['Platform']).' '.$player['PlayerNick'].'</span>';
-                                echo '<span class="item" style="flex-basis: 30%;">'.rankName($player['BR_isPred'], $player['BR_LadderPos'], $player['BR_RankScore'], "BR").' &#8212; '.number_format($player['BR_RankScore']).' RP</span>';
-                                echo '<span class="item" style="flex-basis: 30%;">'.rankName($player['Arenas_isPred'], $player['Arenas_LadderPos'], $player['Arenas_RankScore'], "Arenas").' &#8212; '.number_format($player['Arenas_RankScore']).' AP</span>';
+                                echo '<span class="item" style="flex-basis: 30%;">'.rankName($player['BR_isPred'], $player['BR_LadderPos'], $player['BR_RankScore'], "BR", 0).' &#8212; '.number_format($player['BR_RankScore']).' RP</span>';
+                                echo '<span class="item" style="flex-basis: 30%;">'.rankName($player['Arenas_isPred'], $player['Arenas_LadderPos'], $player['Arenas_RankScore'], "Arenas", 0).' &#8212; '.number_format($player['Arenas_RankScore']).' AP</span>';
                             echo '</a>';
                         }
                     }
