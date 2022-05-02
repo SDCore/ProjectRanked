@@ -183,6 +183,25 @@
         <span class="title">Arenas History</span>
     </span>
     <span class="history">
+        <div class="season">Season 12 &#8212; Defiance</div>
+        <span class="box">
+            <span class="inner">
+                <?php echo rankInfo($DBConn, "Ranked_S012_01", $UID, "BR"); ?>
+            </span>
+            <span class="inner">
+                <?php echo rankInfo($DBConn, "Ranked_S012_02", $UID, "BR"); ?>
+            </span>
+        </span>
+        <span class="box">
+            <span class="inner">
+                <?php echo rankInfo($DBConn, "Ranked_S012_01", $UID, "Arenas"); ?>
+            </span>
+            <span class="inner">
+                <?php echo rankInfo($DBConn, "Ranked_S012_02", $UID, "Arenas"); ?>
+            </span>
+        </span>
+    </span>
+    <span class="history">
         <div class="season">Season 11 &#8212; Escape</div>
         <span class="box">
             <span class="inner">
