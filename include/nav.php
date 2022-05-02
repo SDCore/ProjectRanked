@@ -50,6 +50,7 @@
     $DBRankScorePrev = $RankType."_RankScorePrev";
     $DBLadderPos = $RankType."_LadderPos";
     $DBisPred = $RankType."_isPred";
+    $DBInactive = $RankType."_Inactive";
 ?>
 
 <!DOCTYPE html>
