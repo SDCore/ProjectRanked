@@ -63,11 +63,11 @@
 
     function scoreChange($current, $prev, $suffix) {
         if($current < $prev) {
-            $newScore = $prev - $current;
+            $newScore = number_format($prev - $current);
 
             return '<span class="prev neg"><i class="fa-solid fa-angle-down"></i> -'.$newScore.' '.$suffix.'</span>';
         }else if($current > $prev) {
-            $newScore = $current - $prev;
+            $newScore = number_format($current - $prev);
 
             return '<span class="prev posi"><i class="fa-solid fa-angle-up"></i> +'.$newScore.' '.$suffix.'</span>';
         }else{
