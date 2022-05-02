@@ -32,6 +32,6 @@
     <div class="stats">
         <span class="threshold">Predator Threshold: <?= number_format(minPred($minPred[$DBRankScore], $RankType, $DBRankScore, $RankFile['Master'])); ?> <?= scoreType($RankType); ?></span>
         <span class="splitTime"><?= splitTimestamp($SeasonInfo['end']); ?></span>
-        <span class="playerCount">Based on <?= $totalRows; ?> <?= platformText() ?> Players</span>
+        <span class="playerCount">Based on <?= number_format($totalRows); ?> <?= platformText() ?> Players</span>
     </div>
 </div>
