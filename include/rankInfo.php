@@ -20,7 +20,7 @@
         return "Master";
     }
 
-    function rankName($pred, $pos, $score, $type) {
+    function rankName($pred, $pos, $score, $type, $noMaster) {
         $ScoreFile = json_decode(file_get_contents("./GameData/".$type."_RankPosition.json"), true);
 
         if($score == 0) return "Unranked";
@@ -39,10 +39,15 @@
         if($score < $ScoreFile['Diamond']) return "Platinum ".$rankDiv;
         if($score < $ScoreFile['Master']) return "Diamond ".$rankDiv;
 
-        return "Master";
+        if($noMaster == 1) {
+            return "Master";
+        }else{
+            return "[#".number_format($pos)."] Master";
+        }
+        
     }
 
-    function rankInfo($con, $split, $id, $type) {
+    function rankInfo($con, $split, $id, $type, $noMaster) {
         $splitQuery = mysqli_query($con, "SELECT * FROM `$split` WHERE `PlayerID` = '$id'");
         $splitInfo = mysqli_fetch_assoc($splitQuery);
 
@@ -63,6 +68,6 @@
 
             return '<span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/'.$type.'/'.rankImage($isPred, $ladderPos, $rankScore, $type).'.png" /></span>
             <span class="top">'.number_format($rankScore).' '.$suffix.'</span>
-            <span class="bottom">'.rankName($isPred, $ladderPos, $rankScore, $type).'</span>';
+            <span class="bottom">'.rankName($isPred, $ladderPos, $rankScore, $type, $noMaster).'</span>';
         }
     }

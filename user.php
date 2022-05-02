@@ -95,14 +95,14 @@
                 <span class="current">'.number_format($rankBR['score']).' '.$suffix.'</span>
                 '.scoreChange($rankBR['score'], $Score, "RP").'
             </span>
-            <span class="bottom">'.rankName(checkLadderPos($rankBR['ladderPos']), $rankBR['ladderPos'], $rankBR['score'], "BR").'</span>';
+            <span class="bottom">'.rankName(checkLadderPos($rankBR['ladderPos']), $rankBR['ladderPos'], $rankBR['score'], "BR", 0).'</span>';
         }else{
             return '<span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/RankBadges/'.$image.'/'.$rankArenas['name'].'.png" /></span>
             <span class="top">
                 <span class="current">'.number_format($rankArenas['score']).' '.$suffix.'</span>
                 '.scoreChange($rankArenas['score'], $Score, "AP").'
             </span>
-            <span class="bottom">'.rankName(checkLadderPos($rankArenas['ladderPos']), $rankArenas['ladderPos'], $rankArenas['score'], "Arenas").'</span>';
+            <span class="bottom">'.rankName(checkLadderPos($rankArenas['ladderPos']), $rankArenas['ladderPos'], $rankArenas['score'], "Arenas", 0).'</span>';
         }
     }
 
@@ -139,7 +139,7 @@
                     if($SeasonInfo['currentSplit'] == "1") {
                         echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['BR_RankScorePrev'], "BR", $streamOpts);
                     }else{
-                        echo rankInfo($DBConn, $RankPeriod01, $UID, "BR");
+                        echo rankInfo($DBConn, $RankPeriod01, $UID, "BR", 0);
                     }
                 ?>
                 <span class="label">Battle Royale Split 1</span>
@@ -149,7 +149,7 @@
                     if($SeasonInfo['currentSplit'] == "2") {
                         echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['BR_RankScorePrev'], "BR", $streamOpts);
                     }else{
-                        echo rankInfo($DBConn, $RankPeriod02, $UID, "BR");
+                        echo rankInfo($DBConn, $RankPeriod02, $UID, "BR", 0);
                     }
                 ?>
                 <span class="label">Battle Royale Split 2</span>
@@ -161,7 +161,7 @@
                     if($SeasonInfo['currentSplit'] == "1") {
                         echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['Arenas_RankScorePrev'], "Arenas", $streamOpts);
                     }else{
-                        echo rankInfo($DBConn, $RankPeriod01, $UID, "Arenas");
+                        echo rankInfo($DBConn, $RankPeriod01, $UID, "Arenas", 0);
                     }
                 ?>
                 <span class="label">Arenas Split 1</span>
@@ -171,7 +171,7 @@
                     if($SeasonInfo['currentSplit'] == "2") {
                         echo currentRank($playerQuery['PlayerID'], $playerQuery['Platform'], $playerQuery['Arenas_RankScorePrev'], "Arenas", $streamOpts);
                     }else{
-                        echo rankInfo($DBConn, $RankPeriod02, $UID, "Arenas");
+                        echo rankInfo($DBConn, $RankPeriod02, $UID, "Arenas", 0);
                     }
                 ?>
                 <span class="label">Arenas Split 2</span>
@@ -186,18 +186,18 @@
         <div class="season">Season 12 &#8212; Defiance</div>
         <span class="box">
             <span class="inner">
-                <?php echo rankInfo($DBConn, "Ranked_S012_01", $UID, "BR"); ?>
+                <?php echo rankInfo($DBConn, "Ranked_S012_01", $UID, "BR", 1); ?>
             </span>
             <span class="inner">
-                <?php echo rankInfo($DBConn, "Ranked_S012_02", $UID, "BR"); ?>
+                <?php echo rankInfo($DBConn, "Ranked_S012_02", $UID, "BR", 0); ?>
             </span>
         </span>
         <span class="box">
             <span class="inner">
-                <?php echo rankInfo($DBConn, "Ranked_S012_01", $UID, "Arenas"); ?>
+                <?php echo rankInfo($DBConn, "Ranked_S012_01", $UID, "Arenas", 1); ?>
             </span>
             <span class="inner">
-                <?php echo rankInfo($DBConn, "Ranked_S012_02", $UID, "Arenas"); ?>
+                <?php echo rankInfo($DBConn, "Ranked_S012_02", $UID, "Arenas", 0); ?>
             </span>
         </span>
     </span>
@@ -205,18 +205,18 @@
         <div class="season">Season 11 &#8212; Escape</div>
         <span class="box">
             <span class="inner">
-                <?php echo rankInfo($DBConn, "Ranked_S011_01", $UID, "BR"); ?>
+                <?php echo rankInfo($DBConn, "Ranked_S011_01", $UID, "BR", 1); ?>
             </span>
             <span class="inner">
-                <?php echo rankInfo($DBConn, "Ranked_S011_02", $UID, "BR"); ?>
+                <?php echo rankInfo($DBConn, "Ranked_S011_02", $UID, "BR", 1); ?>
             </span>
         </span>
         <span class="box">
             <span class="inner">
-                <?php echo rankInfo($DBConn, "Ranked_S011_01", $UID, "Arenas"); ?>
+                <?php echo rankInfo($DBConn, "Ranked_S011_01", $UID, "Arenas", 1); ?>
             </span>
             <span class="inner">
-                <?php echo rankInfo($DBConn, "Ranked_S011_02", $UID, "Arenas"); ?>
+                <?php echo rankInfo($DBConn, "Ranked_S011_02", $UID, "Arenas", 1); ?>
             </span>
         </span>
     </span>
@@ -224,15 +224,15 @@
     <div class="season">Season 10 &#8212; Emergence</div>
         <span class="box">
             <span class="inner">
-                <?php echo rankInfo($DBConn, "Ranked_S010_01", $UID, "BR"); ?>
+                <?php echo rankInfo($DBConn, "Ranked_S010_01", $UID, "BR", 1); ?>
             </span>
             <span class="inner">
-                <?php echo rankInfo($DBConn, "Ranked_S010_02", $UID, "BR"); ?>
+                <?php echo rankInfo($DBConn, "Ranked_S010_02", $UID, "BR", 1); ?>
             </span>
         </span>
         <span class="box">
             <span class="inner">
-                <?php echo rankInfo($DBConn, "Ranked_S010_02", $UID, "Arenas"); ?>
+                <?php echo rankInfo($DBConn, "Ranked_S010_02", $UID, "Arenas", 1); ?>
             </span>
         </span>
     </span>
@@ -240,10 +240,10 @@
         <div class="season">Season 09 &#8212; Legacy</div>
         <span class="box">
             <span class="inner">
-                <?php echo rankInfo($DBConn, "Ranked_S009_01", $UID, "BR"); ?>
+                <?php echo rankInfo($DBConn, "Ranked_S009_01", $UID, "BR", 1); ?>
             </span>
             <span class="inner">
-                <?php echo rankInfo($DBConn, "Ranked_S009_02", $UID, "BR"); ?>
+                <?php echo rankInfo($DBConn, "Ranked_S009_02", $UID, "BR", 1); ?>
             </span>
         </span>
         <span class="box">

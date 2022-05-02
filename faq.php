@@ -18,6 +18,14 @@
     </div>
     <div class="faq">
         <div class="question">
+            Why do Preds and Masters have position numbers next to them, but other ranks don't?
+        </div>
+        <div class="answer">
+            It's only possible to get rankings for players in Apex Predator and Master. While it would be possible to get a ranking based on the data in the database, it's easier to just rank Apex Predators and Masters, as that's how Respawn does it, and Preds/Masters are essentially the same tier, the only difference being Preds are the top 750 of Masters.
+        </div>
+    </div>
+    <div class="faq">
+        <div class="question">
             Are mobile leaderboards coming?
         </div>
         <div class="answer">
