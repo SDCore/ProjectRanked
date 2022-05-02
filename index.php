@@ -37,11 +37,11 @@
 
     $amount = 25;
     $offset = ($page - 1) * $amount;
-    $totalRows = mysqli_fetch_array(mysqli_query($DBConn, "SELECT COUNT(*) FROM `$CurrentRankPeriod` WHERE `Platform` = '".platform()."' AND `$DBRankScore` >= '".$RankFile['Platinum']."' AND NOT(`$DBRankScore` >= '".$minPred[$DBRankScore]."' AND `$DBisPred` != '1')"))[0];
+    $totalRows = mysqli_fetch_array(mysqli_query($DBConn, "SELECT COUNT(*) FROM `$CurrentRankPeriod` WHERE `Platform` = '".platform()."' AND `$DBRankScore` >= '".$RankFile['Platinum']."' AND NOT(`$DBRankScore` >= '".$minPred[$DBRankScore]."' AND `$DBisPred` != '1') AND NOT (`$DBInactive` = '1')"))[0];
     $pages = ceil($totalRows / $amount);
 
 
-    $playerList = mysqli_query($DBConn, "SELECT * FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBRankScore` >= ".$RankFile['Platinum']." AND NOT(`$DBRankScore` >= ".$minPred[$DBRankScore]." and `$DBisPred` != '1') ORDER BY `$DBLadderPos` ASC, `$DBRankScore` DESC LIMIT $offset, $amount");
+    $playerList = mysqli_query($DBConn, "SELECT * FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBRankScore` >= ".$RankFile['Platinum']." AND NOT(`$DBRankScore` >= ".$minPred[$DBRankScore]." AND `$DBisPred` != '1') AND NOT (`$DBInactive` = '1') ORDER BY `$DBRankScore` DESC LIMIT $offset, $amount");
 
     $predCount = mysqli_fetch_array(mysqli_query($DBConn, "SELECT COUNT(*) FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBisPred` = '1'"))[0];
 
@@ -78,10 +78,18 @@
         return "Master &#8212; <b>".number_format($score)." ".$type."</b>";
     }
 
-    function checkPos($pos) {
-        if($pos > "750" || $pos == "-1") return "N/A";
+    function checkPos($pos, $score, $type) {
+        if($type == "BR") {
+            if($score < 10000 || $pos == "-1") return "N/A";
 
-        return "#".$pos;
+            return "#".number_format($pos);
+        }
+
+        if($type == "Arenas") {
+            if($score < 8000 || $pos == "-1") return "N/A";
+
+            return "#".number_format($pos);
+        }
     }
 
     function posStyle($pos) {
@@ -127,7 +135,7 @@
             $rankIcon = '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/'.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).'.png" class="icon" />';
 
             echo '<div class="list '.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).' '.posStyle($player[$DBLadderPos]).'">';
-                echo '<span class="item bold"><span class="inner">'.checkPos($player[$DBLadderPos]).'</span></span>';
+                echo '<span class="item bold"><span class="inner">'.checkPos($player[$DBLadderPos], $player[$DBRankScore], $RankType).'</span></span>';
                 echo '<span class="item"><span class="inner"><a href="/user/'.$player['PlayerID'].'">'.isOnline($player['PlayerStatus']).' '.nickname($player['PlayerNick'], $Legendfile[$player['Legend']], $player['PlayerLevel']).'</a></span></span>';
                 echo '<span class="item">'.$levelIcon.'<span class="inner">Level <b>'.number_format($player['PlayerLevel']).'</b></span></span>';
                 echo '<span class="item">'.$rankIcon.'<span class="inner">'.rankText($player[$DBisPred], $player[$DBRankScore], $RankFile, scoreType($RankType), $RankType).' '.scoreChange($player[$DBRankScore], $player[$DBRankScorePrev]).'</span></span>';
