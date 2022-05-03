@@ -40,8 +40,7 @@
     $totalRows = mysqli_fetch_array(mysqli_query($DBConn, "SELECT COUNT(*) FROM `$CurrentRankPeriod` WHERE `Platform` = '".platform()."' AND `$DBRankScore` >= '".$RankFile['Platinum']."' AND NOT(`$DBRankScore` >= '".$minPred[$DBRankScore]."' AND `$DBisPred` != '1') AND NOT (`$DBInactive` = '1')"))[0];
     $pages = ceil($totalRows / $amount);
 
-
-    $playerList = mysqli_query($DBConn, "SELECT * FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBRankScore` >= ".$RankFile['Platinum']." AND NOT(`$DBRankScore` >= ".$minPred[$DBRankScore]." AND `$DBisPred` != '1') AND NOT (`$DBInactive` = '1') ORDER BY `$DBRankScore` DESC LIMIT $offset, $amount");
+    $playerList = mysqli_query($DBConn, "SELECT * FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBRankScore` >= ".$RankFile['Platinum']." AND NOT(`$DBRankScore` >= ".$minPred[$DBRankScore]." AND `$DBisPred` != '1') AND NOT (`$DBInactive` = '1') ORDER BY `$DBRankScore` DESC, `$DBLadderPos` ASC LIMIT $offset, $amount");
 
     $predCount = mysqli_fetch_array(mysqli_query($DBConn, "SELECT COUNT(*) FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBisPred` = '1'"))[0];
 
