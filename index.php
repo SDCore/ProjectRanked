@@ -55,7 +55,7 @@
     }
 
     function checkRank($isPred, $score, $file) {
-        if($isPred == "1") return "Predator";
+        if($isPred == "1") return "Apex Predator";
 
         if($score < $file['Diamond']) return "Platinum";
         if($score < $file['Master']) return "Diamond";
@@ -132,7 +132,7 @@
     <?php
         while($player = mysqli_fetch_assoc($playerList)) {
             $levelIcon = '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" class="icon" />';
-            $rankIcon = '<img src="https://cdn.apexstats.dev/ProjectRanked/Badges/'.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).'.png" class="icon" />';
+            $rankIcon = '<img src="https://cdn.apexstats.dev/ProjectRanked/RankedBadges/Season '.$SeasonInfo['number'].'/'.$RankType.'/'.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).'.png" class="icon" />';
 
             echo '<div class="list '.checkRank($player[$DBisPred], $player[$DBRankScore], $RankFile).' '.posStyle($player[$DBLadderPos]).'">';
                 echo '<span class="item bold"><span class="inner">'.checkPos($player[$DBLadderPos], $player[$DBRankScore], $RankType).'</span></span>';
