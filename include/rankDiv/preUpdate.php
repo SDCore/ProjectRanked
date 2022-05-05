@@ -1,5 +1,5 @@
 <?php
-    function brRankDiv($score) {
+    function brRankDivPreUpdate($score) {
         if($score < 300) {
             return 4;
         }else if($score < 600) {
@@ -43,7 +43,7 @@
         }
     }
 
-    function arenasRankDiv($score) {
+    function arenasRankDivPreUpdate($score) {
         if($score < 400) {
             return 4;
         }else if($score < 800) {

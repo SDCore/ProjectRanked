@@ -2,7 +2,8 @@
     $title = "Home";
     require_once("./include/nav.php");
     include_once("./include/sideNav.php");
-    include("./include/rankDiv.php");
+    include("./include/rankDiv/preUpdate.php");
+    include("./include/rankDiv/postUpdate.php");
 
     function platform() {
         if(isset($_GET['PC'])) return "PC";
@@ -66,9 +67,9 @@
         if($isPred == "1") return "Apex Predator &#8212; <b>".number_format($score)." ".$type."</b>";
 
         if($rankType == "BR") {
-            $rankDiv = brRankDiv($score);
+            $rankDiv = brRankDivPreUpdate($score);
         }else{
-            $rankDiv = arenasRankDiv($score);
+            $rankDiv = arenasRankDivPreUpdate($score);
         }
 
         if($score < $file['Diamond']) return "Platinum ".$rankDiv." &#8212; <b>".number_format($score)." ".$type."</b>";
