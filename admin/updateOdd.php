@@ -87,40 +87,43 @@
         return -1;
     }
 
-    for($i = 1; $i < $setID + 2; $i++) {
+    for($i = 1; $i < 5 + 2; $i++) {
         $getPlayer = "SELECT * FROM $CurrentRankPeriod WHERE id = $i";
         $queryPlayer = mysqli_query($DBConn, $getPlayer);
 
-        while($row = mysqli_fetch_array($queryPlayer)) {
-            $url = "https://api.apexstats.dev/id?platform=".$row['Platform']."&id=".$row['PlayerID'];
-
-            $getJson = file_get_contents($url, false, stream_context_create($streamOpts));
-
-            $json = json_decode($getJson, true);
-
-            // User Data
-            $UserID = $json['user']['id'];
-            $level = $json['account']['level'];
-            $legend = $json['active']['legend'];
-            $nickname = mysqli_real_escape_string($DBConn, $json['user']['username']);
-
-            // Battle Royale Rank Data
-            $brScore = $json['ranked']['BR']['score'];
-            $brPrevScore = $row['BR_RankScore'];
-            $brIsPred = $json['ranked']['BR']['name'];
-            $brLadderPos = $json['ranked']['BR']['ladderPos'];
-
-            // Arenas Rank Data
-            $arenasScore = $json['ranked']['Arenas']['score'];
-            $arenasPrevScore = $row['Arenas_RankScore'];
-            $arenasIsPred = $json['ranked']['Arenas']['name'];
-            $arenasLadderPos = $json['ranked']['Arenas']['ladderPos'];
-
-            mysqli_query($DBConn, "UPDATE $CurrentRankPeriod SET `PlayerNick` = '".$nickname."', `PlayerLevel` = '".$level."', `PlayerStatus` = '".$json['user']['status']['online']."', `Legend` = '".$legend."', `BR_RankScore` = '".$brScore."', `BR_RankScorePrev` = '".previousPoints($row['BR_RankScore'], $brScore, $row['BR_RankScorePrev'])."', `BR_isPred` = '".isPred($brIsPred)."', `BR_LadderPos` = '".brLadderPos($brScore, $brLadderPos)."', `BR_Inactive` = '".brLadderTest($brScore, $brLadderPos)."', `Arenas_RankScore` = '".$arenasScore."', `Arenas_RankScorePrev` = '".previousPoints($row['Arenas_RankScore'], $arenasScore, $row['Arenas_RankScorePrev'])."', `Arenas_isPred` = '".isPred($arenasIsPred)."', `Arenas_LadderPos` = '".arenasLadderPos($arenasScore, $arenasLadderPos)."', `Arenas_Inactive` = '".arenasLadderTest($arenasScore, $arenasLadderPos)."', `lastUpdated` = '".time()."' WHERE PlayerID = '".$UserID."'");
-
-            // sleep(1);
+        if($i % 2 != 0){
+            while($row = mysqli_fetch_array($queryPlayer)) {
+                $url = "https://api.apexstats.dev/id?platform=".$row['Platform']."&id=".$row['PlayerID'];
+    
+                $getJson = file_get_contents($url, false, stream_context_create($streamOpts));
+    
+                $json = json_decode($getJson, true);
+    
+                // User Data
+                $UserID = $json['user']['id'];
+                $level = $json['account']['level'];
+                $legend = $json['active']['legend'];
+                $nickname = mysqli_real_escape_string($DBConn, $json['user']['username']);
+    
+                // Battle Royale Rank Data
+                $brScore = $json['ranked']['BR']['score'];
+                $brPrevScore = $row['BR_RankScore'];
+                $brIsPred = $json['ranked']['BR']['name'];
+                $brLadderPos = $json['ranked']['BR']['ladderPos'];
+    
+                // Arenas Rank Data
+                $arenasScore = $json['ranked']['Arenas']['score'];
+                $arenasPrevScore = $row['Arenas_RankScore'];
+                $arenasIsPred = $json['ranked']['Arenas']['name'];
+                $arenasLadderPos = $json['ranked']['Arenas']['ladderPos'];
+    
+                mysqli_query($DBConn, "UPDATE $CurrentRankPeriod SET `PlayerNick` = '".$nickname."', `PlayerLevel` = '".$level."', `PlayerStatus` = '".$json['user']['status']['online']."', `Legend` = '".$legend."', `BR_RankScore` = '".$brScore."', `BR_RankScorePrev` = '".previousPoints($row['BR_RankScore'], $brScore, $row['BR_RankScorePrev'])."', `BR_isPred` = '".isPred($brIsPred)."', `BR_LadderPos` = '".brLadderPos($brScore, $brLadderPos)."', `BR_Inactive` = '".brLadderTest($brScore, $brLadderPos)."', `Arenas_RankScore` = '".$arenasScore."', `Arenas_RankScorePrev` = '".previousPoints($row['Arenas_RankScore'], $arenasScore, $row['Arenas_RankScorePrev'])."', `Arenas_isPred` = '".isPred($arenasIsPred)."', `Arenas_LadderPos` = '".arenasLadderPos($arenasScore, $arenasLadderPos)."', `Arenas_Inactive` = '".arenasLadderTest($arenasScore, $arenasLadderPos)."', `lastUpdated` = '".time()."' WHERE PlayerID = '".$UserID."'");
+    
+                // sleep(1);
+            }
         }
 
-        if($i == $setID + 1)
+        if($i == 5 + 1)
             break;
+
     }
