@@ -87,7 +87,7 @@
         return -1;
     }
 
-    for($i = 1; $i < 5 + 2; $i++) {
+    for($i = 1; $i < $setID + 2; $i++) {
         $getPlayer = "SELECT * FROM $CurrentRankPeriod WHERE id = $i";
         $queryPlayer = mysqli_query($DBConn, $getPlayer);
 
@@ -123,7 +123,7 @@
             }
         }
 
-        if($i == 5 + 1)
+        if($i == $setID + 1)
             break;
 
     }
