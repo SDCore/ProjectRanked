@@ -13,16 +13,25 @@
         }
     }
 
-    function timeTextHeader($time, $text) {
-        if($time > 1 || $time == 0) return $time." ".$text."\s";
+    function textPlural($time, $text) {
+        if($time > 1 || $time == 0) return $time." ".$text."s";
 
         return $time." ".$text;
     }
 
     function splitTimestamp($time) {
-        $timestamp = $time - time();
+        $time = $time - time();
 
-        return gmdate(timeTextHeader("d", "\d\a\y").", ".timeTextHeader("H", "\h\o\u\\r").", ".timeTextHeader("i", "\m\i\\n\u\\t\\e"), $timestamp - 86400);
+        $days = floor($time / (60*60*24));//day
+        $time %= (60 * 60 * 24);
+
+        $hours = floor($time / (60 * 60));//hour
+        $time %= (60 * 60);
+
+        $minutes = floor($time / 60);//min
+        $time %= 60;
+
+        return textPlural($days, "day").", ".textPlural($hours, "hour").", ".textPlural($minutes, "minute");
     }
 ?>
 
