@@ -7,6 +7,10 @@
 	src: url("../fonts/EUROCAPS.TTF");
 }
 
+* {
+	image-rendering: -webkit-optimize-contrast;
+}
+
 html,
 body {
 	margin: 0;
