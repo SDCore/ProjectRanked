@@ -21,7 +21,7 @@ function timer() {
 			}
 
 			var days = Math.floor(current / (60 * 60 * 24));
-			var hours = Math.floor(current / (60 * 60));
+			var hours = Math.floor((current / (60 * 60)) % 24);
 			var minutes = Math.floor((current / 60) % 60);
 			var seconds = Math.floor(current % 60);
 
