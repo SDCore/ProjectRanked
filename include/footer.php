@@ -18,7 +18,7 @@
 ?>
     
     <footer class="footer">
-        <a href="/admin/index">&copy;</a> StryderDev <?php echo date("Y"); ?> &middot; Data updated hourly. Last updated <?php echo timeText($time); ?> ago.
+        <a href="/admin/index">&copy;</a> SD <?php echo date("Y"); ?> <!-- &middot; Thanks Shrugtal for the Background --> &middot; Updated hourly. Last updated <?php echo timeText($time); ?> ago.
     </footer>
     
     <script rel="preload" src="https://kit.fontawesome.com/f9aca975cb.js" crossorigin="anonymous"></script>
