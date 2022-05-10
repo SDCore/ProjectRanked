@@ -9,9 +9,9 @@
 
     require_once("./include/nav.php");
     require_once("./include/rankInfo/preUpdate.php");
-    //require_once("./include/rankInfo/postUpdate.php");
+    require_once("./include/rankInfo/postUpdate.php");
     require_once("./include/rankDiv/preUpdate.php");
-    //require_once("./include/rankDiv/postUpdate.php");
+    require_once("./include/rankDiv/postUpdate.php");
     require_once("./include/userInfo.php");
 
     if($debug == true) {
@@ -65,7 +65,7 @@
                     if($SeasonInfo['currentSplit'] == "1") {
                         echo currentRank($player['PlayerID'], $player['Platform'], $player['BR_RankScorePrev'], "BR", $SeasonInfo['number'], $streamOpts);
                     }else{
-                        echo rankInfoPreUpdate($DBConn, $SeasonInfo['number'], "1", "BR", $UID, 0);
+                        echo rankInfoPostUpdate($DBConn, $SeasonInfo['number'], "1", "BR", $UID, 0);
                     }
                 ?>
                 <span class="label">Battle Royale Split 1</span>
@@ -75,7 +75,7 @@
                     if($SeasonInfo['currentSplit'] == "2") {
                         echo currentRank($player['PlayerID'], $player['Platform'], $player['BR_RankScorePrev'], "BR", $SeasonInfo['number'], $streamOpts);
                     }else{
-                        echo rankInfoPreUpdate($DBConn, $SeasonInfo['number'], "2", "BR", $UID, 0);
+                        echo rankInfoPostUpdate($DBConn, $SeasonInfo['number'], "2", "BR", $UID, 0);
                     }
                 ?>
                 <span class="label">Battle Royale Split 2</span>
@@ -87,7 +87,7 @@
                     if($SeasonInfo['currentSplit'] == "1") {
                         echo currentRank($player['PlayerID'], $player['Platform'], $player['Arenas_RankScorePrev'], "Arenas", $SeasonInfo['number'], $streamOpts);
                     }else{
-                        echo rankInfoPreUpdate($DBConn, $SeasonInfo['number'], "1", "Arenas", $UID, 0);
+                        echo rankInfoPostUpdate($DBConn, $SeasonInfo['number'], "1", "Arenas", $UID, 0);
                     }
                 ?>
                 <span class="label">Arenas Split 1</span>
@@ -97,7 +97,7 @@
                     if($SeasonInfo['currentSplit'] == "2") {
                         echo currentRank($player['PlayerID'], $player['Platform'], $player['Arenas_RankScorePrev'], "Arenas", $SeasonInfo['number'], $streamOpts);
                     }else{
-                        echo rankInfoPreUpdate($DBConn, $SeasonInfo['number'], "2", "Arenas", $UID, 0);
+                        echo rankInfoPostUpdate($DBConn, $SeasonInfo['number'], "2", "Arenas", $UID, 0);
                     }
                 ?>
                 <span class="label">Arenas Split 2</span>

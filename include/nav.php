@@ -12,7 +12,7 @@
 
     $SeasonInfo = mysqli_fetch_array(mysqli_query($DBConn, "SELECT * FROM seasonInfo")) or die(mysqli_error($DBConn));
     $Legendfile = json_decode(file_get_contents(__DIR__."/../GameData/legends.json"), true);
-    $RankFile = json_decode(file_get_contents(__DIR__."/../GameData/Old_RankData/".$RankType."_RankPosition.json"), true);
+    $RankFile = json_decode(file_get_contents(__DIR__."/../GameData/New_RankData/".$RankType."_RankPosition.json"), true);
 
     function active($page) {
         if ($_SERVER['SCRIPT_NAME'] == $page.".php") return "active";

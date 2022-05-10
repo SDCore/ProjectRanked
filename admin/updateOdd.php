@@ -64,13 +64,13 @@
     }
 
     function brLadderTest($score, $pos) {
-        if($score >= 10000 && $pos == -1) return 1;
+        if($score >= 15000 && $pos == -1) return 1;
         
         return 0;
     }
 
     function brLadderPos($score, $pos) {
-        if($score >= 10000) return $pos;
+        if($score >= 15000) return $pos;
 
         return -1;
     }

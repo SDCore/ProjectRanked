@@ -67,9 +67,9 @@
         if($isPred == "1") return "Apex Predator &#8212; <b>".number_format($score)." ".$type."</b>";
 
         if($rankType == "BR") {
-            $rankDiv = brRankDivPreUpdate($score);
+            $rankDiv = brRankDivPostUpdate($score);
         }else{
-            $rankDiv = arenasRankDivPreUpdate($score);
+            $rankDiv = arenasRankDivPostUpdate($score);
         }
 
         if($score < $file['Diamond']) return "Platinum ".$rankDiv." &#8212; <b>".number_format($score)." ".$type."</b>";
@@ -80,7 +80,7 @@
 
     function checkPos($pos, $score, $type) {
         if($type == "BR") {
-            if($score < 10000 || $pos == "-1") return "N/A";
+            if($score < 15000 || $pos == "-1") return "N/A";
 
             return "#".number_format($pos);
         }
