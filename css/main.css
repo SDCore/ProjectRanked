@@ -770,8 +770,8 @@ body {
   min-width: 200px;
   overflow: hidden;
   padding: 0 15px 5px 25px;
-  background: rgb(255, 247, 0);
-  border-bottom: 5px solid rgb(0, 0, 0);
+  background: rgb(43, 44, 121);
+  border-bottom: 5px solid rgb(199, 140, 194);
 }
 .nav .brand::before {
   top: 0;
@@ -782,10 +782,10 @@ body {
   position: absolute;
   transform: skew(-40deg);
   transform-origin: top left;
-  background: url("https://cdn.apexstats.dev/ProjectRanked/NavBackground/Season12.png") center;
+  background: url("https://cdn.apexstats.dev/ProjectRanked/NavBackground/Season13.png") center;
 }
 .nav .brand:hover {
-  background: rgb(206, 203, 0);
+  background: rgb(43, 44, 121);
   border-bottom: 5px solid rgb(255, 255, 255);
 }
 .nav .brand .inner {
@@ -799,13 +799,15 @@ body {
   top: 9px;
   font-size: 14pt;
   position: relative;
-  color: rgb(236, 14, 35);
+  color: rgb(196, 176, 244);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 .nav .brand .inner .bottom {
   top: 7px;
   font-size: 16pt;
   position: relative;
-  color: rgba(0, 0, 0, 0.95);
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .footer {

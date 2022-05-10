@@ -58,8 +58,8 @@
 		min-width: 200px;
 		overflow: hidden;
 		padding: 0 15px 5px 25px;
-		background: rgba(258, 247, 0, 1);
-		border-bottom: 5px solid rgba(0, 0, 0, 1);
+		background: rgba(43, 44, 121, 1);
+		border-bottom: 5px solid rgba(199, 140, 194, 1);
 		&::before {
 			top: 0;
 			left: 0;
@@ -69,11 +69,11 @@
 			position: absolute;
 			transform: $navSkewNeg;
 			transform-origin: top left;
-			background: url("https://cdn.apexstats.dev/ProjectRanked/NavBackground/Season12.png")
+			background: url("https://cdn.apexstats.dev/ProjectRanked/NavBackground/Season13.png")
 				center;
 		}
 		&:hover {
-			background: rgba(206, 203, 0, 1);
+			background: rgba(43, 44, 121, 1);
 			border-bottom: 5px solid rgba(255, 255, 255, 1);
 		}
 		.inner {
@@ -86,13 +86,15 @@
 				top: 9px;
 				font-size: 14pt;
 				position: relative;
-				color: rgba(236, 14, 35, 1);
+				color: rgba(196, 176, 244, 1);
+				text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 			}
 			.bottom {
 				top: 7px;
 				font-size: 16pt;
 				position: relative;
-				color: rgba(0, 0, 0, 0.95);
+				color: rgba(255, 255, 255, 1);
+				text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 			}
 		}
 	}
