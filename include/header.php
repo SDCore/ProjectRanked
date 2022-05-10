@@ -40,7 +40,10 @@
     <div class="middle"><b><?= $SeasonInfo['name']; ?></b> &#8212; Split <?= $SeasonInfo['currentSplit']; ?></div>
     <div class="stats">
         <span class="threshold">Predator Threshold: <?= number_format(minPred($minPred[$DBRankScore], $RankType, $DBRankScore, $RankFile['Master'])); ?> <?= scoreType($RankType); ?></span>
-        <span class="splitTime"><?= splitTimestamp($SeasonInfo['end']); ?></span>
+        <!-- <span class="splitTime"><?= splitTimestamp($SeasonInfo['end']); ?></span> -->
+        <span class="splitTime" id="splitTime"></span>
         <span class="playerCount">Based on <?= number_format($totalRows); ?> <?= platformText() ?> Players</span>
     </div>
 </div>
+
+<script src="../js/timer.js"></script>
