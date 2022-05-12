@@ -33,6 +33,12 @@
 
         return textPlural($days, "day").", ".textPlural($hours, "hour").", ".textPlural($minutes, "minute");
     }
+
+    function getSplitTime($split, $middle, $end) {
+        if($split == 1) return $middle;
+
+        return $end;
+    }
 ?>
 
 <div class="header">
@@ -41,9 +47,14 @@
     <div class="stats">
         <span class="threshold">Predator Threshold: <?= number_format(minPred($minPred[$DBRankScore], $RankType, $DBRankScore, $RankFile['Master'])); ?> <?= scoreType($RankType); ?></span>
         <!-- <span class="splitTime"><?= splitTimestamp($SeasonInfo['end']); ?></span> -->
-        <span class="splitTime" id="splitTime"></span>
+        <div id="splitTimer" class="splitTime">- Days, - Hours, - Minutes, - Seconds</div>
         <span class="playerCount">Based on <?= number_format($totalRows); ?> <?= platformText() ?> Players</span>
     </div>
 </div>
 
+<script type="text/javascript">
+    var date = <?= getSplitTime($SeasonInfo['currentSplit'], $SeasonInfo['split'], $SeasonInfo['end']); ?>;
+</script>
 <script src="../js/timer.js"></script>
+
+
