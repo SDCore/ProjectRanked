@@ -399,6 +399,12 @@ body {
 .user .placement .box .inner .image img {
   width: 150px;
 }
+.user .placement .box .inner .image .number {
+  font-size: 55px;
+  fill: #EFEFEF;
+  font-weight: bold;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+}
 .user .placement .box .inner .top {
   flex: 1;
   width: 100%;

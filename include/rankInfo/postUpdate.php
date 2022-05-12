@@ -38,7 +38,12 @@
     function rankNamePostUpdate($pred, $pos, $score, $type, $master) {
         $file = json_decode(file_get_contents("./GameData/New_RankData/".$type."_RankPosition.json"), true);
 
-        if($score == 0) return "Unranked";
+        if($type == "BR") {
+            if($score == 0) return "Rookie";
+        }else{
+            if($score == 0) return "Unranked";
+        }
+
         if($pred == 1) return "[#".$pos."] Apex Predator";
 
         if($type == "BR") {

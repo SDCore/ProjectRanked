@@ -13,6 +13,7 @@
     require_once("./include/rankDiv/preUpdate.php");
     require_once("./include/rankDiv/postUpdate.php");
     require_once("./include/userInfo.php");
+    require_once("./include/functions/user/level.php");
 
     if($debug == true) {
         $streamOpts = [
@@ -51,7 +52,7 @@
     <span class="placement">
         <span class="box">
             <span class="inner">
-                <span class="image"><img src="https://cdn.apexstats.dev/ProjectRanked/Badges/Level.png" /></span>
+                <span class="image"><?= levelIcon($player['PlayerLevel']); ?></span>
                 <span class="top">
                     <?= number_format($player['PlayerLevel']); ?>
                 </span>
