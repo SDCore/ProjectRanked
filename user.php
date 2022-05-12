@@ -36,6 +36,8 @@
 
     if($UID == 0 || mysqli_num_rows($request) < 1) {
         echo '<div class="noPlayer">No player with that ID exists.</div>';
+
+        return;
     }
 ?>
 
