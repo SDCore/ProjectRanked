@@ -5,7 +5,7 @@ function plural(num, text) {
 }
 
 var countdown = setInterval(function () {
-	var now = new Date().getTime() / 1000 + 60;
+	var now = new Date().getTime() / 1000 + 600;
 	var remaining = date - now;
 
 	var days = Math.floor(remaining / (60 * 60 * 24));
