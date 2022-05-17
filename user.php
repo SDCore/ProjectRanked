@@ -39,6 +39,71 @@
 
         return;
     }
+
+    function isPred($name) {
+        if($name == "Apex Predator") return 1;
+
+        return 0;
+    }
+
+    function previousPoints($database, $stryder, $prev) {
+        // if database == stryder
+        // set prev points to current prev point value
+        // if database != stryder
+        // update prev points to new current value
+
+        if($database == $stryder) {
+            return $prev;
+        }else if($database != $stryder) {
+            return $database;
+        }
+    }
+
+    function brLadderTest($score, $pos) {
+        if($score >= 15000 && $pos == -1) return 1;
+        
+        return 0;
+    }
+
+    function brLadderPos($score, $pos) {
+        if($score >= 15000) return $pos;
+
+        return -1;
+    }
+
+    function arenasLadderTest($score, $pos) {
+        if($score >= 8000 && $pos == -1) return 1;
+        
+        return 0;
+    }
+
+    function arenasLadderPos($score, $pos) {
+        if($score >= 8000) return $pos;
+
+        return -1;
+    }
+
+    $userURL = "https://api.apexstats.dev/id?platform=".$player['Platform']."&id=".$player['PlayerID'];
+    $getJson = file_get_contents($userURL, false, stream_context_create($streamOpts));
+    $json = json_decode($getJson, true);
+    
+    // User Data
+    $UserID = $json['user']['id'];
+    $level = $json['account']['level'];
+    $legend = $json['active']['legend'];
+    $nickname = mysqli_real_escape_string($DBConn, $json['user']['username']);
+    
+    // Battle Royale Rank Data
+    $brScore = $json['ranked']['BR']['score'];
+    $brIsPred = $json['ranked']['BR']['name'];
+    $brLadderPos = $json['ranked']['BR']['ladderPos'];
+    
+    // Arenas Rank Data
+    $arenasScore = $json['ranked']['Arenas']['score'];
+    $arenasIsPred = $json['ranked']['Arenas']['name'];
+    $arenasLadderPos = $json['ranked']['Arenas']['ladderPos'];
+    
+    mysqli_query($DBConn, "UPDATE $CurrentRankPeriod SET `PlayerNick` = '".$nickname."', `PlayerLevel` = '".$level."', `PlayerStatus` = '".$json['user']['status']['online']."', `Legend` = '".$legend."', `BR_RankScore` = '".$brScore."', `BR_isPred` = '".isPred($brIsPred)."', `BR_LadderPos` = '".brLadderPos($brScore, $brLadderPos)."', `BR_Inactive` = '".brLadderTest($brScore, $brLadderPos)."', `Arenas_RankScore` = '".$arenasScore."', `Arenas_isPred` = '".isPred($arenasIsPred)."', `Arenas_LadderPos` = '".arenasLadderPos($arenasScore, $arenasLadderPos)."', `Arenas_Inactive` = '".arenasLadderTest($arenasScore, $arenasLadderPos)."', `lastUpdated` = '".time()."' WHERE PlayerID = '".$UserID."'");
 ?>
 
 <div class="user">
