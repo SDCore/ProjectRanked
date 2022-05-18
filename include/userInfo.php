@@ -15,11 +15,11 @@
         $user = $status['user']['status'];
 
         if ($user['online'] == 1 && $user['ingame'] == 0) {
-            if ($user['matchLength'] != -1) return "<span class='lobby'><i class='fa-solid fa-circle'></i></span> Lobby (".gmdate("i\m s\s", $user['matchLength']).")";
+            if ($user['matchLength'] != -1) return "<span class='lobby'><i class='fa-solid fa-circle'></i></span> Lobby (<span id='userTime''><i>Loading...</i></span><script type='text/javascript'>var matchLength = ".time()." - '".$user['matchLength']."';</script>)";
 
             return "<span class='lobby'><i class='fa-solid fa-circle'></i></span> Lobby";
         }else if($user['online'] == 1 && $user['ingame'] == 1) {
-            if ($user['matchLength'] != -1) return "<span class='match'><i class='fa-solid fa-circle'></i></span> In a Match (".gmdate("i\m s\s", $user['matchLength']).")";
+            if ($user['matchLength'] != -1) return "<span class='match'><i class='fa-solid fa-circle'></i></span> In a Match (<span id='userTime''><i>Loading...</i></span><script type='text/javascript'>var matchLength = ".time()." - '".$user['matchLength']."';</script>)";
 
             return "<span class='match'><i class='fa-solid fa-circle'></i></span> In a Match";
         }

@@ -253,4 +253,6 @@
     </span>
 </div>
 
+<script src="../js/userTimer.js"></script>
+
 <?php require_once("./include/footer.php"); ?>
