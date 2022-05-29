@@ -34,7 +34,7 @@
         $page = 1;
     }
 
-    $minPred = mysqli_fetch_assoc(mysqli_query($DBConn, "SELECT `$DBRankScore` FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBisPred` = '1' ORDER BY `$DBLadderPos` DESC LIMIT 1"));
+    $minPred = mysqli_fetch_assoc(mysqli_query($DBConn, "SELECT $DBRankScore, $DBLadderPos FROM $CurrentRankPeriod WHERE `Platform` = '".platform()."' AND `$DBisPred` = '1' ORDER BY `$DBLadderPos` DESC LIMIT 1"));
 
     $amount = 25;
     $offset = ($page - 1) * $amount;

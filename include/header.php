@@ -1,5 +1,10 @@
 <?php
-    function minPred($min, $type, $amount, $master) {
+    function minPred($min, $type, $amount, $master, $pos) {
+        if((int)$pos <= "700") {
+            if($type == "BR") return 15000;
+            if($type == "Arenas") return 8000;
+        }
+
         if($type == "BR") {
             if($min < $master) return $master;
 
@@ -45,7 +50,7 @@
     <div class="top"><?= platformText(); ?> Ranked Stats</div>
     <div class="middle"><b><?= $SeasonInfo['name']; ?></b> &#8212; Split <?= $SeasonInfo['currentSplit']; ?></div>
     <div class="stats">
-        <span class="threshold">Predator Threshold: <?= number_format(minPred($minPred[$DBRankScore], $RankType, $DBRankScore, $RankFile['Master'])); ?> <?= scoreType($RankType); ?></span>
+        <span class="threshold">Predator Threshold: <?= number_format(minPred($minPred[$DBRankScore], $RankType, $DBRankScore, $RankFile['Master'], $minPred[$DBLadderPos])); ?> <?= scoreType($RankType); ?></span>
         <!-- <span class="splitTime"><?= splitTimestamp($SeasonInfo['end']); ?></span> -->
         <div id="splitTimer" class="splitTime">- Days, - Hours, - Minutes, - Seconds</div>
         <span class="playerCount">Based on <?= number_format($totalRows); ?> <?= platformText() ?> Players</span>
