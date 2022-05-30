@@ -1,0 +1,65 @@
+/* Better box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset default margin */
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+/* Allow percentage-based heights */
+html,
+body {
+  height: 100%;
+}
+
+/* Typography Tweaks:
+   - Accessibility line-height
+   - Improved text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Remove default form typography styles */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Root stacking context */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*# sourceMappingURL=main.css.map */
