@@ -1,3 +1,9 @@
+/*
+    ==========
+    CSS RESETS
+    ==========
+*/
+
 /* Better box-sizing */
 *,
 *::before,
@@ -10,12 +16,14 @@
 	margin: 0;
 	padding: 0;
 	outline: 0;
+	image-rendering: -webkit-optimize-contrast;
 }
 
 /* Allow percentage-based heights */
 html,
 body {
 	height: 100%;
+	font-family: Arial, Arial, Helvetica, sans-serif;
 }
 
 /* Typography Tweaks:
