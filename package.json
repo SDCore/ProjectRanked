@@ -1,0 +1,9 @@
+{
+	"scripts": {
+		"css": "sass --watch ./css/main.scss:./css/main.css",
+		"min": "sass --watch ./css/main.scss:./css/main.min.css --style compressed"
+	},
+	"dependencies": {
+		"sass": "^1.50.1"
+	}
+}
