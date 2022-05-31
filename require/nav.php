@@ -27,6 +27,29 @@
 
 <body>
     
-    <nav class="nav">
-        nav
+    <nav class="nav responsive" id="navTop">
+        <a href="/" class="brand">
+            <span class="inner">
+                <span class="top">Season Name</span>
+                <span class="bottom">Rank Type</span>
+            </span>
+        </a>
+
+        <a href="javascript:void(0);" class="icon" onclick="navToggle()">=</a>
+
+        <a href="/" class="link"><span class="inner">Home</span></a>
+        <a href="/search" class="link"><span class="inner">Search</span></a>
+        <a href="/faq" class="link"><span class="inner">FAQ</span></a>
     </nav>
+
+    <script>
+        function navToggle() {
+            var nav = document.getElementById("navTop");
+
+            if(nav.className === "nav") {
+                nav.className += " responsive";
+            }else{
+                nav.className = "nav";
+            }
+        }
+    </script>

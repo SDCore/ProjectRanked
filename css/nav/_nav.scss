@@ -8,4 +8,139 @@
 
 .nav {
 	width: 100%;
+	height: 50px;
+	display: flex;
+	padding: 0 0 5px 0;
+	flex-direction: row;
+	backdrop-filter: blur(10px);
+	justify-content: center;
+	border-bottom: 5px solid rgba(0, 0, 0, 0.75);
+	font-family: "EUROCAPS", Arial, Helvetica, sans-serif;
+	background: linear-gradient(
+		0deg,
+		rgba(0, 0, 0, 0.8) 0%,
+		rgba(47, 48, 52, 0.75) 110%
+	);
+
+	.link,
+	.brand,
+	.active {
+		height: 100%;
+		margin: 0 1px;
+		font-size: 15pt;
+		min-width: 100px;
+		line-height: 60px;
+		font-weight: bold;
+		text-align: center;
+		text-decoration: none;
+		transform: skew(40deg);
+		padding: 0 15px 5px 15px;
+		transition: all 0.2s ease;
+
+		.inner {
+			display: block;
+			transform: skew(-40deg);
+		}
+	}
+
+	.link,
+	.brand {
+		color: rgba(176, 176, 176, 0.75);
+		background: rgba(255, 255, 255, 0.05);
+		border-bottom: 5px solid rgba(140, 140, 140, 0.75);
+
+		&:hover {
+			color: rgba(255, 255, 255, 0.75);
+			background: rgba(255, 255, 255, 0.15);
+			border-color: rgba(255, 255, 255, 0.95);
+		}
+	}
+
+	.brand {
+		min-width: 200px;
+		overflow: hidden;
+		padding: 0 15px 5px 25px;
+		background: rgb(43, 44, 121);
+		border-bottom: 5px solid rgb(199, 140, 194);
+	}
+
+	.icon {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	//.nav a:not(:first-child) {
+	//	display: none;
+	//}
+
+	.nav {
+		justify-content: left;
+
+		a.icon {
+			width: 15%;
+			height: 100%;
+			display: block;
+			font-size: 15pt;
+			line-height: 60px;
+			font-weight: bold;
+			text-align: center;
+			text-decoration: none;
+			padding: 0 15px 5px 15px;
+			color: rgba(176, 176, 176, 0.75);
+			background: rgba(255, 255, 255, 0.05);
+			border-bottom: 5px solid rgba(255, 255, 255, 0.95);
+		}
+
+		.brand {
+			width: 85%;
+			transform: skew(0deg);
+			padding: 0 15px 5px 15px;
+
+			.inner {
+				transform: skew(0deg);
+			}
+		}
+	}
+
+	.responsive {
+		display: flex;
+		position: relative;
+
+		.nav {
+			justify-content: left;
+
+			a.icon {
+				width: 15%;
+				height: 100%;
+				display: block;
+				font-size: 15pt;
+				line-height: 60px;
+				font-weight: bold;
+				text-align: center;
+				text-decoration: none;
+				padding: 0 15px 5px 15px;
+				color: rgba(176, 176, 176, 0.75);
+				background: rgba(255, 255, 255, 0.05);
+				border-bottom: 5px solid rgba(255, 255, 255, 0.95);
+			}
+
+			.brand {
+				width: 85%;
+				transform: skew(0deg);
+				padding: 0 15px 5px 15px;
+
+				.inner {
+					transform: skew(0deg);
+				}
+			}
+		}
+
+		.link {
+			display: block;
+			top: 60px;
+			left: 0;
+			font-weight: 50pt;
+		}
+	}
 }
