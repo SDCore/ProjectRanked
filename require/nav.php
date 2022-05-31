@@ -2,6 +2,9 @@
     // Requires
     require_once(__DIR__."/../connect.php");
 
+    // Database Connection
+    $DBConn = mysqli_connect($host, $user, $pass, $db);
+
     // Functions
     include_once("./include/functions/misc.php");
 ?>
@@ -23,15 +26,7 @@
 </head>
 
 <body>
-
+    
     <nav class="nav">
-        <a href="#" class="brand">
-            <span class="inner">
-                <span class="top">Season Name</span>
-                <span class="bottom">Rank Type</span>
-            </span>
-        </a>
-        <a href="/"><span class="inner">Home</span></a>
-        <a href="#"><span class="inner">Search</span></a>
-        <a href="#"><span class="inner">FAQ</span></a>
+        nav
     </nav>

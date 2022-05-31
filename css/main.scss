@@ -1,3 +1,6 @@
 // Base
 @use "./abstracts/resets" as *;
 @use "./abstracts/global" as *;
+
+// Nav Styles
+@use "./nav/nav" as *;
