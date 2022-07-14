@@ -26,7 +26,7 @@
     }
 
     function nickname($nick, $legend, $level) {
-        if($nick != null) return $nick;
+        if($nick != null) return htmlspecialchars($nick);
 
         return $legend."#".$level;
     }
